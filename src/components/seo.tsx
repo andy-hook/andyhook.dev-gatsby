@@ -5,18 +5,18 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-type Props = {
-  description?: string,
-  lang?: string,
-  keywords?: string[],
+interface Props {
+  description?: string
+  lang?: string
+  keywords?: string[]
   title?: string
 }
 
-const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) =>  {
+const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -73,15 +73,14 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) =>  {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )}
+      ].concat(
+        keywords.length > 0
+          ? {
+              name: `keywords`,
+              content: keywords.join(`, `),
+            }
+          : []
+      )}
     />
   )
 }
