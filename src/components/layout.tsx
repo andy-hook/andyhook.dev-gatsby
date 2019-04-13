@@ -15,7 +15,7 @@ interface Props {
   children: ReactNode
 }
 
-interface LayoutData {
+interface Data {
   site: {
     siteMetadata: {
       title: string
@@ -24,7 +24,7 @@ interface LayoutData {
 }
 
 const Layout: React.SFC<Props> = ({ children }) => {
-  const data: LayoutData = useStaticQuery(graphql`
+  const data: Data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
