@@ -45,7 +45,8 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "all-checks": "npm run type-check && npm run format && npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
