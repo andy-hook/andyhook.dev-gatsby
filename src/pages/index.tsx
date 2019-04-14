@@ -3,7 +3,6 @@ import React from "react"
 
 import Icon from "../components/icon/icon"
 import Image from "../components/image"
-import Layout from "../components/layout"
 import MyComponent from "../components/my-component/my-component"
 import SEO from "../components/seo"
 
