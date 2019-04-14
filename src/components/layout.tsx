@@ -9,7 +9,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import React, { ReactNode } from "react"
 
 import Header from "./header"
-import "./layout.css"
+import "./normalize.css"
 
 interface Props {
   children: ReactNode
@@ -23,7 +23,7 @@ interface Data {
   }
 }
 
-const Layout: React.SFC<Props> = ({ children }) => {
+const Layout: React.FunctionComponent<Props> = ({ children }) => {
   const data: Data = useStaticQuery(graphql`
     query {
       site {
