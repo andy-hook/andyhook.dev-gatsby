@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon renders correctly 1`] = `
-<div>
+<div
+  className="sc-bdVaJa dqBkPn"
+>
   <svg
-    className="icon"
+    className="icon sc-bwzfXH kdIDyY"
   >
     <use
-      xlinkHref="/icon-sprite.svg#github"
+      xlinkHref="/icon-sprite.svg#twitter"
     />
   </svg>
 </div>
