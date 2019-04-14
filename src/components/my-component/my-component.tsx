@@ -1,5 +1,11 @@
 import React from "react"
+import styled from "styled-components"
 
-const MyComponent = () => <div>Hello world</div>
+const StyleTest = styled.div`
+  padding: 50px;
+  background-color: orange;
+`
+
+const MyComponent = () => <StyleTest>Hello world</StyleTest>
 
 export default MyComponent
