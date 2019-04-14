@@ -67,7 +67,8 @@
     "lint": "tslint --project .",
     "all-checks": "npm run type-check && npm run format && npm run lint && npm run test",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "netlify-build": "npm run all-checks && npm run build"
   },
   "repository": {
     "type": "git",
