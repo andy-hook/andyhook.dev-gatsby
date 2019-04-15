@@ -2,7 +2,14 @@ import React from "react"
 import styled from "styled-components"
 
 interface Props {
-  items?: object[]
+  items: [
+    {
+      node: {
+        label: string
+        url: string
+      }
+    }
+  ]
 }
 
 const StyleTest = styled.div`
@@ -14,8 +21,20 @@ const StyleTest = styled.div`
   background-color: red;
 `
 
-const Social: React.FunctionComponent<Props> = () => {
-  return <StyleTest />
+const Social: React.FunctionComponent<Props> = ({ items }) => {
+  console.log(items)
+  const icons = items.map((item, key) => (
+    <li>
+      {item.node.label} {item.node.url}
+    </li>
+  ))
+
+  return (
+    <>
+      {icons}
+      <StyleTest />
+    </>
+  )
 }
 
 export default Social

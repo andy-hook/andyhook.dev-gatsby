@@ -22,9 +22,7 @@ const Splash: React.FunctionComponent = () => {
     }
   `)
 
-  console.log(data)
-
-  return <Social />
+  return <Social items={data.allSocialJson.edges} />
 }
 
 export default Splash
