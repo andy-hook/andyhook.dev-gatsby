@@ -1,9 +1,11 @@
 import { withPrefix } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+import classNames from "classnames"
 
 interface Props {
   name: string
+  className: string
 }
 
 const IconWrapper = styled.div`
@@ -18,8 +20,8 @@ const IconSvg = styled.svg`
   fill: currentColor;
 `
 
-const Icon = ({ name }: Props) => (
-  <IconWrapper>
+const Icon = ({ name, className }: Props) => (
+  <IconWrapper className={classNames("", className)}>
     <IconSvg className="icon">
       <use xlinkHref={withPrefix(`icon-sprite.svg#${name}`)} />
     </IconSvg>
