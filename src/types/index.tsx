@@ -10,3 +10,17 @@ export interface SocialData {
     edges: SocialItem[]
   }
 }
+
+export interface SiteItems {
+  node: {
+    title: string
+    description: string
+    author: string
+  }
+}
+
+export interface SiteData {
+  allSiteJson: {
+    edges: SiteItems[]
+  }
+}
