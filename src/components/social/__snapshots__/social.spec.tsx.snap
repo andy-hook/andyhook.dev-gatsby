@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Social renders correctly 1`] = `
+exports[`<Social /> renders correctly 1`] = `
 <div
   className="sc-htpNat kqYPxg"
 >
   <a
     className="sc-bxivhb fYAWjy"
-    href="https://twitter.com/andy_hook"
+    href="path/to/social/profile"
     target="_blank"
   >
     <div
@@ -16,7 +16,7 @@ exports[`Social renders correctly 1`] = `
         className="icon sc-bwzfXH kdIDyY"
       >
         <use
-          xlinkHref="/icon-sprite.svg#twitter"
+          xlinkHref="/icon-sprite.svg#this is a label"
         />
       </svg>
     </div>

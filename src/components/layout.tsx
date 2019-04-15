@@ -7,7 +7,7 @@
 
 import { graphql, useStaticQuery } from "gatsby"
 import React, { ReactNode } from "react"
-
+import { SiteData } from "../types"
 import Header from "./header"
 import "./normalize.css"
 
@@ -15,28 +15,26 @@ interface Props {
   children: ReactNode
 }
 
-interface Data {
-  site: {
-    siteMetadata: {
-      title: string
-    }
-  }
-}
-
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
-  const data: Data = useStaticQuery(graphql`
+  const data: SiteData = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          title
+      allSiteJson {
+        edges {
+          node {
+            title
+            author
+            description
+          }
         }
       }
     }
   `)
 
+  const { title } = data.allSiteJson.edges[0].node
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={title} />
       <div
         style={{
           margin: `0 auto`,

@@ -6,8 +6,8 @@ import Social from "./social"
 const mockItems = [
   {
     node: {
-      label: "twitter",
-      url: "https://twitter.com/andy_hook",
+      label: "this is a label",
+      url: "path/to/social/profile",
     },
   },
 ]
