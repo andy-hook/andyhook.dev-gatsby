@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 interface Props {
-  name: "github" | "twitter" | "instagram" | "linkedin" | "dribbble"
+  name: string
 }
 
 const IconWrapper = styled.div`

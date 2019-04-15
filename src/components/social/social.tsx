@@ -1,40 +1,36 @@
 import React from "react"
 import styled from "styled-components"
+import { SocialItem } from "../../types"
+import Icon from "../icon/icon"
 
 interface Props {
-  items: [
-    {
-      node: {
-        label: string
-        url: string
-      }
-    }
-  ]
+  items: SocialItem[]
 }
 
-const StyleTest = styled.div`
-  font-family: montserrat, sans-serif;
+const Container = styled.div`
+  display: flex;
+  background-color: grey;
+  font-size: 40px;
+`
+const Link = styled.a`
+  color: red;
 
-  font-weight: 600;
-  font-style: normal;
-  padding: 100px;
-  background-color: red;
+  &:not(:last-child) {
+    margin-right: 0.2em;
+  }
+`
+const StyledIcon = styled(Icon)`
+  color: red;
 `
 
 const Social: React.FunctionComponent<Props> = ({ items }) => {
-  console.log(items)
   const icons = items.map((item, key) => (
-    <li>
-      {item.node.label} {item.node.url}
-    </li>
+    <Link href={item.node.url} key={key.toString()} target="_blank">
+      <StyledIcon name={item.node.label} />
+    </Link>
   ))
 
-  return (
-    <>
-      {icons}
-      <StyleTest />
-    </>
-  )
+  return <Container>{icons}</Container>
 }
 
 export default Social

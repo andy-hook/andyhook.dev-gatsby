@@ -1,15 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import { SocialData } from "../../types"
 import Social from "../social/social"
 
-interface Data {
-  allSocialJson: {
-    edges: object[]
-  }
-}
-
 const Splash: React.FunctionComponent = () => {
-  const data: Data = useStaticQuery(graphql`
+  const data: SocialData = useStaticQuery(graphql`
     query {
       allSocialJson {
         edges {
