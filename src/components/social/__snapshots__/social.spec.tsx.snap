@@ -2,6 +2,24 @@
 
 exports[`Social renders correctly 1`] = `
 <div
-  className="sc-bdVaJa fijZhT"
-/>
+  className="sc-htpNat kqYPxg"
+>
+  <a
+    className="sc-bxivhb fYAWjy"
+    href="https://twitter.com/andy_hook"
+    target="_blank"
+  >
+    <div
+      className="sc-bdVaJa dqBkPn"
+    >
+      <svg
+        className="icon sc-bwzfXH kdIDyY"
+      >
+        <use
+          xlinkHref="/icon-sprite.svg#twitter"
+        />
+      </svg>
+    </div>
+  </a>
+</div>
 `;
