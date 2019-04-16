@@ -10,15 +10,39 @@ interface Props {
 }
 
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: green;
+`
+
+const ContainerInner = styled.div``
+
+const Title = styled.h1`
+  font-family: montserrat;
+  font-weight: 600;
+  text-align: center;
+  color: #313134;
+  font-size: 80px;
+  letter-spacing: -0.02em;
+`
+
+const TitleSubtle = styled.span``
+
+const TitleLoud = styled.span`
+  color: #fff;
 `
 
 const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
   return (
     <Container>
-      <Social items={socialIconData} />
+      <ContainerInner>
+        <Title>
+          <TitleSubtle>I build</TitleSubtle> <TitleLoud>interfaces</TitleLoud>
+        </Title>
+        <Social items={socialIconData} />
+      </ContainerInner>
     </Container>
   )
 }

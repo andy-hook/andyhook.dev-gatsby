@@ -1,13 +1,13 @@
 [
   {
+    "label": "instagram",
+    "previewImage": "instagram/image",
+    "url": "https://www.instagram.com/andyhooky/"
+  },
+  {
     "label": "twitter",
     "previewImage": "twitter/image",
     "url": "https://twitter.com/andy_hook"
-  },
-  {
-    "label": "linkedin",
-    "previewImage": "linkedin/image",
-    "url": "https://www.linkedin.com/in/andyahook"
   },
   {
     "label": "dribbble",
@@ -20,8 +20,8 @@
     "url": "https://github.com/andy-hook"
   },
   {
-    "label": "instagram",
-    "previewImage": "instagram/image",
-    "url": "https://www.instagram.com/andyhooky/"
+    "label": "linkedin",
+    "previewImage": "linkedin/image",
+    "url": "https://www.linkedin.com/in/andyahook"
   }
 ]
