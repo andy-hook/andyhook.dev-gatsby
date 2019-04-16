@@ -2,45 +2,64 @@
 
 exports[`<Splash /> renders correctly 1`] = `
 <div
-  className="sc-EHOje kaSWML"
+  className="sc-EHOje jNbbmh"
 >
   <div
-    className="sc-htpNat VRBeN"
+    className="sc-bZQynM bOrPFB"
   >
-    <a
-      className="sc-bxivhb fYAWjy"
-      href="http://www.google.com"
-      target="_blank"
+    <h1
+      className="sc-gzVnrw cKPmGi"
     >
-      <div
-        className="sc-ifAKCX eBwuLx sc-bdVaJa dqBkPn"
+      <span
+        className="sc-htoDjs bZzhDu"
       >
-        <svg
-          className="icon sc-bwzfXH kdIDyY"
-        >
-          <use
-            xlinkHref="/icon-sprite.svg#twitter"
-          />
-        </svg>
-      </div>
-    </a>
-    <a
-      className="sc-bxivhb fYAWjy"
-      href="http://www.google.com"
-      target="_blank"
+        I build
+      </span>
+       
+      <span
+        className="sc-dnqmqq cScTwP"
+      >
+        interfaces
+      </span>
+    </h1>
+    <div
+      className="sc-htpNat UHnUA"
     >
-      <div
-        className="sc-ifAKCX eBwuLx sc-bdVaJa dqBkPn"
+      <a
+        className="sc-bxivhb wpBgH"
+        href="http://www.google.com"
+        target="_blank"
       >
-        <svg
-          className="icon sc-bwzfXH kdIDyY"
+        <div
+          className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
         >
-          <use
-            xlinkHref="/icon-sprite.svg#linkedin"
-          />
-        </svg>
-      </div>
-    </a>
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#twitter"
+            />
+          </svg>
+        </div>
+      </a>
+      <a
+        className="sc-bxivhb wpBgH"
+        href="http://www.google.com"
+        target="_blank"
+      >
+        <div
+          className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+        >
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#linkedin"
+            />
+          </svg>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 `;
