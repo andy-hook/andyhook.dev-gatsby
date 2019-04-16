@@ -1,7 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Splash /> renders correctly 1`] = `
-<div>
-  hello world
+<div
+  className="sc-EHOje kaSWML"
+>
+  <div
+    className="sc-htpNat VRBeN"
+  >
+    <a
+      className="sc-bxivhb fYAWjy"
+      href="http://www.google.com"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX eBwuLx sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#twitter"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
+      className="sc-bxivhb fYAWjy"
+      href="http://www.google.com"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX eBwuLx sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#linkedin"
+          />
+        </svg>
+      </div>
+    </a>
+  </div>
 </div>
 `;

@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import React, { ReactNode } from "react"
-import { SiteData } from "../types"
+// import { SiteData } from "../types"
 import GlobalStyle from "./global-style"
 import { Normalize } from "styled-normalize"
 
@@ -16,21 +16,21 @@ interface Props {
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
-  const data: SiteData = useStaticQuery(graphql`
-    query {
-      allSiteJson {
-        edges {
-          node {
-            title
-            author
-            description
-          }
-        }
-      }
-    }
-  `)
+  // const data: SiteData = useStaticQuery(graphql`
+  //   query {
+  //     allSiteJson {
+  //       edges {
+  //         node {
+  //           title
+  //           author
+  //           description
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  const { title } = data.allSiteJson.edges[0].node
+  // const { title } = data.allSiteJson.edges[0].node
 
   return (
     <>
