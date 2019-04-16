@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import mq from "../../style/mq"
 
 import { SocialItem } from "../../types"
 
