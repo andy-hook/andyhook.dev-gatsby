@@ -2,13 +2,13 @@
 
 exports[`<Splash /> renders correctly 1`] = `
 <div
-  className="sc-EHOje jNbbmh"
+  className="sc-EHOje dOwSkF"
 >
   <div
     className="sc-bZQynM bOrPFB"
   >
     <h1
-      className="sc-gzVnrw cKPmGi"
+      className="sc-gzVnrw cfrUyw"
     >
       <span
         className="sc-htoDjs bZzhDu"
@@ -22,44 +22,44 @@ exports[`<Splash /> renders correctly 1`] = `
         interfaces
       </span>
     </h1>
-    <div
-      className="sc-htpNat UHnUA"
+  </div>
+  <div
+    className="sc-iwsKbI gBdobi sc-htpNat gXzayw"
+  >
+    <a
+      className="sc-bxivhb wpBgH"
+      href="http://www.google.com"
+      target="_blank"
     >
-      <a
-        className="sc-bxivhb wpBgH"
-        href="http://www.google.com"
-        target="_blank"
+      <div
+        className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
       >
-        <div
-          className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
         >
-          <svg
-            className="icon sc-bwzfXH kdIDyY"
-          >
-            <use
-              xlinkHref="/icon-sprite.svg#twitter"
-            />
-          </svg>
-        </div>
-      </a>
-      <a
-        className="sc-bxivhb wpBgH"
-        href="http://www.google.com"
-        target="_blank"
+          <use
+            xlinkHref="/icon-sprite.svg#twitter"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
+      className="sc-bxivhb wpBgH"
+      href="http://www.google.com"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
       >
-        <div
-          className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
         >
-          <svg
-            className="icon sc-bwzfXH kdIDyY"
-          >
-            <use
-              xlinkHref="/icon-sprite.svg#linkedin"
-            />
-          </svg>
-        </div>
-      </a>
-    </div>
+          <use
+            xlinkHref="/icon-sprite.svg#linkedin"
+          />
+        </svg>
+      </div>
+    </a>
   </div>
 </div>
 `;
