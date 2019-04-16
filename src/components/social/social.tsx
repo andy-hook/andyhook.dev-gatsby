@@ -9,7 +9,7 @@ interface Props {
 
 const Container = styled.div`
   display: flex;
-  background-color: grey;
+  justify-content: center;
   font-size: 40px;
 `
 const Link = styled.a`

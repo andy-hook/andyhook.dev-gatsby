@@ -5,7 +5,7 @@ import classNames from "classnames"
 
 interface Props {
   name: string
-  className: string
+  className?: string
 }
 
 const IconWrapper = styled.div`
