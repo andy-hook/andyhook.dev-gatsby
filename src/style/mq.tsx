@@ -1,25 +1,31 @@
-import { generateMedia, pxToEm } from "styled-media-query"
+import { generateMedia, pxToEm, pxToRem } from "styled-media-query"
 
-const mq = generateMedia(
-  pxToEm({
-    "max-thumb": "479px",
-    "min-thumb": "480px",
+export const breakpoints = {
+  bottomThumb: "479px",
+  topThumb: "480px",
 
-    "max-palm": "599px",
-    "min-palm": "600px",
+  bottomPalm: "599px",
+  topPalm: "600px",
 
-    "max-lap": "899px",
-    "min-lap": "900px",
+  bottomLap: "899px",
+  topLap: "900px",
 
-    "max-desk": "1199px",
-    "min-desk": "1200px",
+  bottomDesk: "1199px",
+  topDesk: "1200px",
 
-    "max-wide": "1499px",
-    "min-wide": "1500px",
+  bottomWide: "1499px",
+  topWide: "1500px",
 
-    "max-wall": "1799px",
-    "min-wall": "1800px",
-  })
-)
+  bottomWall: "1799px",
+  topWall: "1800px",
+
+  bottomUltra: "2299px",
+  topUltra: "2300px",
+}
+
+export const emBreakpoints = pxToEm(breakpoints)
+export const remBreakpoints = pxToRem(breakpoints)
+
+const mq = generateMedia(emBreakpoints)
 
 export default mq
