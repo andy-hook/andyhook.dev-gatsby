@@ -8,7 +8,7 @@
 // import { graphql, useStaticQuery } from "gatsby"
 import React, { ReactNode } from "react"
 // import { SiteData } from "../types"
-import GlobalStyle from "./global-style"
+import GlobalStyle from "../style/global-style"
 import { Normalize } from "styled-normalize"
 
 interface Props {
