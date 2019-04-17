@@ -5,7 +5,7 @@ exports[`<Splash /> renders correctly 1`] = `
   className="sc-EHOje dOwSkF"
 >
   <h1
-    className="sc-bZQynM hiKpML"
+    className="sc-bZQynM eFQEiV"
   >
     <span
       className="sc-gzVnrw ibZhkv"
@@ -20,7 +20,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </span>
   </h1>
   <div
-    className="sc-dnqmqq bmaZHg sc-htpNat gXzayw"
+    className="sc-dnqmqq buqvNA sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -61,7 +61,7 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-iwsKbI eelSTq"
   >
     <test-file-stub
-      className="sc-gZMcBi bgtCpa"
+      className="sc-gZMcBi bryteU"
     />
   </div>
 </div>
