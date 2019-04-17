@@ -6,7 +6,8 @@ import { SocialItem } from "../../types"
 
 import Social from "../social/social"
 import date from "../../images/svg/date.svg"
-import { breakpoints } from "../../style/mq"
+import { breakpoints, mq } from "../../style/mq"
+import { uniformScale } from "../../style/utils"
 
 interface Props {
   socialIconData: SocialItem[]
@@ -39,6 +40,11 @@ const Title = styled.h1`
     breakpoints.bottomThumb,
     breakpoints.topUltra
   )}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale("5em", "topUltra")};
+  
+  `}
 `
 
 const TitleSubtle = styled.span``

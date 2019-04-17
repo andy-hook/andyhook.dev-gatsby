@@ -1,6 +1,7 @@
 import { generateMedia, pxToEm, pxToRem } from "styled-media-query"
+import styleVars from "./variables"
 
-export const breakpoints = {
+export const breakpoints: { [index: string]: string } = {
   bottomThumb: "479px",
   topThumb: "480px",
 
@@ -23,9 +24,7 @@ export const breakpoints = {
   topUltra: "2500px",
 }
 
-export const emBreakpoints = pxToEm(breakpoints)
-export const remBreakpoints = pxToRem(breakpoints)
+export const emBreakpoints = pxToEm(breakpoints, styleVars.baseFontSize)
+export const remBreakpoints = pxToRem(breakpoints, styleVars.baseFontSize)
 
-const mq = generateMedia(emBreakpoints)
-
-export default mq
+export const mq = generateMedia(emBreakpoints)
