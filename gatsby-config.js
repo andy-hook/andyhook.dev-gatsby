@@ -43,7 +43,17 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         typekit: {
-          id: "dfp8ggi",
+          id: `dfp8ggi`,
+        },
+      },
+    },
+
+    // Import SVG as react components
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images/svg`,
         },
       },
     },

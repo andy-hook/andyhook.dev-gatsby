@@ -4,27 +4,23 @@ exports[`<Splash /> renders correctly 1`] = `
 <div
   className="sc-EHOje dOwSkF"
 >
-  <div
-    className="sc-bZQynM bOrPFB"
+  <h1
+    className="sc-bZQynM hiKpML"
   >
-    <h1
-      className="sc-gzVnrw cfrUyw"
+    <span
+      className="sc-gzVnrw ibZhkv"
     >
-      <span
-        className="sc-htoDjs bZzhDu"
-      >
-        I build
-      </span>
-       
-      <span
-        className="sc-dnqmqq cScTwP"
-      >
-        interfaces
-      </span>
-    </h1>
-  </div>
+      I build
+    </span>
+     
+    <span
+      className="sc-htoDjs bdtDoS"
+    >
+      interfaces
+    </span>
+  </h1>
   <div
-    className="sc-iwsKbI gBdobi sc-htpNat gXzayw"
+    className="sc-dnqmqq bmaZHg sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -60,6 +56,13 @@ exports[`<Splash /> renders correctly 1`] = `
         </svg>
       </div>
     </a>
+  </div>
+  <div
+    className="sc-iwsKbI eelSTq"
+  >
+    <test-file-stub
+      className="sc-gZMcBi bgtCpa"
+    />
   </div>
 </div>
 `;

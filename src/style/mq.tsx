@@ -19,8 +19,8 @@ export const breakpoints = {
   bottomWall: "1799px",
   topWall: "1800px",
 
-  bottomUltra: "2299px",
-  topUltra: "2300px",
+  bottomUltra: "2499px",
+  topUltra: "2500px",
 }
 
 export const emBreakpoints = pxToEm(breakpoints)
