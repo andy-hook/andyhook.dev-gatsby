@@ -20,8 +20,8 @@ export const breakpoints: { [index: string]: string } = {
   bottomWall: "1799px",
   topWall: "1800px",
 
-  bottomUltra: "2499px",
-  topUltra: "2500px",
+  bottomUltra: "2200px",
+  topUltra: "2200px",
 }
 
 export const emBreakpoints = pxToEm(breakpoints, styleVars.baseFontSize)

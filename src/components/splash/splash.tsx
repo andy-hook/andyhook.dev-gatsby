@@ -35,15 +35,14 @@ const Title = styled.h1`
     {
       prop: "font-size",
       fromSize: "40px",
-      toSize: "80px",
+      toSize: "75px",
     },
     breakpoints.bottomThumb,
     breakpoints.topUltra
   )}
 
   ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale("5em", "topUltra")};
-  
+    font-size: ${uniformScale("75px", "topUltra")};
   `}
 `
 
@@ -58,7 +57,7 @@ const StyledSocial = styled(Social)`
   width: 100%;
   left: 0;
 
-  bottom: 15vh;
+  bottom: 14vh;
 
   z-index: 1;
 
@@ -66,11 +65,15 @@ const StyledSocial = styled(Social)`
     {
       prop: "font-size",
       fromSize: "20px",
-      toSize: "30px",
+      toSize: "28px",
     },
     breakpoints.bottomThumb,
     breakpoints.topUltra
   )}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale("25px", "topUltra")};
+  `}
 `
 
 const Background = styled.div`
@@ -99,11 +102,15 @@ const StyledSVG = styled(date)`
     {
       prop: "font-size",
       fromSize: "500px",
-      toSize: "1000px",
+      toSize: "1050px",
     },
     breakpoints.bottomThumb,
     breakpoints.topUltra
-  )};
+  )}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale("1050px", "topUltra")};
+  `}
 `
 
 const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
