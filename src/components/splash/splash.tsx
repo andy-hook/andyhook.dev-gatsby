@@ -22,12 +22,20 @@ const Container = styled.div`
   height: 100vh;
 `
 
+const ContainerInner = styled.div`
+  position: relative;
+
+  z-index: 1;
+`
+
 const Title = styled.h1`
-  font-family: montserrat;
+  font-family: montserrat, sans-serif;
   font-weight: 600;
   text-align: center;
   color: #313134;
   letter-spacing: -0.02em;
+
+  margin: 0;
 
   z-index: 1;
 
@@ -113,12 +121,43 @@ const StyledSVG = styled(date)`
   `}
 `
 
+const Para = styled.p`
+  position: absolute;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  color: #343438;
+  letter-spacing: 0.005em;
+  margin: 0;
+
+  width: 100%;
+
+  bottom: -2.25em;
+
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "14px",
+      toSize: "18px",
+    },
+    breakpoints.bottomThumb,
+    breakpoints.topUltra
+  )}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale("20px", "topUltra")};
+  `}
+`
+
 const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
   return (
     <Container>
-      <Title>
-        <TitleSubtle>I build</TitleSubtle> <TitleLoud>interfaces</TitleLoud>
-      </Title>
+      <ContainerInner>
+        <Title>
+          <TitleSubtle>I build</TitleSubtle> <TitleLoud>interfaces</TitleLoud>
+        </Title>
+        <Para>I’m working on something new, i’ll be right back.</Para>
+      </ContainerInner>
 
       <StyledSocial items={socialIconData} />
       <Background>

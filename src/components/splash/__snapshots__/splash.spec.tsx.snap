@@ -4,23 +4,32 @@ exports[`<Splash /> renders correctly 1`] = `
 <div
   className="sc-EHOje dOwSkF"
 >
-  <h1
-    className="sc-bZQynM eFQEiV"
-  >
-    <span
-      className="sc-gzVnrw ibZhkv"
-    >
-      I build
-    </span>
-     
-    <span
-      className="sc-htoDjs bdtDoS"
-    >
-      interfaces
-    </span>
-  </h1>
   <div
-    className="sc-dnqmqq buqvNA sc-htpNat gXzayw"
+    className="sc-bZQynM gUiPvZ"
+  >
+    <h1
+      className="sc-gzVnrw gEWQSF"
+    >
+      <span
+        className="sc-htoDjs bZzhDu"
+      >
+        I build
+      </span>
+       
+      <span
+        className="sc-dnqmqq cScTwP"
+      >
+        interfaces
+      </span>
+    </h1>
+    <p
+      className="sc-VigVT iVwKwf"
+    >
+      I’m working on something new, i’ll be right back.
+    </p>
+  </div>
+  <div
+    className="sc-iwsKbI cxroDS sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -58,10 +67,10 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-iwsKbI eelSTq"
+    className="sc-gZMcBi jewhi"
   >
     <test-file-stub
-      className="sc-gZMcBi bryteU"
+      className="sc-gqjmRU dIplvf"
     />
   </div>
 </div>
