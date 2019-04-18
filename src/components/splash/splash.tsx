@@ -96,7 +96,7 @@ const StyledSVG = styled(date)`
   font-size: 300px;
   min-width: 300px;
 
-  opacity: 0.2;
+  opacity: 0.7;
 
   ${fluidRange(
     {
