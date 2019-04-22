@@ -9,7 +9,6 @@
 import React, { ReactNode } from "react"
 // import { SiteData } from "../types"
 import GlobalStyle from "../style/global-style"
-import { Normalize } from "styled-normalize"
 
 interface Props {
   children: ReactNode
@@ -34,7 +33,6 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
 
   return (
     <>
-      <Normalize />
       <GlobalStyle />
       {children}
     </>
