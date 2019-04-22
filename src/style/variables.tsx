@@ -12,8 +12,8 @@ export const fontFamily = {
 }
 
 export const letterSpacing = {
-  base: "0.001em",
-  display: "-0.005em",
+  base: "0.01em",
+  display: "-0.02em",
   uppercase: "0.06em",
 }
 
@@ -70,6 +70,15 @@ export const spacingScale = {
   16: rem("768px"),
 }
 
+/* Border radius
+  ------------------------------------------------- */
+
+export const borderRadius = {
+  base: "4px",
+  pill: "50000px",
+  circle: "50%",
+}
+
 /* Breakpoints
   ------------------------------------------------- */
 
@@ -94,15 +103,6 @@ export const breakpoints: { [index: string]: string } = {
 
   bottomUltra: "2200px",
   topUltra: "2200px",
-}
-
-/* Border radius
-  ------------------------------------------------- */
-
-export const borderRadius = {
-  base: "4px",
-  pill: "50000px",
-  circle: "50%",
 }
 
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)

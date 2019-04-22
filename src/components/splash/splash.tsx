@@ -6,6 +6,7 @@ import { SocialItem } from "../../types"
 
 import Social from "../social/social"
 import date from "../../images/svg/date.svg"
+import mark from "../../images/svg/mark.svg"
 import { uniformScale, mq } from "../../style/utils"
 import {
   emBreakpoints,
@@ -13,6 +14,7 @@ import {
   fontFamily,
   fontWeight,
   borderRadius,
+  letterSpacing,
 } from "../../style/variables"
 
 interface Props {
@@ -26,10 +28,17 @@ const Splash: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <Container>
+      <LogoPos>
+        <Logo>
+          <LogoMark />
+          <LogoTitle>Andy Hook</LogoTitle>
+          <LogoSubtle>Interface Developer</LogoSubtle>
+        </Logo>
+      </LogoPos>
       <ContainerInner>
         <Title>I’m busy working on something new</Title>
         <CallToAction href={buttonHref} target="_blank">
-          View some of my work
+          View my work on Dribbble
         </CallToAction>
       </ContainerInner>
 
@@ -41,6 +50,70 @@ const Splash: React.FunctionComponent<Props> = ({
     </Container>
   )
 }
+
+const LogoPos = styled.div`
+  display: flex;
+
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+
+  top: 9vh;
+
+  z-index: 1;
+`
+
+const Logo = styled.h1`
+  display: flex;
+  align-items: center;
+  font-family: ${fontFamily.base};
+  color: white;
+  font-size: ${typeScale[1]};
+  font-weight: ${fontWeight.base.medium};
+
+  letter-spacing: ${letterSpacing.base};
+
+  ${mq.greaterThan("bottomThumb")`
+    margin-left: -1.5em;
+  `}
+
+  ${mq.between("bottomThumb", "bottomUltra")`
+    font-size: ${between(
+      typeScale[1],
+      typeScale[2],
+      emBreakpoints.bottomThumb,
+      emBreakpoints.bottomDesk
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(typeScale[2], "topUltra")};
+  `}
+`
+
+const LogoMark = styled(mark)`
+  font-size: 4.5em;
+  width: 1em;
+  height: 1em;
+`
+
+const LogoTitle = styled.span`
+  margin-left: 1.5em;
+  margin-right: 0.5em;
+
+  ${mq.lessThan("bottomThumb")`
+    display: none;
+  `}
+`
+
+const LogoSubtle = styled.span`
+  opacity: 0.4;
+
+  ${mq.lessThan("bottomThumb")`
+    display: none;
+  `}
+`
 
 const Container = styled.div`
   position: relative;
@@ -61,19 +134,19 @@ const ContainerInner = styled.div`
   z-index: 1;
 `
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-family: ${fontFamily.display};
   font-weight: 600;
   text-align: center;
   color: #e3e3eb;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  letter-spacing: -0.02em;
+  letter-spacing: ${letterSpacing.display};
   max-width: 13em;
   text-shadow: 0px 0px 2em #08080a;
 
   margin-top: 0;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.7em;
 
   z-index: 1;
 
@@ -88,7 +161,7 @@ const Title = styled.h1`
     )};
   `}
 
-  ${mq.between("bottomDesk", "topUltra")`
+  ${mq.between("topDesk", "bottomUltra")`
     font-size: ${between(
       typeScale[11],
       typeScale[12],
@@ -98,7 +171,7 @@ const Title = styled.h1`
   `}
 
   ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale("75px", "topUltra")};
+    font-size: ${uniformScale(typeScale[12], "topUltra")};
   `}
 `
 
@@ -119,7 +192,7 @@ const CallToAction = styled.a`
   padding: 1em 1.95em;
   background: linear-gradient(160deg, #b960eb 0%, #6b21cc 100%);
 
-  ${mq.between("bottomThumb", "topUltra")`
+  ${mq.between("bottomThumb", "bottomUltra")`
     font-size: ${between(
       typeScale[2],
       typeScale[4],
@@ -138,7 +211,7 @@ const SocialIcons = styled(Social)`
   width: 100%;
   left: 0;
 
-  bottom: 14vh;
+  bottom: 12vh;
 
   z-index: 1;
 
@@ -187,21 +260,38 @@ const DateGraphic = styled(date)`
   width: 1em;
   height: 0.35em;
 
-  font-size: ${rem("500px")};
+  font-size: ${rem("1400px")};
 
-  opacity: 0.7;
+  opacity: 0.75;
 
-  ${mq.between("bottomThumb", "topUltra")`
+  ${mq.lessThan("bottomDesk")`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate3d(-45vw, -50%, 0);
+  `}
+
+  ${mq.between("topThumb", "bottomDesk")`
     font-size: ${between(
-      rem("500px"),
-      rem("1350px"),
-      emBreakpoints.bottomThumb,
+      rem("1400px"),
+      rem("1050px"),
+      emBreakpoints.topThumb,
+      emBreakpoints.bottomDesk
+    )};
+  `}
+
+  ${mq.between("topDesk", "topUltra")`
+    font-size: ${between(
+      rem("1050px"),
+      rem("1250px"),
+      emBreakpoints.topDesk,
       emBreakpoints.topUltra
     )};
   `}
 
   ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(rem("1350px"), "topUltra")};
+    font-size: ${uniformScale(rem("1250px"), "topUltra")};
   `}
 `
 

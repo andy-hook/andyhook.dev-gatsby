@@ -2,26 +2,47 @@
 
 exports[`<Splash /> renders correctly 1`] = `
 <div
-  className="sc-EHOje dOwSkF"
+  className="sc-iwsKbI bcjQpo"
 >
   <div
-    className="sc-bZQynM bEflWg"
+    className="sc-EHOje wOSEH"
   >
     <h1
-      className="sc-gzVnrw efBtwJ"
+      className="sc-bZQynM bAKAeH"
+    >
+      <test-file-stub
+        className="sc-gzVnrw kzdxRF"
+      />
+      <span
+        className="sc-htoDjs cIriUN"
+      >
+        Andy Hook
+      </span>
+      <span
+        className="sc-dnqmqq iGobyL"
+      >
+        Interface Developer
+      </span>
+    </h1>
+  </div>
+  <div
+    className="sc-gZMcBi dvabmL"
+  >
+    <h2
+      className="sc-gqjmRU ixFOao"
     >
       I’m busy working on something new
-    </h1>
+    </h2>
     <a
-      className="sc-htoDjs jZbZwi"
+      className="sc-VigVT iccrkF"
       href="http://www.google.com"
       target="_blank"
     >
-      View some of my work
+      View my work on Dribbble
     </a>
   </div>
   <div
-    className="sc-dnqmqq klwxxr sc-htpNat gXzayw"
+    className="sc-jTzLTM genjDQ sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -59,13 +80,13 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-iwsKbI eelSTq"
+    className="sc-fjdhpX jLCYME"
   >
     <div
-      className="sc-gZMcBi bWAKdC"
+      className="sc-jzJRlG cilDKN"
     />
     <test-file-stub
-      className="sc-gqjmRU dqKNSR"
+      className="sc-cSHVUG jZLKzx"
     />
   </div>
 </div>
