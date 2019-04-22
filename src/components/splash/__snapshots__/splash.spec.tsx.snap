@@ -8,18 +8,20 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-bZQynM bEflWg"
   >
     <h1
-      className="sc-gzVnrw pKKCE"
+      className="sc-gzVnrw efBtwJ"
     >
       I’m busy working on something new
     </h1>
-    <button
-      className="sc-htoDjs bZzhDu"
+    <a
+      className="sc-htoDjs jZbZwi"
+      href="http://www.google.com"
+      target="_blank"
     >
       View some of my work
-    </button>
+    </a>
   </div>
   <div
-    className="sc-dnqmqq hqJbnE sc-htpNat gXzayw"
+    className="sc-dnqmqq klwxxr sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -59,8 +61,11 @@ exports[`<Splash /> renders correctly 1`] = `
   <div
     className="sc-iwsKbI eelSTq"
   >
+    <div
+      className="sc-gZMcBi bWAKdC"
+    />
     <test-file-stub
-      className="sc-gZMcBi dnItcc"
+      className="sc-gqjmRU dqKNSR"
     />
   </div>
 </div>

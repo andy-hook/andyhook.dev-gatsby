@@ -6,9 +6,7 @@ export interface SocialItem {
 }
 
 export interface SocialData {
-  allSocialJson: {
-    edges: SocialItem[]
-  }
+  edges: SocialItem[]
 }
 
 export interface SiteItems {

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { rem, between } from "polished"
+import { rem, between, rgba } from "polished"
 
 import { SocialItem } from "../../types"
 
@@ -17,20 +17,25 @@ import {
 
 interface Props {
   socialIconData: SocialItem[]
+  buttonHref: string
 }
 
-const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
+const Splash: React.FunctionComponent<Props> = ({
+  socialIconData,
+  buttonHref,
+}) => {
   return (
     <Container>
       <ContainerInner>
         <Title>I’m busy working on something new</Title>
-        <CallToAction href="https://dribbble.com/andyhook" target="_blank">
+        <CallToAction href={buttonHref} target="_blank">
           View some of my work
         </CallToAction>
       </ContainerInner>
 
       <SocialIcons items={socialIconData} />
       <Background>
+        <BackgroundGradient />
         <DateGraphic />
       </Background>
     </Container>
@@ -111,7 +116,7 @@ const CallToAction = styled.a`
   text-decoration: none;
   text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
-  padding: 0.95em 1.9em;
+  padding: 1em 1.95em;
   background: linear-gradient(160deg, #b960eb 0%, #6b21cc 100%);
 
   ${mq.between("bottomThumb", "topUltra")`
@@ -164,6 +169,18 @@ const Background = styled.div`
   height: 100%;
 
   z-index: 0;
+`
+
+const BackgroundGradient = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  background: linear-gradient(160deg, ${rgba("#050506", 0)} 30%, #050506 120%);
 `
 
 const DateGraphic = styled(date)`

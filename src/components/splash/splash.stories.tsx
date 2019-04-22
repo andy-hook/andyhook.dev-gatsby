@@ -19,5 +19,8 @@ const mockSocialData = [
 ]
 
 storiesOf("Splash", module).add("with text", () => (
-  <Splash socialIconData={mockSocialData} />
+  <Splash
+    socialIconData={mockSocialData}
+    buttonHref={mockSocialData[0].node.url}
+  />
 ))

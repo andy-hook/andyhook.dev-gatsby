@@ -6,13 +6,26 @@ import { SocialData } from "../types"
 import SEO from "../components/seo"
 import Splash from "../components/splash/splash"
 
+interface Data {
+  all: SocialData
+  dribbble: SocialData
+}
+
 const IndexPage: React.FunctionComponent = () => {
-  const data: SocialData = useStaticQuery(graphql`
-    query {
-      allSocialJson {
+  const data: Data = useStaticQuery(graphql`
+    query myThing {
+      all: allSocialJson {
         edges {
           node {
             label
+            url
+          }
+        }
+      }
+
+      dribbble: allSocialJson(filter: { label: { eq: "dribbble" } }) {
+        edges {
+          node {
             url
           }
         }
@@ -23,7 +36,10 @@ const IndexPage: React.FunctionComponent = () => {
   return (
     <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Splash socialIconData={data.allSocialJson.edges} />
+      <Splash
+        socialIconData={data.all.edges}
+        buttonHref={data.dribbble.edges[0].node.url}
+      />
     </>
   )
 }
