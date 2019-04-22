@@ -14,9 +14,18 @@ interface Props {
   lang?: string
   keywords?: string[]
   title?: string
+  twitterImage?: string
+  ogImage?: string
 }
 
-const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
+const SEO = ({
+  description = ``,
+  lang = ``,
+  keywords = [],
+  title,
+  twitterImage = ``,
+  ogImage = ``,
+}: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,6 +34,8 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
             title
             description
             author
+            twitterImage
+            ogImage
           }
         }
       }
@@ -32,6 +43,8 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaTwitterImage = twitterImage || site.siteMetadata.twitterImage
+  const metaOgImage = ogImage || site.siteMetadata.ogImage
 
   return (
     <Helmet
@@ -54,6 +67,10 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: metaOgImage,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -72,6 +89,10 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image:src`,
+          content: metaTwitterImage,
         },
       ].concat(
         keywords.length > 0

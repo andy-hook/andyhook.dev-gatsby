@@ -3,6 +3,8 @@ module.exports = {
     title: `Andy Hook - UI Developer`,
     description: `The portfolio of UI developer Andy Hook`,
     author: `@Andy_Hook`,
+    twitterImage: `/images/social/twitter-preview.png`,
+    ogImage: `/images/social/og-preview.png`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -26,7 +28,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
 

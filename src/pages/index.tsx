@@ -13,7 +13,7 @@ interface Data {
 
 const IndexPage: React.FunctionComponent = () => {
   const data: Data = useStaticQuery(graphql`
-    query myThing {
+    query {
       all: allSocialJson {
         edges {
           node {
