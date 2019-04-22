@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { fluidRange, rem, between } from "polished"
+import { rem, between } from "polished"
 
 import { SocialItem } from "../../types"
 
@@ -68,7 +68,7 @@ const Title = styled.h1`
   text-shadow: 0px 0px 2em #08080a;
 
   margin-top: 0;
-  margin-bottom: 0.65em;
+  margin-bottom: 0.75em;
 
   z-index: 1;
 
@@ -109,13 +109,10 @@ const CallToAction = styled.a`
   border-radius: ${borderRadius.pill};
 
   text-decoration: none;
+  text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
-  padding: 0.9em 1.8em;
-  background-color: grey;
-
-  ${mq.greaterThan("bottomPalm")`
-    padding: 0.95em 1.9em;
-  `}
+  padding: 0.95em 1.9em;
+  background: linear-gradient(160deg, #b960eb 0%, #6b21cc 100%);
 
   ${mq.between("bottomThumb", "topUltra")`
     font-size: ${between(
@@ -140,11 +137,11 @@ const SocialIcons = styled(Social)`
 
   z-index: 1;
 
-  font-size: ${typeScale[7]};
+  font-size: ${typeScale[6]};
 
   ${mq.between("bottomThumb", "topUltra")`
     font-size: ${between(
-      typeScale[7],
+      typeScale[6],
       typeScale[8],
       emBreakpoints.bottomThumb,
       emBreakpoints.topUltra
