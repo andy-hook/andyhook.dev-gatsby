@@ -15,7 +15,7 @@ const Container = styled.div`
 `
 const Link = styled.a`
   color: #fff;
-  opacity: 0.15;
+  opacity: 0.25;
 
   &:not(:last-child) {
     margin-right: 1.4em;

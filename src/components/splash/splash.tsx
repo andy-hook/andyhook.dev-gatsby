@@ -178,7 +178,7 @@ const Title = styled.h2`
 const CallToAction = styled.a`
   font-family: ${fontFamily.base};
 
-  color: #e3e3eb;
+  color: #fff;
 
   font-weight: ${fontWeight.base.bold};
 
@@ -211,7 +211,7 @@ const SocialIcons = styled(Social)`
   width: 100%;
   left: 0;
 
-  bottom: 12vh;
+  bottom: 14vh;
 
   z-index: 1;
 

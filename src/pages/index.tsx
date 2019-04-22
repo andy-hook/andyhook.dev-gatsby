@@ -35,7 +35,16 @@ const IndexPage: React.FunctionComponent = () => {
 
   return (
     <>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        keywords={[
+          `User interface`,
+          `Web developer`,
+          `Front-end developer`,
+          `Digital designer`,
+          `Web designer`,
+          `Brighton`,
+        ]}
+      />
       <Splash
         socialIconData={data.all.edges}
         buttonHref={data.dribbble.edges[0].node.url}

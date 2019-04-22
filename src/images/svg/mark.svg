@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="78px" height="78px" viewBox="0 0 78 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>logo – dark</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="-35.4160894%" y1="20.1788101%" x2="86.4292567%" y2="73.7943782%" id="linearGradient-1">
-            <stop stop-color="#333337" offset="0%"></stop>
-            <stop stop-color="#17171A" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="logo-–-dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" fill="url(#linearGradient-1)" transform="translate(38.890873, 38.535534) rotate(-315.000000) translate(-38.890873, -38.535534) " x="11.390873" y="11.0355339" width="55" height="55" rx="5"></rect>
-        <g id="Group-3" transform="translate(37.812306, 38.921805) rotate(-6.000000) translate(-37.812306, -38.921805) translate(27.312306, 24.921805)" fill="#FFFFFF">
-            <path d="M14.0736764,11.7027765 L19.6112251,0.885199597 C19.8898264,0.318834315 19.0191974,-0.162576174 18.4619948,0.262197787 L0.944939431,14.5062846 C0.492212354,14.8744221 0.805638792,15.4691056 1.43249167,15.4691056 L7.387594,15.4691056 L1.85039359,26.3152839 C1.57179231,26.8816492 2.4424213,27.3627765 2.99962386,26.9380026 L20.516331,12.6939157 C20.9694063,12.3257783 20.6559799,11.7027765 20.029127,11.7027765 L14.0736764,11.7027765 Z" id="Fill-1"></path>
-        </g>
-    </g>
-</svg>
+<svg width="78" height="78" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="-35.416%" y1="20.179%" x2="86.429%" y2="73.794%" id="a"><stop stop-color="#333337" offset="0%"/><stop stop-color="#17171A" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><rect fill="url(#a)" transform="rotate(45 38.89 38.536)" x="11.391" y="11.036" width="55" height="55" rx="5"/><path d="M41.126 36.264l4.377-11.338c.218-.592-.699-.98-1.208-.499L28.363 40.424c-.412.414-.038.972.585.907l5.923-.623-4.374 11.366c-.217.592.699.98 1.208.499l15.932-15.997c.412-.414.036-1-.588-.935l-5.923.623z" fill="#FFF"/></g></svg>
