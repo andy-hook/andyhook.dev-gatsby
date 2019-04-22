@@ -5,31 +5,21 @@ exports[`<Splash /> renders correctly 1`] = `
   className="sc-EHOje dOwSkF"
 >
   <div
-    className="sc-bZQynM gUiPvZ"
+    className="sc-bZQynM bEflWg"
   >
     <h1
-      className="sc-gzVnrw gEWQSF"
+      className="sc-gzVnrw pKKCE"
     >
-      <span
-        className="sc-htoDjs bZzhDu"
-      >
-        I build
-      </span>
-       
-      <span
-        className="sc-dnqmqq cScTwP"
-      >
-        interfaces
-      </span>
+      I’m busy working on something new
     </h1>
-    <p
-      className="sc-VigVT iVwKwf"
+    <button
+      className="sc-htoDjs bZzhDu"
     >
-      I’m working on something new, i’ll be right back.
-    </p>
+      View some of my work
+    </button>
   </div>
   <div
-    className="sc-iwsKbI cxroDS sc-htpNat gXzayw"
+    className="sc-dnqmqq hqJbnE sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb wpBgH"
@@ -67,10 +57,10 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-gZMcBi jewhi"
+    className="sc-iwsKbI eelSTq"
   >
     <test-file-stub
-      className="sc-gqjmRU dIplvf"
+      className="sc-gZMcBi dnItcc"
     />
   </div>
 </div>

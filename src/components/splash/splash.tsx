@@ -6,7 +6,8 @@ import { SocialItem } from "../../types"
 
 import Social from "../social/social"
 import date from "../../images/svg/date.svg"
-import { uniformScale, mq, emBreakpoints, styleVars } from "../../style/utils"
+import { uniformScale, mq } from "../../style/utils"
+import { emBreakpoints, typeScale } from "../../style/variables"
 
 interface Props {
   socialIconData: SocialItem[]
@@ -17,6 +18,7 @@ const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
     <Container>
       <ContainerInner>
         <Title>I’m busy working on something new</Title>
+        <Button>View some of my work</Button>
       </ContainerInner>
 
       <SocialIcons items={socialIconData} />
@@ -37,7 +39,11 @@ const Container = styled.div`
 `
 
 const ContainerInner = styled.div`
+  display: flex;
+  align-items: center;
   position: relative;
+
+  flex-direction: column;
 
   z-index: 1;
 `
@@ -53,16 +59,17 @@ const Title = styled.h1`
   max-width: 13em;
   text-shadow: 0px 0px 2em #08080a;
 
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0.75em;
 
   z-index: 1;
 
-  font-size: ${styleVars.type[9]};
+  font-size: ${typeScale[9]};
 
   ${mq.between("bottomThumb", "topUltra")`
     font-size: ${between(
-      styleVars.type[9],
-      styleVars.type[12],
+      typeScale[9],
+      typeScale[12],
       emBreakpoints.bottomThumb,
       emBreakpoints.topUltra
     )};
@@ -73,6 +80,8 @@ const Title = styled.h1`
   `}
 `
 
+const Button = styled.button``
+
 const SocialIcons = styled(Social)`
   position: absolute;
   width: 100%;
@@ -82,19 +91,19 @@ const SocialIcons = styled(Social)`
 
   z-index: 1;
 
-  font-size: ${styleVars.type[7]};
+  font-size: ${typeScale[7]};
 
   ${mq.between("bottomThumb", "topUltra")`
     font-size: ${between(
-      styleVars.type[7],
-      styleVars.type[9],
+      typeScale[7],
+      typeScale[9],
       emBreakpoints.bottomThumb,
       emBreakpoints.topUltra
     )};
   `}
 
   ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(styleVars.type[9], "topUltra")};
+    font-size: ${uniformScale(typeScale[9], "topUltra")};
   `}
 `
 
