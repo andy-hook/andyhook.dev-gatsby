@@ -25,10 +25,15 @@ export const lineHeight = {
 }
 
 export const fontWeight = {
-  regular: "400",
-  medium: "500",
-  semi: "600",
-  bold: "700",
+  base: {
+    regular: "400",
+    medium: "500",
+    bold: "700",
+  },
+  display: {
+    medium: "500",
+    semi: "600",
+  },
 }
 
 export const typeScale = {
@@ -89,6 +94,15 @@ export const breakpoints: { [index: string]: string } = {
 
   bottomUltra: "2200px",
   topUltra: "2200px",
+}
+
+/* Border radius
+  ------------------------------------------------- */
+
+export const borderRadius = {
+  base: "4px",
+  pill: "50000px",
+  circle: "50%",
 }
 
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
