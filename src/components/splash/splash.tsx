@@ -253,7 +253,7 @@ const BackgroundGradient = styled.div`
 
   z-index: 1;
 
-  background: linear-gradient(160deg, ${rgba("#050506", 0)} 30%, #050506 120%);
+  background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #020203 80%);
 `
 
 const DateGraphic = styled(date)`
