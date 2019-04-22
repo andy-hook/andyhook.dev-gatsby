@@ -3,8 +3,8 @@ module.exports = {
     title: `Andy Hook - UI Developer`,
     description: `The portfolio of UI developer Andy Hook`,
     author: `@Andy_Hook`,
-    twitterImage: `/images/social/twitter-preview.png`,
-    ogImage: `/images/social/og-preview.png`,
+    defaultTwitterImage: `/images/social/twitter-preview.png`,
+    defaultOgImage: `/images/social/og-preview.png`,
   },
   plugins: [
     `gatsby-plugin-typescript`,

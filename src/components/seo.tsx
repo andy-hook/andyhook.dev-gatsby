@@ -34,8 +34,8 @@ const SEO = ({
             title
             description
             author
-            twitterImage
-            ogImage
+            defaultTwitterImage
+            defaultOgImage
           }
         }
       }
@@ -43,8 +43,8 @@ const SEO = ({
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaTwitterImage = twitterImage || site.siteMetadata.twitterImage
-  const metaOgImage = ogImage || site.siteMetadata.ogImage
+  const metaTwitterImage = twitterImage || site.siteMetadata.defaultTwitterImage
+  const metaOgImage = ogImage || site.siteMetadata.defaultOgImage
 
   return (
     <Helmet
