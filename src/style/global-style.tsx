@@ -61,10 +61,6 @@ const Global = createGlobalStyle`
     box-sizing: border-box; /* [2] */
   }
 
-  body {
-    overflow: hidden;
-  }
-
   /* [2] */
   * {
     &,

@@ -15,6 +15,7 @@ import {
   fontWeight,
   borderRadius,
   letterSpacing,
+  duration,
 } from "../../style/variables"
 
 interface Props {
@@ -38,7 +39,7 @@ const Splash: React.FunctionComponent<Props> = ({
       <ContainerInner>
         <Title>I’m busy working on something new</Title>
         <CallToAction href={buttonHref} target="_blank">
-          View my work on Dribbble
+          <CallToActionInner>View some of my work</CallToActionInner>
         </CallToAction>
       </ContainerInner>
 
@@ -131,6 +132,8 @@ const ContainerInner = styled.div`
 
   flex-direction: column;
 
+  margin-bottom: -3vh;
+
   z-index: 1;
 `
 
@@ -176,6 +179,9 @@ const Title = styled.h2`
 `
 
 const CallToAction = styled.a`
+  position: relative;
+
+  overflow: hidden;
   font-family: ${fontFamily.base};
 
   color: #fff;
@@ -192,6 +198,50 @@ const CallToAction = styled.a`
   padding: 1em 1.95em;
   background: linear-gradient(160deg, #d450ff 0%, #6609e1 100%);
 
+  &::before,
+  &::after {
+    transition: opacity ${duration.fast} linear;
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+
+    border-radius: ${borderRadius.pill};
+  }
+
+  &::before {
+    box-shadow: inset 0 -0.25em 1em 0 #d450ff;
+    z-index: 2;
+  }
+
+  &::after {
+    background: linear-gradient(160deg, #d450ff 0%, #6609e1 100%);
+    z-index: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      opacity: 0.2;
+    }
+
+    &::after {
+      mix-blend-mode: multiply;
+      opacity: 0.4;
+    }
+  }
+
   ${mq.between("bottomThumb", "bottomUltra")`
     font-size: ${between(
       typeScale[2],
@@ -206,12 +256,26 @@ const CallToAction = styled.a`
   `}
 `
 
+const CallToActionInner = styled.span`
+  transition: opacity ${duration.fast} linear;
+
+  position: relative;
+  z-index: 2;
+
+  opacity: 0.9;
+
+  ${CallToAction}:hover &,
+  ${CallToAction}:focus & {
+    opacity: 1;
+  }
+`
+
 const SocialIcons = styled(Social)`
   position: absolute;
   width: 100%;
   left: 0;
 
-  bottom: 14vh;
+  bottom: 9vh;
 
   z-index: 1;
 
@@ -240,6 +304,8 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
 
   z-index: 0;
 `

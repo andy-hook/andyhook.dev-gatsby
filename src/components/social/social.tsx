@@ -52,6 +52,10 @@ const Link = styled.a`
     pointer-events: none;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:hover::after,
   &:focus::after {
     opacity: 0.15;
