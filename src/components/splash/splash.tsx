@@ -5,8 +5,9 @@ import { rem, between, rgba } from "polished"
 import { SocialItem } from "../../types"
 
 import Social from "../social/social"
-import date from "../../images/svg/date.svg"
-import mark from "../../images/svg/mark.svg"
+import date from "../../images/svg-import/date.svg"
+import mark from "../../images/svg-import/mark.svg"
+import heroBg from "../../images/hero-bg.svg"
 import { uniformScale, mq } from "../../style/utils"
 import {
   emBreakpoints,
@@ -217,12 +218,12 @@ const CallToAction = styled.a`
   }
 
   &::before {
-    box-shadow: inset 0 -0.25em 1em 0 #d450ff;
+    box-shadow: inset 0 -0.25em 1em 0 #c615a8;
     z-index: 2;
   }
 
   &::after {
-    background: linear-gradient(160deg, #d450ff 0%, #6609e1 100%);
+    background: linear-gradient(160deg, #c615a8 0%, #4d0fbe 100%);
     z-index: 1;
   }
 
@@ -233,12 +234,12 @@ const CallToAction = styled.a`
   &:hover,
   &:focus {
     &::before {
-      opacity: 0.2;
+      opacity: 0.1;
     }
 
     &::after {
-      mix-blend-mode: multiply;
-      opacity: 0.4;
+      /* mix-blend-mode: multiply; */
+      opacity: 0.75;
     }
   }
 
@@ -257,17 +258,8 @@ const CallToAction = styled.a`
 `
 
 const CallToActionInner = styled.span`
-  transition: opacity ${duration.fast} linear;
-
   position: relative;
   z-index: 2;
-
-  opacity: 0.9;
-
-  ${CallToAction}:hover &,
-  ${CallToAction}:focus & {
-    opacity: 1;
-  }
 `
 
 const SocialIcons = styled(Social)`
@@ -305,6 +297,8 @@ const Background = styled.div`
   width: 100%;
   height: 100%;
 
+  background-image: url(${heroBg});
+
   overflow: hidden;
 
   z-index: 0;
@@ -317,7 +311,7 @@ const BackgroundGradient = styled.div`
   width: 100%;
   height: 100%;
 
-  z-index: 1;
+  z-index: 2;
 
   background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #020203 80%);
 `
@@ -328,7 +322,9 @@ const DateGraphic = styled(date)`
 
   font-size: ${rem("1400px")};
 
-  opacity: 0.75;
+  /* opacity: 0.75; */
+
+  z-index: 1;
 
   ${mq.lessThan("bottomDesk")`
     position: absolute;

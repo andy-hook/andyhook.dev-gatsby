@@ -34,12 +34,12 @@ exports[`<Splash /> renders correctly 1`] = `
       I’m busy working on something new
     </h2>
     <a
-      className="sc-VigVT gjqMhH"
+      className="sc-VigVT cCdqzR"
       href="http://www.google.com"
       target="_blank"
     >
       <span
-        className="sc-jTzLTM aCHaC"
+        className="sc-jTzLTM efIpCi"
       >
         View some of my work
       </span>
@@ -84,13 +84,13 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-jzJRlG fLCxot"
+    className="sc-jzJRlG Swnsk"
   >
     <div
-      className="sc-cSHVUG cHzFLZ"
+      className="sc-cSHVUG hpBCYf"
     />
     <test-file-stub
-      className="sc-kAzzGY bjXTyW"
+      className="sc-kAzzGY gfrgQr"
     />
   </div>
 </div>
