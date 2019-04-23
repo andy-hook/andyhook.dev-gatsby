@@ -79,6 +79,36 @@ export const borderRadius = {
   circle: "50%",
 }
 
+/* Easing
+  ------------------------------------------------- */
+
+export const easingTimings: { [index: string]: number[] } = {
+  subtleBounce: [0.15, 0.585, 0.225, 1.26],
+}
+
+export function easing(name: string) {
+  return `cubic-bezier(${easingTimings[name].toString()})`
+}
+
+/* Duration
+  ------------------------------------------------- */
+
+const durationUnit = 100
+
+export const duration = {
+  fast: `${durationUnit}ms`,
+  base: `${durationUnit * 2}ms`,
+  slow: `${durationUnit * 3}ms`,
+}
+
+/* Border thickness
+  ------------------------------------------------- */
+
+export const borderThickness = {
+  regular: "1px",
+  thick: "2px",
+}
+
 /* Breakpoints
   ------------------------------------------------- */
 

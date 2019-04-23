@@ -190,7 +190,7 @@ const CallToAction = styled.a`
   text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
   padding: 1em 1.95em;
-  background: linear-gradient(160deg, #b960eb 0%, #6b21cc 100%);
+  background: linear-gradient(160deg, #d450ff 0%, #6609e1 100%);
 
   ${mq.between("bottomThumb", "bottomUltra")`
     font-size: ${between(
