@@ -34,7 +34,7 @@ exports[`<Splash /> renders correctly 1`] = `
       I’m busy working on something new
     </h2>
     <a
-      className="sc-VigVT gdbEdf"
+      className="sc-VigVT dyUSPN"
       href="http://www.google.com"
       target="_blank"
     >
@@ -45,12 +45,12 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-jTzLTM hVcNNH sc-htpNat gXzayw"
   >
     <a
-      className="sc-bxivhb fLJUsn"
+      className="sc-bxivhb crPNoL"
       href="http://www.google.com"
       target="_blank"
     >
       <div
-        className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
       >
         <svg
           className="icon sc-bwzfXH kdIDyY"
@@ -62,12 +62,12 @@ exports[`<Splash /> renders correctly 1`] = `
       </div>
     </a>
     <a
-      className="sc-bxivhb fLJUsn"
+      className="sc-bxivhb crPNoL"
       href="http://www.google.com"
       target="_blank"
     >
       <div
-        className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
       >
         <svg
           className="icon sc-bwzfXH kdIDyY"
