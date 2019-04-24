@@ -10,9 +10,26 @@ import {
   borderThickness,
 } from "../../style/variables"
 
+import { Dispatch } from "redux"
+
+import { connect } from "react-redux"
+
+const mapStateToProps = ({ count }) => {
+  return { count }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    increment: () => {
+      dispatch({ type: "INCREMENT" })
+    },
+  }
+}
+
 interface Props {
   items: SocialItem[]
   className?: string
+  increment: any
 }
 
 const Container = styled.div`
@@ -72,9 +89,15 @@ const StyledIcon = styled(Icon)`
   }
 `
 
-const Social: React.FunctionComponent<Props> = ({ items, className }) => {
+const Social: React.FunctionComponent<Props> = ({
+  items,
+  className,
+  increment,
+  count,
+}) => {
   const icons = items.map((item, key) => (
-    <Link href={item.node.url} key={key.toString()} target="_blank">
+    <Link key={key.toString()} target="_blank" onClick={increment}>
+      {count}
       <StyledIcon name={item.node.label} />
     </Link>
   ))
@@ -82,4 +105,11 @@ const Social: React.FunctionComponent<Props> = ({ items, className }) => {
   return <Container className={classNames("", className)}>{icons}</Container>
 }
 
-export default Social
+const ConnectedCounter = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Social)
+
+export default ConnectedCounter
+
+// export default Social

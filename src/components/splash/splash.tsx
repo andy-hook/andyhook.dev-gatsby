@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { rem, between, rgba } from "polished"
 
 import { SocialItem } from "../../types"
+import { ApplicationState } from "../../store"
 
 import Social from "../social/social"
 import date from "../../images/svg-import/date.svg"
@@ -19,21 +20,30 @@ import {
   duration,
 } from "../../style/variables"
 
+import { connect } from "react-redux"
+
+const mapStateToProps = (state: ApplicationState) => {
+  return { count: state.count }
+}
+
 interface Props {
   socialIconData: SocialItem[]
   buttonHref: string
 }
 
-const Splash: React.FunctionComponent<Props> = ({
+type AllProps = Props & ApplicationState
+
+const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
   buttonHref,
+  count,
 }) => {
   return (
     <Container>
       <LogoPos>
         <Logo>
           <LogoMark />
-          <LogoTitle>Andy Hook</LogoTitle>
+          <LogoTitle>Andy Hook {count}</LogoTitle>
           <LogoSubtle>Interface Developer</LogoSubtle>
         </Logo>
       </LogoPos>
@@ -357,4 +367,8 @@ const DateGraphic = styled(date)`
   `}
 `
 
-export default Splash
+const ConnectedCounter = connect(mapStateToProps)(Splash)
+
+export default ConnectedCounter
+
+// export default Splash
