@@ -25,6 +25,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
     "styled-components": "^4.2.0",
     "styled-media-query": "^2.1.1",
     "styled-normalize": "^8.0.6"
@@ -45,6 +47,7 @@
     "@types/storybook__addon-links": "^3.3.4",
     "@types/storybook__react": "^4.0.1",
     "@types/styled-components": "4.1.8",
+    "@types/react-redux": "^7.0.8",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-preset-gatsby": "^0.1.11",
