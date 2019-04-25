@@ -4,6 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import wrapLayoutWithProvider from "./src/components/wrapLayoutWithProvider"
+import wrapLayoutWithProvider from "./src/components/wrapProvider"
 
 export const wrapPageElement = wrapLayoutWithProvider

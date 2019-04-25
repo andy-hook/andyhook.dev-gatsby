@@ -10,17 +10,14 @@ import {
   borderThickness,
 } from "../../style/variables"
 
-import {
-  siteVisibleAction,
-  setTestStringAction,
-} from "../../storeTwo/module/auth/actions"
-import { AuthStore } from "../../storeTwo/module/auth/types"
+import { siteVisibleAction, setTestStringAction } from "../../store/actions"
+import { Store } from "../../store/types"
 
 import { Dispatch } from "redux"
 
 import { connect } from "react-redux"
 
-const mapStateToProps = ({ testString }: AuthStore) => {
+const mapStateToProps = ({ testString }: Store) => {
   return {
     testString,
   }
@@ -48,7 +45,7 @@ interface DispatchProps {
   increment: () => void
 }
 
-type AllProps = Props & Partial<AuthStore> & DispatchProps
+type AllProps = Props & Partial<Store> & DispatchProps
 
 const Container = styled.div`
   display: flex;

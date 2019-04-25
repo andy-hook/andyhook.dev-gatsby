@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { rem, between, rgba } from "polished"
 
 import { SocialItem } from "../../types"
-import { AuthStore } from "../../storeTwo/module/auth/types"
+import { Store } from "../../store/types"
 
 import Social from "../social/social"
 import date from "../../images/svg-import/date.svg"
@@ -22,7 +22,7 @@ import {
 
 import { connect } from "react-redux"
 
-const mapStateToProps = ({ testString }: AuthStore) => {
+const mapStateToProps = ({ testString }: Store) => {
   return { testString }
 }
 
@@ -31,7 +31,7 @@ interface Props {
   buttonHref: string
 }
 
-type AllProps = Props & AuthStore
+type AllProps = Props & Store
 
 const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,

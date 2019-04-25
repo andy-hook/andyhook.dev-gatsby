@@ -8,7 +8,7 @@ import React, { ReactNode } from "react"
 import Layout from "./layout"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
-import rootReducer from "../storeTwo/module/auth/reducer"
+import rootReducer from "../store/reducer"
 
 interface Props {
   element: ReactNode

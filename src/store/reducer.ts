@@ -1,10 +1,10 @@
 import { combineReducers } from "redux"
-import * as Auth from "./types"
+import { Store, SiteVisibleAction, SetTestString } from "./types"
 
 const siteVisible = (
-  state: Auth.AuthStore["siteVisible"] = false,
-  action: Auth.SiteVisibleAction
-): Auth.AuthStore["siteVisible"] => {
+  state: Store["siteVisible"] = false,
+  action: SiteVisibleAction
+): Store["siteVisible"] => {
   switch (action.type) {
     case "site-visible":
       return action.payload
@@ -14,9 +14,9 @@ const siteVisible = (
 }
 
 const testString = (
-  state: Auth.AuthStore["testString"] = null,
-  action: Auth.SetTestString
-): Auth.AuthStore["testString"] => {
+  state: Store["testString"] = null,
+  action: SetTestString
+): Store["testString"] => {
   switch (action.type) {
     case "set-test-string":
       return action.payload
@@ -25,7 +25,7 @@ const testString = (
   }
 }
 
-const rootReducer = combineReducers<Auth.AuthStore>({
+const rootReducer = combineReducers<Store>({
   siteVisible,
   testString,
 })
