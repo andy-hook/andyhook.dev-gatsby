@@ -12,7 +12,7 @@ import {
 
 import {
   siteVisibleAction,
-  setTokenAction,
+  setTestStringAction,
 } from "../../storeTwo/module/auth/actions"
 import { AuthStore } from "../../storeTwo/module/auth/types"
 
@@ -20,9 +20,9 @@ import { Dispatch } from "redux"
 
 import { connect } from "react-redux"
 
-const mapStateToProps = (state: AuthStore) => {
+const mapStateToProps = ({ testString }: AuthStore) => {
   return {
-    siteVisible: state.token,
+    testString,
   }
 }
 
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
       console.log("test")
       test = test + "1"
       dispatch(siteVisibleAction(false))
-      dispatch(setTokenAction(test))
+      dispatch(setTestStringAction(test))
     },
   }
 }
@@ -43,6 +43,12 @@ interface Props {
   items: SocialItem[]
   className?: string
 }
+
+interface DispatchProps {
+  increment: () => void
+}
+
+type AllProps = Props & Partial<AuthStore> & DispatchProps
 
 const Container = styled.div`
   display: flex;
@@ -101,15 +107,15 @@ const StyledIcon = styled(Icon)`
   }
 `
 
-const Social: React.FunctionComponent<Props> = ({
+const Social: React.FunctionComponent<AllProps> = ({
   items,
   className,
   increment,
-  siteVisible,
+  testString,
 }) => {
   const icons = items.map((item, key) => (
     <Link key={key.toString()} target="_blank" onClick={increment}>
-      {siteVisible}
+      {testString}
       <StyledIcon name={item.node.label} />
     </Link>
   ))

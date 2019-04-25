@@ -22,8 +22,8 @@ import {
 
 import { connect } from "react-redux"
 
-const mapStateToProps = ({ token }: AuthStore) => {
-  return { token }
+const mapStateToProps = ({ testString }: AuthStore) => {
+  return { testString }
 }
 
 interface Props {
@@ -36,14 +36,14 @@ type AllProps = Props & AuthStore
 const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
   buttonHref,
-  token,
+  testString,
 }) => {
   return (
     <Container>
       <LogoPos>
         <Logo>
           <LogoMark />
-          <LogoTitle>Andy Hook {token}</LogoTitle>
+          <LogoTitle>Andy Hook {testString}</LogoTitle>
           <LogoSubtle>Interface Developer</LogoSubtle>
         </Logo>
       </LogoPos>
