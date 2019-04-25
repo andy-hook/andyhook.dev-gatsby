@@ -4,12 +4,18 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import React from "react"
+import React, { ReactNode } from "react"
 import Layout from "./layout"
 import { Provider } from "react-redux"
 import createStore from "../store"
 
-export const wrapLayoutWithProvider = ({ element, props }) => {
+interface Props {
+  element: ReactNode
+}
+
+const wrapLayoutWithProvider: React.FunctionComponent<Props> = ({
+  element,
+}) => {
   // Instantiating store in `wrapPageElement` ensures:
   //  - there is fresh store for each SSR page
   //  - it will be called only once in browser, when React mounts
@@ -17,7 +23,7 @@ export const wrapLayoutWithProvider = ({ element, props }) => {
 
   return (
     <Provider store={store}>
-      <Layout {...props}>{element}</Layout>
+      <Layout>{element}</Layout>
     </Provider>
   )
 }
