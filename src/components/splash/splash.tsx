@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { rem, between, rgba } from "polished"
 
 import { SocialItem } from "../../types"
-import { ApplicationState } from "../../store"
+import { AuthStore } from "../../storeTwo/module/auth/types"
 
 import Social from "../social/social"
 import date from "../../images/svg-import/date.svg"
@@ -22,8 +22,8 @@ import {
 
 import { connect } from "react-redux"
 
-const mapStateToProps = (state: ApplicationState) => {
-  return { count: state.count }
+const mapStateToProps = ({ token }: AuthStore) => {
+  return { token }
 }
 
 interface Props {
@@ -31,19 +31,19 @@ interface Props {
   buttonHref: string
 }
 
-type AllProps = Props & ApplicationState
+type AllProps = Props & AuthStore
 
 const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
   buttonHref,
-  count,
+  token,
 }) => {
   return (
     <Container>
       <LogoPos>
         <Logo>
           <LogoMark />
-          <LogoTitle>Andy Hook {count}</LogoTitle>
+          <LogoTitle>Andy Hook {token}</LogoTitle>
           <LogoSubtle>Interface Developer</LogoSubtle>
         </Logo>
       </LogoPos>

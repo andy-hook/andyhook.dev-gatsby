@@ -10,18 +10,31 @@ import {
   borderThickness,
 } from "../../style/variables"
 
+import {
+  siteVisibleAction,
+  setTokenAction,
+} from "../../storeTwo/module/auth/actions"
+import { AuthStore } from "../../storeTwo/module/auth/types"
+
 import { Dispatch } from "redux"
 
 import { connect } from "react-redux"
 
-const mapStateToProps = ({ count }) => {
-  return { count }
+const mapStateToProps = (state: AuthStore) => {
+  return {
+    siteVisible: state.token,
+  }
 }
+
+let test = "0"
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     increment: () => {
-      dispatch({ type: "INCREMENT" })
+      console.log("test")
+      test = test + "1"
+      dispatch(siteVisibleAction(false))
+      dispatch(setTokenAction(test))
     },
   }
 }
@@ -29,7 +42,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 interface Props {
   items: SocialItem[]
   className?: string
-  increment: any
 }
 
 const Container = styled.div`
@@ -93,11 +105,11 @@ const Social: React.FunctionComponent<Props> = ({
   items,
   className,
   increment,
-  count,
+  siteVisible,
 }) => {
   const icons = items.map((item, key) => (
     <Link key={key.toString()} target="_blank" onClick={increment}>
-      {count}
+      {siteVisible}
       <StyledIcon name={item.node.label} />
     </Link>
   ))
