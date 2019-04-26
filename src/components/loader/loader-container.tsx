@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
-import { Store } from "../../store/types"
+import { Store } from "../../types/store"
 
 import Loader from "./loader"
 import { loaderVisibleAction } from "../../store/actions"

@@ -1,4 +1,11 @@
-import { IAction, IPayloadedAction } from "./action-helpers"
+export interface IPayloadedAction<Type, Payload> {
+  type: Type
+  payload: Payload
+}
+
+export interface IAction<Type> {
+  type: Type
+}
 
 export interface Store {
   loaderVisible: boolean | false

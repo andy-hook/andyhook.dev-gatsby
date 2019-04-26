@@ -1,11 +1,4 @@
-export interface IPayloadedAction<Type, Payload> {
-  type: Type
-  payload: Payload
-}
-
-export interface IAction<Type> {
-  type: Type
-}
+import { IPayloadedAction, IAction } from "../types/store"
 
 export function createPayloadedAction<
   TAction extends IPayloadedAction<TAction["type"], TAction["payload"]>

@@ -3,7 +3,7 @@ import {
   IFlushTokenAction,
   ILoaderVisibleAction,
   ISetTestStringAction,
-} from "./types"
+} from "../types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
   "auth/flush-token"

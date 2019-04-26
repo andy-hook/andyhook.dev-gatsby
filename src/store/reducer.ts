@@ -1,5 +1,9 @@
 import { combineReducers } from "redux"
-import { Store, ILoaderVisibleAction, ISetTestStringAction } from "./types"
+import {
+  Store,
+  ILoaderVisibleAction,
+  ISetTestStringAction,
+} from "../types/store"
 
 const loaderVisible = (
   state: Store["loaderVisible"] = false,
