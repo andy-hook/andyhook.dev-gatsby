@@ -1,9 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { rem, between, rgba } from "polished"
-
 import { SocialItem } from "../../types/model"
-
 import Social from "../social/social"
 import date from "../../images/svg-import/date.svg"
 import mark from "../../images/svg-import/mark.svg"
@@ -47,7 +45,9 @@ const Splash: React.FunctionComponent<Props> = ({
       <SocialIcons items={socialIconData} />
       <Background>
         <BackgroundGradient />
-        <DateGraphic />
+        <Date>
+          <DateGraphic />
+        </Date>
       </Background>
     </Container>
   )
@@ -273,7 +273,7 @@ const SocialIcons = styled(Social)`
 
   font-size: ${typeScale[6]};
 
-  ${mq.between("bottomThumb", "topUltra")`
+  ${mq.between("bottomThumb", "bottomUltra")`
     font-size: ${between(
       typeScale[6],
       typeScale[8],
@@ -302,6 +302,10 @@ const Background = styled.div`
   overflow: hidden;
 
   z-index: 0;
+
+  ${mq.greaterThan("topWall")`
+    background-size: 35%;
+  `}
 `
 
 const BackgroundGradient = styled.div`
@@ -316,17 +320,16 @@ const BackgroundGradient = styled.div`
   background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #020203 80%);
 `
 
-const DateGraphic = styled(date)`
+const Date = styled.div`
+position: relative;
   width: 1em;
   height: 0.35em;
 
   font-size: ${rem("1400px")};
 
-  /* opacity: 0.75; */
-
   z-index: 1;
 
-  ${mq.lessThan("bottomDesk")`
+  ${mq.lessThan("topDesk")`
     position: absolute;
     left: 50%;
     top: 50%;
@@ -343,7 +346,7 @@ const DateGraphic = styled(date)`
     )};
   `}
 
-  ${mq.between("topDesk", "topUltra")`
+  ${mq.between("topDesk", "bottomUltra")`
     font-size: ${between(
       rem("1050px"),
       rem("1250px"),
@@ -355,6 +358,16 @@ const DateGraphic = styled(date)`
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(rem("1250px"), "topUltra")};
   `}
+`
+
+const DateGraphic = styled(date)`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
 `
 
 export default Splash
