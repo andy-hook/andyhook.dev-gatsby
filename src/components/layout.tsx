@@ -7,7 +7,7 @@
 
 import React, { ReactNode } from "react"
 import GlobalStyle from "../style/global-style"
-import LoaderContainer from "./loader/Loader-container"
+import LoaderContainer from "./loader/loader-container"
 
 interface Props {
   children: ReactNode
