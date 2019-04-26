@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { rem, between, rgba } from "polished"
 
-import { SocialItem } from "../../types"
+import { SocialItem } from "../../types/model"
 
 import Social from "../social/social"
 import date from "../../images/svg-import/date.svg"

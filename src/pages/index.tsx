@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
-import { SocialData } from "../types"
+import { SocialData } from "../types/model"
 
 import SEO from "../components/seo"
 import Splash from "../components/splash/splash"

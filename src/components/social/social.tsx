@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { SocialItem } from "../../types"
+import { SocialItem } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
 import {
