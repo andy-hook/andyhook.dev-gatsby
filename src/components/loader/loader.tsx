@@ -1,20 +1,34 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { TimelineMax, TweenLite } from "gsap"
+import { TimelineMax, TweenLite, Expo } from "gsap"
 
 interface Props {
   visible?: boolean
 }
 
-const Loader: React.FunctionComponent<Props> = () => {
-  const test = React.useRef() as React.MutableRefObject<HTMLImageElement>
+type ref = React.MutableRefObject<HTMLImageElement>
+
+const Loader: React.FunctionComponent<Props> = ({ visible }) => {
+  const containerRef: ref = React.useRef() as ref
   const timeline = new TimelineMax({ paused: true })
 
+  const hide = () => {
+    console.log("hide")
+    TweenLite.to(containerRef.current, 1, {
+      ease: Expo.easeOut,
+      transform: "translate3d(0,-100%,0)",
+    })
+  }
+
   useEffect(() => {
-    timeline.add(TweenLite.to(test.current, 1, { opacity: 0 })).play()
+    // timeline.add(TweenLite.to(containerRef.current, 1, { opacity: 0 })).play()
   })
 
-  return <Container ref={test} />
+  if (!visible) {
+    hide()
+  }
+
+  return <Container ref={containerRef} />
 }
 
 const Container = styled.div`

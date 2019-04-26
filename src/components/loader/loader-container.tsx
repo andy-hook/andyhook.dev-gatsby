@@ -19,7 +19,7 @@ const mapStateToProps = ({ loaderVisible }: Store) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     showSite: () => {
-      dispatch(loaderVisibleAction(true))
+      dispatch(loaderVisibleAction(false))
     },
   }
 }
