@@ -10,42 +10,10 @@ import {
   borderThickness,
 } from "../../style/variables"
 
-import { siteVisibleAction, setTestStringAction } from "../../store/actions"
-import { Store } from "../../store/types"
-
-import { Dispatch } from "redux"
-
-import { connect } from "react-redux"
-
-const mapStateToProps = ({ testString }: Store) => {
-  return {
-    testString,
-  }
-}
-
-let test = "0"
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    increment: () => {
-      console.log("test")
-      test = test + "1"
-      dispatch(siteVisibleAction(false))
-      dispatch(setTestStringAction(test))
-    },
-  }
-}
-
 interface Props {
   items: SocialItem[]
   className?: string
 }
-
-interface DispatchProps {
-  increment: () => void
-}
-
-type AllProps = Props & Partial<Store> & DispatchProps
 
 const Container = styled.div`
   display: flex;
@@ -104,15 +72,9 @@ const StyledIcon = styled(Icon)`
   }
 `
 
-const Social: React.FunctionComponent<AllProps> = ({
-  items,
-  className,
-  increment,
-  testString,
-}) => {
+const Social: React.FunctionComponent<Props> = ({ items, className }) => {
   const icons = items.map((item, key) => (
-    <Link key={key.toString()} target="_blank" onClick={increment}>
-      {testString}
+    <Link key={key.toString()} target="_blank" href={item.node.url}>
       <StyledIcon name={item.node.label} />
     </Link>
   ))
@@ -120,11 +82,4 @@ const Social: React.FunctionComponent<AllProps> = ({
   return <Container className={classNames("", className)}>{icons}</Container>
 }
 
-const ConnectedCounter = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Social)
-
-export default ConnectedCounter
-
-// export default Social
+export default Social
