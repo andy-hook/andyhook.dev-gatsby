@@ -7,6 +7,7 @@
 
 import React, { ReactNode } from "react"
 import GlobalStyle from "../style/global-style"
+import LoaderContainer from "./loader/Loader-container"
 
 interface Props {
   children: ReactNode
@@ -16,6 +17,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
   return (
     <>
       <GlobalStyle />
+      <LoaderContainer />
       {children}
     </>
   )
