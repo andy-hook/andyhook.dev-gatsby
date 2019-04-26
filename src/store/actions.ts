@@ -1,18 +1,18 @@
 import { createAction, createPayloadedAction } from "./action-helpers"
 import {
-  FlushTokenAction,
-  LoaderVisibleAction,
-  SetTestStringAction,
+  IFlushTokenAction,
+  ILoaderVisibleAction,
+  ISetTestStringAction,
 } from "./types"
 
-export const flushTokenAction = createAction<FlushTokenAction>(
+export const flushTokenAction = createAction<IFlushTokenAction>(
   "auth/flush-token"
 )
 
-export const loaderVisibleAction = createPayloadedAction<LoaderVisibleAction>(
+export const loaderVisibleAction = createPayloadedAction<ILoaderVisibleAction>(
   "loader-visible"
 )
 
-export const setTestStringAction = createPayloadedAction<SetTestStringAction>(
+export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(
   "set-test-string"
 )

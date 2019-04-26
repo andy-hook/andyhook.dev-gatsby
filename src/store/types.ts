@@ -1,14 +1,14 @@
-import { Action, PayloadedAction } from "./action-helpers"
+import { IAction, IPayloadedAction } from "./action-helpers"
 
 export interface Store {
   loaderVisible: boolean | false
   testString: string | null
 }
 
-export interface FlushTokenAction extends Action<"auth/flush-token"> {}
+export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
 
-export interface SetTestStringAction
-  extends PayloadedAction<"set-test-string", string> {}
+export interface ISetTestStringAction
+  extends IPayloadedAction<"set-test-string", string> {}
 
-export interface LoaderVisibleAction
-  extends PayloadedAction<"loader-visible", boolean> {}
+export interface ILoaderVisibleAction
+  extends IPayloadedAction<"loader-visible", boolean> {}

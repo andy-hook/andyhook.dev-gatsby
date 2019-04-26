@@ -1,28 +1,28 @@
-export interface PayloadedAction<Type, Payload> {
+export interface IPayloadedAction<Type, Payload> {
   type: Type
   payload: Payload
 }
 
-export interface Action<Type> {
+export interface IAction<Type> {
   type: Type
 }
 
 export function createPayloadedAction<
-  ActionType extends PayloadedAction<ActionType["type"], ActionType["payload"]>
+  TAction extends IPayloadedAction<TAction["type"], TAction["payload"]>
 >(
-  type: ActionType["type"]
+  type: TAction["type"]
 ): (
-  payload: ActionType["payload"]
-) => PayloadedAction<ActionType["type"], ActionType["payload"]> {
-  return (payload: ActionType["payload"]) => ({
+  payload: TAction["payload"]
+) => IPayloadedAction<TAction["type"], TAction["payload"]> {
+  return (payload: TAction["payload"]) => ({
     type,
     payload,
   })
 }
 
-export function createAction<ActionType extends Action<ActionType["type"]>>(
-  type: ActionType["type"]
-): () => Action<ActionType["type"]> {
+export function createAction<TAction extends IAction<TAction["type"]>>(
+  type: TAction["type"]
+): () => IAction<TAction["type"]> {
   return () => ({
     type,
   })

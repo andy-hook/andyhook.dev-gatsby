@@ -1,9 +1,9 @@
 import { combineReducers } from "redux"
-import { Store, LoaderVisibleAction, SetTestStringAction } from "./types"
+import { Store, ILoaderVisibleAction, ISetTestStringAction } from "./types"
 
 const loaderVisible = (
   state: Store["loaderVisible"] = false,
-  action: LoaderVisibleAction
+  action: ILoaderVisibleAction
 ): Store["loaderVisible"] => {
   switch (action.type) {
     case "loader-visible":
@@ -15,7 +15,7 @@ const loaderVisible = (
 
 const testString = (
   state: Store["testString"] = null,
-  action: SetTestStringAction
+  action: ISetTestStringAction
 ): Store["testString"] => {
   switch (action.type) {
     case "set-test-string":
