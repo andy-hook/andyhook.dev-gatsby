@@ -2,6 +2,14 @@
 
 exports[`<Loader /> renders correctly 1`] = `
 <div>
-  Hello world
+  <div
+    style={
+      Object {
+        "backgroundColor": "green",
+      }
+    }
+  >
+    Visible
+  </div>
 </div>
 `;
