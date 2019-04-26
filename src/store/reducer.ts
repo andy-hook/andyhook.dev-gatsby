@@ -1,12 +1,12 @@
 import { combineReducers } from "redux"
-import { Store, SiteVisibleAction, SetTestString } from "./types"
+import { Store, LoaderVisibleAction, SetTestStringAction } from "./types"
 
-const siteVisible = (
-  state: Store["siteVisible"] = false,
-  action: SiteVisibleAction
-): Store["siteVisible"] => {
+const loaderVisible = (
+  state: Store["loaderVisible"] = false,
+  action: LoaderVisibleAction
+): Store["loaderVisible"] => {
   switch (action.type) {
-    case "site-visible":
+    case "loader-visible":
       return action.payload
     default:
       return state
@@ -15,7 +15,7 @@ const siteVisible = (
 
 const testString = (
   state: Store["testString"] = null,
-  action: SetTestString
+  action: SetTestStringAction
 ): Store["testString"] => {
   switch (action.type) {
     case "set-test-string":
@@ -26,7 +26,7 @@ const testString = (
 }
 
 const rootReducer = combineReducers<Store>({
-  siteVisible,
+  loaderVisible,
   testString,
 })
 

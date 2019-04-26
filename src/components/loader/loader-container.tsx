@@ -4,7 +4,7 @@ import { Dispatch } from "redux"
 import { Store } from "../../store/types"
 
 import Loader from "./loader"
-import { siteVisibleAction } from "../../store/actions"
+import { loaderVisibleAction } from "../../store/actions"
 
 interface DispatchProps {
   showSite: () => void
@@ -12,28 +12,28 @@ interface DispatchProps {
 
 type AllProps = Partial<Store> & DispatchProps
 
-const mapStateToProps = ({ siteVisible }: Store) => {
-  return { siteVisible }
+const mapStateToProps = ({ loaderVisible }: Store) => {
+  return { loaderVisible }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     showSite: () => {
-      dispatch(siteVisibleAction(true))
+      dispatch(loaderVisibleAction(true))
     },
   }
 }
 
 const LoaderContainer: React.FunctionComponent<AllProps> = ({
   showSite,
-  siteVisible,
+  loaderVisible,
 }) => {
   // Test store update
   setTimeout(() => {
     showSite()
   }, 2000)
 
-  return <Loader visible={siteVisible} />
+  return <Loader visible={loaderVisible} />
 }
 
 const ConnectedLoaderContainer = connect(
