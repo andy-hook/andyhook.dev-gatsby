@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { SocialItem } from "../../types/model"
 import Icon from "../icon/icon"
@@ -9,15 +9,56 @@ import {
   duration,
   borderThickness,
 } from "../../style/variables"
+import { Store } from "../../types/store"
+import { Expo, TimelineLite } from "gsap"
 
 interface Props {
   items: SocialItem[]
   className?: string
+  visible?: boolean
+}
+
+type AllProps = Partial<Store> & Props
+
+type ref = React.MutableRefObject<HTMLImageElement>
+
+const Social: React.FunctionComponent<AllProps> = ({
+  items,
+  className,
+  visible,
+}) => {
+  const containerRef: ref = React.useRef() as ref
+  const containerTL = new TimelineLite()
+
+  useEffect(() => {
+    if (visible) {
+      containerTL.to(containerRef.current, 0.5, {
+        ease: Expo.easeOut,
+        transform: "translate3d(0,0,0)",
+        opacity: 1,
+      })
+    }
+  })
+
+  const icons = items.map((item, key) => (
+    <Link key={key.toString()} target="_blank" href={item.node.url}>
+      <StyledIcon name={item.node.label} />
+    </Link>
+  ))
+
+  return (
+    <Container ref={containerRef} className={classNames("", className)}>
+      {icons}
+    </Container>
+  )
 }
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
+
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
 `
 const Link = styled.a`
   position: relative;
@@ -71,15 +112,5 @@ const StyledIcon = styled(Icon)`
     opacity: 1;
   }
 `
-
-const Social: React.FunctionComponent<Props> = ({ items, className }) => {
-  const icons = items.map((item, key) => (
-    <Link key={key.toString()} target="_blank" href={item.node.url}>
-      <StyledIcon name={item.node.label} />
-    </Link>
-  ))
-
-  return <Container className={classNames("", className)}>{icons}</Container>
-}
 
 export default Social

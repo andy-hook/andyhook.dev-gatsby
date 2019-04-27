@@ -4,7 +4,7 @@ import React from "react"
 import { SocialData } from "../types/model"
 
 import SEO from "../components/seo"
-import Splash from "../components/splash/splash"
+import SplashContainer from "../components/splash/splash-container"
 
 interface Data {
   all: SocialData
@@ -45,7 +45,7 @@ const IndexPage: React.FunctionComponent = () => {
           `Brighton`,
         ]}
       />
-      <Splash
+      <SplashContainer
         socialIconData={data.all.edges}
         buttonHref={data.dribbble.edges[0].node.url}
       />

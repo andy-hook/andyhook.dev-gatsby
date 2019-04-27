@@ -1,28 +1,30 @@
 import React from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import { SocialItem } from "../../types/model"
 import Social from "../social/social"
 import Logo from "./logo"
+import { ContainerProps } from "./splash-container"
 import Details from "./details"
 import Background from "./background"
 import { uniformScale, mq } from "../../style/utils"
 import { emBreakpoints, typeScale } from "../../style/variables"
 
 interface Props {
-  socialIconData: SocialItem[]
-  buttonHref: string
+  visible?: boolean
 }
 
-const Splash: React.FunctionComponent<Props> = ({
+type AllProps = Props & ContainerProps
+
+const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
   buttonHref,
+  visible,
 }) => {
   return (
     <Container>
       <Logo />
       <Details buttonHref={buttonHref} />
-      <SocialIcons items={socialIconData} />
+      <SocialIcons items={socialIconData} visible={visible} />
       <Background />
     </Container>
   )

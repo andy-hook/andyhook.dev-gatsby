@@ -8,7 +8,7 @@ export interface IAction<Type> {
 }
 
 export interface Store {
-  loaderVisible: boolean | false
+  loaderVisible: boolean
   testString: string | null
 }
 
