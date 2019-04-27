@@ -7,7 +7,7 @@ import Loader from "./loader"
 import { loaderVisibleAction } from "../../store/actions"
 
 interface DispatchProps {
-  showSite: () => void
+  hideLoader: () => void
 }
 
 type AllProps = Partial<Store> & DispatchProps
@@ -18,14 +18,14 @@ const mapStateToProps = ({ loaderVisible }: Store) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    showSite: () => {
+    hideLoader: () => {
       dispatch(loaderVisibleAction(false))
     },
   }
 }
 
 const LoaderContainer: React.FunctionComponent<AllProps> = ({
-  showSite,
+  hideLoader,
   loaderVisible,
 }) => {
   const [shouldRenderLoader, setRender] = useState(true)
@@ -40,7 +40,7 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
 
   // Test store update
   setTimeout(() => {
-    showSite()
+    hideLoader()
   }, 2000)
 
   return <>{renderLoader()}</>
