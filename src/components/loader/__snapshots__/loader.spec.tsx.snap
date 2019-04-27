@@ -2,6 +2,10 @@
 
 exports[`<Loader /> renders correctly 1`] = `
 <div
-  className="sc-bdVaJa cbpDyY"
-/>
+  className="sc-bdVaJa eiQQZq"
+>
+  <div
+    className="sc-bwzfXH jQJGUl"
+  />
+</div>
 `;

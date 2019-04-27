@@ -4,7 +4,7 @@ import { Expo, TimelineLite } from "gsap"
 
 interface Props {
   visible?: boolean
-  onComplete: () => void
+  onComplete?: () => void | false
 }
 
 type ref = React.MutableRefObject<HTMLImageElement>
