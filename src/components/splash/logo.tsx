@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "../../style/utils"
@@ -10,10 +10,30 @@ import {
   letterSpacing,
   fontFamily,
 } from "../../style/variables"
+import { Expo, TimelineLite } from "gsap"
 
-const Logo: React.FunctionComponent = () => {
+type ref = React.MutableRefObject<HTMLImageElement>
+
+interface Props {
+  visible?: boolean
+}
+
+const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
+  const logoPosRef: ref = React.useRef() as ref
+  const logoPosTL = new TimelineLite()
+
+  useEffect(() => {
+    if (visible) {
+      logoPosTL.to(logoPosRef.current, 0.5, {
+        ease: Expo.easeOut,
+        transform: "translate3d(0,0,0)",
+        opacity: 1,
+      })
+    }
+  })
+
   return (
-    <LogoPos>
+    <LogoPos ref={logoPosRef}>
       <LogoInner>
         <LogoMark />
         <LogoTitle>Andy Hook</LogoTitle>
@@ -34,6 +54,9 @@ const LogoPos = styled.div`
   top: 9vh;
 
   z-index: 1;
+
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
 `
 
 const LogoInner = styled.h1`

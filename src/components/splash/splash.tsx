@@ -22,7 +22,7 @@ const Splash: React.FunctionComponent<AllProps> = ({
 }) => {
   return (
     <Container>
-      <Logo />
+      <Logo visible={visible} />
       <Details buttonHref={buttonHref} visible={visible} />
       <SocialIcons items={socialIconData} visible={visible} />
       <Background />

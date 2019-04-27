@@ -20,15 +20,18 @@ interface Props {
 
 type ref = React.MutableRefObject<HTMLImageElement>
 
-const Details: React.FunctionComponent<Props> = ({ buttonHref, visible }) => {
+const Details: React.FunctionComponent<Props> = ({
+  buttonHref,
+  visible = true,
+}) => {
   const containerRef: ref = React.useRef() as ref
   const containerTL = new TimelineLite()
 
   useEffect(() => {
     if (visible) {
-      containerTL.to(containerRef.current, 0.5, {
+      containerTL.to(containerRef.current, 0.75, {
         ease: Expo.easeOut,
-        transform: "translate3d(0,0,0)",
+        transform: "scale(1)",
         opacity: 1,
       })
     }
@@ -55,7 +58,7 @@ const Container = styled.div`
 
   z-index: 1;
 
-  transform: translate3d(0, 100%, 0);
+  transform: scale(1.5);
   opacity: 0;
 `
 

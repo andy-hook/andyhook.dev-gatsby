@@ -22,7 +22,7 @@ type ref = React.MutableRefObject<HTMLImageElement>
 const Social: React.FunctionComponent<Props> = ({
   items,
   className,
-  visible,
+  visible = true,
 }) => {
   const containerRef: ref = React.useRef() as ref
   const containerTL = new TimelineLite()

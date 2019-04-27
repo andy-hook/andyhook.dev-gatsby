@@ -5,7 +5,7 @@ exports[`<Splash /> renders correctly 1`] = `
   className="sc-kAzzGY iLDEHB"
 >
   <div
-    className="sc-EHOje wOSEH"
+    className="sc-EHOje ieUmHq"
   >
     <h1
       className="sc-bZQynM bAKAeH"
@@ -26,7 +26,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </h1>
   </div>
   <div
-    className="sc-iwsKbI crpEgL"
+    className="sc-iwsKbI byQnIu"
   >
     <h2
       className="sc-gZMcBi ffpxMF"
