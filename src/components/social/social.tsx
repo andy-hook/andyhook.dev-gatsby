@@ -9,7 +9,6 @@ import {
   duration,
   borderThickness,
 } from "../../style/variables"
-import { Store } from "../../types/store"
 import { Expo, TimelineLite } from "gsap"
 
 interface Props {
@@ -18,11 +17,9 @@ interface Props {
   visible?: boolean
 }
 
-type AllProps = Partial<Store> & Props
-
 type ref = React.MutableRefObject<HTMLImageElement>
 
-const Social: React.FunctionComponent<AllProps> = ({
+const Social: React.FunctionComponent<Props> = ({
   items,
   className,
   visible,

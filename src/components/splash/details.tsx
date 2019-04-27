@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "../../style/utils"
@@ -11,23 +11,40 @@ import {
   letterSpacing,
   duration,
 } from "../../style/variables"
+import { Expo, TimelineLite } from "gsap"
 
 interface Props {
   buttonHref: string
+  visible?: boolean
 }
 
-const Details: React.FunctionComponent<Props> = ({ buttonHref }) => {
+type ref = React.MutableRefObject<HTMLImageElement>
+
+const Details: React.FunctionComponent<Props> = ({ buttonHref, visible }) => {
+  const containerRef: ref = React.useRef() as ref
+  const containerTL = new TimelineLite()
+
+  useEffect(() => {
+    if (visible) {
+      containerTL.to(containerRef.current, 0.5, {
+        ease: Expo.easeOut,
+        transform: "translate3d(0,0,0)",
+        opacity: 1,
+      })
+    }
+  })
+
   return (
-    <ContainerInner>
+    <Container ref={containerRef}>
       <Title>I’m busy working on something new</Title>
       <CallToAction href={buttonHref} target="_blank">
         <CallToActionInner>View some of my work</CallToActionInner>
       </CallToAction>
-    </ContainerInner>
+    </Container>
   )
 }
 
-const ContainerInner = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
@@ -37,6 +54,9 @@ const ContainerInner = styled.div`
   margin-bottom: -3vh;
 
   z-index: 1;
+
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
 `
 
 const Title = styled.h2`
