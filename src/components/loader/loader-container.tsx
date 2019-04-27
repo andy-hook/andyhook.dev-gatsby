@@ -41,7 +41,7 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
   // Test store update
   setTimeout(() => {
     hideLoader()
-  }, 2000)
+  }, 500)
 
   return <>{renderLoader()}</>
 }

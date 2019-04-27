@@ -1,16 +1,35 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between, rem, rgba } from "polished"
 import { uniformScale, mq } from "../../style/utils"
 import heroBg from "../../images/hero-bg.svg"
 import date from "../../images/svg-import/date.svg"
 import { emBreakpoints } from "../../style/variables"
+import { Expo, TimelineLite } from "gsap"
 
-const Background: React.FunctionComponent = () => {
+interface Props {
+  visible?: boolean
+}
+
+type ref = React.MutableRefObject<HTMLImageElement>
+
+const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
+  const dateRef: ref = React.useRef() as ref
+  const dateTL = new TimelineLite()
+
+  useEffect(() => {
+    if (visible) {
+      dateTL.to(dateRef.current, 3, {
+        ease: Expo.easeOut,
+        opacity: 1,
+      })
+    }
+  })
+
   return (
     <Container>
       <BackgroundGradient />
-      <Date>
+      <Date ref={dateRef}>
         <DateGraphic />
       </Date>
     </Container>
@@ -58,6 +77,8 @@ position: relative;
   font-size: ${rem("1400px")};
 
   z-index: 1;
+
+  opacity: 0;
 
   ${mq.lessThan("topDesk")`
     position: absolute;
