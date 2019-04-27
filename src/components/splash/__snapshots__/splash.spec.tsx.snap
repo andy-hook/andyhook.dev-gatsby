@@ -2,7 +2,7 @@
 
 exports[`<Splash /> renders correctly 1`] = `
 <div
-  className="sc-iwsKbI bcjQpo"
+  className="sc-kAzzGY iLDEHB"
 >
   <div
     className="sc-EHOje wOSEH"
@@ -26,27 +26,27 @@ exports[`<Splash /> renders correctly 1`] = `
     </h1>
   </div>
   <div
-    className="sc-gZMcBi gQGlAh"
+    className="sc-iwsKbI kotApt"
   >
     <h2
-      className="sc-gqjmRU ixFOao"
+      className="sc-gZMcBi ffpxMF"
     >
       I’m busy working on something new
     </h2>
     <a
-      className="sc-VigVT cCdqzR"
+      className="sc-gqjmRU ewAGvt"
       href="http://www.google.com"
       target="_blank"
     >
       <span
-        className="sc-jTzLTM efIpCi"
+        className="sc-VigVT hhQtWQ"
       >
         View some of my work
       </span>
     </a>
   </div>
   <div
-    className="sc-fjdhpX kuTWWE sc-htpNat gXzayw"
+    className="sc-chPdSV sKQqU sc-htpNat gXzayw"
   >
     <a
       className="sc-bxivhb hzcpoQ"
@@ -84,14 +84,18 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-jzJRlG euujWJ"
+    className="sc-jTzLTM cAIhae"
   >
     <div
-      className="sc-cSHVUG hpBCYf"
+      className="sc-fjdhpX eFWdcR"
     />
-    <test-file-stub
-      className="sc-kAzzGY gfrgQr"
-    />
+    <div
+      className="sc-jzJRlG iAYHuJ"
+    >
+      <test-file-stub
+        className="sc-cSHVUG bgBSnc"
+      />
+    </div>
   </div>
 </div>
 `;
