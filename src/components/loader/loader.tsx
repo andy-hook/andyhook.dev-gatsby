@@ -15,16 +15,16 @@ const Loader: React.FunctionComponent<Props> = ({ visible, onComplete }) => {
   const markTL = new TimelineLite()
 
   const markOut = () => {
-    markTL.to(markRef.current, 0.5, {
+    markTL.to(markRef.current, 0.25, {
       ease: Expo.easeOut,
-      transform: "translate3d(0,-100%,0)",
+      transform: "translate3d(0,-50%,0)",
       opacity: 0,
       onComplete,
     })
   }
 
   const markIn = () => {
-    markTL.to(markRef.current, 0.5, {
+    markTL.to(markRef.current, 0.25, {
       ease: Expo.easeOut,
       transform: "translate3d(0,0,0)",
       opacity: 1,
@@ -66,7 +66,7 @@ const Mark = styled.div`
 
   background-color: white;
 
-  transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 50%, 0);
   opacity: 0;
 `
 
