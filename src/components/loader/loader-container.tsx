@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
 import { Store } from "../../types/store"
@@ -28,12 +28,22 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
   showSite,
   loaderVisible,
 }) => {
+  const [shouldRenderLoader, setRender] = useState(true)
+
+  const setRenderFalse = () => setRender(false)
+
+  const renderLoader = () => {
+    if (shouldRenderLoader) {
+      return <Loader visible={loaderVisible} onComplete={setRenderFalse} />
+    }
+  }
+
   // Test store update
   setTimeout(() => {
     showSite()
   }, 2000)
 
-  return <Loader visible={loaderVisible} />
+  return <>{renderLoader()}</>
 }
 
 const ConnectedLoaderContainer = connect(
