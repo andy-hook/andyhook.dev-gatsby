@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-https://sleepy-colden-db6be3.netlify.com/* https://andyhook.design/:splat 301!
+https://andyhook.netlify.com/* https://andyhook.design/:splat 301!
