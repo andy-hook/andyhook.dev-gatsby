@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { SocialItem } from "../../types/model"
+import { SocialMeta } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
 import changeCase from "change-case"
@@ -13,7 +13,7 @@ import {
 import { Expo, TimelineLite } from "gsap"
 
 interface Props {
-  items: SocialItem[]
+  items: SocialMeta
   className?: string
   visible?: boolean
 }
@@ -38,14 +38,14 @@ const Social: React.FunctionComponent<Props> = ({
     }
   })
 
-  const icons = items.map((item, key) => (
+  const icons = Object.keys(items).map(key => (
     <Link
       key={key.toString()}
-      aria-label={changeCase.upperCaseFirst(item.node.label)}
+      aria-label={changeCase.upperCaseFirst(items[key].label)}
       target="_blank"
-      href={item.node.url}
+      href={items[key].url}
     >
-      <StyledIcon name={item.node.label} />
+      <StyledIcon name={items[key].label} />
     </Link>
   ))
 

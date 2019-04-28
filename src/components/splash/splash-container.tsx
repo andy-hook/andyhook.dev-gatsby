@@ -1,11 +1,11 @@
 import React from "react"
 import Splash from "./splash"
-import { SocialItem } from "../../types/model"
+import { SocialMeta } from "../../types/model"
 import { Store } from "../../types/store"
 import { connect } from "react-redux"
 
 interface Props {
-  socialIconData: SocialItem[]
+  socialIconData: SocialMeta
   buttonHref: string
 }
 

@@ -35,7 +35,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </h2>
     <a
       className="sc-gqjmRU ewAGvt"
-      href="http://www.google.com"
+      href="path/to/social/profile"
       target="_blank"
     >
       <span
@@ -51,7 +51,7 @@ exports[`<Splash /> renders correctly 1`] = `
     <a
       aria-label="Twitter"
       className="sc-bxivhb hzcpoQ"
-      href="http://www.google.com"
+      href="path/to/social/profile"
       target="_blank"
     >
       <div
@@ -67,9 +67,27 @@ exports[`<Splash /> renders correctly 1`] = `
       </div>
     </a>
     <a
+      aria-label="Instagram"
+      className="sc-bxivhb hzcpoQ"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#instagram"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
       aria-label="Linkedin"
       className="sc-bxivhb hzcpoQ"
-      href="http://www.google.com"
+      href="path/to/social/profile"
       target="_blank"
     >
       <div
@@ -80,6 +98,42 @@ exports[`<Splash /> renders correctly 1`] = `
         >
           <use
             xlinkHref="/icon-sprite.svg#linkedin"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
+      aria-label="Dribbble"
+      className="sc-bxivhb hzcpoQ"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#dribbble"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
+      aria-label="Github"
+      className="sc-bxivhb hzcpoQ"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#github"
           />
         </svg>
       </div>

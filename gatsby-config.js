@@ -3,8 +3,31 @@ module.exports = {
     title: `Andy Hook | Fast, scalable, beautiful User Interfaces`,
     description: `Andy Hook is a Brighton based Front-end Developer and Digital Designer specializing in high-performance User Interface engineering`,
     author: `@Andy_Hook`,
+    email: `hello@andy-hook.co.uk`,
     defaultTwitterImage: `/images/social/twitter-preview.png`,
     defaultOgImage: `/images/social/og-preview.png`,
+    social: {
+      instagram: {
+        label: "instagram",
+        url: "https://www.instagram.com/andyhooky/",
+      },
+      twitter: {
+        label: "twitter",
+        url: "https://twitter.com/andy_hook",
+      },
+      dribbble: {
+        label: "dribbble",
+        url: "https://dribbble.com/andyhook",
+      },
+      github: {
+        label: "github",
+        url: "https://github.com/andy-hook",
+      },
+      linkedin: {
+        label: "linkedin",
+        url: "https://www.linkedin.com/in/andyahook",
+      },
+    },
   },
   plugins: [
     `gatsby-plugin-typescript`,

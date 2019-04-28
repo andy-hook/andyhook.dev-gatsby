@@ -2,25 +2,34 @@ import React from "react"
 
 import { storiesOf } from "@storybook/react"
 import Splash from "./splash"
+import { SocialMeta } from "../../types/model"
 
-const mockSocialData = [
-  {
-    node: {
-      label: "twitter",
-      url: "http://www.google.com",
-    },
+const mockSocialData: SocialMeta = {
+  twitter: {
+    label: "twitter",
+    url: "path/to/social/profile",
   },
-  {
-    node: {
-      label: "linkedin",
-      url: "http://www.google.com",
-    },
+  instagram: {
+    label: "instagram",
+    url: "path/to/social/profile",
   },
-]
+  linkedin: {
+    label: "linkedin",
+    url: "path/to/social/profile",
+  },
+  dribbble: {
+    label: "dribbble",
+    url: "path/to/social/profile",
+  },
+  github: {
+    label: "github",
+    url: "path/to/social/profile",
+  },
+}
 
 storiesOf("Splash", module).add("with text", () => (
   <Splash
     socialIconData={mockSocialData}
-    buttonHref={mockSocialData[0].node.url}
+    buttonHref={mockSocialData.dribbble.url}
   />
 ))
