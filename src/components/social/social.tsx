@@ -30,11 +30,19 @@ const Social: React.FunctionComponent<Props> = ({
 
   useEffect(() => {
     if (visible) {
-      containerTL.to(containerRef.current, 0.5, {
-        ease: Expo.easeOut,
-        transform: "translate3d(0,0,0)",
-        opacity: 1,
-      })
+      containerTL.fromTo(
+        containerRef.current,
+        0.5,
+        {
+          y: "100%",
+        },
+        {
+          ease: Expo.easeOut,
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
     }
   })
 
@@ -60,7 +68,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
 
-  transform: translate3d(0, 100%, 0);
   opacity: 0;
 `
 const Link = styled.a`

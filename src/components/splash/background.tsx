@@ -30,7 +30,6 @@ const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
           scale: 1.1,
         },
         {
-          // ease: Expo.easeOut,
           ease: Elastic.easeOut.config(0.8, 1),
           scale: 1,
           opacity: 1,

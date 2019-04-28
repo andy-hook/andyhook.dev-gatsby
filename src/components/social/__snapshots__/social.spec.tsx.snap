@@ -2,7 +2,7 @@
 
 exports[`<Social /> renders correctly 1`] = `
 <div
-  className="sc-htpNat jRLNOd"
+  className="sc-htpNat ekPird"
 >
   <a
     aria-label="Twitter"

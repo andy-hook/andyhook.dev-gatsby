@@ -46,7 +46,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-chPdSV sKQqU sc-htpNat jRLNOd"
+    className="sc-chPdSV sKQqU sc-htpNat ekPird"
   >
     <a
       aria-label="Twitter"

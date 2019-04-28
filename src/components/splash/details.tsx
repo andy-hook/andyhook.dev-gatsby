@@ -39,6 +39,7 @@ const Details: React.FunctionComponent<Props> = ({
           ease: Elastic.easeOut.config(0.8, 1),
           scale: 1,
           opacity: 1,
+          clearProps: "transform",
         }
       )
     }
