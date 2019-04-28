@@ -18,7 +18,7 @@ type AllProps = Props & ContainerProps
 const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
   buttonHref,
-  visible,
+  visible = true,
 }) => {
   const [elementsVisible, showElements] = useState(false)
 
