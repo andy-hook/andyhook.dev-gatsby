@@ -85,7 +85,7 @@ const Loader: React.FunctionComponent<Props> = ({
         <MarkSVG viewBox="0 0 85 85">
           <defs>
             <linearGradient
-              id="a"
+              id="markGradient"
               x1="-35.42%"
               x2="86.43%"
               y1="20.18%"
@@ -96,7 +96,7 @@ const Loader: React.FunctionComponent<Props> = ({
             </linearGradient>
           </defs>
           <path
-            fill="url(#a)"
+            fill="url(#markGradient)"
             d="M17.52 11h50.26c3.6 0 6.52 2.92 6.52 6.52v50.26c0 3.6-2.92 6.52-6.52 6.52H17.52A6.52 6.52 0 0 1 11 67.78V17.52c0-3.6 2.92-6.52 6.52-6.52z"
             transform="rotate(45 42.65 42.65)"
           />
