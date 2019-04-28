@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { SocialItem } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
+import changeCase from "change-case"
 import {
   borderRadius,
   easing,
@@ -38,7 +39,12 @@ const Social: React.FunctionComponent<Props> = ({
   })
 
   const icons = items.map((item, key) => (
-    <Link key={key.toString()} target="_blank" href={item.node.url}>
+    <Link
+      key={key.toString()}
+      aria-label={changeCase.upperCaseFirst(item.node.label)}
+      target="_blank"
+      href={item.node.url}
+    >
       <StyledIcon name={item.node.label} />
     </Link>
   ))

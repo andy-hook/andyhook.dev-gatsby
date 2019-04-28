@@ -22,19 +22,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `andyhook.design`,
+        short_name: `andyhook`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#0D0D0F`,
+        theme_color: `#651BC7`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
 
-    "gatsby-transformer-json",
+    `gatsby-transformer-json`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/data`,
       },
@@ -42,7 +42,7 @@ module.exports = {
 
     // Typekit font loading
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
         typekit: {
           id: `dfp8ggi`,
@@ -52,7 +52,7 @@ module.exports = {
 
     // Import SVG as react components
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: `${__dirname}/src/images/svg-import`,
@@ -62,7 +62,12 @@ module.exports = {
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        globPatterns: ["**/*.{js,svg,html,css}"],
+      },
+    },
 
     // Netlify integration and redirects
     `gatsby-plugin-netlify`,
