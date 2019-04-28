@@ -49,6 +49,7 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-chPdSV sKQqU sc-htpNat jRLNOd"
   >
     <a
+      aria-label="Twitter"
       className="sc-bxivhb hzcpoQ"
       href="http://www.google.com"
       target="_blank"
@@ -66,6 +67,7 @@ exports[`<Splash /> renders correctly 1`] = `
       </div>
     </a>
     <a
+      aria-label="Linkedin"
       className="sc-bxivhb hzcpoQ"
       href="http://www.google.com"
       target="_blank"
