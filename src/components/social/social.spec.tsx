@@ -2,34 +2,11 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import Social from "./social"
-import { ISocialMeta } from "../../types/model"
-
-const mockItems: ISocialMeta = {
-  twitter: {
-    label: "twitter",
-    url: "path/to/social/profile",
-  },
-  instagram: {
-    label: "instagram",
-    url: "path/to/social/profile",
-  },
-  linkedin: {
-    label: "linkedin",
-    url: "path/to/social/profile",
-  },
-  dribbble: {
-    label: "dribbble",
-    url: "path/to/social/profile",
-  },
-  github: {
-    label: "github",
-    url: "path/to/social/profile",
-  },
-}
+import { socialIcons } from "../../mock-data"
 
 describe("<Social />", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Social items={mockItems} />).toJSON()
+    const tree = renderer.create(<Social items={socialIcons} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
