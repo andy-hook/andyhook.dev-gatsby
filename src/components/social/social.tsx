@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { SocialMeta } from "../../types/model"
+import { ISocialMeta } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
 import changeCase from "change-case"
@@ -13,7 +13,7 @@ import {
 import { Expo, TimelineLite } from "gsap"
 
 interface Props {
-  items: SocialMeta
+  items: ISocialMeta
   className?: string
   visible?: boolean
 }

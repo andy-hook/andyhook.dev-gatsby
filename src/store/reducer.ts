@@ -1,14 +1,14 @@
 import { combineReducers } from "redux"
 import {
-  Store,
+  IStore,
   ILoaderVisibleAction,
   ISetTestStringAction,
 } from "../types/store"
 
 const loaderVisible = (
-  state: Store["loaderVisible"] = true,
+  state: IStore["loaderVisible"] = true,
   action: ILoaderVisibleAction
-): Store["loaderVisible"] => {
+): IStore["loaderVisible"] => {
   switch (action.type) {
     case "loader-visible":
       return action.payload
@@ -18,9 +18,9 @@ const loaderVisible = (
 }
 
 const testString = (
-  state: Store["testString"] = null,
+  state: IStore["testString"] = null,
   action: ISetTestStringAction
-): Store["testString"] => {
+): IStore["testString"] => {
   switch (action.type) {
     case "set-test-string":
       return action.payload
@@ -29,7 +29,7 @@ const testString = (
   }
 }
 
-const rootReducer = combineReducers<Store>({
+const rootReducer = combineReducers<IStore>({
   loaderVisible,
   testString,
 })

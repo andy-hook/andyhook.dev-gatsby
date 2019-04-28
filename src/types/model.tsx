@@ -1,33 +1,33 @@
-export interface SocialMetaItem {
+export interface ISocialMetaItem {
   label: "dribbble" | "instagram" | "linkedin" | "twitter" | "github"
   url: string
 }
 
-export interface SocialMeta {
-  [key: string]: SocialMetaItem
-  dribbble: SocialMetaItem
-  twitter: SocialMetaItem
-  instagram: SocialMetaItem
-  linkedin: SocialMetaItem
-  github: SocialMetaItem
+export interface ISocialMeta {
+  [key: string]: ISocialMetaItem
+  dribbble: ISocialMetaItem
+  twitter: ISocialMetaItem
+  instagram: ISocialMetaItem
+  linkedin: ISocialMetaItem
+  github: ISocialMetaItem
 }
 
-export interface SocialMetaData {
+export interface ISocialMetaData {
   siteMetadata: {
-    social: SocialMeta
+    social: ISocialMeta
   }
 }
 
-export interface MetaData {
+export interface IMeta {
   title: string
   description: string
   author: string
   email: string
   defaultTwitterImage: string
   defaultOgImage: string
-  social: SocialMeta
+  social: ISocialMeta
 }
 
-export interface MetaDataQuery {
-  siteMetadata: MetaData
+export interface IMetaData {
+  siteMetadata: IMeta
 }

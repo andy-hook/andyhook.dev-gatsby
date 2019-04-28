@@ -2,9 +2,9 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import Splash from "./splash"
-import { SocialMeta } from "../../types/model"
+import { ISocialMeta } from "../../types/model"
 
-const mockSocialData: SocialMeta = {
+const mockSocialData: ISocialMeta = {
   twitter: {
     label: "twitter",
     url: "path/to/social/profile",

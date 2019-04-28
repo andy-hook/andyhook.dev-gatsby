@@ -1,17 +1,17 @@
 import React from "react"
 import Splash from "./splash"
-import { SocialMeta } from "../../types/model"
-import { Store } from "../../types/store"
+import { ISocialMeta } from "../../types/model"
+import { IStore } from "../../types/store"
 import { connect } from "react-redux"
 
 interface Props {
-  socialIconData: SocialMeta
+  socialIconData: ISocialMeta
   buttonHref: string
 }
 
-export type ContainerProps = Props & Partial<Store>
+export type ContainerProps = Props & Partial<IStore>
 
-const mapStateToProps = ({ loaderVisible }: Store) => {
+const mapStateToProps = ({ loaderVisible }: IStore) => {
   return { loaderVisible }
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
-import { Store } from "../../types/store"
+import { IStore } from "../../types/store"
 
 import Loader from "./loader"
 import { loaderVisibleAction } from "../../store/actions"
@@ -10,9 +10,9 @@ interface DispatchProps {
   hideLoader: () => void
 }
 
-type AllProps = Partial<Store> & DispatchProps
+type AllProps = Partial<IStore> & DispatchProps
 
-const mapStateToProps = ({ loaderVisible }: Store) => {
+const mapStateToProps = ({ loaderVisible }: IStore) => {
   return { loaderVisible }
 }
 

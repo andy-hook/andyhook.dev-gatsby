@@ -2,9 +2,9 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import Social from "./social"
-import { SocialMeta } from "../../types/model"
+import { ISocialMeta } from "../../types/model"
 
-const mockItems: SocialMeta = {
+const mockItems: ISocialMeta = {
   twitter: {
     label: "twitter",
     url: "path/to/social/profile",

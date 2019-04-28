@@ -2,9 +2,9 @@ import React from "react"
 
 import { storiesOf } from "@storybook/react"
 import Social from "./social"
-import { SocialMeta } from "../../types/model"
+import { ISocialMeta } from "../../types/model"
 
-const items: SocialMeta = {
+const items: ISocialMeta = {
   twitter: {
     label: "twitter",
     url: "path/to/social/profile",
