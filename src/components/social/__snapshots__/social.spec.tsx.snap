@@ -5,6 +5,7 @@ exports[`<Social /> renders correctly 1`] = `
   className="sc-htpNat jRLNOd"
 >
   <a
+    aria-label="This is a label"
     className="sc-bxivhb hzcpoQ"
     href="path/to/social/profile"
     target="_blank"

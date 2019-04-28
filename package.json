@@ -6,10 +6,12 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
+    "change-case": "^3.1.0",
     "classnames": "^2.2.6",
     "gatsby": "^2.3.16",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-netlify": "^2.0.15",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-svg": "^2.1.1",
@@ -30,8 +32,7 @@
     "redux": "^4.0.1",
     "styled-components": "^4.2.0",
     "styled-media-query": "^2.1.1",
-    "styled-normalize": "^8.0.6",
-    "gatsby-plugin-netlify": "^2.0.15"
+    "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
