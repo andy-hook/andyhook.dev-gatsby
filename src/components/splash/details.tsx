@@ -11,7 +11,7 @@ import {
   letterSpacing,
   duration,
 } from "../../style/variables"
-import { Expo, TimelineLite } from "gsap"
+import { TimelineLite, Elastic } from "gsap"
 
 interface Props {
   buttonHref: string
@@ -29,11 +29,18 @@ const Details: React.FunctionComponent<Props> = ({
 
   useEffect(() => {
     if (visible) {
-      containerTL.to(containerRef.current, 0.75, {
-        ease: Expo.easeOut,
-        transform: "scale(1)",
-        opacity: 1,
-      })
+      containerTL.fromTo(
+        containerRef.current,
+        0.75,
+        {
+          scale: 1.5,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+        }
+      )
     }
   })
 
@@ -58,7 +65,6 @@ const Container = styled.div`
 
   z-index: 1;
 
-  transform: scale(1.5);
   opacity: 0;
 
   will-change: transform;

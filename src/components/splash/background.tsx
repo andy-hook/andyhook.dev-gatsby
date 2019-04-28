@@ -5,7 +5,7 @@ import { uniformScale, mq } from "../../style/utils"
 import heroBg from "../../images/hero-bg.svg"
 import date from "../../images/svg-import/date.svg"
 import { emBreakpoints } from "../../style/variables"
-import { Expo, TweenMax } from "gsap"
+import { TweenMax, Elastic } from "gsap"
 
 interface Props {
   visible?: boolean
@@ -18,7 +18,7 @@ const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
   const containerRef: divRef = React.useRef() as divRef
 
   useEffect(() => {
-    TweenMax.to(containerRef.current, 3, {
+    TweenMax.to(containerRef.current, 0.9, {
       opacity: 1,
     })
 
@@ -30,7 +30,8 @@ const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
           scale: 1.1,
         },
         {
-          ease: Expo.easeOut,
+          // ease: Expo.easeOut,
+          ease: Elastic.easeOut.config(0.8, 1),
           scale: 1,
           opacity: 1,
           clearProps: "transform",
@@ -81,7 +82,7 @@ const BackgroundGradient = styled.div`
 
   z-index: 2;
 
-  background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #020203 80%);
+  background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #050506 80%);
 `
 
 const Date = styled.div`
