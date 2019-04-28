@@ -32,16 +32,23 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
 
   const setRenderFalse = () => setRender(false)
 
-  const renderLoader = () => {
-    if (shouldRenderLoader) {
-      return <Loader visible={loaderVisible} onComplete={setRenderFalse} />
-    }
+  const hideLoaderDelay = () => {
+    setTimeout(() => {
+      hideLoader()
+    }, 500)
   }
 
-  // Test store update
-  setTimeout(() => {
-    hideLoader()
-  }, 500)
+  const renderLoader = () => {
+    if (shouldRenderLoader) {
+      return (
+        <Loader
+          visible={loaderVisible}
+          onEnterComplete={hideLoaderDelay}
+          onLeaveComplete={setRenderFalse}
+        />
+      )
+    }
+  }
 
   return <>{renderLoader()}</>
 }

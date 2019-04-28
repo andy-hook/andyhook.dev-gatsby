@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import Social from "../social/social"
@@ -20,12 +20,22 @@ const Splash: React.FunctionComponent<AllProps> = ({
   buttonHref,
   visible,
 }) => {
+  const [elementsVisible, showElements] = useState(false)
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        showElements(true)
+      }, 600)
+    }
+  })
+
   return (
     <Container>
-      <Logo visible={visible} />
-      <Details buttonHref={buttonHref} visible={visible} />
-      <SocialIcons items={socialIconData} visible={visible} />
-      <Background visible={visible} />
+      <Logo visible={elementsVisible} />
+      <Details buttonHref={buttonHref} visible={elementsVisible} />
+      <SocialIcons items={socialIconData} visible={elementsVisible} />
+      <Background visible={elementsVisible} />
     </Container>
   )
 }

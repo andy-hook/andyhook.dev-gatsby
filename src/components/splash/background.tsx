@@ -5,7 +5,7 @@ import { uniformScale, mq } from "../../style/utils"
 import heroBg from "../../images/hero-bg.svg"
 import date from "../../images/svg-import/date.svg"
 import { emBreakpoints } from "../../style/variables"
-import { Expo, TimelineLite } from "gsap"
+import { Expo, TimelineMax } from "gsap"
 
 interface Props {
   visible?: boolean
@@ -15,7 +15,7 @@ type ref = React.MutableRefObject<HTMLImageElement>
 
 const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
   const dateRef: ref = React.useRef() as ref
-  const dateTL = new TimelineLite()
+  const dateTL = new TimelineMax()
 
   useEffect(() => {
     if (visible) {
