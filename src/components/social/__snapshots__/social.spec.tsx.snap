@@ -8,6 +8,7 @@ exports[`<Social /> renders correctly 1`] = `
     aria-label="Twitter"
     className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
+    onClick={[Function]}
     target="_blank"
   >
     <div
@@ -26,6 +27,7 @@ exports[`<Social /> renders correctly 1`] = `
     aria-label="Instagram"
     className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
+    onClick={[Function]}
     target="_blank"
   >
     <div
@@ -44,6 +46,7 @@ exports[`<Social /> renders correctly 1`] = `
     aria-label="Linkedin"
     className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
+    onClick={[Function]}
     target="_blank"
   >
     <div
@@ -62,6 +65,7 @@ exports[`<Social /> renders correctly 1`] = `
     aria-label="Dribbble"
     className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
+    onClick={[Function]}
     target="_blank"
   >
     <div
@@ -80,6 +84,7 @@ exports[`<Social /> renders correctly 1`] = `
     aria-label="Github"
     className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
+    onClick={[Function]}
     target="_blank"
   >
     <div
