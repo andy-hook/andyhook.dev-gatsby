@@ -56,7 +56,6 @@ const IndexPage: React.FunctionComponent = () => {
       />
       <SplashContainer
         socialIconData={data.socialIconData.siteMetadata.social}
-        buttonHref={data.socialIconData.siteMetadata.social.dribbble.url}
       />
     </>
   )
