@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Andy Hook | Fast, scalable, beautiful User Interfaces`,
-    description: `Andy Hook is a Brighton based Front-end Developer and Digital Designer specializing in high-performance User Interface engineering`,
+    title: `Andy Hook – Fast, scalable, beautiful user interfaces`,
+    description: `Andy Hook is a Brighton based web developer and digital designer specialising in high-performance UI engineering`,
     author: `@Andy_Hook`,
     email: `hello@andy-hook.co.uk`,
     defaultTwitterImage: `/images/social/twitter-preview.png`,

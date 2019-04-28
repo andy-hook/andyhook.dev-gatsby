@@ -78,7 +78,7 @@ const Link = styled.a`
   padding: 0.75em;
 
   &:not(:last-child) {
-    margin-right: 0.3em;
+    margin-right: 0.1em;
   }
 
   &::after {

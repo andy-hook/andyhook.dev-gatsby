@@ -7,8 +7,9 @@ exports[`<Splash /> renders correctly 1`] = `
   <div
     className="sc-EHOje bfhsAB"
   >
-    <h1
-      className="sc-bZQynM bAKAeH"
+    <a
+      className="sc-bZQynM kZibrT"
+      href="/"
     >
       <test-file-stub
         className="sc-gzVnrw kzdxRF"
@@ -23,7 +24,7 @@ exports[`<Splash /> renders correctly 1`] = `
       >
         Interface Developer
       </span>
-    </h1>
+    </a>
   </div>
   <div
     className="sc-iwsKbI kDQOXt"
@@ -41,7 +42,7 @@ exports[`<Splash /> renders correctly 1`] = `
       <span
         className="sc-VigVT hhQtWQ"
       >
-        View some of my work
+        View some previous work
       </span>
     </a>
   </div>
@@ -50,7 +51,7 @@ exports[`<Splash /> renders correctly 1`] = `
   >
     <a
       aria-label="Twitter"
-      className="sc-bxivhb hzcpoQ"
+      className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"
       target="_blank"
     >
@@ -68,7 +69,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
     <a
       aria-label="Instagram"
-      className="sc-bxivhb hzcpoQ"
+      className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"
       target="_blank"
     >
@@ -86,7 +87,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
     <a
       aria-label="Linkedin"
-      className="sc-bxivhb hzcpoQ"
+      className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"
       target="_blank"
     >
@@ -104,7 +105,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
     <a
       aria-label="Dribbble"
-      className="sc-bxivhb hzcpoQ"
+      className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"
       target="_blank"
     >
@@ -122,7 +123,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
     <a
       aria-label="Github"
-      className="sc-bxivhb hzcpoQ"
+      className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"
       target="_blank"
     >

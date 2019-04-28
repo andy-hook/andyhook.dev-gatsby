@@ -6,7 +6,7 @@ exports[`<Social /> renders correctly 1`] = `
 >
   <a
     aria-label="Twitter"
-    className="sc-bxivhb hzcpoQ"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >
@@ -24,7 +24,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Instagram"
-    className="sc-bxivhb hzcpoQ"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >
@@ -42,7 +42,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Linkedin"
-    className="sc-bxivhb hzcpoQ"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >
@@ -60,7 +60,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Dribbble"
-    className="sc-bxivhb hzcpoQ"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >
@@ -78,7 +78,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Github"
-    className="sc-bxivhb hzcpoQ"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >

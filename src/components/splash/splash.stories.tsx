@@ -5,5 +5,5 @@ import Splash from "./splash"
 import { socialIcons } from "../../mock-data"
 
 storiesOf("Splash", module).add("with text", () => (
-  <Splash socialIconData={socialIcons} buttonHref={socialIcons.dribbble.url} />
+  <Splash socialIconData={socialIcons} />
 ))

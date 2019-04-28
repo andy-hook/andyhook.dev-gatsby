@@ -49,7 +49,7 @@ const Details: React.FunctionComponent<Props> = ({
     <Container ref={containerRef}>
       <Title>I’m busy working on something new</Title>
       <CallToAction href={buttonHref} target="_blank">
-        <CallToActionInner>View some of my work</CallToActionInner>
+        <CallToActionInner>View some previous work</CallToActionInner>
       </CallToAction>
     </Container>
   )
