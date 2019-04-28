@@ -26,7 +26,7 @@ const Splash: React.FunctionComponent<AllProps> = ({
     if (visible) {
       setTimeout(() => {
         showElements(true)
-      }, 600)
+      }, 650)
     }
   })
 

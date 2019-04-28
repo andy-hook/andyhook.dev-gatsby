@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { rem, between } from "polished"
-import { Expo, TimelineMax, TweenMax, Elastic } from "gsap"
+import { Expo, TimelineMax, Elastic } from "gsap"
 import { uniformScale, mq } from "../../style/utils"
 import { emBreakpoints } from "../../style/variables"
 
@@ -26,7 +26,7 @@ const Loader: React.FunctionComponent<Props> = ({
   const boltTL = new TimelineMax()
 
   const markOut = () => {
-    markTL.to(markRef.current, 0.6, {
+    markTL.to(markRef.current, 0.7, {
       ease: Elastic.easeIn.config(1, 0.7),
       transform: "scale(0.1)",
       opacity: 0,
@@ -35,31 +35,39 @@ const Loader: React.FunctionComponent<Props> = ({
   }
 
   const markIn = () => {
-    TweenMax.set(markRef.current, {
-      scale: 0.1,
-    })
-    markTL.to(markRef.current, 0.7, {
-      ease: Elastic.easeOut.config(1, 0.6),
-      scale: 1,
-      opacity: 1,
-      onComplete: onEnterComplete,
-    })
+    markTL.fromTo(
+      markRef.current,
+      0.7,
+      {
+        scale: 0.1,
+      },
+      {
+        ease: Elastic.easeOut.config(1, 0.6),
+        scale: 1,
+        opacity: 1,
+        onComplete: onEnterComplete,
+      }
+    )
   }
 
   const boltIn = () => {
-    TweenMax.set(boltRef.current, {
-      opacity: 0,
-      rotation: -30,
-      scale: 0.1,
-      transformOrigin: "bottom right",
-    })
-    boltTL.to(boltRef.current, 0.5, {
-      ease: Expo.easeOut,
-      delay: 0.1,
-      rotation: 0,
-      scale: 1,
-      opacity: 1,
-    })
+    boltTL.fromTo(
+      boltRef.current,
+      0.5,
+      {
+        opacity: 0,
+        rotation: -30,
+        scale: 0.1,
+        transformOrigin: "bottom right",
+      },
+      {
+        ease: Expo.easeOut,
+        delay: 0.1,
+        rotation: 0,
+        scale: 1,
+        opacity: 1,
+      }
+    )
   }
 
   const animateIn = () => {

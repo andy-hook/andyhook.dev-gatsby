@@ -60,6 +60,8 @@ const Container = styled.div`
 
   transform: scale(1.5);
   opacity: 0;
+
+  will-change: transform;
 `
 
 const Title = styled.h2`

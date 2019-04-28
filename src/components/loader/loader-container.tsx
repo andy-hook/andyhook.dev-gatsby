@@ -35,7 +35,7 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
   const hideLoaderDelay = () => {
     setTimeout(() => {
       hideLoader()
-    }, 500)
+    }, 200)
   }
 
   const renderLoader = () => {

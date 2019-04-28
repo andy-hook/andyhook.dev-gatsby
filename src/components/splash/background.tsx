@@ -5,29 +5,42 @@ import { uniformScale, mq } from "../../style/utils"
 import heroBg from "../../images/hero-bg.svg"
 import date from "../../images/svg-import/date.svg"
 import { emBreakpoints } from "../../style/variables"
-import { Expo, TimelineMax } from "gsap"
+import { Expo, TweenMax } from "gsap"
 
 interface Props {
   visible?: boolean
 }
 
-type ref = React.MutableRefObject<HTMLImageElement>
+type divRef = React.MutableRefObject<HTMLDivElement>
 
 const Background: React.FunctionComponent<Props> = ({ visible = true }) => {
-  const dateRef: ref = React.useRef() as ref
-  const dateTL = new TimelineMax()
+  const dateRef: divRef = React.useRef() as divRef
+  const containerRef: divRef = React.useRef() as divRef
 
   useEffect(() => {
+    TweenMax.to(containerRef.current, 3, {
+      opacity: 1,
+    })
+
     if (visible) {
-      dateTL.to(dateRef.current, 3, {
-        ease: Expo.easeOut,
-        opacity: 1,
-      })
+      TweenMax.fromTo(
+        dateRef.current,
+        0.8,
+        {
+          scale: 1.1,
+        },
+        {
+          ease: Expo.easeOut,
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
     }
   })
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <BackgroundGradient />
       <Date ref={dateRef}>
         <DateGraphic />
@@ -51,6 +64,8 @@ const Container = styled.div`
   overflow: hidden;
 
   z-index: 0;
+
+  opacity: 0;
 
   ${mq.greaterThan("topWall")`
     background-size: 35%;
