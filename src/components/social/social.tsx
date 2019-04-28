@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { SocialItem } from "../../types/model"
+import { ISocialMeta } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
 import changeCase from "change-case"
@@ -13,7 +13,7 @@ import {
 import { Expo, TimelineLite } from "gsap"
 
 interface Props {
-  items: SocialItem[]
+  items: ISocialMeta
   className?: string
   visible?: boolean
 }
@@ -30,22 +30,30 @@ const Social: React.FunctionComponent<Props> = ({
 
   useEffect(() => {
     if (visible) {
-      containerTL.to(containerRef.current, 0.5, {
-        ease: Expo.easeOut,
-        transform: "translate3d(0,0,0)",
-        opacity: 1,
-      })
+      containerTL.fromTo(
+        containerRef.current,
+        0.5,
+        {
+          y: "100%",
+        },
+        {
+          ease: Expo.easeOut,
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
     }
   })
 
-  const icons = items.map((item, key) => (
+  const icons = Object.keys(items).map(key => (
     <Link
       key={key.toString()}
-      aria-label={changeCase.upperCaseFirst(item.node.label)}
+      aria-label={changeCase.upperCaseFirst(items[key].label)}
       target="_blank"
-      href={item.node.url}
+      href={items[key].url}
     >
-      <StyledIcon name={item.node.label} />
+      <StyledIcon name={items[key].label} />
     </Link>
   ))
 
@@ -60,7 +68,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
 
-  transform: translate3d(0, 100%, 0);
   opacity: 0;
 `
 const Link = styled.a`
@@ -71,7 +78,7 @@ const Link = styled.a`
   padding: 0.75em;
 
   &:not(:last-child) {
-    margin-right: 0.3em;
+    margin-right: 0.1em;
   }
 
   &::after {

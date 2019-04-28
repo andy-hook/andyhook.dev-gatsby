@@ -20,7 +20,7 @@ interface Props {
 
 const SEO = ({
   description = ``,
-  lang = ``,
+  lang = `en`,
   keywords = [],
   title,
   twitterImage = ``,

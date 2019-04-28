@@ -1,10 +1,33 @@
 module.exports = {
   siteMetadata: {
-    title: `Andy Hook | Fast, scalable, beautiful User Interfaces`,
-    description: `Andy Hook is a Brighton based Front-end Developer and Digital Designer specializing in high-performance User Interface engineering`,
+    title: `Andy Hook – Fast, scalable, beautiful user interfaces`,
+    description: `Andy Hook is a Brighton based web developer and digital designer specialising in high-performance UI engineering`,
     author: `@Andy_Hook`,
+    email: `hello@andy-hook.co.uk`,
     defaultTwitterImage: `/images/social/twitter-preview.png`,
     defaultOgImage: `/images/social/og-preview.png`,
+    social: {
+      instagram: {
+        label: "instagram",
+        url: "https://www.instagram.com/andyhooky/",
+      },
+      twitter: {
+        label: "twitter",
+        url: "https://twitter.com/andy_hook",
+      },
+      dribbble: {
+        label: "dribbble",
+        url: "https://dribbble.com/andyhook",
+      },
+      github: {
+        label: "github",
+        url: "https://github.com/andy-hook",
+      },
+      linkedin: {
+        label: "linkedin",
+        url: "https://www.linkedin.com/in/andyahook",
+      },
+    },
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -29,14 +52,6 @@ module.exports = {
         theme_color: `#651BC7`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      },
-    },
-
-    `gatsby-transformer-json`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/data`,
       },
     },
 

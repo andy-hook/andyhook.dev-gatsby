@@ -40,10 +40,12 @@ const Loader: React.FunctionComponent<Props> = ({
       0.7,
       {
         scale: 0.1,
+        rotation: -40,
       },
       {
         ease: Elastic.easeOut.config(1, 0.6),
         scale: 1,
+        rotation: 0,
         opacity: 1,
         onComplete: onEnterComplete,
       }
@@ -62,7 +64,7 @@ const Loader: React.FunctionComponent<Props> = ({
       },
       {
         ease: Expo.easeOut,
-        delay: 0.1,
+        delay: 0.05,
         rotation: 0,
         scale: 1,
         opacity: 1,

@@ -10,7 +10,7 @@ import {
   letterSpacing,
   fontFamily,
 } from "../../style/variables"
-import { Expo, TimelineLite } from "gsap"
+import { TimelineLite, Elastic } from "gsap"
 
 type ref = React.MutableRefObject<HTMLImageElement>
 
@@ -24,17 +24,26 @@ const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
 
   useEffect(() => {
     if (visible) {
-      logoPosTL.to(logoPosRef.current, 0.5, {
-        ease: Expo.easeOut,
-        transform: "translate3d(0,0,0)",
-        opacity: 1,
-      })
+      logoPosTL.fromTo(
+        logoPosRef.current,
+        0.75,
+        {
+          y: "-100%",
+        },
+        {
+          // ease: Expo.easeOut,
+          ease: Elastic.easeOut.config(0.8, 1),
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
     }
   })
 
   return (
     <LogoPos ref={logoPosRef}>
-      <LogoInner>
+      <LogoInner href="/">
         <LogoMark />
         <LogoTitle>Andy Hook</LogoTitle>
         <LogoSubtle>Interface Developer</LogoSubtle>
@@ -55,17 +64,18 @@ const LogoPos = styled.div`
 
   z-index: 1;
 
-  transform: translate3d(0, -100%, 0);
   opacity: 0;
 `
 
-const LogoInner = styled.h1`
+const LogoInner = styled.a`
   display: flex;
   align-items: center;
   font-family: ${fontFamily.base};
   color: white;
   font-size: ${typeScale[1]};
   font-weight: ${fontWeight.base.medium};
+
+  text-decoration: none;
 
   letter-spacing: ${letterSpacing.base};
 
@@ -78,7 +88,7 @@ const LogoInner = styled.h1`
       typeScale[1],
       typeScale[2],
       emBreakpoints.bottomThumb,
-      emBreakpoints.bottomDesk
+      emBreakpoints.bottomUltra
     )};
   `}
 

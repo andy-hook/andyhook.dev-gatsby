@@ -5,10 +5,11 @@ exports[`<Splash /> renders correctly 1`] = `
   className="sc-kAzzGY iLDEHB"
 >
   <div
-    className="sc-EHOje ieUmHq"
+    className="sc-EHOje bfhsAB"
   >
-    <h1
-      className="sc-bZQynM bAKAeH"
+    <a
+      className="sc-bZQynM kZibrT"
+      href="/"
     >
       <test-file-stub
         className="sc-gzVnrw kzdxRF"
@@ -23,10 +24,10 @@ exports[`<Splash /> renders correctly 1`] = `
       >
         Interface Developer
       </span>
-    </h1>
+    </a>
   </div>
   <div
-    className="sc-iwsKbI jNjDjp"
+    className="sc-iwsKbI kDQOXt"
   >
     <h2
       className="sc-gZMcBi ffpxMF"
@@ -35,23 +36,23 @@ exports[`<Splash /> renders correctly 1`] = `
     </h2>
     <a
       className="sc-gqjmRU ewAGvt"
-      href="http://www.google.com"
+      href="path/to/social/profile"
       target="_blank"
     >
       <span
         className="sc-VigVT hhQtWQ"
       >
-        View some of my work
+        View some previous work
       </span>
     </a>
   </div>
   <div
-    className="sc-chPdSV sKQqU sc-htpNat jRLNOd"
+    className="sc-chPdSV sKQqU sc-htpNat ekPird"
   >
     <a
       aria-label="Twitter"
-      className="sc-bxivhb hzcpoQ"
-      href="http://www.google.com"
+      className="sc-bxivhb gcaUoY"
+      href="path/to/social/profile"
       target="_blank"
     >
       <div
@@ -67,9 +68,27 @@ exports[`<Splash /> renders correctly 1`] = `
       </div>
     </a>
     <a
+      aria-label="Instagram"
+      className="sc-bxivhb gcaUoY"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#instagram"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
       aria-label="Linkedin"
-      className="sc-bxivhb hzcpoQ"
-      href="http://www.google.com"
+      className="sc-bxivhb gcaUoY"
+      href="path/to/social/profile"
       target="_blank"
     >
       <div
@@ -84,12 +103,48 @@ exports[`<Splash /> renders correctly 1`] = `
         </svg>
       </div>
     </a>
+    <a
+      aria-label="Dribbble"
+      className="sc-bxivhb gcaUoY"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#dribbble"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
+      aria-label="Github"
+      className="sc-bxivhb gcaUoY"
+      href="path/to/social/profile"
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#github"
+          />
+        </svg>
+      </div>
+    </a>
   </div>
   <div
     className="sc-jTzLTM fFZGSD"
   >
     <div
-      className="sc-fjdhpX eFWdcR"
+      className="sc-fjdhpX guqCYS"
     />
     <div
       className="sc-jzJRlG fEQkpt"

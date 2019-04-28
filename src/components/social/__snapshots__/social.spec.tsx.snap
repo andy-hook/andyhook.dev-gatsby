@@ -2,11 +2,11 @@
 
 exports[`<Social /> renders correctly 1`] = `
 <div
-  className="sc-htpNat jRLNOd"
+  className="sc-htpNat ekPird"
 >
   <a
-    aria-label="This is a label"
-    className="sc-bxivhb hzcpoQ"
+    aria-label="Twitter"
+    className="sc-bxivhb gcaUoY"
     href="path/to/social/profile"
     target="_blank"
   >
@@ -17,7 +17,79 @@ exports[`<Social /> renders correctly 1`] = `
         className="icon sc-bwzfXH kdIDyY"
       >
         <use
-          xlinkHref="/icon-sprite.svg#this is a label"
+          xlinkHref="/icon-sprite.svg#twitter"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    aria-label="Instagram"
+    className="sc-bxivhb gcaUoY"
+    href="path/to/social/profile"
+    target="_blank"
+  >
+    <div
+      className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+    >
+      <svg
+        className="icon sc-bwzfXH kdIDyY"
+      >
+        <use
+          xlinkHref="/icon-sprite.svg#instagram"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    aria-label="Linkedin"
+    className="sc-bxivhb gcaUoY"
+    href="path/to/social/profile"
+    target="_blank"
+  >
+    <div
+      className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+    >
+      <svg
+        className="icon sc-bwzfXH kdIDyY"
+      >
+        <use
+          xlinkHref="/icon-sprite.svg#linkedin"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    aria-label="Dribbble"
+    className="sc-bxivhb gcaUoY"
+    href="path/to/social/profile"
+    target="_blank"
+  >
+    <div
+      className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+    >
+      <svg
+        className="icon sc-bwzfXH kdIDyY"
+      >
+        <use
+          xlinkHref="/icon-sprite.svg#dribbble"
+        />
+      </svg>
+    </div>
+  </a>
+  <a
+    aria-label="Github"
+    className="sc-bxivhb gcaUoY"
+    href="path/to/social/profile"
+    target="_blank"
+  >
+    <div
+      className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+    >
+      <svg
+        className="icon sc-bwzfXH kdIDyY"
+      >
+        <use
+          xlinkHref="/icon-sprite.svg#github"
         />
       </svg>
     </div>
