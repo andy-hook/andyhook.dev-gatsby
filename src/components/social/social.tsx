@@ -1,35 +1,113 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
-import { SocialItem } from "../../types"
+import { SocialItem } from "../../types/model"
 import Icon from "../icon/icon"
+import classNames from "classnames"
+import {
+  borderRadius,
+  easing,
+  duration,
+  borderThickness,
+} from "../../style/variables"
+import { Expo, TimelineLite } from "gsap"
 
 interface Props {
   items: SocialItem[]
+  className?: string
+  visible?: boolean
+}
+
+type ref = React.MutableRefObject<HTMLImageElement>
+
+const Social: React.FunctionComponent<Props> = ({
+  items,
+  className,
+  visible = true,
+}) => {
+  const containerRef: ref = React.useRef() as ref
+  const containerTL = new TimelineLite()
+
+  useEffect(() => {
+    if (visible) {
+      containerTL.to(containerRef.current, 0.5, {
+        ease: Expo.easeOut,
+        transform: "translate3d(0,0,0)",
+        opacity: 1,
+      })
+    }
+  })
+
+  const icons = items.map((item, key) => (
+    <Link key={key.toString()} target="_blank" href={item.node.url}>
+      <StyledIcon name={item.node.label} />
+    </Link>
+  ))
+
+  return (
+    <Container ref={containerRef} className={classNames("", className)}>
+      {icons}
+    </Container>
+  )
 }
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 35px;
+
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
 `
 const Link = styled.a`
+  position: relative;
+  display: block;
   color: #fff;
-  opacity: 0.15;
+
+  padding: 0.75em;
 
   &:not(:last-child) {
-    margin-right: 1.4em;
+    margin-right: 0.3em;
+  }
+
+  &::after {
+    transition: transform ${duration.slow} ${easing("subtleBounce")},
+      opacity ${duration.fast} linear;
+
+    content: "";
+    position: absolute;
+
+    top: 0.1em;
+    left: 0.1em;
+    right: 0.1em;
+    bottom: 0.1em;
+    border: ${borderThickness.regular} solid #fff;
+
+    border-radius: ${borderRadius.circle};
+
+    opacity: 0;
+
+    transform: scale(1.5);
+
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 0.15;
+    transform: scale(1);
   }
 `
-const StyledIcon = styled(Icon)``
+const StyledIcon = styled(Icon)`
+  transition: opacity ${duration.slow} ${easing("subtleBounce")};
+  opacity: 0.25;
 
-const Social: React.FunctionComponent<Props> = ({ items }) => {
-  const icons = items.map((item, key) => (
-    <Link href={item.node.url} key={key.toString()} target="_blank">
-      <StyledIcon name={item.node.label} />
-    </Link>
-  ))
-
-  return <Container>{icons}</Container>
-}
+  ${Link}:hover &,
+  ${Link}:focus & {
+    opacity: 1;
+  }
+`
 
 export default Social

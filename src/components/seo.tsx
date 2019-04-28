@@ -14,9 +14,18 @@ interface Props {
   lang?: string
   keywords?: string[]
   title?: string
+  twitterImage?: string
+  ogImage?: string
 }
 
-const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
+const SEO = ({
+  description = ``,
+  lang = ``,
+  keywords = [],
+  title,
+  twitterImage = ``,
+  ogImage = ``,
+}: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,6 +34,8 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
             title
             description
             author
+            defaultTwitterImage
+            defaultOgImage
           }
         }
       }
@@ -32,6 +43,8 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaTwitterImage = twitterImage || site.siteMetadata.defaultTwitterImage
+  const metaOgImage = ogImage || site.siteMetadata.defaultOgImage
 
   return (
     <Helmet
@@ -39,6 +52,7 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
         lang,
       }}
       title={title}
+      defaultTitle={`${site.siteMetadata.title}`}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -52,6 +66,10 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: metaOgImage,
         },
         {
           property: `og:type`,
@@ -72,6 +90,10 @@ const SEO = ({ description = ``, lang = ``, keywords = [], title }: Props) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image:src`,
+          content: metaTwitterImage,
         },
       ].concat(
         keywords.length > 0

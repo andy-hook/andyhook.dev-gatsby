@@ -2,15 +2,15 @@
 
 exports[`<Social /> renders correctly 1`] = `
 <div
-  className="sc-htpNat UHnUA"
+  className="sc-htpNat jRLNOd"
 >
   <a
-    className="sc-bxivhb wpBgH"
+    className="sc-bxivhb hzcpoQ"
     href="path/to/social/profile"
     target="_blank"
   >
     <div
-      className="sc-ifAKCX cFlEyZ sc-bdVaJa dqBkPn"
+      className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
     >
       <svg
         className="icon sc-bwzfXH kdIDyY"

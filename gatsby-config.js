@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Andy Hook - UI Developer`,
-    description: `The portfolio of UI developer Andy Hook`,
+    title: `Andy Hook | Fast, scalable, beautiful User Interfaces`,
+    description: `Andy Hook is a Brighton based Front-end Developer and Digital Designer specializing in high-performance User Interface engineering`,
     author: `@Andy_Hook`,
+    defaultTwitterImage: `/images/social/twitter-preview.png`,
+    defaultOgImage: `/images/social/og-preview.png`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -26,7 +28,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
 
@@ -43,7 +45,17 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         typekit: {
-          id: "dfp8ggi",
+          id: `dfp8ggi`,
+        },
+      },
+    },
+
+    // Import SVG as react components
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images/svg-import`,
         },
       },
     },

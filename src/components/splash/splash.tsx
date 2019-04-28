@@ -1,15 +1,47 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-
-import { SocialItem } from "../../types"
-
+import { between } from "polished"
 import Social from "../social/social"
+import Logo from "./logo"
+import { ContainerProps } from "./splash-container"
+import Details from "./details"
+import Background from "./background"
+import { uniformScale, mq } from "../../style/utils"
+import { emBreakpoints, typeScale } from "../../style/variables"
 
 interface Props {
-  socialIconData: SocialItem[]
+  visible?: boolean
+}
+
+type AllProps = Props & ContainerProps
+
+const Splash: React.FunctionComponent<AllProps> = ({
+  socialIconData,
+  buttonHref,
+  visible,
+}) => {
+  const [elementsVisible, showElements] = useState(false)
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        showElements(true)
+      }, 650)
+    }
+  })
+
+  return (
+    <Container>
+      <Logo visible={elementsVisible} />
+      <Details buttonHref={buttonHref} visible={elementsVisible} />
+      <SocialIcons items={socialIconData} visible={elementsVisible} />
+      <Background visible={elementsVisible} />
+    </Container>
+  )
 }
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,34 +49,29 @@ const Container = styled.div`
   height: 100vh;
 `
 
-const ContainerInner = styled.div``
+const SocialIcons = styled(Social)`
+  position: absolute;
+  width: 100%;
+  left: 0;
 
-const Title = styled.h1`
-  font-family: montserrat;
-  font-weight: 600;
-  text-align: center;
-  color: #313134;
-  font-size: 80px;
-  letter-spacing: -0.02em;
+  bottom: 9vh;
+
+  z-index: 1;
+
+  font-size: ${typeScale[6]};
+
+  ${mq.between("bottomThumb", "bottomUltra")`
+    font-size: ${between(
+      typeScale[6],
+      typeScale[8],
+      emBreakpoints.bottomThumb,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(typeScale[8], "topUltra")};
+  `}
 `
-
-const TitleSubtle = styled.span``
-
-const TitleLoud = styled.span`
-  color: #fff;
-`
-
-const Splash: React.FunctionComponent<Props> = ({ socialIconData }) => {
-  return (
-    <Container>
-      <ContainerInner>
-        <Title>
-          <TitleSubtle>I build</TitleSubtle> <TitleLoud>interfaces</TitleLoud>
-        </Title>
-        <Social items={socialIconData} />
-      </ContainerInner>
-    </Container>
-  )
-}
 
 export default Splash

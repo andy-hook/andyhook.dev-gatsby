@@ -21,7 +21,12 @@ const mockSocialData = [
 describe("<Splash />", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Splash socialIconData={mockSocialData} />)
+      .create(
+        <Splash
+          socialIconData={mockSocialData}
+          buttonHref={mockSocialData[0].node.url}
+        />
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
