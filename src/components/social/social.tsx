@@ -11,6 +11,7 @@ import {
   borderThickness,
 } from "../../style/variables"
 import { Expo, TimelineLite } from "gsap"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
   items: ISocialMeta
@@ -70,7 +71,7 @@ const Container = styled.div`
 
   opacity: 0;
 `
-const Link = styled.a`
+const Link = styled(OutboundLink)`
   position: relative;
   display: block;
   color: #fff;

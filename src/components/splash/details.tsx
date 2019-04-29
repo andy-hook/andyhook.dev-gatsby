@@ -12,6 +12,7 @@ import {
   duration,
 } from "../../style/variables"
 import { TimelineLite, Elastic } from "gsap"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
   buttonHref: string
@@ -112,7 +113,7 @@ const Title = styled.h2`
   `}
 `
 
-const CallToAction = styled.a`
+const CallToAction = styled(OutboundLink)`
   position: relative;
 
   overflow: hidden;
