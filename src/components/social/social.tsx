@@ -1,7 +1,9 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
+import { rem } from "polished"
 import { ISocialMeta, ISocialMetaItem } from "../../types/model"
 import Icon from "../icon/icon"
+import { mq } from "../../style/utils"
 import classNames from "classnames"
 import {
   borderRadius,
@@ -62,7 +64,7 @@ const Social: React.FunctionComponent<Props> = ({
     const renderItems: RenderItems[] = []
 
     renderItems.push({
-      label: "mail",
+      label: "Get in touch",
       url: "mailto:hello@andy-hook.co.uk",
       icon: "mail",
     })
@@ -91,17 +93,26 @@ const Social: React.FunctionComponent<Props> = ({
 
   return (
     <Container ref={containerRef} className={classNames("", className)}>
-      {icons}
+      <Restricter>{icons}</Restricter>
     </Container>
   )
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-
   opacity: 0;
 `
+
+const Restricter = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mq.lessThan("bottomThumb")`
+    max-width: ${rem("250px")};
+    margin: auto;
+  `}
+`
+
 const Link = styled(OutboundLink)`
   position: relative;
   display: block;

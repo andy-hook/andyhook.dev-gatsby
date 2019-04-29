@@ -79,6 +79,10 @@ const LogoInner = styled.a`
 
   letter-spacing: ${letterSpacing.base};
 
+  &:focus {
+    outline: none;
+  }
+
   ${mq.greaterThan("bottomThumb")`
     margin-left: -1.5em;
   `}
