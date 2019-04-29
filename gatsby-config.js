@@ -8,24 +8,29 @@ module.exports = {
     defaultOgImage: `/images/social/og-preview.png`,
     social: {
       instagram: {
-        label: "instagram",
+        label: "Instagram",
         url: "https://www.instagram.com/andyhooky/",
+        icon: "instagram",
       },
       twitter: {
-        label: "twitter",
+        label: "Twitter",
         url: "https://twitter.com/andy_hook",
+        icon: "twitter",
       },
       dribbble: {
-        label: "dribbble",
+        label: "Dribbble",
         url: "https://dribbble.com/andyhook",
+        icon: "dribbble",
       },
       github: {
-        label: "github",
+        label: "Github",
         url: "https://github.com/andy-hook",
+        icon: "github",
       },
       linkedin: {
-        label: "linkedin",
+        label: "Linkedin",
         url: "https://www.linkedin.com/in/andyahook",
+        icon: "linkedin",
       },
     },
   },

@@ -51,6 +51,25 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-chPdSV sKQqU sc-htpNat ekPird"
   >
     <a
+      aria-label="mail"
+      className="sc-bxivhb gcaUoY"
+      href="mailto:hello@andy-hook.co.uk"
+      onClick={[Function]}
+      target="_blank"
+    >
+      <div
+        className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+      >
+        <svg
+          className="icon sc-bwzfXH kdIDyY"
+        >
+          <use
+            xlinkHref="/icon-sprite.svg#mail"
+          />
+        </svg>
+      </div>
+    </a>
+    <a
       aria-label="Twitter"
       className="sc-bxivhb gcaUoY"
       href="path/to/social/profile"

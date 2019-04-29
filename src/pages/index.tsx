@@ -19,22 +19,27 @@ const IndexPage: React.FunctionComponent = () => {
             twitter {
               url
               label
+              icon
             }
             instagram {
               url
               label
+              icon
             }
             dribbble {
               url
               label
+              icon
             }
             github {
               url
               label
+              icon
             }
             linkedin {
               url
               label
+              icon
             }
           }
         }

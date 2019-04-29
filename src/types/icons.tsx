@@ -4,3 +4,4 @@ export type TIcons =
   | "linkedin"
   | "twitter"
   | "github"
+  | "mail"

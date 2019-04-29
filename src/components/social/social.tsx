@@ -1,9 +1,8 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { ISocialMeta } from "../../types/model"
+import { ISocialMeta, ISocialMetaItem } from "../../types/model"
 import Icon from "../icon/icon"
 import classNames from "classnames"
-import changeCase from "change-case"
 import {
   borderRadius,
   easing,
@@ -17,6 +16,18 @@ interface Props {
   items: ISocialMeta
   className?: string
   visible?: boolean
+}
+
+type Icons =
+  | "dribbble"
+  | "instagram"
+  | "linkedin"
+  | "twitter"
+  | "github"
+  | "mail"
+
+export interface RenderItems extends ISocialMetaItem {
+  icon: Icons
 }
 
 type ref = React.MutableRefObject<HTMLImageElement>
@@ -47,14 +58,34 @@ const Social: React.FunctionComponent<Props> = ({
     }
   })
 
-  const icons = Object.keys(items).map(key => (
+  const getIconsToRender = () => {
+    const renderItems: RenderItems[] = []
+
+    renderItems.push({
+      label: "mail",
+      url: "mailto:hello@andy-hook.co.uk",
+      icon: "mail",
+    })
+
+    Object.keys(items).map(key => {
+      renderItems.push({
+        label: items[key].label,
+        url: items[key].url,
+        icon: items[key].icon as Icons,
+      })
+    })
+
+    return renderItems
+  }
+
+  const icons = getIconsToRender().map((item, key) => (
     <Link
       key={key.toString()}
-      aria-label={changeCase.upperCaseFirst(items[key].label)}
+      aria-label={item.label}
       target="_blank"
-      href={items[key].url}
+      href={item.url}
     >
-      <StyledIcon name={items[key].label} />
+      <StyledIcon name={item.icon} />
     </Link>
   ))
 
