@@ -11,7 +11,7 @@ import {
   duration,
   borderThickness,
 } from "../../style/variables"
-import { Expo, TimelineLite } from "gsap"
+import { Elastic, TimelineLite } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
@@ -46,12 +46,12 @@ const Social: React.FunctionComponent<Props> = ({
     if (visible) {
       containerTL.fromTo(
         containerRef.current,
-        0.5,
+        0.6,
         {
           y: "100%",
         },
         {
-          ease: Expo.easeOut,
+          ease: Elastic.easeOut.config(0.8, 1),
           y: "0%",
           opacity: 1,
           clearProps: "transform",
