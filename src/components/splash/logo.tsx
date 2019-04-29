@@ -31,7 +31,6 @@ const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
           y: "-100%",
         },
         {
-          // ease: Expo.easeOut,
           ease: Elastic.easeOut.config(0.8, 1),
           y: "0%",
           opacity: 1,
@@ -78,6 +77,10 @@ const LogoInner = styled.a`
   text-decoration: none;
 
   letter-spacing: ${letterSpacing.base};
+
+  &:focus {
+    outline: none;
+  }
 
   ${mq.greaterThan("bottomThumb")`
     margin-left: -1.5em;

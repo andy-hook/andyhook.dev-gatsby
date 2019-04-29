@@ -1,22 +1,35 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { ISocialMeta } from "../../types/model"
+import { rem } from "polished"
+import { ISocialMeta, ISocialMetaItem } from "../../types/model"
 import Icon from "../icon/icon"
+import { mq } from "../../style/utils"
 import classNames from "classnames"
-import changeCase from "change-case"
 import {
   borderRadius,
   easing,
   duration,
   borderThickness,
 } from "../../style/variables"
-import { Expo, TimelineLite } from "gsap"
+import { Elastic, TimelineLite } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
   items: ISocialMeta
   className?: string
   visible?: boolean
+}
+
+type Icons =
+  | "dribbble"
+  | "instagram"
+  | "linkedin"
+  | "twitter"
+  | "github"
+  | "mail"
+
+export interface RenderItems extends ISocialMetaItem {
+  icon: Icons
 }
 
 type ref = React.MutableRefObject<HTMLImageElement>
@@ -33,12 +46,12 @@ const Social: React.FunctionComponent<Props> = ({
     if (visible) {
       containerTL.fromTo(
         containerRef.current,
-        0.5,
+        0.6,
         {
           y: "100%",
         },
         {
-          ease: Expo.easeOut,
+          ease: Elastic.easeOut.config(0.8, 1),
           y: "0%",
           opacity: 1,
           clearProps: "transform",
@@ -47,30 +60,59 @@ const Social: React.FunctionComponent<Props> = ({
     }
   })
 
-  const icons = Object.keys(items).map(key => (
+  const getIconsToRender = () => {
+    const renderItems: RenderItems[] = []
+
+    renderItems.push({
+      label: "Get in touch",
+      url: "mailto:hello@andy-hook.co.uk",
+      icon: "mail",
+    })
+
+    Object.keys(items).map(key => {
+      renderItems.push({
+        label: items[key].label,
+        url: items[key].url,
+        icon: items[key].icon as Icons,
+      })
+    })
+
+    return renderItems
+  }
+
+  const icons = getIconsToRender().map((item, key) => (
     <Link
       key={key.toString()}
-      aria-label={changeCase.upperCaseFirst(items[key].label)}
+      aria-label={item.label}
       target="_blank"
-      href={items[key].url}
+      href={item.url}
     >
-      <StyledIcon name={items[key].label} />
+      <StyledIcon name={item.icon} />
     </Link>
   ))
 
   return (
     <Container ref={containerRef} className={classNames("", className)}>
-      {icons}
+      <Restricter>{icons}</Restricter>
     </Container>
   )
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-
   opacity: 0;
 `
+
+const Restricter = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mq.lessThan("bottomThumb")`
+    max-width: ${rem("250px")};
+    margin: auto;
+  `}
+`
+
 const Link = styled(OutboundLink)`
   position: relative;
   display: block;

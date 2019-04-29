@@ -1,6 +1,7 @@
 export interface ISocialMetaItem {
-  label: "dribbble" | "instagram" | "linkedin" | "twitter" | "github"
+  label: string
   url: string
+  icon: string
 }
 
 export interface ISocialMeta {

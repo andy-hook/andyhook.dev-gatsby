@@ -2,23 +2,28 @@ import { ISocialMeta } from "../types/model"
 
 export const socialIcons: ISocialMeta = {
   twitter: {
-    label: "twitter",
+    label: "Twitter",
     url: "path/to/social/profile",
+    icon: "twitter",
   },
   instagram: {
-    label: "instagram",
+    label: "Instagram",
     url: "path/to/social/profile",
+    icon: "instagram",
   },
   linkedin: {
-    label: "linkedin",
+    label: "Linkedin",
     url: "path/to/social/profile",
+    icon: "linkedin",
   },
   dribbble: {
-    label: "dribbble",
+    label: "Dribbble",
     url: "path/to/social/profile",
+    icon: "dribbble",
   },
   github: {
-    label: "github",
+    label: "Github",
     url: "path/to/social/profile",
+    icon: "github",
   },
 }
