@@ -12,7 +12,7 @@ import {
 } from "../../style/variables"
 import { TimelineLite, Elastic } from "gsap"
 
-type ref = React.MutableRefObject<HTMLImageElement>
+type ref = React.MutableRefObject<HTMLDivElement>
 
 interface Props {
   visible?: boolean
