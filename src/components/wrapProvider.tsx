@@ -9,6 +9,7 @@ import Layout from "./layout"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import rootReducer from "../store/reducer"
+import { composeWithDevTools } from "redux-devtools-extension"
 
 interface Props {
   element: ReactNode
@@ -20,8 +21,8 @@ const wrapLayoutWithProvider: React.FunctionComponent<Props> = ({
   // Instantiating store in `wrapPageElement` ensures:
   //  - there is fresh store for each SSR page
   //  - it will be called only once in browser, when React mounts
-
-  const store = createStore(rootReducer)
+  //  – Redux dev tools enabled by passing composeWithDevTools
+  const store = createStore(rootReducer, composeWithDevTools())
 
   return (
     <Provider store={store}>
