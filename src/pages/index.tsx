@@ -49,16 +49,7 @@ const IndexPage: React.FunctionComponent = () => {
 
   return (
     <>
-      <SEO
-        keywords={[
-          `User interface`,
-          `Web developer`,
-          `Front-end developer`,
-          `Digital designer`,
-          `Web designer`,
-          `Brighton`,
-        ]}
-      />
+      <SEO />
       <SplashContainer
         socialIconData={data.socialIconData.siteMetadata.social}
       />

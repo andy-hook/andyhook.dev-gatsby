@@ -21,7 +21,14 @@ interface Props {
 const SEO = ({
   description = ``,
   lang = `en`,
-  keywords = [],
+  keywords = [
+    `User interface`,
+    `Web developer`,
+    `Front-end developer`,
+    `Digital designer`,
+    `Web designer`,
+    `Brighton`,
+  ],
   title,
   twitterImage = ``,
   ogImage = ``,
