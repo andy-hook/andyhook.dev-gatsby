@@ -4,10 +4,11 @@ import { Dispatch } from "redux"
 import { IStore } from "../../types/store"
 
 import Loader from "./loader"
-import { loaderVisibleAction } from "../../store/actions"
+import { loaderVisibleAction, firstEntranceAction } from "../../store/actions"
 
 interface DispatchProps {
   hideLoader: () => void
+  hasEnteredSite: () => void
 }
 
 type AllProps = Partial<IStore> & DispatchProps
@@ -21,16 +22,23 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     hideLoader: () => {
       dispatch(loaderVisibleAction(false))
     },
+    hasEnteredSite: () => {
+      dispatch(firstEntranceAction(false))
+    },
   }
 }
 
 const LoaderContainer: React.FunctionComponent<AllProps> = ({
   hideLoader,
   loaderVisible,
+  hasEnteredSite,
 }) => {
   const [shouldRenderLoader, setRender] = useState(true)
 
-  const setRenderFalse = () => setRender(false)
+  const setRenderFalse = () => {
+    hasEnteredSite()
+    setRender(false)
+  }
 
   const hideLoaderDelay = () => {
     setTimeout(() => {

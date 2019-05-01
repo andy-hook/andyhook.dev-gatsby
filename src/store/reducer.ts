@@ -3,6 +3,7 @@ import {
   IStore,
   ILoaderVisibleAction,
   ISetTestStringAction,
+  IFirstEntranceAction,
 } from "../types/store"
 
 const loaderVisible = (
@@ -11,6 +12,18 @@ const loaderVisible = (
 ): IStore["loaderVisible"] => {
   switch (action.type) {
     case "loader-visible":
+      return action.payload
+    default:
+      return state
+  }
+}
+
+const firstEntrance = (
+  state: IStore["firstEntrance"] = true,
+  action: IFirstEntranceAction
+): IStore["firstEntrance"] => {
+  switch (action.type) {
+    case "first-entrance":
       return action.payload
     default:
       return state
@@ -32,6 +45,7 @@ const testString = (
 const rootReducer = combineReducers<IStore>({
   loaderVisible,
   testString,
+  firstEntrance,
 })
 
 export default rootReducer

@@ -3,6 +3,7 @@ import {
   IFlushTokenAction,
   ILoaderVisibleAction,
   ISetTestStringAction,
+  IFirstEntranceAction,
 } from "../types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -11,6 +12,10 @@ export const flushTokenAction = createAction<IFlushTokenAction>(
 
 export const loaderVisibleAction = createPayloadedAction<ILoaderVisibleAction>(
   "loader-visible"
+)
+
+export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
+  "first-entrance"
 )
 
 export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(

@@ -9,6 +9,7 @@ export interface IAction<Type> {
 
 export interface IStore {
   loaderVisible: boolean
+  firstEntrance: boolean
   testString: string | null
 }
 
@@ -19,3 +20,6 @@ export interface ISetTestStringAction
 
 export interface ILoaderVisibleAction
   extends IPayloadedAction<"loader-visible", boolean> {}
+
+export interface IFirstEntranceAction
+  extends IPayloadedAction<"first-entrance", boolean> {}
