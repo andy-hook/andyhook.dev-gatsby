@@ -35,12 +35,12 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
 }) => {
   const [shouldRenderLoader, setRender] = useState(true)
 
-  const setRenderFalse = () => {
+  const onLeaveComplete = () => {
     hasEnteredSite()
     setRender(false)
   }
 
-  const hideLoaderDelay = () => {
+  const onEnterComplete = () => {
     setTimeout(() => {
       hideLoader()
     }, 200)
@@ -51,8 +51,8 @@ const LoaderContainer: React.FunctionComponent<AllProps> = ({
       return (
         <Loader
           visible={loaderVisible}
-          onEnterComplete={hideLoaderDelay}
-          onLeaveComplete={setRenderFalse}
+          onEnterComplete={onEnterComplete}
+          onLeaveComplete={onLeaveComplete}
         />
       )
     }

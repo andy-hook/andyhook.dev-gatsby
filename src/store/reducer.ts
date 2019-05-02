@@ -7,7 +7,7 @@ import {
 } from "../types/store"
 
 const loaderVisible = (
-  state: IStore["loaderVisible"] = true,
+  state: IStore["loaderVisible"] = false,
   action: ILoaderVisibleAction
 ): IStore["loaderVisible"] => {
   switch (action.type) {

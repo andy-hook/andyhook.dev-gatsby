@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import Social from "../social/social"
+import Social from "../../social/social"
 import Logo from "./logo"
 import { ContainerProps } from "./splash-container"
 import Details from "./details"
 import Background from "./background"
-import { uniformScale, mq } from "../../style/utils"
-import { emBreakpoints, typeScale } from "../../style/variables"
+import { uniformScale, mq } from "../../../style/utils"
+import { emBreakpoints, typeScale } from "../../../style/variables"
 
 interface Props {
-  visible?: boolean
+  introTrigger?: boolean
+  canPerformIntro?: boolean
 }
 
 type AllProps = Props & ContainerProps
 
 const Splash: React.FunctionComponent<AllProps> = ({
   socialIconData,
-  visible = true,
+  introTrigger = true,
 }) => {
   const [elementsVisible, showElements] = useState(false)
 
   useEffect(() => {
-    if (visible) {
+    if (introTrigger) {
       setTimeout(() => {
         showElements(true)
       }, 650)

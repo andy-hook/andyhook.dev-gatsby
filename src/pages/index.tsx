@@ -4,7 +4,7 @@ import React from "react"
 import { IMetaData } from "../types/model"
 
 import SEO from "../components/seo"
-import SplashContainer from "../components/splash/splash-container"
+import SplashContainer from "../components/home/splash/splash-container"
 
 interface Data {
   socialIconData: IMetaData
