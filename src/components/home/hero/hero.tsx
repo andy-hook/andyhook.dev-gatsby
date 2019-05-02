@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import Social from "../../social/social"
-import Logo from "./logo"
-import { ContainerProps } from "./splash-container"
-import Details from "./details"
-import Background from "./background"
+import Social from "./social/social"
+import Logo from "../../shared/logo/logo"
+import { ContainerProps } from "./hero-container"
+import Details from "./details/details"
+import Background from "./background/background"
 import { uniformScale, mq } from "../../../style/utils"
 import { emBreakpoints, typeScale } from "../../../style/variables"
 
@@ -16,7 +16,7 @@ interface Props {
 
 type AllProps = Props & ContainerProps
 
-const Splash: React.FunctionComponent<AllProps> = ({
+const Hero: React.FunctionComponent<AllProps> = ({
   socialIconData,
   introTrigger = true,
 }) => {
@@ -77,4 +77,4 @@ const SocialIcons = styled(Social)`
   `}
 `
 
-export default Splash
+export default Hero

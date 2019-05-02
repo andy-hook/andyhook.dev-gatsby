@@ -2,7 +2,7 @@ import { withPrefix } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import classNames from "classnames"
-import { TIcons } from "../../types/icons"
+import { TIcons } from "../../../types/icons"
 
 interface Props {
   name: TIcons

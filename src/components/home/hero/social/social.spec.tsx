@@ -1,14 +1,12 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import Splash from "./splash"
+import Social from "./social"
 import { socialIcons } from "../../../mock-data"
 
-describe("<Splash />", () => {
+describe("<Social />", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Splash socialIconData={socialIcons} />)
-      .toJSON()
+    const tree = renderer.create(<Social items={socialIcons} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

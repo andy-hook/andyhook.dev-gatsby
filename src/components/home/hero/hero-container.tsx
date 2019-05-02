@@ -1,5 +1,5 @@
 import React from "react"
-import Splash from "./splash"
+import Hero from "./hero"
 import { ISocialMeta } from "../../../types/model"
 import { IStore } from "../../../types/store"
 import { connect } from "react-redux"
@@ -20,7 +20,7 @@ const SplashContainer: React.FunctionComponent<ContainerProps> = ({
   firstEntrance,
 }) => {
   return (
-    <Splash
+    <Hero
       socialIconData={socialIconData}
       introTrigger={!loaderVisible}
       canPerformIntro={firstEntrance}

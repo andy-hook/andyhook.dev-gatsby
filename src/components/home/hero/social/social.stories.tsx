@@ -1,9 +1,9 @@
 import React from "react"
 
 import { storiesOf } from "@storybook/react"
-import Splash from "./splash"
+import Social from "./social"
 import { socialIcons } from "../../../mock-data"
 
-storiesOf("Splash", module).add("with text", () => (
-  <Splash socialIconData={socialIcons} />
+storiesOf("Social", module).add("with text", () => (
+  <Social items={socialIcons} />
 ))
