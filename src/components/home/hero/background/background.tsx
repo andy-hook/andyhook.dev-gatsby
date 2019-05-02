@@ -4,7 +4,7 @@ import { between, rem, rgba } from "polished"
 import { uniformScale, mq } from "../../../../style/utils"
 import heroBg from "../../../../images/hero-bg.svg"
 import date from "../../../../images/svg-import/date.svg"
-import { emBreakpoints } from "../../../../style/variables"
+import { emBreakpoints } from "@style/variables"
 import { TweenMax, Elastic } from "gsap"
 
 interface Props {

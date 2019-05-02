@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import Hero from "./hero"
-import { socialIcons } from "../../../mock-data"
+import { socialIcons } from "@mock-data"
 
 describe("<Hero />", () => {
   it("renders correctly", () => {

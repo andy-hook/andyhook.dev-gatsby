@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Andy Hook – Fast, scalable, beautiful user interfaces`,
@@ -57,6 +59,17 @@ module.exports = {
         theme_color: `#651BC7`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@style": path.resolve(__dirname, "src/style"),
+          "@mock-data": path.resolve(__dirname, "src/mock-data"),
+        },
+        extensions: [],
       },
     },
 
