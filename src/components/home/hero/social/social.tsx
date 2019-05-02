@@ -3,14 +3,14 @@ import styled from "styled-components"
 import { rem } from "polished"
 import { ISocialMeta, ISocialMetaItem } from "../../../../types/model"
 import Icon from "../../../shared/icon/icon"
-import { mq } from "../../../../style/utils"
+import { mq } from "@style/utils"
 import classNames from "classnames"
 import {
   borderRadius,
   easing,
   duration,
   borderThickness,
-} from "../../../../style/variables"
+} from "@style/variables"
 import { Elastic, TimelineLite } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 

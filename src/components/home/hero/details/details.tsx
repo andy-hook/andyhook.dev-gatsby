@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import { uniformScale, mq } from "../../../../style/utils"
+import { uniformScale, mq } from "@style/utils"
 import {
   emBreakpoints,
   typeScale,
@@ -10,7 +10,7 @@ import {
   borderRadius,
   letterSpacing,
   duration,
-} from "../../../../style/variables"
+} from "@style/variables"
 import { TimelineLite, Elastic } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 

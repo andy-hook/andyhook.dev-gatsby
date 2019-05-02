@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import { uniformScale, mq } from "../../../style/utils"
+import { uniformScale, mq } from "@style/utils"
 import mark from "../../../images/svg-import/mark.svg"
 import {
   emBreakpoints,
@@ -9,7 +9,7 @@ import {
   fontWeight,
   letterSpacing,
   fontFamily,
-} from "../../../style/variables"
+} from "@style/variables"
 import { TimelineLite, Elastic } from "gsap"
 
 type ref = React.MutableRefObject<HTMLDivElement>

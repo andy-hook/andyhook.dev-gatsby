@@ -2,8 +2,8 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import { rem, between } from "polished"
 import { Expo, TimelineMax, Elastic } from "gsap"
-import { uniformScale, mq } from "../../style/utils"
-import { emBreakpoints } from "../../style/variables"
+import { uniformScale, mq } from "@style/utils"
+import { emBreakpoints } from "@style/variables"
 
 interface Props {
   visible?: boolean

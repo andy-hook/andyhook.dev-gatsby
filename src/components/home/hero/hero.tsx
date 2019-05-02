@@ -6,8 +6,8 @@ import Logo from "../../shared/logo/logo"
 import { ContainerProps } from "./hero-container"
 import Details from "./details/details"
 import Background from "./background/background"
-import { uniformScale, mq } from "../../../style/utils"
-import { emBreakpoints, typeScale } from "../../../style/variables"
+import { uniformScale, mq } from "@style/utils"
+import { emBreakpoints, typeScale } from "@style/variables"
 
 interface Props {
   introTrigger?: boolean
