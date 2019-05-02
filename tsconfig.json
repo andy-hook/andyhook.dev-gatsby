@@ -54,7 +54,10 @@
       "*": ["node_modules/*", "./src/types/*"],
 
       "@style/*": ["./src/style/*"],
-      "@mock-data": ["./src/mock-data/index.tsx"]
+      "@mock-data": ["./src/mock-data/index.tsx"],
+      "@components/*": ["./src/components/*"],
+      "@custom-types/*": ["./src/types/*"],
+      "@images/*": ["./src/images/*"]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

@@ -1,4 +1,4 @@
-import { IPayloadedAction, IAction } from "../types/store"
+import { IPayloadedAction, IAction } from "@custom-types/store"
 
 export function createPayloadedAction<
   TAction extends IPayloadedAction<TAction["type"], TAction["payload"]>

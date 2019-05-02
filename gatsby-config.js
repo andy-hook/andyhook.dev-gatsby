@@ -68,6 +68,9 @@ module.exports = {
         alias: {
           "@style": path.resolve(__dirname, "src/style"),
           "@mock-data": path.resolve(__dirname, "src/mock-data"),
+          "@components": path.resolve(__dirname, "src/components"),
+          "@custom-types": path.resolve(__dirname, "src/types"),
+          "@images": path.resolve(__dirname, "src/images"),
         },
         extensions: [],
       },

@@ -1,4 +1,4 @@
-import { ISocialMeta } from "../types/model"
+import { ISocialMeta } from "@custom-types/model"
 
 export const socialIcons: ISocialMeta = {
   twitter: {

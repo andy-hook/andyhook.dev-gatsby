@@ -4,7 +4,7 @@ import {
   ILoaderVisibleAction,
   ISetTestStringAction,
   IFirstEntranceAction,
-} from "../types/store"
+} from "@custom-types/store"
 
 const loaderVisible = (
   state: IStore["loaderVisible"] = false,

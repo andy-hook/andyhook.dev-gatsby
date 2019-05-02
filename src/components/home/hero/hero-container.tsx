@@ -1,7 +1,7 @@
 import React from "react"
 import Hero from "./hero"
-import { ISocialMeta } from "../../../types/model"
-import { IStore } from "../../../types/store"
+import { ISocialMeta } from "@custom-types/model"
+import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 
 interface Props {

@@ -4,7 +4,7 @@ import {
   ILoaderVisibleAction,
   ISetTestStringAction,
   IFirstEntranceAction,
-} from "../types/store"
+} from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
   "auth/flush-token"

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
-import { ISocialMeta, ISocialMetaItem } from "../../../../types/model"
-import Icon from "../../../shared/icon/icon"
+import { ISocialMeta, ISocialMetaItem } from "@custom-types/model"
+import Icon from "@components/shared/icon/icon"
 import { mq } from "@style/utils"
 import classNames from "classnames"
 import {

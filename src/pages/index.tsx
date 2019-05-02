@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
-import { IMetaData } from "../types/model"
+import { IMetaData } from "@custom-types/model"
 
-import SEO from "../components/seo"
-import SplashContainer from "../components/home/hero/hero-container"
+import SEO from "@components/seo"
+import SplashContainer from "@components/home/hero/hero-container"
 
 interface Data {
   socialIconData: IMetaData

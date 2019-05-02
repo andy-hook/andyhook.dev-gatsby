@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
-import { IStore } from "../../types/store"
+import { IStore } from "@custom-types/store"
 
 import Loader from "./loader"
 import { loaderVisibleAction, firstEntranceAction } from "../../store/actions"

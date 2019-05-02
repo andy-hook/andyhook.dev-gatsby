@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "@style/utils"
-import mark from "../../../images/svg-import/mark.svg"
+import mark from "@images/svg-import/mark.svg"
 import {
   emBreakpoints,
   typeScale,
