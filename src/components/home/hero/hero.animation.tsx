@@ -4,6 +4,9 @@ import { Ref } from "@custom-types/ref"
 interface Animation {
   [key: string]: {
     [key: string]: (ref: Ref) => void
+    siteEntrance: (ref: Ref) => void
+    enterFromProject: (ref: Ref) => void
+    exitToProject: (ref: Ref) => void
   }
 }
 
