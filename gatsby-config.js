@@ -62,6 +62,15 @@ module.exports = {
       },
     },
 
+    // Per route transition links
+    // The persistent layout is defined here rather than being part of component composition in file
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/components/layout.tsx`),
+      },
+    },
+
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

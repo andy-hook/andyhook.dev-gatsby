@@ -8,7 +8,7 @@
 import React, { ReactNode } from "react"
 import GlobalStyle from "@style/global-style"
 import LoaderContainer from "./loader/loader-container"
-import { Link } from "gatsby"
+import Link from "gatsby-plugin-transition-link"
 
 interface Props {
   children: ReactNode

@@ -11,10 +11,12 @@ import animation from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
+import { ItransitionProps } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
+  transitionProps: ItransitionProps
 }
 
 type AllProps = Props & ContainerProps
@@ -23,6 +25,7 @@ const Hero: React.FunctionComponent<AllProps> = ({
   socialIconData,
   introTrigger = true,
   canPerformIntro = true,
+  transitionProps,
 }) => {
   const detailsRef: Ref = React.useRef() as Ref
   const logoRef: Ref = React.useRef() as Ref
@@ -39,6 +42,8 @@ const Hero: React.FunctionComponent<AllProps> = ({
     animation.social.siteEntrance(socialRef)
     animation.date.siteEntrance(dateRef)
   }
+
+  console.log(transitionProps)
 
   useEffect(() => {
     if (canPerformIntro) {

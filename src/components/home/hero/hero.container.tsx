@@ -3,6 +3,8 @@ import Hero from "./hero"
 import { ISocialMeta } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
+import { TransitionState } from "gatsby-plugin-transition-link"
+import { ItransitionProps } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Props {
   socialIconData: ISocialMeta
@@ -20,11 +22,18 @@ const HeroContainer: React.FunctionComponent<ContainerProps> = ({
   firstEntrance,
 }) => {
   return (
-    <Hero
-      socialIconData={socialIconData}
-      introTrigger={!loaderVisible}
-      canPerformIntro={firstEntrance}
-    />
+    <TransitionState>
+      {(transitionProps: ItransitionProps) => {
+        return (
+          <Hero
+            socialIconData={socialIconData}
+            introTrigger={!loaderVisible}
+            canPerformIntro={firstEntrance}
+            transitionProps={transitionProps}
+          />
+        )
+      }}
+    </TransitionState>
   )
 }
 

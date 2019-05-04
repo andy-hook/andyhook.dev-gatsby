@@ -5,7 +5,6 @@
  */
 
 import React from "react"
-import Layout from "./src/components/layout"
 import { Provider } from "react-redux"
 import createStore from "./src/store/createStore"
 
@@ -13,9 +12,5 @@ import createStore from "./src/store/createStore"
 const store = createStore()
 
 export const wrapPageElement = ({ element }) => {
-  return (
-    <Provider store={store}>
-      <Layout>{element}</Layout>
-    </Provider>
-  )
+  return <Provider store={store}>{element}</Provider>
 }
