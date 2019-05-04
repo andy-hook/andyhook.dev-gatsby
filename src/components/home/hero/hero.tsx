@@ -20,6 +20,10 @@ interface Props {
   transitionState: ItransitionState
 }
 
+interface RefIterable {
+  [key: string]: Ref
+}
+
 type AllProps = Props & ContainerProps
 
 const Hero: React.FunctionComponent<AllProps> = memo(
@@ -29,37 +33,27 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     canPerformIntro = true,
     transitionState,
   }) => {
-    const detailsRef: Ref = React.useRef() as Ref
-    const logoRef: Ref = React.useRef() as Ref
-    const socialRef: Ref = React.useRef() as Ref
-    const backgroundRef: Ref = React.useRef() as Ref
-    const dateRef: Ref = React.useRef() as Ref
+    const detailsRef = React.useRef() as Ref
+    const logoRef = React.useRef() as Ref
+    const socialRef = React.useRef() as Ref
+    const backgroundRef = React.useRef() as Ref
+    const dateRef = React.useRef() as Ref
+
+    const refs: RefIterable = {
+      details: detailsRef,
+      logo: logoRef,
+      social: socialRef,
+      date: dateRef,
+    }
+
+    const runAnimation = (type: string) => {
+      Object.keys(refs).map(item => {
+        animation[item][type](refs[item])
+      })
+    }
 
     const animateBackground = () =>
       animation.background.siteEntrance(backgroundRef)
-
-    const animateIntroElements = () => {
-      animation.details.siteEntrance(detailsRef)
-      animation.logo.siteEntrance(logoRef)
-      animation.social.siteEntrance(socialRef)
-      animation.date.siteEntrance(dateRef)
-    }
-
-    const animateLeaveToProject = () => {
-      animation.details.exitToProject(detailsRef)
-      animation.logo.exitToProject(logoRef)
-      animation.social.exitToProject(socialRef)
-      animation.date.exitToProject(dateRef)
-      animation.background.exitToProject(backgroundRef)
-    }
-
-    const animateEnterFromProject = () => {
-      animation.details.enterFromProject(detailsRef)
-      animation.logo.enterFromProject(logoRef)
-      animation.social.enterFromProject(socialRef)
-      animation.date.enterFromProject(dateRef)
-      animation.background.enterFromProject(backgroundRef)
-    }
 
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
@@ -69,7 +63,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
           switch (exit.state.animType) {
             case "leave-to-project":
               {
-                animateLeaveToProject()
+                runAnimation("exitToProject")
               }
               break
           }
@@ -78,7 +72,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
           switch (entry.state.animType) {
             case "enter-from-project":
               {
-                animateEnterFromProject()
+                runAnimation("enterFromProject")
               }
               break
           }
@@ -95,7 +89,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     useEffect(() => {
       if (introTrigger && canPerformIntro) {
         setTimeout(() => {
-          animateIntroElements()
+          runAnimation("siteEntrance")
         }, 650)
       }
     }, [introTrigger])

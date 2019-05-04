@@ -1,9 +1,15 @@
 import { TweenMax, Elastic } from "gsap"
 import { Ref } from "@custom-types/ref"
 
-export const animation = {
+interface Animation {
+  [key: string]: {
+    [key: string]: (ref: Ref) => void
+  }
+}
+
+export const animation: Animation = {
   details: {
-    siteEntrance: (ref: Ref) => {
+    siteEntrance: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -18,7 +24,7 @@ export const animation = {
         }
       )
     },
-    enterFromProject: (ref: Ref) => {
+    enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -30,7 +36,7 @@ export const animation = {
         }
       )
     },
-    exitToProject: (ref: Ref) => {
+    exitToProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -44,7 +50,7 @@ export const animation = {
     },
   },
   logo: {
-    siteEntrance: (ref: Ref) => {
+    siteEntrance: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -59,7 +65,7 @@ export const animation = {
         }
       )
     },
-    enterFromProject: (ref: Ref) => {
+    enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -71,7 +77,7 @@ export const animation = {
         }
       )
     },
-    exitToProject: (ref: Ref) => {
+    exitToProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -85,7 +91,7 @@ export const animation = {
     },
   },
   social: {
-    siteEntrance: (ref: Ref) => {
+    siteEntrance: ref => {
       TweenMax.fromTo(
         ref.current,
         0.6,
@@ -100,7 +106,7 @@ export const animation = {
         }
       )
     },
-    enterFromProject: (ref: Ref) => {
+    enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -112,7 +118,7 @@ export const animation = {
         }
       )
     },
-    exitToProject: (ref: Ref) => {
+    exitToProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -126,7 +132,7 @@ export const animation = {
     },
   },
   date: {
-    siteEntrance: (ref: Ref) => {
+    siteEntrance: ref => {
       TweenMax.fromTo(
         ref.current,
         0.8,
@@ -141,7 +147,7 @@ export const animation = {
         }
       )
     },
-    enterFromProject: (ref: Ref) => {
+    enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -153,7 +159,7 @@ export const animation = {
         }
       )
     },
-    exitToProject: (ref: Ref) => {
+    exitToProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -167,12 +173,12 @@ export const animation = {
     },
   },
   background: {
-    siteEntrance: (ref: Ref) => {
+    siteEntrance: ref => {
       TweenMax.to(ref.current, 0.9, {
         opacity: 1,
       })
     },
-    enterFromProject: (ref: Ref) => {
+    enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -184,7 +190,7 @@ export const animation = {
         }
       )
     },
-    exitToProject: (ref: Ref) => {
+    exitToProject: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
