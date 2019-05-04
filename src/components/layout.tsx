@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { ReactNode } from "react"
+import React, { ReactNode, memo } from "react"
 import GlobalStyle from "@style/global-style"
 import LoaderContainer from "./loader/loader-container"
 
@@ -13,7 +13,7 @@ interface Props {
   children: ReactNode
 }
 
-const Layout: React.FunctionComponent<Props> = ({ children }) => {
+const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
   return (
     <>
       <GlobalStyle />
@@ -21,6 +21,6 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
       {children}
     </>
   )
-}
+})
 
 export default Layout

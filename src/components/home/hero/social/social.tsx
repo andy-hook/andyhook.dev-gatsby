@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
 import { ISocialMeta, ISocialMetaItem } from "@custom-types/model"
@@ -31,7 +31,7 @@ export interface RenderItems extends ISocialMetaItem {
   icon: Icons
 }
 
-const Social: React.FunctionComponent<Props> = ({ items, className }) => {
+const Social: React.FunctionComponent<Props> = memo(({ items, className }) => {
   const getIconsToRender = () => {
     const renderItems: RenderItems[] = []
 
@@ -64,7 +64,7 @@ const Social: React.FunctionComponent<Props> = ({ items, className }) => {
   ))
 
   return <Restricter className={classNames("", className)}>{icons}</Restricter>
-}
+})
 
 const Restricter = styled.div`
   display: flex;

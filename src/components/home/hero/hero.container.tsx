@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import Hero from "./hero"
 import { ISocialMeta } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
@@ -15,20 +15,18 @@ const mapStateToProps = ({ loaderVisible, firstEntrance }: IStore) => {
   return { loaderVisible, firstEntrance }
 }
 
-const HeroContainer: React.FunctionComponent<ContainerProps> = ({
-  socialIconData,
-  loaderVisible,
-  firstEntrance,
-}) => {
-  return (
-    <Hero
-      socialIconData={socialIconData}
-      introTrigger={!loaderVisible}
-      canPerformIntro={firstEntrance}
-      transitionState={useTransitionState()}
-    />
-  )
-}
+const HeroContainer: React.FunctionComponent<ContainerProps> = memo(
+  ({ socialIconData, loaderVisible, firstEntrance }) => {
+    return (
+      <Hero
+        socialIconData={socialIconData}
+        introTrigger={!loaderVisible}
+        canPerformIntro={firstEntrance}
+        transitionState={useTransitionState()}
+      />
+    )
+  }
+)
 
 const ConnectedHero = connect(mapStateToProps)(HeroContainer)
 

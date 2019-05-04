@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, memo } from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
 import { IStore } from "@custom-types/store"
@@ -28,38 +28,36 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-const LoaderContainer: React.FunctionComponent<AllProps> = ({
-  hideLoader,
-  loaderVisible,
-  hasEnteredSite,
-}) => {
-  const [shouldRenderLoader, setRender] = useState(true)
+const LoaderContainer: React.FunctionComponent<AllProps> = memo(
+  ({ hideLoader, loaderVisible, hasEnteredSite }) => {
+    const [shouldRenderLoader, setRender] = useState(true)
 
-  const onLeaveComplete = () => {
-    hasEnteredSite()
-    setRender(false)
-  }
-
-  const onEnterComplete = () => {
-    setTimeout(() => {
-      hideLoader()
-    }, 200)
-  }
-
-  const renderLoader = () => {
-    if (shouldRenderLoader) {
-      return (
-        <Loader
-          visible={loaderVisible}
-          onEnterComplete={onEnterComplete}
-          onLeaveComplete={onLeaveComplete}
-        />
-      )
+    const onLeaveComplete = () => {
+      hasEnteredSite()
+      setRender(false)
     }
-  }
 
-  return <>{renderLoader()}</>
-}
+    const onEnterComplete = () => {
+      setTimeout(() => {
+        hideLoader()
+      }, 200)
+    }
+
+    const renderLoader = () => {
+      if (shouldRenderLoader) {
+        return (
+          <Loader
+            visible={loaderVisible}
+            onEnterComplete={onEnterComplete}
+            onLeaveComplete={onLeaveComplete}
+          />
+        )
+      }
+    }
+
+    return <>{renderLoader()}</>
+  }
+)
 
 const ConnectedLoaderContainer = connect(
   mapStateToProps,

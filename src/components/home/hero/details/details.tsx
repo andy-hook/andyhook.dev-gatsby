@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "@style/utils"
@@ -17,7 +17,7 @@ interface Props {
   buttonHref: string
 }
 
-const Details: React.FunctionComponent<Props> = ({ buttonHref }) => {
+const Details: React.FunctionComponent<Props> = memo(({ buttonHref }) => {
   return (
     <>
       <Title>I’m busy working on something new</Title>
@@ -26,7 +26,7 @@ const Details: React.FunctionComponent<Props> = ({ buttonHref }) => {
       </CallToAction>
     </>
   )
-}
+})
 
 const Title = styled.h2`
   font-family: ${fontFamily.display};
