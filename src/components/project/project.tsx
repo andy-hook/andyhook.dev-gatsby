@@ -13,12 +13,16 @@ const Project: React.FunctionComponent<Props> = ({ children }) => {
         entry={{
           delay: 0,
           length: 0,
-          state: "enter-from-project",
+          state: {
+            animType: "enter-from-project",
+          },
         }}
         exit={{
           delay: 0,
           length: 0,
-          state: "exit animation",
+          state: {
+            animType: "exit animation",
+          },
         }}
       >
         GO HOME

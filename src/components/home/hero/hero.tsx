@@ -59,20 +59,29 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     }
 
     useEffect(() => {
-      const { transitionStatus, exit, entry } = transitionState
+      const { transitionStatus, exit, entry, current } = transitionState
 
-      if (transitionStatus === "exiting") {
-        if (exit.state === "leave-to-project") {
-          animateLeaveToProject()
-        }
+      switch (transitionStatus) {
+        case "exiting":
+          switch (exit.state.animType) {
+            case "leave-to-project":
+              {
+                animateLeaveToProject()
+              }
+              break
+          }
+          break
+        case "entering":
+          switch (entry.state.animType) {
+            case "enter-from-project":
+              {
+                animateEnterFromProject()
+              }
+              break
+          }
+          break
       }
-
-      if (transitionStatus === "entering") {
-        if (entry.state === "enter-from-project") {
-          animateEnterFromProject()
-        }
-      }
-    }, [transitionState.transitionStatus]) // Only update when transitionStatus changes
+    }, [transitionState.transitionStatus])
 
     useEffect(() => {
       if (canPerformIntro) {
@@ -101,7 +110,9 @@ const Hero: React.FunctionComponent<AllProps> = memo(
           exit={{
             // Length value should equal total running time of entire page leave animation
             length: 0.75,
-            state: "leave-to-project",
+            state: {
+              animType: "leave-to-project",
+            },
           }}
         >
           GO BRANDWATCH

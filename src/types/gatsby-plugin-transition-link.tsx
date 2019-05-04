@@ -2,7 +2,9 @@
 interface ItransitionProps {
   delay: number
   length: number
-  state: string
+  state: {
+    animType: string
+  }
 }
 
 export interface ItransitionState {
