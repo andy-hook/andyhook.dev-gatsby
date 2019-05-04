@@ -53,4 +53,28 @@ export default {
       )
     },
   },
+  date: {
+    siteEntrance: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.8,
+        {
+          scale: 1.1,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+    },
+  },
+  background: {
+    siteEntrance: (ref: Ref) => {
+      TweenMax.to(ref.current, 0.9, {
+        opacity: 1,
+      })
+    },
+  },
 }
