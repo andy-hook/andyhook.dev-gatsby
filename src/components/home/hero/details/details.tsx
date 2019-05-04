@@ -11,66 +11,22 @@ import {
   letterSpacing,
   duration,
 } from "@style/variables"
-import { TimelineLite, Elastic } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
   buttonHref: string
-  visible?: boolean
 }
 
-type ref = React.MutableRefObject<HTMLImageElement>
-
-const Details: React.FunctionComponent<Props> = ({
-  buttonHref,
-  visible = true,
-}) => {
-  const containerRef: ref = React.useRef() as ref
-  const containerTL = new TimelineLite()
-
-  useEffect(() => {
-    if (visible) {
-      containerTL.fromTo(
-        containerRef.current,
-        0.75,
-        {
-          scale: 1.5,
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    }
-  })
-
+const Details: React.FunctionComponent<Props> = ({ buttonHref }) => {
   return (
-    <Container ref={containerRef}>
+    <>
       <Title>I’m busy working on something new</Title>
       <CallToAction href={buttonHref} target="_blank">
         <CallToActionInner>View some previous work</CallToActionInner>
       </CallToAction>
-    </Container>
+    </>
   )
 }
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-
-  flex-direction: column;
-
-  margin-bottom: -3vh;
-
-  z-index: 1;
-
-  opacity: 0;
-
-  will-change: transform;
-`
 
 const Title = styled.h2`
   font-family: ${fontFamily.display};

@@ -14,7 +14,7 @@ const mapStateToProps = ({ loaderVisible, firstEntrance }: IStore) => {
   return { loaderVisible, firstEntrance }
 }
 
-const SplashContainer: React.FunctionComponent<ContainerProps> = ({
+const HeroContainer: React.FunctionComponent<ContainerProps> = ({
   socialIconData,
   loaderVisible,
   firstEntrance,
@@ -28,6 +28,6 @@ const SplashContainer: React.FunctionComponent<ContainerProps> = ({
   )
 }
 
-const ConnectedSplashContainer = connect(mapStateToProps)(SplashContainer)
+const ConnectedHero = connect(mapStateToProps)(HeroContainer)
 
-export default ConnectedSplashContainer
+export default ConnectedHero

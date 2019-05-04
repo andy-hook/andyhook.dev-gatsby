@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "@style/utils"
@@ -10,61 +10,16 @@ import {
   letterSpacing,
   fontFamily,
 } from "@style/variables"
-import { TimelineLite, Elastic } from "gsap"
 
-type ref = React.MutableRefObject<HTMLDivElement>
-
-interface Props {
-  visible?: boolean
-}
-
-const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
-  const logoPosRef: ref = React.useRef() as ref
-  const logoPosTL = new TimelineLite()
-
-  useEffect(() => {
-    if (visible) {
-      logoPosTL.fromTo(
-        logoPosRef.current,
-        0.75,
-        {
-          y: "-100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    }
-  })
-
+const Logo: React.FunctionComponent = () => {
   return (
-    <LogoPos ref={logoPosRef}>
-      <LogoInner href="/">
-        <LogoMark />
-        <LogoTitle>Andy Hook</LogoTitle>
-        <LogoSubtle>Interface Developer</LogoSubtle>
-      </LogoInner>
-    </LogoPos>
+    <LogoInner href="/">
+      <LogoMark />
+      <LogoTitle>Andy Hook</LogoTitle>
+      <LogoSubtle>Interface Developer</LogoSubtle>
+    </LogoInner>
   )
 }
-
-const LogoPos = styled.div`
-  display: flex;
-
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  left: 0;
-
-  top: 9vh;
-
-  z-index: 1;
-
-  opacity: 0;
-`
 
 const LogoInner = styled.a`
   display: flex;
