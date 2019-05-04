@@ -3,6 +3,7 @@ import Hero from "./hero"
 import { ISocialMeta } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
+import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 
 interface Props {
   socialIconData: ISocialMeta
@@ -24,6 +25,7 @@ const HeroContainer: React.FunctionComponent<ContainerProps> = ({
       socialIconData={socialIconData}
       introTrigger={!loaderVisible}
       canPerformIntro={firstEntrance}
+      transitionState={useTransitionState()}
     />
   )
 }

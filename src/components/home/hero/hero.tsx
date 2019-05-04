@@ -12,7 +12,6 @@ import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
 import Link from "gatsby-plugin-transition-link"
-import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Props {
@@ -28,7 +27,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     socialIconData,
     introTrigger = true,
     canPerformIntro = true,
-    transitionState = useTransitionState(),
+    transitionState,
   }) => {
     const detailsRef: Ref = React.useRef() as Ref
     const logoRef: Ref = React.useRef() as Ref
