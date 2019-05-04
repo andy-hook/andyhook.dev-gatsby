@@ -7,11 +7,10 @@ import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
 import { uniformScale, mq } from "@style/utils"
 import { emBreakpoints, typeScale } from "@style/variables"
-import animation from "./hero.animation"
+import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
-import { ItransitionProps } from "@custom-types/gatsby-plugin-transition-link"
 import Link from "gatsby-plugin-transition-link"
 
 interface Props {
@@ -44,11 +43,19 @@ const Hero: React.FunctionComponent<AllProps> = ({
   }
 
   const animateExitElements = () => {
-    alert("hero exiting")
+    animation.details.pageExit(detailsRef)
+    animation.logo.pageExit(logoRef)
+    animation.social.pageExit(socialRef)
+    animation.date.pageExit(dateRef)
+    animation.background.pageExit(backgroundRef)
   }
 
   const animateEnteringElements = () => {
-    alert("hero entering")
+    animation.details.pageEnter(detailsRef)
+    animation.logo.pageEnter(logoRef)
+    animation.social.pageEnter(socialRef)
+    animation.date.pageEnter(dateRef)
+    animation.background.pageEnter(backgroundRef)
   }
 
   useEffect(() => {
@@ -85,13 +92,10 @@ const Hero: React.FunctionComponent<AllProps> = ({
         entry={{
           delay: 0,
           length: 0,
-          state: "from-right",
         }}
         // The exit animation to play on this hero element
         exit={{
-          delay: 0,
-          length: 0,
-          state: 34234234,
+          length: 0.75,
         }}
       >
         GO BRANDWATCH

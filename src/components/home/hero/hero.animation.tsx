@@ -1,7 +1,7 @@
 import { TweenMax, Elastic } from "gsap"
 import { Ref } from "@custom-types/ref"
 
-export default {
+export const animation = {
   details: {
     siteEntrance: (ref: Ref) => {
       TweenMax.fromTo(
@@ -15,6 +15,30 @@ export default {
           scale: 1,
           opacity: 1,
           clearProps: "transform",
+        }
+      )
+    },
+    pageEnter: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    pageExit: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     },
@@ -35,6 +59,30 @@ export default {
         }
       )
     },
+    pageEnter: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    pageExit: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+        }
+      )
+    },
   },
   social: {
     siteEntrance: (ref: Ref) => {
@@ -49,6 +97,30 @@ export default {
           y: "0%",
           opacity: 1,
           clearProps: "transform",
+        }
+      )
+    },
+    pageEnter: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    pageExit: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     },
@@ -69,12 +141,60 @@ export default {
         }
       )
     },
+    pageEnter: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    pageExit: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+        }
+      )
+    },
   },
   background: {
     siteEntrance: (ref: Ref) => {
       TweenMax.to(ref.current, 0.9, {
         opacity: 1,
       })
+    },
+    pageEnter: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    pageExit: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+        }
+      )
     },
   },
 }
