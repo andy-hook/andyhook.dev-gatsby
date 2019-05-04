@@ -22,6 +22,7 @@ type AllProps = Props & ContainerProps
 const Hero: React.FunctionComponent<AllProps> = ({
   socialIconData,
   introTrigger = true,
+  canPerformIntro = true,
 }) => {
   const detailsRef: Ref = React.useRef() as Ref
   const logoRef: Ref = React.useRef() as Ref
@@ -29,7 +30,10 @@ const Hero: React.FunctionComponent<AllProps> = ({
   const backgroundRef: Ref = React.useRef() as Ref
   const dateRef: Ref = React.useRef() as Ref
 
-  const animateMainElements = () => {
+  const animateBackground = () =>
+    animation.background.siteEntrance(backgroundRef)
+
+  const animateIntroElements = () => {
     animation.details.siteEntrance(detailsRef)
     animation.logo.siteEntrance(logoRef)
     animation.social.siteEntrance(socialRef)
@@ -37,13 +41,15 @@ const Hero: React.FunctionComponent<AllProps> = ({
   }
 
   useEffect(() => {
-    animation.background.siteEntrance(backgroundRef)
+    if (canPerformIntro) {
+      animateBackground()
+    }
   }, [])
 
   useEffect(() => {
-    if (introTrigger) {
+    if (introTrigger && canPerformIntro) {
       setTimeout(() => {
-        animateMainElements()
+        animateIntroElements()
       }, 650)
     }
   }, [introTrigger])
