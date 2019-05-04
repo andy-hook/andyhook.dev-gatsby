@@ -8,7 +8,6 @@
 import React, { ReactNode } from "react"
 import GlobalStyle from "@style/global-style"
 import LoaderContainer from "./loader/loader-container"
-import Link from "gatsby-plugin-transition-link"
 
 interface Props {
   children: ReactNode
@@ -17,8 +16,6 @@ interface Props {
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
   return (
     <>
-      <Link to="/">GO HOME</Link>
-      <Link to="/brandwatch">GO BRANDWATCH</Link>
       <GlobalStyle />
       <LoaderContainer />
       {children}

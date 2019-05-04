@@ -12,11 +12,11 @@ import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
 import { ItransitionProps } from "@custom-types/gatsby-plugin-transition-link"
+import Link from "gatsby-plugin-transition-link"
 
 interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
-  transitionProps: ItransitionProps
 }
 
 type AllProps = Props & ContainerProps
@@ -43,7 +43,25 @@ const Hero: React.FunctionComponent<AllProps> = ({
     animation.date.siteEntrance(dateRef)
   }
 
-  console.log(transitionProps)
+  const animateExitElements = () => {
+    alert("hero exiting")
+  }
+
+  const animateEnteringElements = () => {
+    alert("hero entering")
+  }
+
+  useEffect(() => {
+    const { transitionStatus } = transitionProps
+
+    if (transitionStatus === "exiting") {
+      animateExitElements()
+    }
+
+    if (transitionStatus === "entering") {
+      animateEnteringElements()
+    }
+  }, [transitionProps])
 
   useEffect(() => {
     if (canPerformIntro) {
@@ -60,26 +78,45 @@ const Hero: React.FunctionComponent<AllProps> = ({
   }, [introTrigger])
 
   return (
-    <Container>
-      <LogoPos ref={logoRef}>
-        <Logo />
-      </LogoPos>
+    <>
+      <Link
+        to="/brandwatch"
+        // Entry animation to play on the brandwatch page
+        entry={{
+          delay: 0,
+          length: 0,
+          state: "from-right",
+        }}
+        // The exit animation to play on this hero element
+        exit={{
+          delay: 0,
+          length: 0,
+          state: 34234234,
+        }}
+      >
+        GO BRANDWATCH
+      </Link>
+      <Container>
+        <LogoPos ref={logoRef}>
+          <Logo />
+        </LogoPos>
 
-      <DetailsPos ref={detailsRef}>
-        <Details buttonHref={socialIconData.dribbble.url} />
-      </DetailsPos>
+        <DetailsPos ref={detailsRef}>
+          <Details buttonHref={socialIconData.dribbble.url} />
+        </DetailsPos>
 
-      <SocialPos ref={socialRef}>
-        <Social items={socialIconData} />
-      </SocialPos>
+        <SocialPos ref={socialRef}>
+          <Social items={socialIconData} />
+        </SocialPos>
 
-      <BackgroundContainer ref={backgroundRef}>
-        <BackgroundGradient />
-        <Date ref={dateRef}>
-          <DateGraphic />
-        </Date>
-      </BackgroundContainer>
-    </Container>
+        <BackgroundContainer ref={backgroundRef}>
+          <BackgroundGradient />
+          <Date ref={dateRef}>
+            <DateGraphic />
+          </Date>
+        </BackgroundContainer>
+      </Container>
+    </>
   )
 }
 

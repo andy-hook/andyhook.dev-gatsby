@@ -6,7 +6,7 @@ interface ItransitionState {
 }
 
 export interface ItransitionProps {
-  transitionStatus: "entering" | "entered" | "exiting" | "exited"
+  transitionStatus: "entering" | "entered" | "exiting" | "exited" | "POP"
   current: ItransitionState
   entry: ItransitionState
   exit: ItransitionState
