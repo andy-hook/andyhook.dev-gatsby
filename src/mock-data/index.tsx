@@ -1,4 +1,5 @@
 import { ISocialMeta } from "@custom-types/model"
+import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 export const socialIcons: ISocialMeta = {
   twitter: {
@@ -26,4 +27,24 @@ export const socialIcons: ISocialMeta = {
     url: "path/to/social/profile",
     icon: "github",
   },
+}
+
+export const transitionState: ItransitionState = {
+  transitionStatus: "entering",
+  current: {
+    delay: 0,
+    length: 0,
+    state: {},
+  },
+  entry: {
+    delay: 0,
+    length: 0,
+    state: {},
+  },
+  exit: {
+    delay: 0,
+    length: 0,
+    state: {},
+  },
+  mount: true,
 }

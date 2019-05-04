@@ -18,19 +18,23 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
+  transitionState: ItransitionState
 }
 
 type AllProps = Props & ContainerProps
 
 const Hero: React.FunctionComponent<AllProps> = memo(
-  ({ socialIconData, introTrigger = true, canPerformIntro = true }) => {
+  ({
+    socialIconData,
+    introTrigger = true,
+    canPerformIntro = true,
+    transitionState = useTransitionState(),
+  }) => {
     const detailsRef: Ref = React.useRef() as Ref
     const logoRef: Ref = React.useRef() as Ref
     const socialRef: Ref = React.useRef() as Ref
     const backgroundRef: Ref = React.useRef() as Ref
     const dateRef: Ref = React.useRef() as Ref
-
-    const transitionState: ItransitionState = useTransitionState()
 
     const animateBackground = () =>
       animation.background.siteEntrance(backgroundRef)
@@ -59,7 +63,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     }
 
     useEffect(() => {
-      const { transitionStatus, exit, entry, current } = transitionState
+      const { transitionStatus, exit, entry } = transitionState
 
       switch (transitionStatus) {
         case "exiting":
