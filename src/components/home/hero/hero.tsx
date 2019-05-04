@@ -44,6 +44,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
       logo: logoRef,
       social: socialRef,
       date: dateRef,
+      background: backgroundRef,
     }
 
     const runAnimation = (type: string) => {
@@ -51,9 +52,6 @@ const Hero: React.FunctionComponent<AllProps> = memo(
         animation[item][type](refs[item])
       })
     }
-
-    const animateBackground = () =>
-      animation.background.siteEntrance(backgroundRef)
 
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
@@ -82,7 +80,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
 
     useEffect(() => {
       if (canPerformIntro) {
-        animateBackground()
+        animation.background.siteEntrance(backgroundRef)
       }
     }, [])
 
