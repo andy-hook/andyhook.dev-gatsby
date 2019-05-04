@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Details /> renders correctly 1`] = `
+Array [
+  <h2
+    className="sc-bdVaJa dIjwmS"
+  >
+    I’m busy working on something new
+  </h2>,
+  <a
+    className="sc-bwzfXH kxjgBg"
+    href="https://www.google.com"
+    onClick={[Function]}
+    target="_blank"
+  >
+    <span
+      className="sc-htpNat kFThih"
+    >
+      View some previous work
+    </span>
+  </a>,
+]
+`;

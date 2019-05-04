@@ -2,66 +2,66 @@
 
 exports[`<Hero /> renders correctly 1`] = `
 <div
-  className="sc-chPdSV jLmcxr"
+  className="sc-gqjmRU crYJuI"
 >
   <div
-    className="sc-bZQynM hIgltE"
+    className="sc-VigVT kCyiPV"
   >
     <a
-      className="sc-gzVnrw chyyua"
+      className="sc-EHOje gRorjx"
       href="/"
     >
       <test-file-stub
-        className="sc-htoDjs fysoGt"
+        className="sc-bZQynM pxvFG"
       />
       <span
-        className="sc-dnqmqq cYRVLL"
+        className="sc-gzVnrw jEIgqt"
       >
         Andy Hook
       </span>
       <span
-        className="sc-iwsKbI gLxCNT"
+        className="sc-htoDjs dGMWgl"
       >
         Interface Developer
       </span>
     </a>
   </div>
   <div
-    className="sc-gZMcBi cAvNZa"
+    className="sc-jTzLTM kveocz"
   >
     <h2
-      className="sc-gqjmRU ixFOao"
+      className="sc-dnqmqq gGgLMF"
     >
       I’m busy working on something new
     </h2>
     <a
-      className="sc-VigVT cCdqzR"
+      className="sc-iwsKbI kMqiyI"
       href="path/to/social/profile"
       onClick={[Function]}
       target="_blank"
     >
       <span
-        className="sc-jTzLTM efIpCi"
+        className="sc-gZMcBi flnlww"
       >
         View some previous work
       </span>
     </a>
   </div>
   <div
-    className="sc-kgoBCf kwvVrc sc-htpNat eeRFYY"
+    className="sc-fjdhpX bXEzVd"
   >
     <div
-      className="sc-bxivhb cQpSKi"
+      className="sc-htpNat hgHLpC"
     >
       <a
         aria-label="Get in touch"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="mailto:hello@andy-hook.co.uk"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -74,13 +74,13 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Twitter"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -93,13 +93,13 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Instagram"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -112,13 +112,13 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Linkedin"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -131,13 +131,13 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Dribbble"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -150,13 +150,13 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Github"
-        className="sc-ifAKCX gKEkKg"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
           <svg
             className="icon sc-bwzfXH kdIDyY"
@@ -170,16 +170,16 @@ exports[`<Hero /> renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-fjdhpX efPLCL"
+    className="sc-jzJRlG hgWACg"
   >
     <div
-      className="sc-jzJRlG hPkDBh"
+      className="sc-cSHVUG iDSEKI"
     />
     <div
-      className="sc-cSHVUG cdqcDh"
+      className="sc-kAzzGY iIPusG"
     >
       <test-file-stub
-        className="sc-kAzzGY bfGmaA"
+        className="sc-chPdSV afhPF"
       />
     </div>
   </div>
