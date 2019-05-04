@@ -26,10 +26,12 @@ const Hero: React.FunctionComponent<AllProps> = ({
 
   const detailsRef: Ref = React.useRef() as Ref
   const logoRef: Ref = React.useRef() as Ref
+  const socialRef: Ref = React.useRef() as Ref
 
   const runEntranceAnimation = () => {
     animation.details.siteEntrance(detailsRef)
     animation.logo.siteEntrance(logoRef)
+    animation.social.siteEntrance(socialRef)
   }
 
   useEffect(() => {
@@ -46,11 +48,14 @@ const Hero: React.FunctionComponent<AllProps> = ({
       <LogoPos ref={logoRef}>
         <Logo />
       </LogoPos>
+
       <DetailsPos ref={detailsRef}>
         <Details buttonHref={socialIconData.dribbble.url} />
       </DetailsPos>
 
-      <SocialIcons items={socialIconData} visible={elementsVisible} />
+      <SocialPos ref={socialRef}>
+        <Social items={socialIconData} />
+      </SocialPos>
       <Background visible={elementsVisible} />
     </Container>
   )
@@ -96,7 +101,7 @@ const DetailsPos = styled.div`
   will-change: transform;
 `
 
-const SocialIcons = styled(Social)`
+const SocialPos = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
@@ -106,6 +111,8 @@ const SocialIcons = styled(Social)`
   z-index: 1;
 
   font-size: ${typeScale[6]};
+
+  opacity: 0;
 
   ${mq.between("bottomThumb", "bottomUltra")`
     font-size: ${between(

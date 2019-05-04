@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import { rem } from "polished"
 import { ISocialMeta, ISocialMetaItem } from "@custom-types/model"
@@ -11,7 +11,6 @@ import {
   duration,
   borderThickness,
 } from "@style/variables"
-import { Elastic, TimelineLite } from "gsap"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
@@ -32,34 +31,7 @@ export interface RenderItems extends ISocialMetaItem {
   icon: Icons
 }
 
-type ref = React.MutableRefObject<HTMLImageElement>
-
-const Social: React.FunctionComponent<Props> = ({
-  items,
-  className,
-  visible = true,
-}) => {
-  const containerRef: ref = React.useRef() as ref
-  const containerTL = new TimelineLite()
-
-  useEffect(() => {
-    if (visible) {
-      containerTL.fromTo(
-        containerRef.current,
-        0.6,
-        {
-          y: "100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    }
-  })
-
+const Social: React.FunctionComponent<Props> = ({ items, className }) => {
   const getIconsToRender = () => {
     const renderItems: RenderItems[] = []
 
@@ -91,16 +63,8 @@ const Social: React.FunctionComponent<Props> = ({
     </Link>
   ))
 
-  return (
-    <Container ref={containerRef} className={classNames("", className)}>
-      <Restricter>{icons}</Restricter>
-    </Container>
-  )
+  return <Restricter className={classNames("", className)}>{icons}</Restricter>
 }
-
-const Container = styled.div`
-  opacity: 0;
-`
 
 const Restricter = styled.div`
   display: flex;

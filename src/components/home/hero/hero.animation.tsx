@@ -36,4 +36,21 @@ export default {
       )
     },
   },
+  social: {
+    siteEntrance: (ref: Ref) => {
+      TweenMax.fromTo(
+        ref.current,
+        0.6,
+        {
+          y: "100%",
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+    },
+  },
 }
