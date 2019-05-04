@@ -1,14 +1,14 @@
 // Quick, dirty and potted types for gatsby-plugin-transition-link
-interface ItransitionState {
+interface ItransitionProps {
   delay: number
   length: number
-  state: object
+  state: string
 }
 
-export interface ItransitionProps {
+export interface ItransitionState {
   transitionStatus: "entering" | "entered" | "exiting" | "exited" | "POP"
-  current: ItransitionState
-  entry: ItransitionState
-  exit: ItransitionState
+  current: ItransitionProps
+  entry: ItransitionProps
+  exit: ItransitionProps
   mount: boolean
 }

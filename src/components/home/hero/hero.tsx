@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import { between, rem, rgba } from "polished"
 import Social from "./social/social"
@@ -12,6 +12,8 @@ import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
 import Link from "gatsby-plugin-transition-link"
+import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Props {
   introTrigger?: boolean
@@ -20,109 +22,114 @@ interface Props {
 
 type AllProps = Props & ContainerProps
 
-const Hero: React.FunctionComponent<AllProps> = ({
-  socialIconData,
-  introTrigger = true,
-  canPerformIntro = true,
-  transitionProps,
-}) => {
-  const detailsRef: Ref = React.useRef() as Ref
-  const logoRef: Ref = React.useRef() as Ref
-  const socialRef: Ref = React.useRef() as Ref
-  const backgroundRef: Ref = React.useRef() as Ref
-  const dateRef: Ref = React.useRef() as Ref
+const Hero: React.FunctionComponent<AllProps> = memo(
+  ({ socialIconData, introTrigger = true, canPerformIntro = true }) => {
+    const detailsRef: Ref = React.useRef() as Ref
+    const logoRef: Ref = React.useRef() as Ref
+    const socialRef: Ref = React.useRef() as Ref
+    const backgroundRef: Ref = React.useRef() as Ref
+    const dateRef: Ref = React.useRef() as Ref
 
-  const animateBackground = () =>
-    animation.background.siteEntrance(backgroundRef)
+    const transitionState: ItransitionState = useTransitionState()
 
-  const animateIntroElements = () => {
-    animation.details.siteEntrance(detailsRef)
-    animation.logo.siteEntrance(logoRef)
-    animation.social.siteEntrance(socialRef)
-    animation.date.siteEntrance(dateRef)
+    const animateBackground = () =>
+      animation.background.siteEntrance(backgroundRef)
+
+    const animateIntroElements = () => {
+      animation.details.siteEntrance(detailsRef)
+      animation.logo.siteEntrance(logoRef)
+      animation.social.siteEntrance(socialRef)
+      animation.date.siteEntrance(dateRef)
+    }
+
+    const animateLeaveToProject = () => {
+      animation.details.exitToProject(detailsRef)
+      animation.logo.exitToProject(logoRef)
+      animation.social.exitToProject(socialRef)
+      animation.date.exitToProject(dateRef)
+      animation.background.exitToProject(backgroundRef)
+    }
+
+    const animateEnterFromProject = () => {
+      animation.details.enterFromProject(detailsRef)
+      animation.logo.enterFromProject(logoRef)
+      animation.social.enterFromProject(socialRef)
+      animation.date.enterFromProject(dateRef)
+      animation.background.enterFromProject(backgroundRef)
+    }
+
+    useEffect(() => {
+      const { transitionStatus, exit, entry } = transitionState
+
+      if (transitionStatus === "exiting") {
+        if (exit.state === "leave-to-project") {
+          animateLeaveToProject()
+        }
+      }
+
+      if (transitionStatus === "entering") {
+        if (entry.state === "enter-from-project") {
+          animateEnterFromProject()
+        }
+      }
+    }, [transitionState.transitionStatus]) // Only update when transitionStatus changes
+
+    useEffect(() => {
+      if (canPerformIntro) {
+        animateBackground()
+      }
+    }, [])
+
+    useEffect(() => {
+      if (introTrigger && canPerformIntro) {
+        setTimeout(() => {
+          animateIntroElements()
+        }, 650)
+      }
+    }, [introTrigger])
+
+    return (
+      <>
+        <Link
+          to="/brandwatch"
+          // Entry animation to play on the brandwatch page
+          entry={{
+            delay: 0,
+            length: 0,
+          }}
+          // The exit animation to play on this hero element
+          exit={{
+            // Length value should equal total running time of entire page leave animation
+            length: 0.75,
+            state: "leave-to-project",
+          }}
+        >
+          GO BRANDWATCH
+        </Link>
+        <Container>
+          <LogoPos ref={logoRef}>
+            <Logo />
+          </LogoPos>
+
+          <DetailsPos ref={detailsRef}>
+            <Details buttonHref={socialIconData.dribbble.url} />
+          </DetailsPos>
+
+          <SocialPos ref={socialRef}>
+            <Social items={socialIconData} />
+          </SocialPos>
+
+          <BackgroundContainer ref={backgroundRef}>
+            <BackgroundGradient />
+            <Date ref={dateRef}>
+              <DateGraphic />
+            </Date>
+          </BackgroundContainer>
+        </Container>
+      </>
+    )
   }
-
-  const animateExitElements = () => {
-    animation.details.pageExit(detailsRef)
-    animation.logo.pageExit(logoRef)
-    animation.social.pageExit(socialRef)
-    animation.date.pageExit(dateRef)
-    animation.background.pageExit(backgroundRef)
-  }
-
-  const animateEnteringElements = () => {
-    animation.details.pageEnter(detailsRef)
-    animation.logo.pageEnter(logoRef)
-    animation.social.pageEnter(socialRef)
-    animation.date.pageEnter(dateRef)
-    animation.background.pageEnter(backgroundRef)
-  }
-
-  useEffect(() => {
-    const { transitionStatus } = transitionProps
-
-    if (transitionStatus === "exiting") {
-      animateExitElements()
-    }
-
-    if (transitionStatus === "entering") {
-      animateEnteringElements()
-    }
-  }, [transitionProps])
-
-  useEffect(() => {
-    if (canPerformIntro) {
-      animateBackground()
-    }
-  }, [])
-
-  useEffect(() => {
-    if (introTrigger && canPerformIntro) {
-      setTimeout(() => {
-        animateIntroElements()
-      }, 650)
-    }
-  }, [introTrigger])
-
-  return (
-    <>
-      <Link
-        to="/brandwatch"
-        // Entry animation to play on the brandwatch page
-        entry={{
-          delay: 0,
-          length: 0,
-        }}
-        // The exit animation to play on this hero element
-        exit={{
-          length: 0.75,
-        }}
-      >
-        GO BRANDWATCH
-      </Link>
-      <Container>
-        <LogoPos ref={logoRef}>
-          <Logo />
-        </LogoPos>
-
-        <DetailsPos ref={detailsRef}>
-          <Details buttonHref={socialIconData.dribbble.url} />
-        </DetailsPos>
-
-        <SocialPos ref={socialRef}>
-          <Social items={socialIconData} />
-        </SocialPos>
-
-        <BackgroundContainer ref={backgroundRef}>
-          <BackgroundGradient />
-          <Date ref={dateRef}>
-            <DateGraphic />
-          </Date>
-        </BackgroundContainer>
-      </Container>
-    </>
-  )
-}
+)
 
 const Container = styled.div`
   position: relative;

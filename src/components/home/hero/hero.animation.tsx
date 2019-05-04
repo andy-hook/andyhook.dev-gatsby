@@ -18,7 +18,7 @@ export const animation = {
         }
       )
     },
-    pageEnter: (ref: Ref) => {
+    enterFromProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -30,7 +30,7 @@ export const animation = {
         }
       )
     },
-    pageExit: (ref: Ref) => {
+    exitToProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -59,7 +59,7 @@ export const animation = {
         }
       )
     },
-    pageEnter: (ref: Ref) => {
+    enterFromProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -71,7 +71,7 @@ export const animation = {
         }
       )
     },
-    pageExit: (ref: Ref) => {
+    exitToProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -100,7 +100,7 @@ export const animation = {
         }
       )
     },
-    pageEnter: (ref: Ref) => {
+    enterFromProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -112,7 +112,7 @@ export const animation = {
         }
       )
     },
-    pageExit: (ref: Ref) => {
+    exitToProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -141,7 +141,7 @@ export const animation = {
         }
       )
     },
-    pageEnter: (ref: Ref) => {
+    enterFromProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -153,7 +153,7 @@ export const animation = {
         }
       )
     },
-    pageExit: (ref: Ref) => {
+    exitToProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -172,7 +172,7 @@ export const animation = {
         opacity: 1,
       })
     },
-    pageEnter: (ref: Ref) => {
+    enterFromProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -184,7 +184,7 @@ export const animation = {
         }
       )
     },
-    pageExit: (ref: Ref) => {
+    exitToProject: (ref: Ref) => {
       TweenMax.fromTo(
         ref.current,
         0.75,

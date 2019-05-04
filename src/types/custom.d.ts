@@ -13,3 +13,7 @@ declare module "gatsby-plugin-transition-link" {
 
   export default Link
 }
+
+declare module "gatsby-plugin-transition-link/hooks" {
+  export const useTransitionState: any
+}

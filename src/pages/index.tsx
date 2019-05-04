@@ -5,8 +5,6 @@ import { IMetaData } from "@custom-types/model"
 
 import SEO from "@components/seo"
 import HeroContainer from "@components/home/hero/hero.container"
-import { TransitionState } from "gatsby-plugin-transition-link"
-import { ItransitionProps } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Data {
   socialIconData: IMetaData
@@ -50,19 +48,10 @@ const IndexPage: React.FunctionComponent = () => {
   `)
 
   return (
-    <TransitionState>
-      {(transitionProps: ItransitionProps) => {
-        return (
-          <>
-            <SEO />
-            <HeroContainer
-              socialIconData={data.socialIconData.siteMetadata.social}
-              transitionProps={transitionProps}
-            />
-          </>
-        )
-      }}
-    </TransitionState>
+    <>
+      <SEO />
+      <HeroContainer socialIconData={data.socialIconData.siteMetadata.social} />
+    </>
   )
 }
 
