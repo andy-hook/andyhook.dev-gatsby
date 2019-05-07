@@ -35,6 +35,33 @@ module.exports = {
         icon: "linkedin",
       },
     },
+    projects: {
+      bright: {
+        label: "Bright",
+        desc: "Bright description",
+        path: "/bright",
+      },
+      brandwatch: {
+        label: "Brandwatch",
+        desc: "Brandwatch description",
+        path: "/brandwatch",
+      },
+      Monster: {
+        label: "Monster",
+        desc: "Monster description",
+        path: "/monster",
+      },
+      Jamieson: {
+        label: "Jamieson",
+        desc: "Jamieson description",
+        path: "/jamieson",
+      },
+      Sketchbook: {
+        label: "Sketchbook",
+        desc: "Sketchbook description",
+        path: "/sketchbook",
+      },
+    },
   },
   plugins: [
     `gatsby-plugin-typescript`,
