@@ -3,18 +3,18 @@
 exports[`<Details /> renders correctly 1`] = `
 Array [
   <h2
-    className="sc-bdVaJa dIjwmS"
+    className="sc-htpNat eUgMEU"
   >
     I’m busy working on something new
   </h2>,
   <a
-    className="sc-bwzfXH kxjgBg"
+    className="sc-bdVaJa dHlXHn"
     href="https://www.google.com"
     onClick={[Function]}
     target="_blank"
   >
     <span
-      className="sc-htpNat kFThih"
+      className="sc-bwzfXH hGubuC"
     >
       View some previous work
     </span>

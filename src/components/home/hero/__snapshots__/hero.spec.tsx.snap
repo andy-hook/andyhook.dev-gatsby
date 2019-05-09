@@ -37,18 +37,18 @@ Array [
       className="sc-jTzLTM kveocz"
     >
       <h2
-        className="sc-dnqmqq gGgLMF"
+        className="sc-gZMcBi ffpxMF"
       >
         I’m busy working on something new
       </h2>
       <a
-        className="sc-iwsKbI kMqiyI"
+        className="sc-dnqmqq gbcsZq"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
         <span
-          className="sc-gZMcBi flnlww"
+          className="sc-iwsKbI fExAuH"
         >
           View some previous work
         </span>
