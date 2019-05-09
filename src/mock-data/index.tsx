@@ -1,4 +1,4 @@
-import { ISocialMeta } from "@custom-types/model"
+import { ISocialMeta, IProjects } from "@custom-types/model"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 export const socialIcons: ISocialMeta = {
@@ -26,6 +26,34 @@ export const socialIcons: ISocialMeta = {
     label: "Github",
     url: "path/to/social/profile",
     icon: "github",
+  },
+}
+
+export const projectsData: IProjects = {
+  bright: {
+    label: "Bright",
+    desc: "Bright description",
+    path: "/bright",
+  },
+  brandwatch: {
+    label: "Brandwatch",
+    desc: "Brandwatch description",
+    path: "/brandwatch",
+  },
+  monster: {
+    label: "Monster",
+    desc: "Monster description",
+    path: "/monster",
+  },
+  jamieson: {
+    label: "Jamieson",
+    desc: "Jamieson description",
+    path: "/jamieson",
+  },
+  sketchbook: {
+    label: "Sketchbook",
+    desc: "Sketchbook description",
+    path: "/sketchbook",
   },
 }
 

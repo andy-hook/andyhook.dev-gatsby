@@ -33,20 +33,22 @@ export interface IMetaData {
   siteMetadata: IMeta
 }
 
-export interface IProject {
+export interface IProjectItem {
   label: string
   desc: string
   path: string
 }
 
-export interface IProjectData {
+export interface IProjects {
+  bright: IProjectItem
+  brandwatch: IProjectItem
+  monster: IProjectItem
+  jamieson: IProjectItem
+  sketchbook: IProjectItem
+}
+
+export interface IProjectsData {
   siteMetadata: {
-    projects: {
-      bright: IProject
-      brandwatch: IProject
-      monster: IProject
-      jamieson: IProject
-      skechbook: IProject
-    }
+    projects: IProjects
   }
 }

@@ -46,17 +46,17 @@ module.exports = {
         desc: "Brandwatch description",
         path: "/brandwatch",
       },
-      Monster: {
+      monster: {
         label: "Monster",
         desc: "Monster description",
         path: "/monster",
       },
-      Jamieson: {
+      jamieson: {
         label: "Jamieson",
         desc: "Jamieson description",
         path: "/jamieson",
       },
-      Sketchbook: {
+      sketchbook: {
         label: "Sketchbook",
         desc: "Sketchbook description",
         path: "/sketchbook",
