@@ -43,7 +43,7 @@ const StyledButton = styled(OutboundLink)`
   text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
   padding: 1em 1.95em;
-  background: linear-gradient(160deg, #d450ff 0%, #6609e1 100%);
+  background: linear-gradient(160deg, #c700b1 0%, #6609e1 100%);
 
   &::before,
   &::after {
