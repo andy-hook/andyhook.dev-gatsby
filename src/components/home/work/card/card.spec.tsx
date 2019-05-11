@@ -6,7 +6,7 @@ import Card from "./card"
 const props = {
   label: "Card label",
   desc: "Card description",
-  href: "https://www.google.com",
+  path: "/brandwatch",
 }
 
 describe("<Work />", () => {

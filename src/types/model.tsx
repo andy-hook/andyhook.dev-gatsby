@@ -40,6 +40,7 @@ export interface IProjectItem {
 }
 
 export interface IProjects {
+  [key: string]: IProjectItem
   bright: IProjectItem
   brandwatch: IProjectItem
   monster: IProjectItem

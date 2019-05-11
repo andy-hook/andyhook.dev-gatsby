@@ -94,24 +94,6 @@ const Hero: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <Link
-          to="/brandwatch"
-          // Entry animation to play on the brandwatch page
-          entry={{
-            delay: 0,
-            length: 0,
-          }}
-          // The exit animation to play on this hero element
-          exit={{
-            // Length value should equal total running time of entire page leave animation
-            length: 0.75,
-            state: {
-              animType: "leave-to-project",
-            },
-          }}
-        >
-          GO BRANDWATCH
-        </Link>
         <Container>
           <LogoPos ref={logoRef}>
             <Logo />

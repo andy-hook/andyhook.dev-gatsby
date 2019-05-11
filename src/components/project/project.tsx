@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react"
 import Link from "gatsby-plugin-transition-link"
+import styled from "styled-components"
 
 interface Props {
   children: ReactNode
@@ -7,7 +8,7 @@ interface Props {
 
 const Project: React.FunctionComponent<Props> = ({ children }) => {
   return (
-    <article>
+    <ProjectContainer>
       <Link
         to="/"
         entry={{
@@ -28,8 +29,12 @@ const Project: React.FunctionComponent<Props> = ({ children }) => {
         GO HOME
       </Link>
       {children}
-    </article>
+    </ProjectContainer>
   )
 }
+
+const ProjectContainer = styled.article`
+  height: 3000px;
+`
 
 export default Project
