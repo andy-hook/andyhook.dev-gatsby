@@ -2,7 +2,7 @@
 
 exports[`<Logo /> renders correctly 1`] = `
 <a
-  className="sc-bdVaJa dHlXHn"
+  className="sc-bdVaJa kYVele"
   href="https://www.google.com"
   onClick={[Function]}
   target="_blank"

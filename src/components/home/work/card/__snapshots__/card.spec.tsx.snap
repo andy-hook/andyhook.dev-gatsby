@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Work /> renders correctly 1`] = `
+Array [
+  "Card label",
+  "Card description",
+  "https://www.google.com",
+]
+`;
