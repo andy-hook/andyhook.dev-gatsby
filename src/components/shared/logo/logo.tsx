@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "@style/utils"
@@ -11,7 +11,7 @@ import {
   fontFamily,
 } from "@style/variables"
 
-const Logo: React.FunctionComponent = () => {
+const Logo: React.FunctionComponent = memo(() => {
   return (
     <LogoInner href="/">
       <LogoMark />
@@ -19,7 +19,7 @@ const Logo: React.FunctionComponent = () => {
       <LogoSubtle>Interface Developer</LogoSubtle>
     </LogoInner>
   )
-}
+})
 
 const LogoInner = styled.a`
   display: flex;

@@ -1,5 +1,5 @@
 import { withPrefix } from "gatsby"
-import React from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import classNames from "classnames"
 import { TIcons } from "@custom-types/icons"
@@ -21,12 +21,12 @@ const IconSvg = styled.svg`
   fill: currentColor;
 `
 
-const Icon = ({ name, className }: Props) => (
+const Icon = memo(({ name, className }: Props) => (
   <IconWrapper className={classNames("", className)}>
     <IconSvg className="icon">
       <use xlinkHref={withPrefix(`icon-sprite.svg#${name}`)} />
     </IconSvg>
   </IconWrapper>
-)
+))
 
 export default Icon

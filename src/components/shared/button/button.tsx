@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import { between } from "polished"
 import { uniformScale, mq } from "@style/utils"
@@ -17,13 +17,13 @@ interface Props {
   href: string
 }
 
-const Button: React.FunctionComponent<Props> = ({ href }) => {
+const Button: React.FunctionComponent<Props> = memo(({ href }) => {
   return (
     <StyledButton href={href} target="_blank">
       <StyledButtonInner>View some previous work</StyledButtonInner>
     </StyledButton>
   )
-}
+})
 
 const StyledButton = styled(OutboundLink)`
   position: relative;
