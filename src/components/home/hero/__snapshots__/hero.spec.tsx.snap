@@ -1,195 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Hero /> renders correctly 1`] = `
-Array [
-  <a
-    href="/brandwatch"
-    onClick={[Function]}
-  >
-    GO BRANDWATCH
-  </a>,
+<div
+  className="sc-gqjmRU crYJuI"
+>
   <div
-    className="sc-gqjmRU crYJuI"
+    className="sc-VigVT kCyiPV"
+  >
+    <a
+      className="sc-EHOje gRorjx"
+      href="/"
+    >
+      <test-file-stub
+        className="sc-bZQynM pxvFG"
+      />
+      <span
+        className="sc-gzVnrw jEIgqt"
+      >
+        Andy Hook
+      </span>
+      <span
+        className="sc-htoDjs dGMWgl"
+      >
+        Interface Developer
+      </span>
+    </a>
+  </div>
+  <div
+    className="sc-jTzLTM kveocz"
+  >
+    <h2
+      className="sc-gZMcBi ffpxMF"
+    >
+      I’m busy working on something new
+    </h2>
+    <a
+      className="sc-dnqmqq dEBQfx"
+      href="path/to/social/profile"
+      onClick={[Function]}
+      target="_blank"
+    >
+      <span
+        className="sc-iwsKbI fExAuH"
+      >
+        View some previous work
+      </span>
+    </a>
+  </div>
+  <div
+    className="sc-fjdhpX bXEzVd"
   >
     <div
-      className="sc-VigVT kCyiPV"
+      className="sc-htpNat hgHLpC"
     >
       <a
-        className="sc-EHOje gRorjx"
-        href="/"
+        aria-label="Get in touch"
+        className="sc-bxivhb gcaUoY"
+        href="mailto:hello@andy-hook.co.uk"
+        onClick={[Function]}
+        target="_blank"
       >
-        <test-file-stub
-          className="sc-bZQynM pxvFG"
-        />
-        <span
-          className="sc-gzVnrw jEIgqt"
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
-          Andy Hook
-        </span>
-        <span
-          className="sc-htoDjs dGMWgl"
-        >
-          Interface Developer
-        </span>
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#mail"
+            />
+          </svg>
+        </div>
       </a>
-    </div>
-    <div
-      className="sc-jTzLTM kveocz"
-    >
-      <h2
-        className="sc-gZMcBi ffpxMF"
-      >
-        I’m busy working on something new
-      </h2>
       <a
-        className="sc-dnqmqq dEBQfx"
+        aria-label="Twitter"
+        className="sc-bxivhb gcaUoY"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
       >
-        <span
-          className="sc-iwsKbI fExAuH"
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
         >
-          View some previous work
-        </span>
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#twitter"
+            />
+          </svg>
+        </div>
+      </a>
+      <a
+        aria-label="Instagram"
+        className="sc-bxivhb gcaUoY"
+        href="path/to/social/profile"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+        >
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#instagram"
+            />
+          </svg>
+        </div>
+      </a>
+      <a
+        aria-label="Linkedin"
+        className="sc-bxivhb gcaUoY"
+        href="path/to/social/profile"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+        >
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#linkedin"
+            />
+          </svg>
+        </div>
+      </a>
+      <a
+        aria-label="Dribbble"
+        className="sc-bxivhb gcaUoY"
+        href="path/to/social/profile"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+        >
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#dribbble"
+            />
+          </svg>
+        </div>
+      </a>
+      <a
+        aria-label="Github"
+        className="sc-bxivhb gcaUoY"
+        href="path/to/social/profile"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <div
+          className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
+        >
+          <svg
+            className="icon sc-bwzfXH kdIDyY"
+          >
+            <use
+              xlinkHref="/icon-sprite.svg#github"
+            />
+          </svg>
+        </div>
       </a>
     </div>
+  </div>
+  <div
+    className="sc-jzJRlG hgWACg"
+  >
     <div
-      className="sc-fjdhpX bXEzVd"
-    >
-      <div
-        className="sc-htpNat hgHLpC"
-      >
-        <a
-          aria-label="Get in touch"
-          className="sc-bxivhb gcaUoY"
-          href="mailto:hello@andy-hook.co.uk"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#mail"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          aria-label="Twitter"
-          className="sc-bxivhb gcaUoY"
-          href="path/to/social/profile"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#twitter"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          aria-label="Instagram"
-          className="sc-bxivhb gcaUoY"
-          href="path/to/social/profile"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#instagram"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          aria-label="Linkedin"
-          className="sc-bxivhb gcaUoY"
-          href="path/to/social/profile"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#linkedin"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          aria-label="Dribbble"
-          className="sc-bxivhb gcaUoY"
-          href="path/to/social/profile"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#dribbble"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          aria-label="Github"
-          className="sc-bxivhb gcaUoY"
-          href="path/to/social/profile"
-          onClick={[Function]}
-          target="_blank"
-        >
-          <div
-            className="sc-ifAKCX XzGje sc-bdVaJa dqBkPn"
-          >
-            <svg
-              className="icon sc-bwzfXH kdIDyY"
-            >
-              <use
-                xlinkHref="/icon-sprite.svg#github"
-              />
-            </svg>
-          </div>
-        </a>
-      </div>
-    </div>
+      className="sc-cSHVUG iDSEKI"
+    />
     <div
-      className="sc-jzJRlG hgWACg"
+      className="sc-kAzzGY iIPusG"
     >
-      <div
-        className="sc-cSHVUG iDSEKI"
+      <test-file-stub
+        className="sc-chPdSV afhPF"
       />
-      <div
-        className="sc-kAzzGY iIPusG"
-      >
-        <test-file-stub
-          className="sc-chPdSV afhPF"
-        />
-      </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

@@ -11,7 +11,6 @@ import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
-import Link from "gatsby-plugin-transition-link"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 interface Props {

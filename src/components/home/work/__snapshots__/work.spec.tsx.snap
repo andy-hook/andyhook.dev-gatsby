@@ -1,3 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Work /> renders correctly 1`] = `"Brandwatch description"`;
+exports[`<Work /> renders correctly 1`] = `
+Array [
+  <div
+    className="sc-bwzfXH hRNmsk"
+  >
+    <a
+      className="sc-bdVaJa gBBbQm"
+      href="/bright"
+      onClick={[Function]}
+    >
+      Bright
+      Bright description
+    </a>
+  </div>,
+  <div
+    className="sc-bwzfXH hRNmsk"
+  >
+    <a
+      className="sc-bdVaJa gBBbQm"
+      href="/brandwatch"
+      onClick={[Function]}
+    >
+      Brandwatch
+      Brandwatch description
+    </a>
+  </div>,
+  <div
+    className="sc-bwzfXH hRNmsk"
+  >
+    <a
+      className="sc-bdVaJa gBBbQm"
+      href="/monster"
+      onClick={[Function]}
+    >
+      Monster
+      Monster description
+    </a>
+  </div>,
+  <div
+    className="sc-bwzfXH hRNmsk"
+  >
+    <a
+      className="sc-bdVaJa gBBbQm"
+      href="/jamieson"
+      onClick={[Function]}
+    >
+      Jamieson
+      Jamieson description
+    </a>
+  </div>,
+  <div
+    className="sc-bwzfXH hRNmsk"
+  >
+    <a
+      className="sc-bdVaJa gBBbQm"
+      href="/sketchbook"
+      onClick={[Function]}
+    >
+      Sketchbook
+      Sketchbook description
+    </a>
+  </div>,
+]
+`;

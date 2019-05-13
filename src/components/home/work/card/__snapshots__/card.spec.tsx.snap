@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Work /> renders correctly 1`] = `
-Array [
-  "Card label",
-  "Card description",
-  "https://www.google.com",
-]
+<a
+  className="sc-bdVaJa gBBbQm"
+  href="/brandwatch"
+  onClick={[Function]}
+>
+  Card label
+  Card description
+</a>
 `;
