@@ -2,7 +2,7 @@
 
 exports[`<Hero /> renders correctly 1`] = `
 <div
-  className="sc-gqjmRU crYJuI"
+  className="sc-gqjmRU jjkUYF"
 >
   <div
     className="sc-VigVT kCyiPV"
@@ -32,7 +32,7 @@ exports[`<Hero /> renders correctly 1`] = `
     <h2
       className="sc-gZMcBi ffpxMF"
     >
-      I’m busy working on something new
+      High-performance design & development
     </h2>
     <a
       className="sc-dnqmqq dEBQfx"
@@ -43,7 +43,7 @@ exports[`<Hero /> renders correctly 1`] = `
       <span
         className="sc-iwsKbI fExAuH"
       >
-        View some previous work
+        View my latest projects
       </span>
     </a>
   </div>

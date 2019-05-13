@@ -4,6 +4,7 @@ import {
   ILoaderVisibleAction,
   ISetTestStringAction,
   IFirstEntranceAction,
+  IMenuOpenAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -16,6 +17,10 @@ export const loaderVisibleAction = createPayloadedAction<ILoaderVisibleAction>(
 
 export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
   "first-entrance"
+)
+
+export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
+  "menu-open"
 )
 
 export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(

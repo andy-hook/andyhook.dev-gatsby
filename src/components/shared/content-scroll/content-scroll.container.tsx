@@ -1,9 +1,9 @@
-import React, { memo } from "react"
+import React, { memo, ReactNode } from "react"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import ContentScroll from "./content-scroll"
 
 interface Props {
-  children: any
+  children: ReactNode
 }
 
 const ContentScrollContainer: React.FunctionComponent<Props> = memo(

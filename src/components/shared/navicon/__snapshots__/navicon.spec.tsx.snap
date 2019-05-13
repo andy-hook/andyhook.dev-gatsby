@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navicon /> renders correctly 1`] = `
+<div
+  className="sc-bdVaJa ghDoxi"
+>
+  yeeeep 
+   undefined
+</div>
+`;

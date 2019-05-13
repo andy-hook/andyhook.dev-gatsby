@@ -10,7 +10,7 @@ exports[`<Logo /> renders correctly 1`] = `
   <span
     className="sc-bwzfXH hGubuC"
   >
-    View some previous work
+    View my latest projects
   </span>
 </a>
 `;

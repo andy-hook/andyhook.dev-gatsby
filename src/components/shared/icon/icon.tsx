@@ -21,7 +21,7 @@ const IconSvg = styled.svg`
   fill: currentColor;
 `
 
-const Icon = memo(({ name, className }: Props) => (
+const Icon: React.FunctionComponent<Props> = memo(({ name, className }) => (
   <IconWrapper className={classNames("", className)}>
     <IconSvg className="icon">
       <use xlinkHref={withPrefix(`icon-sprite.svg#${name}`)} />

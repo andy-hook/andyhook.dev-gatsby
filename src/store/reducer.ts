@@ -4,6 +4,7 @@ import {
   ILoaderVisibleAction,
   ISetTestStringAction,
   IFirstEntranceAction,
+  IMenuOpenAction,
 } from "@custom-types/store"
 
 const loaderVisible = (
@@ -30,6 +31,18 @@ const firstEntrance = (
   }
 }
 
+const menuOpen = (
+  state: IStore["menuOpen"] = false,
+  action: IMenuOpenAction
+): IStore["menuOpen"] => {
+  switch (action.type) {
+    case "menu-open":
+      return action.payload
+    default:
+      return state
+  }
+}
+
 const testString = (
   state: IStore["testString"] = null,
   action: ISetTestStringAction
@@ -46,6 +59,7 @@ const rootReducer = combineReducers<IStore>({
   loaderVisible,
   testString,
   firstEntrance,
+  menuOpen,
 })
 
 export default rootReducer

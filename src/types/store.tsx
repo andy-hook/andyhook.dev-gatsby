@@ -10,6 +10,7 @@ export interface IAction<Type> {
 export interface IStore {
   loaderVisible: boolean
   firstEntrance: boolean
+  menuOpen: boolean
   testString: string | null
 }
 
@@ -23,3 +24,6 @@ export interface ILoaderVisibleAction
 
 export interface IFirstEntranceAction
   extends IPayloadedAction<"first-entrance", boolean> {}
+
+export interface IMenuOpenAction
+  extends IPayloadedAction<"menu-open", boolean> {}
