@@ -17,7 +17,7 @@ interface Props {
 const Details: React.FunctionComponent<Props> = memo(({ buttonHref }) => {
   return (
     <>
-      <Title>I’m busy working on something new</Title>
+      <Title>High-performance design & development</Title>
       <Button href={buttonHref} />
     </>
   )

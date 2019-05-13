@@ -50,7 +50,7 @@ const Global = createGlobalStyle`
 
   html {
     font-size: 100%;
-    background-color: #0D0D0F;
+    background-color: #050506;
   }
   
   body,

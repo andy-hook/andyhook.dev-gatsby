@@ -8,12 +8,6 @@ interface Props {
 }
 
 const ContentScroll: React.FunctionComponent<Props> = memo(({ children }) => {
-  // useEffect(() => {
-  //   const { transitionStatus } = transitionState
-
-  //   console.log(transitionStatus)
-  // }, [transitionState.transitionStatus])
-
   return (
     <ScrollContainer>
       <OverflowTrim>{children}</OverflowTrim>

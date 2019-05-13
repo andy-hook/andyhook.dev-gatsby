@@ -20,7 +20,7 @@ interface Props {
 const Button: React.FunctionComponent<Props> = memo(({ href }) => {
   return (
     <StyledButton href={href} target="_blank">
-      <StyledButtonInner>View some previous work</StyledButtonInner>
+      <StyledButtonInner>View my latest projects</StyledButtonInner>
     </StyledButton>
   )
 })
