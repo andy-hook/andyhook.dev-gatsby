@@ -105,6 +105,7 @@ module.exports = {
           "@style": path.resolve(__dirname, "src/style"),
           "@mock-data": path.resolve(__dirname, "src/mock-data"),
           "@components": path.resolve(__dirname, "src/components"),
+          "@store": path.resolve(__dirname, "src/store"),
           "@custom-types": path.resolve(__dirname, "src/types"),
           "@images": path.resolve(__dirname, "src/images"),
         },

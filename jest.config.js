@@ -11,6 +11,7 @@ module.exports = {
     "^@style(.*)$": "<rootDir>/src/style$1",
     "^@mock-data(.*)$": "<rootDir>/src/mock-data$1",
     "^@components(.*)$": "<rootDir>/src/components$1",
+    "^@store(.*)$": "<rootDir>/src/store$1",
     "^@custom-types(.*)$": "<rootDir>/src/types$1",
     "^@images(.*)$": "<rootDir>/src/images$1",
   },
