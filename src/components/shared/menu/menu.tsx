@@ -17,11 +17,12 @@ const MenuContainer = styled.div<Props>`
   height: 100%;
   z-index: 50;
   background-color: white;
+  transform: translate3d(-100%, 0, 0);
 
   ${({ open }) =>
     open &&
     `
-    background-color: blue;
+    transform: translate3d(0, 0, 0);
   `}
 `
 
