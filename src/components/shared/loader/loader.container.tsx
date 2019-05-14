@@ -4,7 +4,7 @@ import { Dispatch } from "redux"
 import { IStore } from "@custom-types/store"
 
 import Loader from "./loader"
-import { loaderVisibleAction, firstEntranceAction } from "../../store/actions"
+import { loaderVisibleAction, firstEntranceAction } from "@store/actions"
 
 interface DispatchProps {
   hideLoader: () => void

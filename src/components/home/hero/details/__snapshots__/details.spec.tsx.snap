@@ -3,7 +3,7 @@
 exports[`<Details /> renders correctly 1`] = `
 Array [
   <h2
-    className="sc-htpNat eUgMEU"
+    className="sc-htpNat kiJrHR"
   >
     High-performance design & development
   </h2>,

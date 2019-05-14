@@ -1,14 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Topbar /> renders correctly 1`] = `
-<div
-  className="sc-bwzfXH llsXWt"
->
+Array [
   <div
-    className="sc-bdVaJa ghDoxi"
+    className="sc-htpNat feMfmD"
   >
-    yeeeep 
-     undefined
-  </div>
-</div>
+    <test-file-stub
+      className="sc-bwzfXH dwjrBF"
+    />
+  </div>,
+  <div
+    className="sc-bxivhb kCuFQu"
+  >
+    <div
+      className="sc-bdVaJa ghDoxi"
+      onClick={[Function]}
+    >
+      yeeeep 
+       undefined
+    </div>
+  </div>,
+]
 `;

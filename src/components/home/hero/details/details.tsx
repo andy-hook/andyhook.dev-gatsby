@@ -35,7 +35,7 @@ const Title = styled.h2`
   text-shadow: 0px 0px 2em #08080a;
 
   margin-top: 0;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.75em;
 
   z-index: 1;
 

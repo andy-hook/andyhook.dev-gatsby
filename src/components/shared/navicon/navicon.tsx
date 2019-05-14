@@ -3,10 +3,13 @@ import styled from "styled-components"
 
 interface Props {
   open?: boolean
+  onClick: () => void
 }
 
-const Navicon: React.FunctionComponent<Props> = memo(({ open }) => {
-  return <NaviconContainer>yeeeep {" " + open}</NaviconContainer>
+const Navicon: React.FunctionComponent<Props> = memo(({ open, onClick }) => {
+  return (
+    <NaviconContainer onClick={onClick}>yeeeep {" " + open}</NaviconContainer>
+  )
 })
 
 const NaviconContainer = styled.div`

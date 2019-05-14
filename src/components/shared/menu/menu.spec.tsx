@@ -1,11 +1,11 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import Navicon from "./navicon"
+import Menu from "./menu"
 
-describe("<Navicon />", () => {
+describe("<Menu />", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Navicon onClick={jest.fn()} />).toJSON()
+    const tree = renderer.create(<Menu />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

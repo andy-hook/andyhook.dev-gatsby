@@ -2,53 +2,31 @@
 
 exports[`<Hero /> renders correctly 1`] = `
 <div
-  className="sc-gqjmRU jjkUYF"
+  className="sc-htoDjs epVUox"
 >
   <div
-    className="sc-VigVT kCyiPV"
-  >
-    <a
-      className="sc-EHOje gRorjx"
-      href="/"
-    >
-      <test-file-stub
-        className="sc-bZQynM pxvFG"
-      />
-      <span
-        className="sc-gzVnrw jEIgqt"
-      >
-        Andy Hook
-      </span>
-      <span
-        className="sc-htoDjs dGMWgl"
-      >
-        Interface Developer
-      </span>
-    </a>
-  </div>
-  <div
-    className="sc-jTzLTM kveocz"
+    className="sc-dnqmqq hvAzbm"
   >
     <h2
-      className="sc-gZMcBi ffpxMF"
+      className="sc-gzVnrw hXKoUt"
     >
       High-performance design & development
     </h2>
     <a
-      className="sc-dnqmqq dEBQfx"
+      className="sc-EHOje jZbwVB"
       href="path/to/social/profile"
       onClick={[Function]}
       target="_blank"
     >
       <span
-        className="sc-iwsKbI fExAuH"
+        className="sc-bZQynM eNiIGl"
       >
         View my latest projects
       </span>
     </a>
   </div>
   <div
-    className="sc-fjdhpX bXEzVd"
+    className="sc-iwsKbI fmvhZb"
   >
     <div
       className="sc-htpNat hgHLpC"
@@ -170,16 +148,16 @@ exports[`<Hero /> renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-jzJRlG hgWACg"
+    className="sc-gZMcBi kKRIiF"
   >
     <div
-      className="sc-cSHVUG iDSEKI"
+      className="sc-gqjmRU kFLaLw"
     />
     <div
-      className="sc-kAzzGY iIPusG"
+      className="sc-VigVT lasMsM"
     >
       <test-file-stub
-        className="sc-chPdSV afhPF"
+        className="sc-jTzLTM cZYbUl"
       />
     </div>
   </div>

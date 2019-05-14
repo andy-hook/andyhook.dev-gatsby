@@ -2,7 +2,6 @@ import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import { between, rem, rgba } from "polished"
 import Social from "./social/social"
-import Logo from "@components/shared/logo/logo"
 import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
 import { uniformScale, mq } from "@style/utils"
@@ -33,14 +32,12 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     transitionState,
   }) => {
     const detailsRef = React.useRef() as Ref
-    const logoRef = React.useRef() as Ref
     const socialRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
     const dateRef = React.useRef() as Ref
 
     const refs: RefIterable = {
       details: detailsRef,
-      logo: logoRef,
       social: socialRef,
       date: dateRef,
       background: backgroundRef,
@@ -94,10 +91,6 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     return (
       <>
         <Container>
-          <LogoPos ref={logoRef}>
-            <Logo />
-          </LogoPos>
-
           <DetailsPos ref={detailsRef}>
             <Details buttonHref={socialIconData.dribbble.url} />
           </DetailsPos>
@@ -126,21 +119,6 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #0d0d0f;
-`
-
-const LogoPos = styled.div`
-  display: flex;
-
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  left: 0;
-
-  top: 9vh;
-
-  z-index: 1;
-
-  opacity: 0;
 `
 
 const DetailsPos = styled.div`

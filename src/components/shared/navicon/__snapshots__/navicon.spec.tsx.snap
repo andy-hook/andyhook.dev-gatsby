@@ -3,6 +3,7 @@
 exports[`<Navicon /> renders correctly 1`] = `
 <div
   className="sc-bdVaJa ghDoxi"
+  onClick={[MockFunction]}
 >
   yeeeep 
    undefined
