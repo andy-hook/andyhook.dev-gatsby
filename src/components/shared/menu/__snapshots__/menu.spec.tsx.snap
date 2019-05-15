@@ -2,6 +2,6 @@
 
 exports[`<Menu /> renders correctly 1`] = `
 <div
-  className="sc-bdVaJa gVbbvS"
+  className="sc-bdVaJa bRlZvt"
 />
 `;

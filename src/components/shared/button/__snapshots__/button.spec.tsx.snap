@@ -10,7 +10,7 @@ exports[`<Logo /> renders correctly 1`] = `
   <span
     className="sc-bwzfXH hGubuC"
   >
-    View my latest projects
+    This is a button
   </span>
 </a>
 `;
