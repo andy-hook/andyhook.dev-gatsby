@@ -17,8 +17,8 @@ type pathRef = React.MutableRefObject<SVGPathElement>
 const Loader: React.FunctionComponent<Props> = memo(
   ({ visible, onLeaveComplete, onEnterComplete }) => {
     const containerRef: divRef = React.useRef() as divRef
-    const markRef: divRef = React.useRef() as divRef
-    const boltRef: pathRef = React.useRef() as pathRef
+    const markRef = React.useRef() as divRef
+    const boltRef = React.useRef() as pathRef
     const markTL = new TimelineMax()
     const boltTL = new TimelineMax()
 
