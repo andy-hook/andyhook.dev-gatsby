@@ -18,7 +18,7 @@ const Details: React.FunctionComponent<Props> = memo(({ buttonHref }) => {
   return (
     <>
       <Title>High-performance design & development</Title>
-      <Button href={buttonHref} />
+      <Button href={buttonHref}>View my latest projects</Button>
     </>
   )
 })

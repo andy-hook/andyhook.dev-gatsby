@@ -15,12 +15,13 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 interface Props {
   href: string
+  children: string
 }
 
-const Button: React.FunctionComponent<Props> = memo(({ href }) => {
+const Button: React.FunctionComponent<Props> = memo(({ href, children }) => {
   return (
     <StyledButton href={href} target="_blank">
-      <StyledButtonInner>View my latest projects</StyledButtonInner>
+      <StyledButtonInner>{children}</StyledButtonInner>
     </StyledButton>
   )
 })
