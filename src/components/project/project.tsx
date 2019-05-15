@@ -6,6 +6,7 @@ import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
 import { IProjects } from "@custom-types/model"
 import { ContainerProps } from "./project.container"
+import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 
 interface Props {
   projectData: IProjects
@@ -18,18 +19,6 @@ const Project: React.FunctionComponent<AllProps> = ({
   projectName,
   projectData,
 }) => {
-  const getCurrentProjectData = (dataObject: IProjects, projectKey: string) =>
-    dataObject[projectKey]
-
-  const getNextProjectData = (dataObject: IProjects, projectKey: string) => {
-    const keys = Object.keys(dataObject)
-    const length = keys.length - 1
-    const pos = keys.indexOf(projectKey)
-    const nextPos = pos === length ? 0 : pos + 1
-
-    return dataObject[keys[nextPos]]
-  }
-
   return (
     <ContentScrollContainer>
       <ProjectContainer>
