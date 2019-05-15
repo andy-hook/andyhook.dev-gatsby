@@ -1,11 +1,12 @@
-import React, { ReactNode } from "react"
+import React from "react"
+import { IProjectItem } from "@custom-types/model"
 
 interface Props {
-  children: ReactNode
+  project: IProjectItem
 }
 
-const Hero: React.FunctionComponent<Props> = ({ children }) => {
-  return <header>{children}</header>
+const Header: React.FunctionComponent<Props> = ({ project }) => {
+  return <header>{project.label}</header>
 }
 
-export default Hero
+export default Header

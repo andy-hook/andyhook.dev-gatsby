@@ -1,5 +1,5 @@
 import React from "react"
-import Project from "@components/project/project"
+import ProjectContainer from "@components/project/project.container"
 
 import SEO from "@components/seo"
 
@@ -7,7 +7,7 @@ const BrandwatchProject: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
-      <Project>hello</Project>
+      <ProjectContainer projectName="bright">hello</ProjectContainer>
     </>
   )
 }

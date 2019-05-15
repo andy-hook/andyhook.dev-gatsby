@@ -1,16 +1,39 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
+import Header from "@components/project/header/header"
+import NextProject from "@components/project/next-project/next-project"
+import { IProjects } from "@custom-types/model"
+import { ContainerProps } from "./project.container"
 
 interface Props {
-  children: ReactNode
+  projectData: IProjects
 }
 
-const Project: React.FunctionComponent<Props> = ({ children }) => {
+type AllProps = Props & ContainerProps
+
+const Project: React.FunctionComponent<AllProps> = ({
+  children,
+  projectName,
+  projectData,
+}) => {
+  const getCurrentProjectData = (dataObject: IProjects, projectKey: string) =>
+    dataObject[projectKey]
+
+  const getNextProjectData = (dataObject: IProjects, projectKey: string) => {
+    const keys = Object.keys(dataObject)
+    const length = keys.length - 1
+    const pos = keys.indexOf(projectKey)
+    const nextPos = pos === length ? 0 : pos + 1
+
+    return dataObject[keys[nextPos]]
+  }
+
   return (
     <ContentScrollContainer>
       <ProjectContainer>
+        <Header project={getCurrentProjectData(projectData, projectName)} />
         <Link
           to="/"
           entry={{
@@ -31,6 +54,7 @@ const Project: React.FunctionComponent<Props> = ({ children }) => {
           GO HOME
         </Link>
         {children}
+        <NextProject project={getNextProjectData(projectData, projectName)} />
       </ProjectContainer>
     </ContentScrollContainer>
   )
@@ -38,6 +62,7 @@ const Project: React.FunctionComponent<Props> = ({ children }) => {
 
 const ProjectContainer = styled.article`
   height: 3000px;
+  background-color: white;
 `
 
 export default Project
