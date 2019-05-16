@@ -6,7 +6,8 @@ Array [
     className="sc-htpNat feMfmD"
   >
     <test-file-stub
-      className="sc-bwzfXH dwjrBF"
+      className="sc-bwzfXH dOifBR"
+      open={false}
     />
   </div>,
   <div
