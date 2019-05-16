@@ -22,7 +22,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
     return (
       <>
         <LogoPos>
-          <Logo />
+          <Logo open={open} />
         </LogoPos>
         <NaviconPos>
           <Navicon open={open} onClick={toggleMenu} />

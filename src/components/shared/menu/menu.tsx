@@ -11,6 +11,9 @@ const Menu: React.FunctionComponent<Props> = memo(({ open }) => {
   const containerRef = React.useRef() as Ref
 
   const animateOpen = () => {
+    TweenMax.set(containerRef.current, {
+      opacity: 1,
+    })
     TweenMax.to(containerRef.current, 0.5, {
       ease: Expo.easeOut,
       y: "0%",
@@ -21,7 +24,7 @@ const Menu: React.FunctionComponent<Props> = memo(({ open }) => {
     TweenMax.to(containerRef.current, 0.5, {
       ease: Expo.easeOut,
       y: "-100%",
-      clearProps: "transform",
+      clearProps: "transform opacity",
     })
   }
 
@@ -45,6 +48,7 @@ const MenuContainer = styled.div<Props>`
   z-index: 50;
   background-color: white;
   transform: translate3d(0, -100%, 0);
+  opacity: 0;
 `
 
 export default Menu

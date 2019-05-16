@@ -2,14 +2,21 @@ import React, { memo } from "react"
 import styled from "styled-components"
 import mark from "@images/svg-import/mark.svg"
 
-const Logo: React.FunctionComponent = memo(() => {
-  return <LogoMark />
+interface Props {
+  open?: boolean
+}
+
+const Logo: React.FunctionComponent<Props> = memo(({ open = false }) => {
+  return <LogoMark open={open} />
 })
 
-const LogoMark = styled(mark)`
+const LogoMark = styled(mark)<Props>`
+  transition: transform 0.3s ease;
   font-size: 4.5em;
   width: 1em;
   height: 1em;
+
+  ${props => props.open && "transform: rotate(90deg)"};
 `
 
 export default Logo
