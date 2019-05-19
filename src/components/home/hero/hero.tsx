@@ -11,6 +11,7 @@ import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+import Gutter from "@components/shared/gutter/gutter"
 
 interface Props {
   introTrigger?: boolean
@@ -92,7 +93,9 @@ const Hero: React.FunctionComponent<AllProps> = memo(
       <>
         <Container>
           <DetailsPos ref={detailsRef}>
-            <Details buttonHref={socialIconData.dribbble.url} />
+            <Gutter>
+              <Details buttonHref={socialIconData.dribbble.url} />
+            </Gutter>
           </DetailsPos>
 
           <SocialPos ref={socialRef}>
@@ -122,11 +125,9 @@ const Container = styled.div`
 `
 
 const DetailsPos = styled.div`
-  display: flex;
-  align-items: center;
   position: relative;
 
-  flex-direction: column;
+  width: 100%;
 
   margin-bottom: -3vh;
 

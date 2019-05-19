@@ -17,22 +17,28 @@ interface Props {
 
 const Details: React.FunctionComponent<Props> = memo(({ buttonHref }) => {
   return (
-    <>
+    <DetailsContainer>
       <Title>High-performance design & development</Title>
       <Button href={buttonHref}>View my latest projects</Button>
-    </>
+    </DetailsContainer>
   )
 })
+
+const DetailsContainer = styled.div`
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+`
 
 const Title = styled.h2`
   font-family: ${fontFamily.display};
   font-weight: 600;
   text-align: center;
   color: #e3e3eb;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
   letter-spacing: ${letterSpacing.display};
-  max-width: 13em;
+  max-width: 12em;
   text-shadow: 0px 0px 2em #08080a;
 
   margin-top: 0;
