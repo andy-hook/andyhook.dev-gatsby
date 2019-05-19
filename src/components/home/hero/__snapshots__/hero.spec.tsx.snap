@@ -5,28 +5,28 @@ exports[`<Hero /> renders correctly 1`] = `
   className="sc-htoDjs epVUox"
 >
   <div
-    className="sc-dnqmqq hvAzbm"
+    className="sc-dnqmqq jbkuyc"
   >
     <h2
-      className="sc-gzVnrw hXKoUt"
+      className="sc-gzVnrw dLhnGX"
     >
       High-performance design & development
     </h2>
     <a
-      className="sc-EHOje jZbwVB"
+      className="sc-EHOje iuqPHb"
       href="path/to/social/profile"
       onClick={[Function]}
       target="_blank"
     >
       <span
-        className="sc-bZQynM eNiIGl"
+        className="sc-bZQynM lcLFrl"
       >
         View my latest projects
       </span>
     </a>
   </div>
   <div
-    className="sc-iwsKbI fmvhZb"
+    className="sc-iwsKbI bnEyRV"
   >
     <div
       className="sc-htpNat hgHLpC"
@@ -151,10 +151,10 @@ exports[`<Hero /> renders correctly 1`] = `
     className="sc-gZMcBi kKRIiF"
   >
     <div
-      className="sc-gqjmRU kFLaLw"
+      className="sc-gqjmRU dGAIgJ"
     />
     <div
-      className="sc-VigVT lasMsM"
+      className="sc-VigVT bJZycR"
     >
       <test-file-stub
         className="sc-jTzLTM cZYbUl"

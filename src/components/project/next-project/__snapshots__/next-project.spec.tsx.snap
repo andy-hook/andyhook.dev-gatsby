@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NextProject /> renders correctly 1`] = `
-<div>
-  Brandwatch
+<div
+  className="sc-bxivhb cLOYsB"
+>
+  <div
+    className="sc-bwzfXH IugaC"
+  >
+    Brandwatch
+  </div>
 </div>
 `;

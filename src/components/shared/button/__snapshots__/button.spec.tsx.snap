@@ -2,13 +2,13 @@
 
 exports[`<Logo /> renders correctly 1`] = `
 <a
-  className="sc-bdVaJa kYVele"
+  className="sc-bdVaJa cxDzBX"
   href="https://www.google.com"
   onClick={[Function]}
   target="_blank"
 >
   <span
-    className="sc-bwzfXH hGubuC"
+    className="sc-bwzfXH ddBnD"
   >
     This is a button
   </span>

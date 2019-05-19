@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Work /> renders correctly 1`] = `
-Array [
+<div
+  className="sc-bwzfXH iGAYuF"
+>
   <div
-    className="sc-bwzfXH hRNmsk"
+    className="sc-ifAKCX dKxZJw"
   >
     <a
       className="sc-bdVaJa gBBbQm"
@@ -13,10 +15,6 @@ Array [
       Bright
       Bright description
     </a>
-  </div>,
-  <div
-    className="sc-bwzfXH hRNmsk"
-  >
     <a
       className="sc-bdVaJa gBBbQm"
       href="/brandwatch"
@@ -25,10 +23,6 @@ Array [
       Brandwatch
       Brandwatch description
     </a>
-  </div>,
-  <div
-    className="sc-bwzfXH hRNmsk"
-  >
     <a
       className="sc-bdVaJa gBBbQm"
       href="/monster"
@@ -37,10 +31,6 @@ Array [
       Monster
       Monster description
     </a>
-  </div>,
-  <div
-    className="sc-bwzfXH hRNmsk"
-  >
     <a
       className="sc-bdVaJa gBBbQm"
       href="/jamieson"
@@ -49,10 +39,6 @@ Array [
       Jamieson
       Jamieson description
     </a>
-  </div>,
-  <div
-    className="sc-bwzfXH hRNmsk"
-  >
     <a
       className="sc-bdVaJa gBBbQm"
       href="/sketchbook"
@@ -61,6 +47,6 @@ Array [
       Sketchbook
       Sketchbook description
     </a>
-  </div>,
-]
+  </div>
+</div>
 `;

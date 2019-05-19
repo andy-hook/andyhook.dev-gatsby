@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> renders correctly 1`] = `
-<header>
-  Brandwatch
+<header
+  className="sc-ifAKCX jCLCGe"
+>
+  <div
+    className="sc-bxivhb cLOYsB"
+  >
+    <div
+      className="sc-bwzfXH IugaC"
+    >
+      Brandwatch
+    </div>
+  </div>
 </header>
 `;

@@ -2,7 +2,7 @@
 
 exports[`<Logo /> renders correctly 1`] = `
 <test-file-stub
-  className="sc-bdVaJa hXXuFQ"
+  className="sc-bdVaJa VYEmr"
   open={false}
 />
 `;
