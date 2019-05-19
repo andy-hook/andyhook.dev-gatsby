@@ -25,8 +25,8 @@ const Limiter: React.FunctionComponent<Props> = memo(
   }
 )
 
-const smallSize = "500px"
-const mediumSize = rem("1000px")
+const smallSize = rem("900px")
+const mediumSize = rem("1350px")
 const largeSize = rem("1550px")
 
 const SmallLimiter = styled.div<Props>`

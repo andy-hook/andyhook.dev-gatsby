@@ -1,6 +1,5 @@
 import React, { memo, ReactNode } from "react"
 import styled from "styled-components"
-import { mq } from "@style/utils"
 
 interface Props {
   children: ReactNode
