@@ -1,5 +1,7 @@
 import React, { memo, ReactNode } from "react"
 import styled from "styled-components"
+import { rem } from "polished"
+import { uniformScale, mq } from "@style/utils"
 
 interface Props {
   size?: "small" | "medium" | "large"
@@ -23,16 +25,37 @@ const Limiter: React.FunctionComponent<Props> = memo(
   }
 )
 
+const smallSize = "500px"
+const mediumSize = rem("1000px")
+const largeSize = rem("1550px")
+
 const SmallLimiter = styled.div<Props>`
-  max-width: 500px;
+  margin: auto;
+
+  max-width: ${smallSize};
+
+  ${mq.greaterThan("topWall")`
+    max-width: ${uniformScale(smallSize, "topWall")};
+  `}
 `
 
 const MediumLimiter = styled.div<Props>`
-  max-width: 700px;
+  margin: auto;
+
+  max-width: ${mediumSize};
+
+  ${mq.greaterThan("topWall")`
+    max-width: ${uniformScale(mediumSize, "topWall")};
+  `}
 `
 
 const LargeLimiter = styled.div<Props>`
-  max-width: 700px;
+  margin: auto;
+  max-width: ${largeSize};
+
+  ${mq.greaterThan("topWall")`
+    max-width: ${uniformScale(largeSize, "topWall")};
+  `}
 `
 
 export default Limiter

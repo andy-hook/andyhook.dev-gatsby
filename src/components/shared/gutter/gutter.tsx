@@ -1,5 +1,6 @@
 import React, { memo, ReactNode } from "react"
 import styled from "styled-components"
+import { mq } from "@style/utils"
 
 interface Props {
   children: ReactNode
@@ -10,8 +11,8 @@ const Gutter: React.FunctionComponent<Props> = memo(({ children }) => {
 })
 
 const GutterContainer = styled.div`
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
 `
 
 export default Gutter

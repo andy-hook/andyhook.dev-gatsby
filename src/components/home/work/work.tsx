@@ -2,7 +2,8 @@ import React, { memo } from "react"
 import { ContainerProps } from "./work.container"
 import { IProjectItem } from "@custom-types/model"
 import Card from "./card/card"
-import styled from "styled-components"
+import Gutter from "@components/shared/gutter/gutter"
+import Limiter from "@components/shared/limiter/limiter"
 
 type AllProps = ContainerProps
 
@@ -14,16 +15,16 @@ const Hero: React.FunctionComponent<AllProps> = memo(({ projectsData }) => {
   })
 
   const renderItems = renderArray.map((item, key) => (
-    <CardPositioner key={key}>
-      <Card label={item.label} desc={item.desc} path={item.path} />
-    </CardPositioner>
+    <Card label={item.label} desc={item.desc} path={item.path} key={key} />
   ))
 
-  return <>{renderItems}</>
+  return (
+    <>
+      <Gutter>
+        <Limiter size="large">{renderItems}</Limiter>
+      </Gutter>
+    </>
+  )
 })
-
-const CardPositioner = styled.div`
-  padding: 50px;
-`
 
 export default Hero
