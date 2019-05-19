@@ -11,7 +11,7 @@ const Navicon: React.FunctionComponent<Props> = memo(({ open, onClick }) => {
   return <NaviconContainer onClick={onClick} />
 })
 
-const NaviconContainer = styled.div`
+const NaviconContainer = styled.button`
   position: relative;
   font-size: 1em;
 
