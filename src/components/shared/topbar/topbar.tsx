@@ -5,6 +5,7 @@ import styled, { css } from "styled-components"
 import { rem, between } from "polished"
 import { mq, uniformScale } from "@style/utils"
 import { emBreakpoints, zIndex } from "@style/variables"
+import Link from "gatsby-plugin-transition-link"
 
 interface Props {
   open?: boolean
@@ -24,9 +25,25 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
     return (
       <>
-        <LogoPos>
+        <LogoLink
+          to="/"
+          entry={{
+            delay: 0,
+            length: 0,
+            state: {
+              animType: "enter-from-project",
+            },
+          }}
+          exit={{
+            delay: 0,
+            length: 0,
+            state: {
+              animType: "exit animation",
+            },
+          }}
+        >
           <Logo open={open} />
-        </LogoPos>
+        </LogoLink>
         <NaviconPos>
           <Navicon open={open} onClick={toggleMenu} />
         </NaviconPos>
@@ -45,7 +62,7 @@ const commonStyles = css`
   z-index: ${zIndex.highest};
 `
 
-const LogoPos = styled.div`
+const LogoLink = styled(Link)`
   ${commonStyles}
 
   left: ${clearance};

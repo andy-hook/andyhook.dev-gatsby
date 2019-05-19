@@ -1,5 +1,4 @@
 import React from "react"
-import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
 import Header from "@components/project/header/header"
@@ -7,8 +6,6 @@ import NextProject from "@components/project/next-project/next-project"
 import { IProjects } from "@custom-types/model"
 import { ContainerProps } from "./project.container"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
-import Limiter from "@components/shared/limiter/limiter"
-import Gutter from "@components/shared/gutter/gutter"
 
 interface Props {
   projectData: IProjects
@@ -26,30 +23,7 @@ const Project: React.FunctionComponent<AllProps> = ({
       <ProjectContainer>
         <Header project={getCurrentProjectData(projectData, projectName)} />
 
-        <Gutter>
-          <Limiter>
-            <Link
-              to="/"
-              entry={{
-                delay: 0,
-                length: 0,
-                state: {
-                  animType: "enter-from-project",
-                },
-              }}
-              exit={{
-                delay: 0,
-                length: 0,
-                state: {
-                  animType: "exit animation",
-                },
-              }}
-            >
-              GO HOME
-            </Link>
-            {children}
-          </Limiter>
-        </Gutter>
+        {children}
 
         <NextProject project={getNextProjectData(projectData, projectName)} />
       </ProjectContainer>
