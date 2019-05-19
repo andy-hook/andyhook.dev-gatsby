@@ -40,6 +40,13 @@ const Global = createGlobalStyle`
     list-style: none;
   }
 
+  a,
+  button {
+    &:focus {
+      outline: none;
+    }
+  }
+
 
   /* Page level styling
   /* (e.g. HTML and BODY elements)
@@ -75,6 +82,7 @@ const Global = createGlobalStyle`
   ------------------------------------------------- */
   button {
     border: 0;
+    padding: 0;
     background: none;
     cursor: pointer;
   }
