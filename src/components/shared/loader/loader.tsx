@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { rem, between } from "polished"
 import { Expo, TimelineMax, Elastic } from "gsap"
 import { uniformScale, mq } from "@style/utils"
-import { emBreakpoints } from "@style/variables"
+import { emBreakpoints, zIndex } from "@style/variables"
 
 interface Props {
   visible?: boolean
@@ -129,7 +129,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  z-index: 10;
+  z-index: ${zIndex.highest};
 `
 
 const Mark = styled.div`

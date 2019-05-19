@@ -7,6 +7,7 @@ import {
   typeScale,
   fontFamily,
   letterSpacing,
+  zIndex,
 } from "@style/variables"
 import Button from "@components/shared/button/button"
 
@@ -37,7 +38,7 @@ const Title = styled.h2`
   margin-top: 0;
   margin-bottom: 0.75em;
 
-  z-index: 1;
+  z-index: ${zIndex.low};
 
   font-size: ${typeScale[9]};
 

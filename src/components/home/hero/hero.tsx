@@ -5,7 +5,7 @@ import Social from "./social/social"
 import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
 import { uniformScale, mq } from "@style/utils"
-import { emBreakpoints, typeScale } from "@style/variables"
+import { emBreakpoints, typeScale, zIndex } from "@style/variables"
 import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
@@ -130,7 +130,7 @@ const DetailsPos = styled.div`
 
   margin-bottom: -3vh;
 
-  z-index: 1;
+  z-index: ${zIndex.low};
 
   opacity: 0;
 
@@ -144,7 +144,7 @@ const SocialPos = styled.div`
 
   bottom: 9vh;
 
-  z-index: 1;
+  z-index: ${zIndex.low};
 
   font-size: ${typeScale[6]};
 
@@ -178,7 +178,7 @@ const BackgroundContainer = styled.div`
 
   overflow: hidden;
 
-  z-index: 0;
+  z-index: ${zIndex.floor};
 
   opacity: 0;
 
@@ -194,7 +194,7 @@ const BackgroundGradient = styled.div`
   width: 100%;
   height: 100%;
 
-  z-index: 2;
+  z-index: ${zIndex.medium};
 
   background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #050506 80%);
 `
@@ -206,7 +206,7 @@ position: relative;
 
   font-size: ${rem("1400px")};
 
-  z-index: 1;
+  z-index: ${zIndex.low};
 
   opacity: 0;
 

@@ -135,5 +135,16 @@ export const breakpoints: { [index: string]: string } = {
   topUltra: "2200px",
 }
 
+/* Index
+  ------------------------------------------------- */
+
+export const zIndex = {
+  floor: "0",
+  low: "100",
+  medium: "200",
+  high: "300",
+  highest: "400",
+}
+
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
 export const remBreakpoints = pxToRem(breakpoints, baseFontSize)

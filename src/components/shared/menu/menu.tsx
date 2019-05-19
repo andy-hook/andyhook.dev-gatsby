@@ -2,6 +2,7 @@ import React, { memo, useEffect } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
+import { zIndex } from "@style/variables"
 
 interface Props {
   open?: boolean
@@ -45,7 +46,7 @@ const MenuContainer = styled.div<Props>`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 50;
+  z-index: ${zIndex.high};
   background-color: white;
   transform: translate3d(0, -100%, 0);
   opacity: 0;

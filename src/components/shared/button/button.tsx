@@ -9,6 +9,7 @@ import {
   fontFamily,
   borderRadius,
   duration,
+  zIndex,
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -66,12 +67,12 @@ const StyledButton = styled(OutboundLink)`
 
   &::before {
     box-shadow: inset 0 -0.25em 1em 0 #c615a8;
-    z-index: 2;
+    z-index: ${zIndex.medium};
   }
 
   &::after {
     background: linear-gradient(160deg, #c615a8 0%, #4d0fbe 100%);
-    z-index: 1;
+    z-index: ${zIndex.low};
   }
 
   &:focus {
@@ -105,7 +106,7 @@ const StyledButton = styled(OutboundLink)`
 
 const StyledButtonInner = styled.span`
   position: relative;
-  z-index: 2;
+  z-index: ${zIndex.medium};
 `
 
 export default Button
