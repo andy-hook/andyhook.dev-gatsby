@@ -1,7 +1,10 @@
 import React, { memo } from "react"
 import Navicon from "@components/shared/navicon/navicon"
 import Logo from "@components/shared/logo/logo"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { rem, between } from "polished"
+import { mq, uniformScale } from "@style/utils"
+import { emBreakpoints, zIndex } from "@style/variables"
 
 interface Props {
   open?: boolean
@@ -32,22 +35,59 @@ const Topbar: React.FunctionComponent<Props> = memo(
   }
 )
 
-const LogoPos = styled.div`
+const clearance = "1em"
+
+const commonStyles = css`
   position: absolute;
 
-  top: 50px;
-  left: 50px;
+  top: ${clearance};
 
-  z-index: 100;
+  z-index: ${zIndex.highest};
+`
+
+const LogoPos = styled.div`
+  ${commonStyles}
+
+  left: ${clearance};
+
+  margin-top: -0.2em;
+  margin-left: -0.2em;
+
+  font-size: ${rem("66px")};
+
+  ${mq.between("bottomThumb", "bottomUltra")`
+    font-size: ${between(
+      rem("66px"),
+      rem("70px"),
+      emBreakpoints.bottomThumb,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(rem("70px"), "topUltra")};
+  `}
 `
 
 const NaviconPos = styled.div`
-  position: absolute;
+  ${commonStyles}
 
-  top: 50px;
-  right: 50px;
+  right: ${clearance};
 
-  z-index: 100;
+  font-size: ${rem("55px")};
+
+  ${mq.between("bottomThumb", "bottomUltra")`
+    font-size: ${between(
+      rem("55px"),
+      rem("60px"),
+      emBreakpoints.bottomThumb,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(rem("60px"), "topUltra")};
+  `}
 `
 
 export default Topbar

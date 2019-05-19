@@ -12,7 +12,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ open = false }) => {
 
 const LogoMark = styled(mark)<Props>`
   transition: transform 0.3s ease;
-  font-size: 4.5em;
+  font-size: 1em;
   width: 1em;
   height: 1em;
 

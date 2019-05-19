@@ -1,5 +1,5 @@
 import React, { memo, ReactNode } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { rem } from "polished"
 import { uniformScale, mq } from "@style/utils"
 
@@ -29,8 +29,12 @@ const smallSize = rem("900px")
 const mediumSize = rem("1350px")
 const largeSize = rem("1550px")
 
-const SmallLimiter = styled.div<Props>`
+const commonStyles = css`
   margin: auto;
+`
+
+const SmallLimiter = styled.div`
+  ${commonStyles}
 
   max-width: ${smallSize};
 
@@ -39,8 +43,8 @@ const SmallLimiter = styled.div<Props>`
   `}
 `
 
-const MediumLimiter = styled.div<Props>`
-  margin: auto;
+const MediumLimiter = styled.div`
+  ${commonStyles}
 
   max-width: ${mediumSize};
 
@@ -49,8 +53,9 @@ const MediumLimiter = styled.div<Props>`
   `}
 `
 
-const LargeLimiter = styled.div<Props>`
-  margin: auto;
+const LargeLimiter = styled.div`
+  ${commonStyles}
+
   max-width: ${largeSize};
 
   ${mq.greaterThan("topWall")`
