@@ -22,9 +22,7 @@ const Project: React.FunctionComponent<AllProps> = ({
     <ContentScrollContainer>
       <ProjectContainer>
         <Header project={getCurrentProjectData(projectData, projectName)} />
-
         {children}
-
         <NextProject project={getNextProjectData(projectData, projectName)} />
       </ProjectContainer>
     </ContentScrollContainer>

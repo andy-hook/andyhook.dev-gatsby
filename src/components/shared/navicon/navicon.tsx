@@ -7,11 +7,11 @@ interface Props {
   onClick: () => void
 }
 
-const Navicon: React.FunctionComponent<Props> = memo(({ open, onClick }) => {
+const Navicon: React.FunctionComponent<Props> = memo(({ onClick }) => {
   return <NaviconContainer onClick={onClick} />
 })
 
-const NaviconContainer = styled.button`
+const NaviconContainer = styled.button<Props>`
   position: relative;
   font-size: 1em;
 
@@ -31,7 +31,7 @@ const NaviconContainer = styled.button`
 
     border-radius: ${borderRadius.circle};
 
-    background-color: grey;
+    background-color: ${props => props.theme.tone[400]};
   }
 `
 

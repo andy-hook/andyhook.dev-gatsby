@@ -36,10 +36,10 @@ const Title = styled.h2`
   font-family: ${fontFamily.display};
   font-weight: 600;
   text-align: center;
-  color: #e3e3eb;
+  color: ${props => props.theme.text[200]};
   letter-spacing: ${letterSpacing.display};
   max-width: 12em;
-  text-shadow: 0px 0px 2em #08080a;
+  text-shadow: 0 0 2em ${props => props.theme.tone[100]};
 
   margin-top: 0;
   margin-bottom: 0.75em;

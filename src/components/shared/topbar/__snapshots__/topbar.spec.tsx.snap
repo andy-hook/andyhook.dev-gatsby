@@ -2,24 +2,23 @@
 
 exports[`<Topbar /> renders correctly 1`] = `
 Array [
-  <div
-    className="sc-htpNat feMfmD"
+  <a
+    className="sc-htpNat kdzRwZ"
+    href="/"
+    onClick={[Function]}
   >
     <test-file-stub
-      className="sc-bwzfXH dOifBR"
+      className="sc-bwzfXH bnccBS"
       open={false}
     />
-  </div>,
+  </a>,
   <div
-    className="sc-bxivhb kCuFQu"
+    className="sc-bxivhb iGamwS"
   >
-    <div
-      className="sc-bdVaJa ghDoxi"
+    <button
+      className="sc-bdVaJa hTPlfM"
       onClick={[Function]}
-    >
-      yeeeep 
-       undefined
-    </div>
+    />
   </div>,
 ]
 `;

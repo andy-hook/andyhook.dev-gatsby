@@ -80,7 +80,7 @@ const Restricter = styled.div`
 const Link = styled(OutboundLink)`
   position: relative;
   display: block;
-  color: #fff;
+  color: ${props => props.theme.text[100]};
 
   padding: 0.75em;
 
@@ -99,7 +99,7 @@ const Link = styled(OutboundLink)`
     left: 0.1em;
     right: 0.1em;
     bottom: 0.1em;
-    border: ${borderThickness.regular} solid #fff;
+    border: ${borderThickness.regular} solid ${props => props.theme.text[100]};
 
     border-radius: ${borderRadius.circle};
 

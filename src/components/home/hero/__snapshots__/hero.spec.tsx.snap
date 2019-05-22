@@ -2,38 +2,46 @@
 
 exports[`<Hero /> renders correctly 1`] = `
 <div
-  className="sc-htoDjs epVUox"
+  className="sc-iwsKbI JTPAQ"
 >
   <div
-    className="sc-dnqmqq jbkuyc"
+    className="sc-gZMcBi jWnkak"
   >
-    <h2
-      className="sc-gzVnrw dLhnGX"
+    <div
+      className="sc-dnqmqq cTOySx"
     >
-      High-performance design & development
-    </h2>
-    <a
-      className="sc-EHOje iuqPHb"
-      href="path/to/social/profile"
-      onClick={[Function]}
-      target="_blank"
-    >
-      <span
-        className="sc-bZQynM lcLFrl"
+      <div
+        className="sc-gzVnrw gZKBUI"
       >
-        View my latest projects
-      </span>
-    </a>
+        <h2
+          className="sc-htoDjs kYaEnc"
+        >
+          High-performance design & development
+        </h2>
+        <a
+          className="sc-EHOje gzfwlQ"
+          href="path/to/social/profile"
+          onClick={[Function]}
+          target="_blank"
+        >
+          <span
+            className="sc-bZQynM lcLFrl"
+          >
+            View my latest projects
+          </span>
+        </a>
+      </div>
+    </div>
   </div>
   <div
-    className="sc-iwsKbI bnEyRV"
+    className="sc-gqjmRU ranyq"
   >
     <div
       className="sc-htpNat hgHLpC"
     >
       <a
         aria-label="Get in touch"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="mailto:hello@andy-hook.co.uk"
         onClick={[Function]}
         target="_blank"
@@ -52,7 +60,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Twitter"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
@@ -71,7 +79,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Instagram"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
@@ -90,7 +98,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Linkedin"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
@@ -109,7 +117,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Dribbble"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
@@ -128,7 +136,7 @@ exports[`<Hero /> renders correctly 1`] = `
       </a>
       <a
         aria-label="Github"
-        className="sc-bxivhb gcaUoY"
+        className="sc-bxivhb jBKcub"
         href="path/to/social/profile"
         onClick={[Function]}
         target="_blank"
@@ -148,16 +156,16 @@ exports[`<Hero /> renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-gZMcBi kKRIiF"
+    className="sc-VigVT hDGzdy"
   >
     <div
-      className="sc-gqjmRU dGAIgJ"
+      className="sc-jTzLTM itTGfI"
     />
     <div
-      className="sc-VigVT bJZycR"
+      className="sc-fjdhpX kNjHrV"
     >
       <test-file-stub
-        className="sc-jTzLTM cZYbUl"
+        className="sc-jzJRlG hNRzqK"
       />
     </div>
   </div>

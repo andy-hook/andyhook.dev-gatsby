@@ -10,6 +10,7 @@ import {
   borderRadius,
   duration,
   zIndex,
+  lightGreys,
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -33,7 +34,7 @@ const StyledButton = styled(OutboundLink)`
   overflow: hidden;
   font-family: ${fontFamily.base};
 
-  color: #fff;
+  color: ${lightGreys[100]};
 
   font-weight: ${fontWeight.base.bold};
 

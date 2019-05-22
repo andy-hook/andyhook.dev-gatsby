@@ -146,5 +146,30 @@ export const zIndex = {
   highest: "400",
 }
 
+/* Greys
+  ------------------------------------------------- */
+
+export const lightGreys = {
+  100: "hsl(240, 2%, 100%)",
+  200: "hsl(240, 2%, 97%)",
+  300: "hsl(240, 2%, 94%)",
+  400: "hsl(240, 2%, 90%)",
+  500: "hsl(240, 2%, 87%)",
+  600: "hsl(240, 2%, 83%)",
+  700: "hsl(240, 2%, 78%)",
+  800: "hsl(240, 2%, 75%)",
+}
+
+export const darkGreys = {
+  100: "hsl(240, 17%, 2%)",
+  200: "hsl(240, 17%, 8%)",
+  300: "hsl(240, 17%, 11%)",
+  400: "hsl(240, 12%, 14%)",
+  500: "hsl(240, 10%, 18%)",
+  600: "hsl(240, 10%, 21%)",
+  700: "hsl(240, 10%, 24%)",
+  800: "hsl(240, 10%, 26%)",
+}
+
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
 export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
