@@ -2,7 +2,7 @@
 
 exports[`<SiteContainer /> renders correctly 1`] = `
 <div
-  className="sc-bdVaJa kxzpCg"
+  className="sc-bdVaJa hZnNig"
 >
   Child text
 </div>

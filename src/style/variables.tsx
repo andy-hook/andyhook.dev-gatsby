@@ -1,5 +1,7 @@
 import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
+import { IGrey, TGrey } from "@custom-types/theme"
+import { css } from "styled-components"
 
 /* Typography
   ------------------------------------------------- */
@@ -149,27 +151,43 @@ export const zIndex = {
 /* Greys
   ------------------------------------------------- */
 
-export const lightGreys = {
-  100: "hsl(240, 2%, 100%)",
-  200: "hsl(240, 2%, 97%)",
-  300: "hsl(240, 2%, 94%)",
-  400: "hsl(240, 2%, 90%)",
-  500: "hsl(240, 2%, 87%)",
-  600: "hsl(240, 2%, 83%)",
-  700: "hsl(240, 2%, 78%)",
-  800: "hsl(240, 2%, 75%)",
+export const lightGreyHSL: IGrey = {
+  100: "240, 2%, 100%",
+  200: "240, 2%, 97%",
+  300: "240, 2%, 94%",
+  400: "240, 2%, 90%",
+  500: "240, 2%, 87%",
+  600: "240, 2%, 83%",
+  700: "240, 2%, 78%",
+  800: "240, 2%, 75%",
 }
 
-export const darkGreys = {
-  100: "hsl(240, 17%, 2%)",
-  200: "hsl(240, 17%, 8%)",
-  300: "hsl(240, 17%, 11%)",
-  400: "hsl(240, 12%, 14%)",
-  500: "hsl(240, 10%, 18%)",
-  600: "hsl(240, 10%, 21%)",
-  700: "hsl(240, 10%, 24%)",
-  800: "hsl(240, 10%, 26%)",
+export const lightGrey = (value: TGrey) => css`
+  ${`hsl(${lightGreyHSL[value]})`}
+`
+
+export const lightGreyAlpha = (value: TGrey, alpha: number) => css`
+  ${`hsl(${lightGreyHSL[value]}, ${alpha})`}
+`
+
+export const darkGreyHSL: IGrey = {
+  100: "240, 17%, 2%",
+  200: "240, 17%, 8%",
+  300: "240, 17%, 11%",
+  400: "240, 12%, 14%",
+  500: "240, 10%, 18%",
+  600: "240, 10%, 21%",
+  700: "240, 10%, 24%",
+  800: "240, 10%, 26%",
 }
+
+export const darkGrey = (value: TGrey) => css`
+  ${`hsl(${darkGreyHSL[value]})`}
+`
+
+export const darkGreyAlpha = (value: TGrey, alpha: number) => css`
+  ${`hsl(${darkGreyHSL[value]}, ${alpha})`}
+`
 
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
 export const remBreakpoints = pxToRem(breakpoints, baseFontSize)

@@ -2,7 +2,7 @@
 
 exports[`<Navicon /> renders correctly 1`] = `
 <button
-  className="sc-bdVaJa hTPlfM"
+  className="sc-bdVaJa hkySjj"
   onClick={[MockFunction]}
 />
 `;

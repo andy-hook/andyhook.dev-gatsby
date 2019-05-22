@@ -1,14 +1,10 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import { between } from "polished"
+import { typeTitle } from "@style/mixins"
 import { uniformScale, mq } from "@style/utils"
-import {
-  emBreakpoints,
-  typeScale,
-  fontFamily,
-  letterSpacing,
-  zIndex,
-} from "@style/variables"
+import { themeTone, isDarkTheme } from "@style/theme"
+import { emBreakpoints, typeScale, zIndex } from "@style/variables"
 import Button from "@components/shared/button/button"
 
 interface Props {
@@ -33,14 +29,12 @@ const DetailsContainer = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: ${fontFamily.display};
-  font-weight: 600;
-  text-align: center;
-  color: ${props => props.theme.text[200]};
-  letter-spacing: ${letterSpacing.display};
-  max-width: 12em;
-  text-shadow: 0 0 2em ${props => props.theme.tone[100]};
+  ${typeTitle}
 
+  ${isDarkTheme(`text-shadow: 0 0 2em ${themeTone(100)};`)}
+
+  text-align: center;
+  max-width: 12em;
   margin-top: 0;
   margin-bottom: 0.75em;
 

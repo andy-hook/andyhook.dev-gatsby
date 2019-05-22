@@ -6,7 +6,7 @@ exports[`<Social /> renders correctly 1`] = `
 >
   <a
     aria-label="Get in touch"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="mailto:hello@andy-hook.co.uk"
     onClick={[Function]}
     target="_blank"
@@ -25,7 +25,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Twitter"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="path/to/social/profile"
     onClick={[Function]}
     target="_blank"
@@ -44,7 +44,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Instagram"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="path/to/social/profile"
     onClick={[Function]}
     target="_blank"
@@ -63,7 +63,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Linkedin"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="path/to/social/profile"
     onClick={[Function]}
     target="_blank"
@@ -82,7 +82,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Dribbble"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="path/to/social/profile"
     onClick={[Function]}
     target="_blank"
@@ -101,7 +101,7 @@ exports[`<Social /> renders correctly 1`] = `
   </a>
   <a
     aria-label="Github"
-    className="sc-bxivhb jBKcub"
+    className="sc-bxivhb jKjHvL"
     href="path/to/social/profile"
     onClick={[Function]}
     target="_blank"

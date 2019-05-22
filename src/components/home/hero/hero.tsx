@@ -1,6 +1,6 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
-import { between, rem, rgba } from "polished"
+import { between, rem } from "polished"
 import Social from "./social/social"
 import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
@@ -12,6 +12,7 @@ import heroBg from "@images/hero-bg.svg"
 import date from "@images/svg-import/date.svg"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
+import { themeToneAlpha } from "@style/theme"
 
 interface Props {
   introTrigger?: boolean
@@ -197,7 +198,11 @@ const BackgroundGradient = styled.div`
 
   z-index: ${zIndex.medium};
 
-  background: linear-gradient(175deg, ${rgba("#050506", 0)} 30%, #050506 80%);
+  background: linear-gradient(
+    175deg,
+    ${themeToneAlpha(100, 0)} 30%,
+    #050506 80%
+  );
 `
 
 const Date = styled.div`

@@ -1,5 +1,6 @@
 import { css } from "styled-components"
 import { fontFamily, fontWeight, letterSpacing } from "@style/variables"
+import { themeText } from "@style/theme"
 
 /* Typography
   ------------------------------------------------- */
@@ -12,5 +13,5 @@ export const typeDisplay = css`
 
 export const typeTitle = css`
   ${typeDisplay}
-  color: ${props => props.theme.text[200]};
+  color: ${themeText(200)};
 `
