@@ -1,19 +1,11 @@
 import React from "react"
-import renderer from "react-test-renderer"
-import { ThemeProvider } from "styled-components"
-import { darkTheme } from "@style/theme"
+import { shallowWithTheme } from "@test-utils"
 
 import Navicon from "./navicon"
 
 describe("<Navicon />", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <ThemeProvider theme={darkTheme}>
-          <Navicon onClick={jest.fn()} />
-        </ThemeProvider>
-      )
-      .toJSON()
+    const tree = shallowWithTheme(<Navicon onClick={jest.fn()} />)
     expect(tree).toMatchSnapshot()
   })
 })

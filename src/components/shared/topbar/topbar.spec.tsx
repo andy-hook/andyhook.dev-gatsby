@@ -1,19 +1,13 @@
 import React from "react"
-import renderer from "react-test-renderer"
-import { ThemeProvider } from "styled-components"
-import { darkTheme } from "@style/theme"
+import { shallowWithTheme } from "@test-utils"
 
 import Topbar from "./topbar"
 
 describe("<Topbar />", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <ThemeProvider theme={darkTheme}>
-          <Topbar onMenuOpen={jest.fn()} onMenuClose={jest.fn()} />
-        </ThemeProvider>
-      )
-      .toJSON()
+    const tree = shallowWithTheme(
+      <Topbar onMenuOpen={jest.fn()} onMenuClose={jest.fn()} />
+    )
     expect(tree).toMatchSnapshot()
   })
 })

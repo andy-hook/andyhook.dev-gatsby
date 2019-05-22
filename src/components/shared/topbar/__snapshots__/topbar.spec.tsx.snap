@@ -1,24 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Topbar /> renders correctly 1`] = `
-Array [
-  <a
-    className="sc-htpNat kdzRwZ"
-    href="/"
-    onClick={[Function]}
-  >
-    <test-file-stub
-      className="sc-bwzfXH bnccBS"
-      open={false}
-    />
-  </a>,
-  <div
-    className="sc-bxivhb iGamwS"
-  >
-    <button
-      className="sc-bdVaJa hkySjj"
-      onClick={[Function]}
-    />
-  </div>,
-]
-`;
+exports[`<Topbar /> renders correctly 1`] = `ShallowWrapper {}`;
