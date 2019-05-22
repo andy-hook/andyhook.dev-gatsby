@@ -10,6 +10,7 @@ interface IGrey {
 }
 
 export interface ITheme {
+  name: "light" | "dark"
   text: IGrey
   tone: IGrey
 }
