@@ -143,12 +143,15 @@ module.exports = {
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        globPatterns: ["**/*.{js,svg,html,css}"],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    //   options: {
+    //     globPatterns: ["**/*.{js,svg,html,css}"],
+    //   },
+    // },
+
+    // Temporarily disable service worker for local dev
+    `gatsby-plugin-remove-serviceworker`,
 
     // Netlify integration and redirects
     `gatsby-plugin-netlify`,
