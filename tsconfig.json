@@ -55,6 +55,7 @@
 
       "@style/*": ["./src/style/*"],
       "@mock-data": ["./src/mock-data/index.tsx"],
+      "@test-utils": ["./src/test-utils/index.tsx"],
       "@components/*": ["./src/components/*"],
       "@store/*": ["./src/store/*"],
       "@custom-types/*": ["./src/types/*"],

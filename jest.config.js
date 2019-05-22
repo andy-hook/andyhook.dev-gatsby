@@ -10,6 +10,7 @@ module.exports = {
       "<rootDir>/__mocks__/file-mock.js",
     "^@style(.*)$": "<rootDir>/src/style$1",
     "^@mock-data(.*)$": "<rootDir>/src/mock-data$1",
+    "^@test-utils(.*)$": "<rootDir>/src/test-utils$1",
     "^@components(.*)$": "<rootDir>/src/components$1",
     "^@store(.*)$": "<rootDir>/src/store$1",
     "^@custom-types(.*)$": "<rootDir>/src/types$1",
@@ -22,5 +23,5 @@ module.exports = {
     __PATH_PREFIX__: "",
   },
   testURL: "http://localhost",
-  setupFiles: ["<rootDir>/loadershim.js"],
+  setupFiles: ["<rootDir>/loadershim.js", "<rootDir>/setuptests.ts"],
 }
