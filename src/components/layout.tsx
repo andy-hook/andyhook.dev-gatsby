@@ -10,8 +10,7 @@ import GlobalStyle from "@style/global-style"
 import LoaderContainer from "@components/shared/loader/loader.container"
 import TopbarContainer from "@components/shared/topbar/topbar.container"
 import MenuContainer from "@components/shared/menu/menu.container"
-import { ThemeProvider } from "styled-components"
-import { darkTheme } from "@style/theme"
+import SiteContainer from "@components/shared/site-container/site-container"
 
 interface Props {
   children: ReactNode
@@ -19,15 +18,13 @@ interface Props {
 
 const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <>
-        <GlobalStyle />
-        <LoaderContainer />
-        <TopbarContainer />
-        <MenuContainer />
-        {children}
-      </>
-    </ThemeProvider>
+    <SiteContainer>
+      <GlobalStyle />
+      <LoaderContainer />
+      <TopbarContainer />
+      <MenuContainer />
+      {children}
+    </SiteContainer>
   )
 })
 
