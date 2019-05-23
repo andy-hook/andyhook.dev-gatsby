@@ -1,4 +1,4 @@
-import { ITheme, TGrey } from "@custom-types/theme"
+import { ITheme, TGrey, TThemeName } from "@custom-types/theme"
 import { css } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
@@ -43,4 +43,8 @@ export const isDarkTheme = (output: string) => css`
 
 export const isLightTheme = (output: string) => css`
   ${props => props.theme.name === "light" && output}
+`
+
+export const isTheme = (themeName: TThemeName, output: string) => css`
+  ${props => props.theme.name === themeName && output}
 `

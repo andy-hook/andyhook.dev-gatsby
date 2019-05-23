@@ -7,6 +7,7 @@ import {
   themeTextAlpha,
   isDarkTheme,
   isLightTheme,
+  isTheme,
 } from "@style/theme"
 import styled from "styled-components"
 import "jest-styled-components"
@@ -33,6 +34,10 @@ const IsDarkThemeComponent = styled.div`
 
 const IsLightThemeComponent = styled.div`
   ${isLightTheme("color: red;")};
+`
+
+const IsThemeComponent = styled.div`
+  ${isTheme("dark", "color: red;")};
 `
 
 describe("themeTone", () => {
@@ -83,6 +88,18 @@ describe("isLightTheme", () => {
 
   it("does not render style block when using a dark theme", () => {
     const tree = mountWithTheme("dark", <IsLightThemeComponent />)
+    expect(tree).not.toHaveStyleRule("color", "red")
+  })
+})
+
+describe("isTheme", () => {
+  it("renders style block when using a dark theme", () => {
+    const tree = mountWithTheme("dark", <IsThemeComponent />)
+    expect(tree).toHaveStyleRule("color", "red")
+  })
+
+  it("does not render style block when using a light theme", () => {
+    const tree = mountWithTheme("light", <IsThemeComponent />)
     expect(tree).not.toHaveStyleRule("color", "red")
   })
 })
