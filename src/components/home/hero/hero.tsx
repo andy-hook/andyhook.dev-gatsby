@@ -9,10 +9,10 @@ import { emBreakpoints, typeScale, zIndex } from "@style/variables"
 import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
-import date from "@images/svg-import/date.svg"
+import date from "./date/date"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
-import { themeToneAlpha } from "@style/theme"
+import { themeToneAlpha, themeTone } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 
 interface Props {
@@ -125,7 +125,7 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #0d0d0f;
+  background-color: ${themeTone(200)};
 `
 
 const DetailsPos = styled.div`
@@ -204,7 +204,7 @@ const BackgroundGradient = styled.div`
   background: linear-gradient(
     175deg,
     ${themeToneAlpha(100, 0)} 30%,
-    #050506 80%
+    ${themeTone(100)} 80%
   );
 `
 

@@ -169,7 +169,7 @@ export const lightGreyAlpha = (value: TGrey, alpha: number) =>
 
 export const darkGreyHSL: IGrey = {
   100: "240, 17%, 2%",
-  200: "240, 17%, 8%",
+  200: "240, 15%, 5%",
   300: "240, 17%, 11%",
   400: "240, 12%, 14%",
   500: "240, 10%, 18%",
