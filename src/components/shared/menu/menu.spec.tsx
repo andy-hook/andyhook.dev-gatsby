@@ -1,11 +1,11 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { shallowWithTheme } from "@test-utils"
 
 import Menu from "./menu"
 
 describe("<Menu />", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Menu />).toJSON()
+    const tree = shallowWithTheme("dark", <Menu />)
     expect(tree).toMatchSnapshot()
   })
 })

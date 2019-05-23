@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import { zIndex } from "@style/variables"
+import { themeTone } from "@style/theme"
 
 interface Props {
   open?: boolean
@@ -47,7 +48,7 @@ const MenuContainer = styled.div<Props>`
   width: 100%;
   height: 100%;
   z-index: ${zIndex.high};
-  background-color: white;
+  background-color: ${themeTone(100)};
   transform: translate3d(0, -100%, 0);
   opacity: 0;
 `
