@@ -13,6 +13,7 @@ import date from "@images/svg-import/date.svg"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha } from "@style/theme"
+import ThemeSwitch from "@components/shared/theme-switch/theme-switch"
 
 interface Props {
   introTrigger?: boolean
@@ -109,6 +110,8 @@ const Hero: React.FunctionComponent<AllProps> = memo(
               <DateGraphic />
             </Date>
           </BackgroundContainer>
+
+          <ThemeSwitch />
         </Container>
       </>
     )
