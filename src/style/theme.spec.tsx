@@ -40,6 +40,10 @@ const IsThemeComponent = styled.div`
   ${isTheme("dark", "color: red;")};
 `
 
+const IsNotThemeComponent = styled.div`
+  ${isTheme("dark", "color: red;", "color: blue;")};
+`
+
 describe("themeTone", () => {
   it("renders correct hsl from given tone value", () => {
     const tree = mountWithTheme("dark", <ThemeToneComponent />)
@@ -93,13 +97,23 @@ describe("isLightTheme", () => {
 })
 
 describe("isTheme", () => {
-  it("renders style block when using a dark theme", () => {
+  it("renders single argument style block when using a dark theme", () => {
     const tree = mountWithTheme("dark", <IsThemeComponent />)
     expect(tree).toHaveStyleRule("color", "red")
   })
 
-  it("does not render style block when using a light theme", () => {
+  it("does not render single argument style block when using a light theme", () => {
     const tree = mountWithTheme("light", <IsThemeComponent />)
     expect(tree).not.toHaveStyleRule("color", "red")
+  })
+
+  it("renders first style block argument when using a dark theme", () => {
+    const tree = mountWithTheme("dark", <IsNotThemeComponent />)
+    expect(tree).toHaveStyleRule("color", "red")
+  })
+
+  it("renders second style block argument when using a light theme", () => {
+    const tree = mountWithTheme("light", <IsNotThemeComponent />)
+    expect(tree).toHaveStyleRule("color", "blue")
   })
 })

@@ -45,6 +45,16 @@ export const isLightTheme = (output: string) => css`
   ${props => props.theme.name === "light" && output}
 `
 
-export const isTheme = (themeName: TThemeName, output: string) => css`
-  ${props => props.theme.name === themeName && output}
+export const isTheme = (
+  themeName: TThemeName,
+  validOutput: string,
+  invalidOutput?: string
+) => css`
+  ${props => {
+    if (invalidOutput) {
+      return props.theme.name === themeName ? validOutput : invalidOutput
+    } else {
+      return props.theme.name === themeName && validOutput
+    }
+  }}
 `
