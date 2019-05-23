@@ -12,7 +12,7 @@ import heroBg from "@images/hero-bg.svg"
 import date from "./date/date"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
-import { themeToneAlpha, themeTone } from "@style/theme"
+import { themeToneAlpha, themeTone, isTheme } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 
 interface Props {
@@ -109,6 +109,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
             <Date ref={dateRef}>
               <DateGraphic />
             </Date>
+            <BackgroundTexture />
           </BackgroundContainer>
 
           <ThemeSwitch />
@@ -125,7 +126,6 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${themeTone(200)};
 `
 
 const DetailsPos = styled.div`
@@ -179,13 +179,27 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background: url(${heroBg}) repeat top left;
+  background-color: ${themeTone(200)};
 
   overflow: hidden;
 
   z-index: ${zIndex.floor};
 
   opacity: 0;
+`
+
+const BackgroundTexture = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url(${heroBg}) repeat top left;
+
+  ${isTheme("light", `opacity: 0.075;`)}
+
+  z-index: ${zIndex.floor};
 
   ${mq.greaterThan("topWall")`
     background-size: 35%;
