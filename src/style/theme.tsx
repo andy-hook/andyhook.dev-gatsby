@@ -1,5 +1,5 @@
 import { ITheme, TGrey, TThemeName } from "@custom-types/theme"
-import { css } from "styled-components"
+import { css, CSSProp } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
 import { lightGreyHSL, darkGreyHSL } from "@style/variables"
@@ -37,18 +37,18 @@ export const themeTextAlpha = (value: TGrey, alpha: number) => css`
   ${props => createHsla(props.theme.text[value], alpha)}
 `
 
-export const isDarkTheme = (output: string) => css`
+export const isDarkTheme = (output: string | CSSProp) => css`
   ${props => props.theme.name === "dark" && output}
 `
 
-export const isLightTheme = (output: string) => css`
+export const isLightTheme = (output: string | CSSProp) => css`
   ${props => props.theme.name === "light" && output}
 `
 
 export const isTheme = (
   themeName: TThemeName,
-  validOutput: string,
-  invalidOutput?: string
+  validOutput: string | CSSProp,
+  invalidOutput?: string | CSSProp
 ) => css`
   ${props => {
     if (invalidOutput) {
