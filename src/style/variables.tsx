@@ -1,7 +1,6 @@
 import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
 import { IGrey, TGrey } from "@custom-types/theme"
-import { css } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
 /* Typography
@@ -163,13 +162,10 @@ export const lightGreyHSL: IGrey = {
   800: "240, 2%, 75%",
 }
 
-export const lightGrey = (value: TGrey) => css`
-  ${createHsl(lightGreyHSL[value])}
-`
+export const lightGrey = (value: TGrey) => createHsl(lightGreyHSL[value])
 
-export const lightGreyAlpha = (value: TGrey, alpha: number) => css`
-  ${createHsla(lightGreyHSL[value], alpha)}
-`
+export const lightGreyAlpha = (value: TGrey, alpha: number) =>
+  createHsla(lightGreyHSL[value], alpha)
 
 export const darkGreyHSL: IGrey = {
   100: "240, 17%, 2%",
@@ -182,13 +178,10 @@ export const darkGreyHSL: IGrey = {
   800: "240, 10%, 26%",
 }
 
-export const darkGrey = (value: TGrey) => css`
-  ${createHsl(darkGreyHSL[value])}
-`
+export const darkGrey = (value: TGrey) => createHsl(darkGreyHSL[value])
 
-export const darkGreyAlpha = (value: TGrey, alpha: number) => css`
-  ${createHsla(darkGreyHSL[value], alpha)}
-`
+export const darkGreyAlpha = (value: TGrey, alpha: number) =>
+  createHsla(darkGreyHSL[value], alpha)
 
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
 export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
