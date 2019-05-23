@@ -1,3 +1,5 @@
+import { TThemeName } from "@custom-types/theme"
+
 export interface IPayloadedAction<Type, Payload> {
   type: Type
   payload: Payload
@@ -10,6 +12,8 @@ export interface IAction<Type> {
 export interface IStore {
   loaderVisible: boolean
   firstEntrance: boolean
+  primaryTheme: TThemeName
+  secondaryTheme: TThemeName
   menuOpen: boolean
   testString: string | null
 }
@@ -27,3 +31,9 @@ export interface IFirstEntranceAction
 
 export interface IMenuOpenAction
   extends IPayloadedAction<"menu-open", boolean> {}
+
+export interface IPrimaryThemeAction
+  extends IPayloadedAction<"primary-theme", TThemeName> {}
+
+export interface ISecondaryThemeAction
+  extends IPayloadedAction<"secondary-theme", TThemeName> {}

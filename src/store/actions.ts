@@ -5,6 +5,8 @@ import {
   ISetTestStringAction,
   IFirstEntranceAction,
   IMenuOpenAction,
+  IPrimaryThemeAction,
+  ISecondaryThemeAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -26,3 +28,11 @@ export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
 export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(
   "set-test-string"
 )
+
+export const setPrimaryThemeAction = createPayloadedAction<IPrimaryThemeAction>(
+  "primary-theme"
+)
+
+export const setSecondaryThemeAction = createPayloadedAction<
+  ISecondaryThemeAction
+>("secondary-theme")

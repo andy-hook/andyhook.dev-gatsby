@@ -12,8 +12,10 @@ export interface IGrey {
   800: string
 }
 
+export type TThemeName = "light" | "dark"
+
 export interface ITheme {
-  name: "light" | "dark"
+  name: TThemeName
   text: IGrey
   tone: IGrey
 }

@@ -5,6 +5,8 @@ import {
   ISetTestStringAction,
   IFirstEntranceAction,
   IMenuOpenAction,
+  IPrimaryThemeAction,
+  ISecondaryThemeAction,
 } from "@custom-types/store"
 
 const loaderVisible = (
@@ -43,6 +45,30 @@ const menuOpen = (
   }
 }
 
+const primaryTheme = (
+  state: IStore["primaryTheme"] = "dark",
+  action: IPrimaryThemeAction
+): IStore["primaryTheme"] => {
+  switch (action.type) {
+    case "primary-theme":
+      return action.payload
+    default:
+      return state
+  }
+}
+
+const secondaryTheme = (
+  state: IStore["secondaryTheme"] = "light",
+  action: ISecondaryThemeAction
+): IStore["secondaryTheme"] => {
+  switch (action.type) {
+    case "secondary-theme":
+      return action.payload
+    default:
+      return state
+  }
+}
+
 const testString = (
   state: IStore["testString"] = null,
   action: ISetTestStringAction
@@ -60,6 +86,8 @@ const rootReducer = combineReducers<IStore>({
   testString,
   firstEntrance,
   menuOpen,
+  primaryTheme,
+  secondaryTheme,
 })
 
 export default rootReducer
