@@ -16,6 +16,11 @@ export const darkTheme: ITheme = {
   tone: darkGreyHSL,
 }
 
+export const themes: { [key: string]: ITheme } = {
+  light: lightTheme,
+  dark: darkTheme,
+}
+
 export const themeTone = (value: TGrey) => css`
   ${props => createHsl(props.theme.tone[value])}
 `
