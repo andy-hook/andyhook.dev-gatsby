@@ -13,7 +13,7 @@ import date from "@images/svg-import/date.svg"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha } from "@style/theme"
-import ThemeSwitch from "@components/shared/theme-switch/theme-switch"
+import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 
 interface Props {
   introTrigger?: boolean

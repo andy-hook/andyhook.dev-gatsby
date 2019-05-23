@@ -1,8 +1,12 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 
-const ThemeSwitch: React.FunctionComponent = memo(() => {
-  return <SwitchButton />
+interface Props {
+  onClick: () => void
+}
+
+const ThemeSwitch: React.FunctionComponent<Props> = memo(({ onClick }) => {
+  return <SwitchButton onClick={onClick} />
 })
 
 const SwitchButton = styled.div`
