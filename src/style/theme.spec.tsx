@@ -5,6 +5,8 @@ import {
   themeTone,
   themeText,
   themeTextAlpha,
+  isDarkTheme,
+  isLightTheme,
 } from "@style/theme"
 import styled from "styled-components"
 import "jest-styled-components"
@@ -23,6 +25,14 @@ const ThemeTextComponent = styled.div`
 
 const ThemeTextAlphaComponent = styled.div`
   color: ${themeTextAlpha(100, 0)};
+`
+
+const IsDarkThemeComponent = styled.div`
+  ${isDarkTheme("color: red;")};
+`
+
+const IsLightThemeComponent = styled.div`
+  ${isLightTheme("color: red;")};
 `
 
 describe("themeTone", () => {
@@ -50,5 +60,29 @@ describe("themeTextAlpha", () => {
   it("renders correct hsla from given text value", () => {
     const tree = mountWithTheme("dark", <ThemeTextAlphaComponent />)
     expect(tree).toHaveStyleRule("color", "hsla(240,2%,100%,0)")
+  })
+})
+
+describe("isDarkTheme", () => {
+  it("renders style block when using a dark theme", () => {
+    const tree = mountWithTheme("dark", <IsDarkThemeComponent />)
+    expect(tree).toHaveStyleRule("color", "red")
+  })
+
+  it("does not render style block when using a light theme", () => {
+    const tree = mountWithTheme("light", <IsDarkThemeComponent />)
+    expect(tree).not.toHaveStyleRule("color", "red")
+  })
+})
+
+describe("isLightTheme", () => {
+  it("renders style block when using a light theme", () => {
+    const tree = mountWithTheme("light", <IsLightThemeComponent />)
+    expect(tree).toHaveStyleRule("color", "red")
+  })
+
+  it("does not render style block when using a dark theme", () => {
+    const tree = mountWithTheme("dark", <IsLightThemeComponent />)
+    expect(tree).not.toHaveStyleRule("color", "red")
   })
 })
