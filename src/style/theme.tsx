@@ -1,5 +1,6 @@
 import { ITheme, TGrey } from "@custom-types/theme"
 import { css } from "styled-components"
+import { createHsl, createHsla } from "@style/utils"
 
 import { lightGreyHSL, darkGreyHSL } from "@style/variables"
 
@@ -16,22 +17,21 @@ export const darkTheme: ITheme = {
 }
 
 export const themeTone = (value: TGrey) => css`
-  ${props => `hsl(${props.theme.tone[value]})`}
+  ${props => createHsl(props.theme.tone[value])}
 `
 export const themeToneAlpha = (value: TGrey, alpha: number) => css`
-  ${props => `hsla(${props.theme.tone[value]}, ${alpha})`}
+  ${props => createHsla(props.theme.tone[value], alpha)}
 `
 export const themeText = (value: TGrey) => css`
-  ${props => `hsl(${props.theme.text[value]})`}
+  ${props => createHsl(props.theme.text[value])}
 `
 export const themeTextAlpha = (value: TGrey, alpha: number) => css`
-  ${props => `hsla(${props.theme.text[value]}, ${alpha})`}
+  ${props => createHsla(props.theme.text[value], alpha)}
+`
+export const isDarkTheme = (output: string) => css`
+  ${props => props.theme.name === "dark" && output}
 `
 
 export const themeName = css`
   ${props => props.theme.name}
-`
-
-export const isDarkTheme = (output: string) => css`
-  ${props => props.theme.name === "dark" && output}
 `

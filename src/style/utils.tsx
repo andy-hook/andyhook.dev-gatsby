@@ -20,3 +20,8 @@ export const uniformScale = (
 
   return `${convertedUnit / (bpValue * 0.01 * 1)}vw`
 }
+
+export const createHsl = (value: string) => `hsl(${value})`
+
+export const createHsla = (value: string, alpha: number) =>
+  `hsla(${value},${alpha})`
