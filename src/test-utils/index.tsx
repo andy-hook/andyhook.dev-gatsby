@@ -1,25 +1,33 @@
 import React, { ReactNode } from "react"
 import { ThemeProvider } from "styled-components"
 import { shallow, mount, render } from "enzyme"
-import { darkTheme } from "@style/theme"
+import { darkTheme, lightTheme } from "@style/theme"
+import { ITheme } from "@custom-types/theme"
 
-export const mountWithTheme = (children: ReactNode) =>
+type themes = "light" | "dark"
+
+const themes: { [key: string]: ITheme } = {
+  light: lightTheme,
+  dark: darkTheme,
+}
+
+export const mountWithTheme = (theme: themes, children: ReactNode) =>
   mount(
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={themes[theme]}>
       <>{children}</>
     </ThemeProvider>
   )
 
-export const renderWithTheme = (children: ReactNode) =>
+export const renderWithTheme = (theme: themes, children: ReactNode) =>
   render(
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={themes[theme]}>
       <>{children}</>
     </ThemeProvider>
   )
 
-export const shallowWithTheme = (children: ReactNode) =>
+export const shallowWithTheme = (theme: themes, children: ReactNode) =>
   shallow(
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={themes[theme]}>
       <>{children}</>
     </ThemeProvider>
   )

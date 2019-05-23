@@ -6,7 +6,7 @@ import { socialIcons } from "@mock-data"
 
 describe("<Social />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(<Social items={socialIcons} />)
+    const tree = shallowWithTheme("dark", <Social items={socialIcons} />)
     expect(tree).toMatchSnapshot()
   })
 })

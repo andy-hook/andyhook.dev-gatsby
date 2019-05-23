@@ -7,6 +7,7 @@ import { socialIcons, transitionState } from "@mock-data"
 describe("<Hero />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
+      "dark",
       <Hero socialIconData={socialIcons} transitionState={transitionState} />
     )
     expect(tree).toMatchSnapshot()

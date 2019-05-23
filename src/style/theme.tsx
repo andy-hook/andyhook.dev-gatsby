@@ -36,6 +36,6 @@ export const isDarkTheme = (output: string) => css`
   ${props => props.theme.name === "dark" && output}
 `
 
-export const themeName = css`
-  ${props => props.theme.name}
+export const isLightTheme = (output: string) => css`
+  ${props => props.theme.name === "light" && output}
 `
