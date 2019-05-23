@@ -5,7 +5,7 @@ import ThemeSwitch from "./theme-switch"
 
 describe("<ThemeSwitch />", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<ThemeSwitch />).toJSON()
+    const tree = renderer.create(<ThemeSwitch onClick={jest.fn()} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
