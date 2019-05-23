@@ -19,15 +19,19 @@ export const darkTheme: ITheme = {
 export const themeTone = (value: TGrey) => css`
   ${props => createHsl(props.theme.tone[value])}
 `
+
 export const themeToneAlpha = (value: TGrey, alpha: number) => css`
   ${props => createHsla(props.theme.tone[value], alpha)}
 `
+
 export const themeText = (value: TGrey) => css`
   ${props => createHsl(props.theme.text[value])}
 `
+
 export const themeTextAlpha = (value: TGrey, alpha: number) => css`
   ${props => createHsla(props.theme.text[value], alpha)}
 `
+
 export const isDarkTheme = (output: string) => css`
   ${props => props.theme.name === "dark" && output}
 `

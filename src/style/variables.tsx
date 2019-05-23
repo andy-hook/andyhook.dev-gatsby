@@ -2,6 +2,7 @@ import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
 import { IGrey, TGrey } from "@custom-types/theme"
 import { css } from "styled-components"
+import { createHsl, createHsla } from "@style/utils"
 
 /* Typography
   ------------------------------------------------- */
@@ -163,11 +164,11 @@ export const lightGreyHSL: IGrey = {
 }
 
 export const lightGrey = (value: TGrey) => css`
-  ${`hsl(${lightGreyHSL[value]})`}
+  ${createHsl(lightGreyHSL[value])}
 `
 
 export const lightGreyAlpha = (value: TGrey, alpha: number) => css`
-  ${`hsl(${lightGreyHSL[value]}, ${alpha})`}
+  ${createHsla(lightGreyHSL[value], alpha)}
 `
 
 export const darkGreyHSL: IGrey = {
@@ -182,11 +183,11 @@ export const darkGreyHSL: IGrey = {
 }
 
 export const darkGrey = (value: TGrey) => css`
-  ${`hsl(${darkGreyHSL[value]})`}
+  ${createHsl(darkGreyHSL[value])}
 `
 
 export const darkGreyAlpha = (value: TGrey, alpha: number) => css`
-  ${`hsl(${darkGreyHSL[value]}, ${alpha})`}
+  ${createHsla(darkGreyHSL[value], alpha)}
 `
 
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
