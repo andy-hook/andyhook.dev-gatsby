@@ -47,6 +47,10 @@ const Global = createGlobalStyle`
     }
   }
 
+  a {
+    text-decoration: none;
+  }
+
 
   /* Page level styling
   /* (e.g. HTML and BODY elements)

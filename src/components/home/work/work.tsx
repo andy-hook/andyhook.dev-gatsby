@@ -7,7 +7,7 @@ import Limiter from "@components/shared/limiter/limiter"
 
 type AllProps = ContainerProps
 
-const Hero: React.FunctionComponent<AllProps> = memo(({ projectsData }) => {
+const Work: React.FunctionComponent<AllProps> = memo(({ projectsData }) => {
   const renderArray: IProjectItem[] = []
 
   Object.keys(projectsData).map(item => {
@@ -27,4 +27,4 @@ const Hero: React.FunctionComponent<AllProps> = memo(({ projectsData }) => {
   )
 })
 
-export default Hero
+export default Work

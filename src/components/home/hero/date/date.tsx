@@ -132,11 +132,11 @@ const Date: React.FunctionComponent<Props> = memo(({ className }) => {
 
 const DateSvg = styled.svg`
   & .number-bg {
-    fill: ${isTheme("dark", themeTone(200), themeTone(900))};
+    fill: ${isTheme("dark", themeTone(200), themeTone(800))};
   }
 
   & .number-highlight {
-    fill-opacity: ${isTheme("dark", "0.65", "0.65")};
+    fill-opacity: ${isTheme("dark", "0.65", "0.8")};
   }
 
   & .stop-one {

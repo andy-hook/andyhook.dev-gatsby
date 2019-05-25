@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import { between } from "polished"
-import { typeTitle } from "@style/mixins"
+import { typeTitle } from "@style/typography"
 import { uniformScale, mq } from "@style/utils"
 import { themeTone, isDarkTheme } from "@style/theme"
 import { emBreakpoints, typeScale, zIndex } from "@style/variables"

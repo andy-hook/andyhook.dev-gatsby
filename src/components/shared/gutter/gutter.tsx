@@ -12,6 +12,8 @@ const Gutter: React.FunctionComponent<Props> = memo(({ children }) => {
 const GutterContainer = styled.div`
   padding-left: 5%;
   padding-right: 5%;
+
+  width: 100%;
 `
 
 export default Gutter

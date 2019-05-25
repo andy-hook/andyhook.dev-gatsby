@@ -14,8 +14,15 @@ export const fontFamily = {
 }
 
 export const letterSpacing = {
-  base: "0.01em",
-  display: "-0.02em",
+  base: {
+    regular: "0.01em",
+    medium: "0.01em",
+    bold: "0.01em",
+  },
+  display: {
+    medium: "-0.02em",
+    semi: "-0.02em",
+  },
   uppercase: "0.06em",
 }
 
@@ -144,11 +151,11 @@ export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
   ------------------------------------------------- */
 
 export const zIndex = {
-  floor: "0",
-  low: "100",
-  medium: "200",
-  high: "300",
-  highest: "400",
+  floor: 0,
+  low: 100,
+  medium: 200,
+  high: 300,
+  highest: 400,
 }
 
 /* Greys
@@ -162,9 +169,9 @@ export const lightGreyHSL: IGrey = {
   500: "240, 3%, 90%",
   600: "240, 3%, 86%",
   700: "240, 3%, 83%",
-  800: "240, 3%, 79%",
-  900: "240, 3%, 76%",
-  1000: "240, 3%, 72%",
+  800: "240, 3%, 60%",
+  900: "240, 3%, 40%",
+  1000: "240, 3%, 30%",
 }
 
 export const lightGrey = (value: TGrey) => createHsl(lightGreyHSL[value])
@@ -179,10 +186,10 @@ export const darkGreyHSL: IGrey = {
   400: "240, 10%, 14%",
   500: "240, 8%, 18%",
   600: "240, 8%, 21%",
-  700: "240, 8%, 24%",
-  800: "240, 8%, 26%",
-  900: "240, 8%, 28%",
-  1000: "240, 8%, 32%",
+  700: "240, 8%, 26%",
+  800: "240, 8%, 30%",
+  900: "240, 8%, 40%",
+  1000: "240, 8%, 65%",
 }
 
 export const darkGrey = (value: TGrey) => createHsl(darkGreyHSL[value])
