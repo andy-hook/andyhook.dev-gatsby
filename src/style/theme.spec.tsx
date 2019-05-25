@@ -117,3 +117,11 @@ describe("isTheme", () => {
     expect(tree).toHaveStyleRule("color", "blue")
   })
 })
+
+describe("themeLayer", () => {
+  it("renders correct hsl from given layer value", () => {})
+})
+
+describe("themeLayer", () => {
+  it("renders correct hsla from given layer value", () => {})
+})

@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import { borderRadius } from "@style/variables"
-import { themeTone } from "@style/theme"
+import { themeLayer } from "@style/theme"
 
 interface Props {
   open?: boolean
@@ -32,7 +32,7 @@ const NaviconContainer = styled.button<Props>`
 
     border-radius: ${borderRadius.circle};
 
-    background-color: ${themeTone(400)};
+    background-color: ${themeLayer("medium")};
   }
 `
 

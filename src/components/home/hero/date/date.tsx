@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import classNames from "classnames"
-import { themeTone } from "@style/theme"
+import { isTheme, themeLayer } from "@style/theme"
 import styled from "styled-components"
 
 interface Props {
@@ -134,27 +134,27 @@ const DateSvg = styled.svg`
   fill: red;
 
   & .number-bg {
-    fill: ${themeTone(200)};
+    fill: ${themeLayer("lowest")};
   }
 
   & .number-highlight {
-    fill-opacity: 0.55;
+    fill-opacity: ${isTheme("dark", "0.65", "1")};
   }
 
   & .stop-one {
-    stop-color: ${themeTone(800)};
+    stop-color: ${themeLayer("highest")};
   }
 
   & .stop-two {
-    stop-color: ${themeTone(600)};
+    stop-color: ${themeLayer("high")};
   }
 
   & .stop-three {
-    stop-color: ${themeTone(300)};
+    stop-color: ${themeLayer("medium")};
   }
 
   & .stop-four {
-    stop-color: ${themeTone(200)};
+    stop-color: ${themeLayer("low")};
   }
 `
 

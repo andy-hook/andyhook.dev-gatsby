@@ -137,6 +137,9 @@ export const breakpoints: { [index: string]: string } = {
   topUltra: "2200px",
 }
 
+export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
+export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
+
 /* Index
   ------------------------------------------------- */
 
@@ -154,12 +157,14 @@ export const zIndex = {
 export const lightGreyHSL: IGrey = {
   100: "240, 2%, 100%",
   200: "240, 2%, 97%",
-  300: "240, 2%, 94%",
-  400: "240, 2%, 90%",
-  500: "240, 2%, 87%",
-  600: "240, 2%, 83%",
-  700: "240, 2%, 78%",
-  800: "240, 2%, 75%",
+  300: "240, 2%, 95%",
+  400: "240, 2%, 93%",
+  500: "240, 3%, 89%",
+  600: "240, 3%, 85%",
+  700: "240, 3%, 82%",
+  800: "240, 3%, 79%",
+  900: "240, 3%, 76%",
+  1000: "240, 3%, 72%",
 }
 
 export const lightGrey = (value: TGrey) => createHsl(lightGreyHSL[value])
@@ -176,12 +181,11 @@ export const darkGreyHSL: IGrey = {
   600: "240, 8%, 21%",
   700: "240, 8%, 24%",
   800: "240, 8%, 26%",
+  900: "240, 8%, 28%",
+  1000: "240, 8%, 32%",
 }
 
 export const darkGrey = (value: TGrey) => createHsl(darkGreyHSL[value])
 
 export const darkGreyAlpha = (value: TGrey, alpha: number) =>
   createHsla(darkGreyHSL[value], alpha)
-
-export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
-export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
