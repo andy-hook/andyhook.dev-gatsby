@@ -2,13 +2,15 @@ import React, { memo, useEffect } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
-import { zIndex } from "@style/variables"
+import { zIndex, typeScale, emBreakpoints } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
 import { typeTitle, typeBaseMedium } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { mq, uniformScale } from "@style/utils"
+import { between } from "polished"
 
 interface Props {
   open?: boolean
@@ -71,22 +73,22 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         <MenuContents open={open}>
           <Gutter>
             <MenuContentsInner>
-              <div>
+              <MenuProjectsContainer>
                 <ListTitle>
                   <ListTitleNumber>01</ListTitleNumber>
                   <ListTitleDivider />
                   Projects
                 </ListTitle>
                 <ul>{projectItems}</ul>
-              </div>
-              <div>
+              </MenuProjectsContainer>
+              <MenuSocialContainer>
                 <ListTitle>
                   <ListTitleNumber>02</ListTitleNumber>
                   <ListTitleDivider />
                   Connect
                 </ListTitle>
                 <ul>{socialItems}</ul>
-              </div>
+              </MenuSocialContainer>
             </MenuContentsInner>
           </Gutter>
         </MenuContents>
@@ -127,19 +129,51 @@ const MenuContents = styled.div<Props>`
 
 const MenuContentsInner = styled.div<Props>`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  max-width: 50%;
+  justify-content: center;
   margin: auto;
 `
 
+const MenuProjectsContainer = styled.div<Props>``
+
+const MenuSocialContainer = styled.div<Props>``
+
 const ProjectListItem = styled.li`
-  font-size: 20px;
+  &:not(:last-child) {
+    margin-bottom: 0.25em;
+  }
+
+  min-width: 10em;
+  margin-right: 4em;
+
+  font-size: ${typeScale[8]};
+
+  ${mq.between("bottomThumb", "bottomWide")`
+    font-size: ${between(
+      typeScale[8],
+      typeScale[9],
+      emBreakpoints.bottomThumb,
+      emBreakpoints.bottomDesk
+    )};
+  `}
+
+  ${mq.between("topWide", "bottomUltra")`
+    font-size: ${between(
+      typeScale[9],
+      typeScale[11],
+      emBreakpoints.bottomDesk,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(typeScale[11], "topUltra")};
+  `}
 `
 
 const ProjectLink = styled(Link)`
   ${typeTitle}
+
+  display: block;
 `
 
 const SocialListItem = styled.li`
@@ -149,6 +183,7 @@ const SocialListItem = styled.li`
 const SocialLink = styled(OutboundLink)`
   ${typeBaseMedium}
 
+  display: block;
   color: ${themeText(900)};
 `
 
@@ -159,6 +194,23 @@ const ListTitle = styled.h2`
   align-items: center;
 
   color: ${themeText(1000)};
+
+  margin-bottom: 3em;
+
+  font-size: ${typeScale[3]};
+
+  ${mq.between("topWide", "bottomUltra")`
+    font-size: ${between(
+      typeScale[3],
+      typeScale[4],
+      emBreakpoints.bottomDesk,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(typeScale[4], "topUltra")};
+  `}
 `
 
 const ListTitleNumber = styled.span`

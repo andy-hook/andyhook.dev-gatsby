@@ -16,7 +16,7 @@ export const fontFamily = {
 export const letterSpacing = {
   base: {
     regular: "0.01em",
-    medium: "0.01em",
+    medium: "0.03em",
     bold: "0.01em",
   },
   display: {
