@@ -73,21 +73,23 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         <MenuContents open={open}>
           <Gutter>
             <MenuContentsInner>
+              {/* Projects */}
               <MenuProjectsContainer>
                 <ListTitle>
                   <ListTitleNumber>01</ListTitleNumber>
                   <ListTitleDivider />
                   Projects
                 </ListTitle>
-                <ul>{projectItems}</ul>
+                <ProjectList>{projectItems}</ProjectList>
               </MenuProjectsContainer>
+              {/* Social */}
               <MenuSocialContainer>
                 <ListTitle>
                   <ListTitleNumber>02</ListTitleNumber>
                   <ListTitleDivider />
                   Connect
                 </ListTitle>
-                <ul>{socialItems}</ul>
+                <SocialList>{socialItems}</SocialList>
               </MenuSocialContainer>
             </MenuContentsInner>
           </Gutter>
@@ -131,19 +133,23 @@ const MenuContentsInner = styled.div<Props>`
   display: flex;
   justify-content: center;
   margin: auto;
+
+  ${mq.lessThan("bottomPalm")`
+    flex-direction: column;
+  `}
 `
 
 const MenuProjectsContainer = styled.div<Props>``
 
 const MenuSocialContainer = styled.div<Props>``
 
-const ProjectListItem = styled.li`
-  &:not(:last-child) {
-    margin-bottom: 0.25em;
-  }
+const projectItemPadding = "0.22em"
 
-  min-width: 10em;
-  margin-right: 4em;
+const ProjectList = styled.ul`
+
+  /* Offset item padding for clean layout edge */
+  margin-top: -${projectItemPadding};
+  margin-bottom: -${projectItemPadding};
 
   font-size: ${typeScale[8]};
 
@@ -170,18 +176,57 @@ const ProjectListItem = styled.li`
   `}
 `
 
+const ProjectListItem = styled.li`
+  min-width: 10em;
+  margin-right: 5em;
+`
+
 const ProjectLink = styled(Link)`
   ${typeTitle}
 
   display: block;
+  padding-top: ${projectItemPadding};
+  padding-bottom: ${projectItemPadding};
+`
+const socialItemPadding = "0.4em"
+
+const SocialList = styled.ul`
+  margin-top: -${socialItemPadding};
+  margin-bottom: -${socialItemPadding};
+
+  font-size: ${typeScale[4]};
+
+  ${mq.between("bottomThumb", "bottomWide")`
+    font-size: ${between(
+      typeScale[4],
+      typeScale[6],
+      emBreakpoints.bottomThumb,
+      emBreakpoints.bottomDesk
+    )};
+  `}
+
+  ${mq.between("topWide", "bottomUltra")`
+    font-size: ${between(
+      typeScale[6],
+      typeScale[7],
+      emBreakpoints.bottomDesk,
+      emBreakpoints.topUltra
+    )};
+  `}
+
+  ${mq.greaterThan("topUltra")`
+    font-size: ${uniformScale(typeScale[7], "topUltra")};
+  `}
 `
 
-const SocialListItem = styled.li`
-  font-size: 20px;
-`
+const SocialListItem = styled.li``
 
 const SocialLink = styled(OutboundLink)`
   ${typeBaseMedium}
+  
+  /* Offset item padding for clean layout edge */
+  padding-top: ${socialItemPadding};
+  padding-bottom: ${socialItemPadding};
 
   display: block;
   color: ${themeText(900)};
@@ -195,7 +240,7 @@ const ListTitle = styled.h2`
 
   color: ${themeText(1000)};
 
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 
   font-size: ${typeScale[3]};
 
