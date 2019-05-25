@@ -123,7 +123,7 @@ const Link = styled(OutboundLink)`
 `
 const StyledIcon = styled(Icon)`
   transition: opacity ${duration.slow} ${easing("subtleBounce")};
-  opacity: ${isTheme("dark", "0.25", "0.5")};
+  opacity: ${isTheme("dark", "0.25", "0.4")};
 
   ${Link}:hover &,
   ${Link}:focus & {

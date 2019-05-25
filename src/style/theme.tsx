@@ -9,7 +9,7 @@ export const lightTheme: ITheme = {
   text: darkGreyHSL,
   tone: lightGreyHSL,
   layer: {
-    lowest: lightGreyHSL[600],
+    lowest: lightGreyHSL[500],
     low: lightGreyHSL[400],
     medium: lightGreyHSL[300],
     high: lightGreyHSL[200],
