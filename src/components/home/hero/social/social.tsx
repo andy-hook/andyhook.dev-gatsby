@@ -4,7 +4,7 @@ import { rem } from "polished"
 import { ISocialMeta, ISocialMetaItem } from "@custom-types/model"
 import Icon from "@components/shared/icon/icon"
 import { mq } from "@style/utils"
-import { themeText } from "@style/theme"
+import { themeText, isTheme } from "@style/theme"
 import classNames from "classnames"
 import {
   borderRadius,
@@ -123,7 +123,7 @@ const Link = styled(OutboundLink)`
 `
 const StyledIcon = styled(Icon)`
   transition: opacity ${duration.slow} ${easing("subtleBounce")};
-  opacity: 0.25;
+  opacity: ${isTheme("dark", "0.25", "0.5")};
 
   ${Link}:hover &,
   ${Link}:focus & {

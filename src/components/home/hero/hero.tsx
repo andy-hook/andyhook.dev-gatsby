@@ -12,7 +12,7 @@ import heroBg from "@images/hero-bg.svg"
 import date from "./date/date"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
-import { isTheme, themeLayer, themeLayerAlpha } from "@style/theme"
+import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 
 interface Props {
@@ -179,7 +179,8 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${themeLayer("low")};
+  /* background-color: ${themeLayer("low")}; */
+  background-color: ${isTheme("dark", themeTone(200), themeTone(700))};
 
   overflow: hidden;
 
@@ -217,8 +218,8 @@ const BackgroundGradient = styled.div`
 
   background: linear-gradient(
     175deg,
-    ${themeLayerAlpha("lowest", 0)} 30%,
-    ${themeLayer("lowest")} 80%
+    ${themeLayerAlpha("lowest", 0)} 25%,
+    ${themeLayer("lowest")} 65%
   );
 `
 

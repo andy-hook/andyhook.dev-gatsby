@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import classNames from "classnames"
-import { isTheme, themeLayer } from "@style/theme"
+import { isTheme, themeLayer, themeTone } from "@style/theme"
 import styled from "styled-components"
 
 interface Props {
@@ -131,14 +131,12 @@ const Date: React.FunctionComponent<Props> = memo(({ className }) => {
 })
 
 const DateSvg = styled.svg`
-  fill: red;
-
   & .number-bg {
-    fill: ${themeLayer("lowest")};
+    fill: ${isTheme("dark", themeTone(200), themeTone(900))};
   }
 
   & .number-highlight {
-    fill-opacity: ${isTheme("dark", "0.65", "1")};
+    fill-opacity: ${isTheme("dark", "0.65", "0.65")};
   }
 
   & .stop-one {
