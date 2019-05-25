@@ -1,16 +1,20 @@
 import React, { memo } from "react"
-import styled from "styled-components"
-import { borderRadius } from "@style/variables"
-import { themeLayer } from "@style/theme"
+import styled, { css } from "styled-components"
+import { borderRadius, darkGrey, lightGrey } from "@style/variables"
+import { isTheme } from "@style/theme"
 
 interface Props {
   open?: boolean
   onClick: () => void
 }
 
-const Navicon: React.FunctionComponent<Props> = memo(({ onClick }) => {
-  return <NaviconContainer onClick={onClick} />
+const Navicon: React.FunctionComponent<Props> = memo(({ onClick, open }) => {
+  return <NaviconContainer onClick={onClick} open={open} />
 })
+
+const openStyles = css`
+  background-color: ${isTheme("dark", lightGrey(500), darkGrey(400))};
+`
 
 const NaviconContainer = styled.button<Props>`
   position: relative;
@@ -32,7 +36,9 @@ const NaviconContainer = styled.button<Props>`
 
     border-radius: ${borderRadius.circle};
 
-    background-color: ${themeLayer("medium")};
+    background-color: ${isTheme("dark", darkGrey(400), lightGrey(500))};
+
+    ${props => props.open && openStyles}
   }
 `
 

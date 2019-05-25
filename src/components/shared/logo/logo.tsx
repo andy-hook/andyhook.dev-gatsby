@@ -45,7 +45,7 @@ const LogoMark = styled.svg<Props>`
   width: 1em;
   height: 1em;
 
-  ${props => props.open && "transform: rotate(90deg)"};
+  ${props => props.open && "transform: rotate(0deg)"};
 
   & .stop-one {
     stop-color: ${darkGrey(500)};
