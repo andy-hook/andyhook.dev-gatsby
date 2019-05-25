@@ -8,16 +8,18 @@ import {
   isDarkTheme,
   isLightTheme,
   isTheme,
+  themeLayer,
+  themeLayerAlpha,
 } from "@style/theme"
 import styled from "styled-components"
 import "jest-styled-components"
 
 const ThemeToneComponent = styled.div`
-  background-color: ${themeTone(100)};
+  color: ${themeTone(100)};
 `
 
 const ThemeToneAlphaComponent = styled.div`
-  background-color: ${themeToneAlpha(100, 0)};
+  color: ${themeToneAlpha(100, 0)};
 `
 
 const ThemeTextComponent = styled.div`
@@ -44,31 +46,39 @@ const IsNotThemeComponent = styled.div`
   ${isTheme("dark", "color: red;", "color: blue;")};
 `
 
+const ThemeLayerComponent = styled.div`
+  color: ${themeLayer("high")};
+`
+
+const ThemeLayerAlphaComponent = styled.div`
+  color: ${themeLayerAlpha("high", 0)};
+`
+
 describe("themeTone", () => {
   it("renders correct hsl from given tone value", () => {
     const tree = mountWithTheme("dark", <ThemeToneComponent />)
-    expect(tree).toHaveStyleRule("background-color", "hsl(240,17%,2%)")
+    expect(tree).toHaveStyleRule("color", `hsl(240,17%,2%)`)
   })
 })
 
 describe("themeToneAlpha", () => {
   it("renders correct hsla from given tone value", () => {
     const tree = mountWithTheme("dark", <ThemeToneAlphaComponent />)
-    expect(tree).toHaveStyleRule("background-color", "hsla(240,17%,2%,0)")
+    expect(tree).toHaveStyleRule("color", "hsla(240,17%,2%,0)")
   })
 })
 
 describe("themeText", () => {
   it("renders correct hsl from given text value", () => {
     const tree = mountWithTheme("dark", <ThemeTextComponent />)
-    expect(tree).toHaveStyleRule("color", "hsl(240,2%,100%)")
+    expect(tree).toHaveStyleRule("color", "hsl(240,3%,100%)")
   })
 })
 
 describe("themeTextAlpha", () => {
   it("renders correct hsla from given text value", () => {
     const tree = mountWithTheme("dark", <ThemeTextAlphaComponent />)
-    expect(tree).toHaveStyleRule("color", "hsla(240,2%,100%,0)")
+    expect(tree).toHaveStyleRule("color", "hsla(240,3%,100%,0)")
   })
 })
 
@@ -119,9 +129,15 @@ describe("isTheme", () => {
 })
 
 describe("themeLayer", () => {
-  it("renders correct hsl from given layer value", () => {})
+  it("renders correct hsl from given layer value", () => {
+    const tree = mountWithTheme("dark", <ThemeLayerComponent />)
+    expect(tree).toHaveStyleRule("color", "hsl(240,8%,21%)")
+  })
 })
 
-describe("themeLayer", () => {
-  it("renders correct hsla from given layer value", () => {})
+describe("themeLayerAlpha", () => {
+  it("renders correct hsla from given layer value", () => {
+    const tree = mountWithTheme("dark", <ThemeLayerAlphaComponent />)
+    expect(tree).toHaveStyleRule("color", "hsla(240,8%,21%,0)")
+  })
 })
