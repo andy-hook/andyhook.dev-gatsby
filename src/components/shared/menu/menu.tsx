@@ -2,15 +2,14 @@ import React, { memo, useEffect } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
-import { zIndex, typeScale, emBreakpoints } from "@style/variables"
+import { zIndex, typeScale } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
 import { typeTitle, typeBaseMedium } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import { mq, uniformScale } from "@style/utils"
-import { between } from "polished"
+import { mq, uniformScale, scaleBetween } from "@style/utils"
 
 interface Props {
   open?: boolean
@@ -153,23 +152,21 @@ const ProjectList = styled.ul`
 
   font-size: ${typeScale[8]};
 
-  ${mq.between("bottomThumb", "bottomWide")`
-    font-size: ${between(
-      typeScale[8],
-      typeScale[9],
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomWide
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[8],
+    typeScale[9],
+    "bottomThumb",
+    "bottomWide"
+  )}
 
-  ${mq.between("topWide", "bottomUltra")`
-    font-size: ${between(
-      typeScale[9],
-      typeScale[11],
-      emBreakpoints.topWide,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[9],
+    typeScale[11],
+    "topWide",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[11], "topUltra")};
@@ -196,23 +193,21 @@ const SocialList = styled.ul`
 
   font-size: ${typeScale[4]};
 
-  ${mq.between("bottomThumb", "bottomWide")`
-    font-size: ${between(
-      typeScale[4],
-      typeScale[6],
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomWide
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[4],
+    typeScale[6],
+    "bottomThumb",
+    "bottomWide"
+  )}
 
-  ${mq.between("topWide", "bottomUltra")`
-    font-size: ${between(
-      typeScale[6],
-      typeScale[7],
-      emBreakpoints.topWide,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[6],
+    typeScale[7],
+    "topWide",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[7], "topUltra")};
@@ -245,14 +240,13 @@ const ListTitle = styled.h2`
 
   font-size: ${typeScale[3]};
 
-  ${mq.between("topWide", "bottomUltra")`
-    font-size: ${between(
-      typeScale[3],
-      typeScale[4],
-      emBreakpoints.topWide,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[3],
+    typeScale[4],
+    "topWide",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[4], "topUltra")};

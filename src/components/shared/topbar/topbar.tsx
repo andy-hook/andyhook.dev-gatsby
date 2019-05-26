@@ -2,9 +2,9 @@ import React, { memo } from "react"
 import Navicon from "@components/shared/navicon/navicon"
 import Logo from "@components/shared/logo/logo"
 import styled, { css } from "styled-components"
-import { rem, between } from "polished"
-import { mq, uniformScale } from "@style/utils"
-import { emBreakpoints, zIndex } from "@style/variables"
+import { rem } from "polished"
+import { mq, uniformScale, scaleBetween } from "@style/utils"
+import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 
 interface Props {
@@ -72,14 +72,13 @@ const LogoLink = styled(Link)`
 
   font-size: ${rem("66px")};
 
-  ${mq.between("bottomThumb", "bottomUltra")`
-    font-size: ${between(
-      rem("66px"),
-      rem("70px"),
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    rem("66px"),
+    rem("70px"),
+    "bottomThumb",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(rem("70px"), "topUltra")};
@@ -93,14 +92,13 @@ const NaviconPos = styled.div`
 
   font-size: ${rem("55px")};
 
-  ${mq.between("bottomThumb", "bottomUltra")`
-    font-size: ${between(
-      rem("55px"),
-      rem("60px"),
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    rem("55px"),
+    rem("60px"),
+    "bottomThumb",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(rem("60px"), "topUltra")};

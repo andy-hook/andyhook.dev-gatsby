@@ -1,9 +1,7 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { between } from "polished"
-import { uniformScale, mq } from "@style/utils"
+import { uniformScale, mq, scaleBetween } from "@style/utils"
 import {
-  emBreakpoints,
   typeScale,
   fontWeight,
   fontFamily,
@@ -91,14 +89,13 @@ const StyledButton = styled(OutboundLink)`
     }
   }
 
-  ${mq.between("bottomThumb", "bottomUltra")`
-    font-size: ${between(
-      typeScale[2],
-      typeScale[4],
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[2],
+    typeScale[4],
+    "bottomThumb",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[4], "topUltra")};

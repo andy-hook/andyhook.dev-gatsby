@@ -1,9 +1,9 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
-import { rem, between } from "polished"
+import { rem } from "polished"
 import { Expo, TimelineMax, Elastic } from "gsap"
-import { uniformScale, mq } from "@style/utils"
-import { emBreakpoints, zIndex } from "@style/variables"
+import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { zIndex } from "@style/variables"
 
 interface Props {
   visible?: boolean
@@ -140,14 +140,13 @@ const Mark = styled.div`
 
   font-size: ${rem("75px")};
 
-  ${mq.between("bottomThumb", "bottomUltra")`
-    font-size: ${between(
-      rem("75px"),
-      rem("100px"),
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    rem("75px"),
+    rem("100px"),
+    "bottomThumb",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(rem("100px"), "topUltra")};

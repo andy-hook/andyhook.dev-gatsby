@@ -1,10 +1,9 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { between } from "polished"
 import { typeTitle } from "@style/typography"
-import { uniformScale, mq } from "@style/utils"
+import { uniformScale, mq, scaleBetween } from "@style/utils"
 import { themeTone, isDarkTheme } from "@style/theme"
-import { emBreakpoints, typeScale, zIndex } from "@style/variables"
+import { typeScale, zIndex } from "@style/variables"
 import Button from "@components/shared/button/button"
 
 interface Props {
@@ -42,23 +41,21 @@ const Title = styled.h2`
 
   font-size: ${typeScale[9]};
 
-  ${mq.between("bottomThumb", "bottomDesk")`
-    font-size: ${between(
-      typeScale[9],
-      typeScale[11],
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomDesk
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[9],
+    typeScale[11],
+    "bottomThumb",
+    "bottomDesk"
+  )}
 
-  ${mq.between("topDesk", "bottomUltra")`
-    font-size: ${between(
-      typeScale[11],
-      typeScale[12],
-      emBreakpoints.topDesk,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[11],
+    typeScale[12],
+    "topDesk",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[12], "topUltra")};
