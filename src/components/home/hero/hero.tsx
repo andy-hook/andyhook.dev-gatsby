@@ -1,11 +1,11 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
-import { between, rem } from "polished"
+import { rem } from "polished"
 import Social from "./social/social"
 import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
-import { uniformScale, mq } from "@style/utils"
-import { emBreakpoints, typeScale, zIndex } from "@style/variables"
+import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { typeScale, zIndex } from "@style/variables"
 import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
@@ -155,14 +155,13 @@ const SocialPos = styled.div`
 
   opacity: 0;
 
-  ${mq.between("bottomThumb", "bottomUltra")`
-    font-size: ${between(
-      typeScale[6],
-      typeScale[8],
-      emBreakpoints.bottomThumb,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    typeScale[6],
+    typeScale[8],
+    "bottomThumb",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(typeScale[8], "topUltra")};
@@ -223,7 +222,7 @@ const BackgroundGradient = styled.div`
 `
 
 const Date = styled.div`
-position: relative;
+  position: relative;
   width: 1em;
   height: 0.35em;
 
@@ -241,23 +240,21 @@ position: relative;
     transform: translate3d(-45vw, -50%, 0);
   `}
 
-  ${mq.between("topThumb", "bottomDesk")`
-    font-size: ${between(
-      rem("1400px"),
-      rem("1050px"),
-      emBreakpoints.topThumb,
-      emBreakpoints.bottomDesk
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    rem("1400px"),
+    rem("1050px"),
+    "topThumb",
+    "bottomDesk"
+  )}
 
-  ${mq.between("topDesk", "bottomUltra")`
-    font-size: ${between(
-      rem("1050px"),
-      rem("1250px"),
-      emBreakpoints.topDesk,
-      emBreakpoints.bottomUltra
-    )};
-  `}
+  ${scaleBetween(
+    "font-size",
+    rem("1050px"),
+    rem("1250px"),
+    "topDesk",
+    "bottomUltra"
+  )}
 
   ${mq.greaterThan("topUltra")`
     font-size: ${uniformScale(rem("1250px"), "topUltra")};

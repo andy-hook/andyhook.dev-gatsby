@@ -2,6 +2,7 @@ import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
 import { IGrey, TGrey } from "@custom-types/theme"
 import { createHsl, createHsla } from "@style/utils"
+import { TBreakpoints } from "@custom-types/breakpoints"
 
 /* Typography
   ------------------------------------------------- */
@@ -121,7 +122,7 @@ export const borderThickness = {
 /* Breakpoints
   ------------------------------------------------- */
 
-export const breakpoints: { [index: string]: string } = {
+export const breakpoints: TBreakpoints = {
   bottomThumb: "479px",
   topThumb: "480px",
 

@@ -1,5 +1,13 @@
+import React from "react"
 import { stripUnit } from "polished"
-import { uniformScale, createHsl, createHsla } from "./utils"
+import { uniformScale, createHsl, createHsla, scaleBetween } from "./utils"
+import renderer from "react-test-renderer"
+import styled from "styled-components"
+import "jest-styled-components"
+
+const ScaleBetweenComponent = styled.div`
+  ${scaleBetween("font-size", "10rem", "20rem", "bottomThumb", "topThumb")}
+`
 
 describe("uniformScale", () => {
   test("should return a viewport unit", () => {
@@ -30,5 +38,19 @@ describe("createHsl", () => {
 describe("createHsla", () => {
   test("should return valid hsla string from provided value", () => {
     expect(createHsla("240,17%,2%", 50)).toMatch("hsla(240,17%,2%,50)")
+  })
+})
+
+describe("scaleBetween", () => {
+  it("renders correct values inside media queries", () => {
+    const tree = renderer.create(<ScaleBetweenComponent />).toJSON()
+
+    expect(tree).toHaveStyleRule(
+      "font-size",
+      "calc(-4780.00rem + 16000.00vw)",
+      {
+        media: "(min-width: 29.9375em) and (max-width: 30em)",
+      }
+    )
   })
 })
