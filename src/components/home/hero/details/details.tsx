@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import { typeTitle } from "@style/typography"
-import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/utils"
 import { themeTone, isDarkTheme } from "@style/theme"
 import { typeScale, zIndex } from "@style/variables"
 import Button from "@components/shared/button/button"
@@ -57,9 +57,7 @@ const Title = styled.h2`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[12], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[12], "topUltra")}
 `
 
 export default Details

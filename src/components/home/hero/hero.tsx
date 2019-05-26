@@ -4,7 +4,7 @@ import { rem } from "polished"
 import Social from "./social/social"
 import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
-import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { mq, scaleBetween, scaleGreaterThan } from "@style/utils"
 import { typeScale, zIndex } from "@style/variables"
 import { animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
@@ -163,9 +163,7 @@ const SocialPos = styled.div`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[8], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[8], "topUltra")}
 `
 
 const BackgroundContainer = styled.div`
@@ -256,9 +254,7 @@ const Date = styled.div`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(rem("1250px"), "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", rem("1250px"), "topUltra")}
 `
 
 const DateGraphic = styled(date)`

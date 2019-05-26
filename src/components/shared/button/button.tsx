@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/utils"
 import {
   typeScale,
   fontWeight,
@@ -97,9 +97,7 @@ const StyledButton = styled(OutboundLink)`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[4], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
 `
 
 const StyledButtonInner = styled.span`

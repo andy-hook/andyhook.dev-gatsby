@@ -1,12 +1,22 @@
 import React from "react"
 import { stripUnit } from "polished"
-import { uniformScale, createHsl, createHsla, scaleBetween } from "./utils"
+import {
+  uniformScale,
+  createHsl,
+  createHsla,
+  scaleBetween,
+  scaleGreaterThan,
+} from "./utils"
 import renderer from "react-test-renderer"
 import styled from "styled-components"
 import "jest-styled-components"
 
 const ScaleBetweenComponent = styled.div`
   ${scaleBetween("font-size", "10rem", "20rem", "bottomThumb", "topThumb")}
+`
+
+const ScaleGreaterThanComponent = styled.div`
+  ${scaleGreaterThan("font-size", "10rem", "bottomThumb")}
 `
 
 describe("uniformScale", () => {
@@ -52,5 +62,15 @@ describe("scaleBetween", () => {
         media: "(min-width: 29.9375em) and (max-width: 30em)",
       }
     )
+  })
+})
+
+describe("scaleGreaterThan", () => {
+  it("renders correct value inside media queries", () => {
+    const tree = renderer.create(<ScaleGreaterThanComponent />).toJSON()
+
+    expect(tree).toHaveStyleRule("font-size", "33.40292275574113vw", {
+      media: "(min-width: 29.9375em)",
+    })
   })
 })

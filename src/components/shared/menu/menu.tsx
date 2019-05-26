@@ -9,7 +9,7 @@ import { typeTitle, typeBaseMedium } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import { mq, uniformScale, scaleBetween } from "@style/utils"
+import { mq, scaleBetween, scaleGreaterThan } from "@style/utils"
 
 interface Props {
   open?: boolean
@@ -168,9 +168,7 @@ const ProjectList = styled.ul`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[11], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
 `
 
 const ProjectListItem = styled.li`
@@ -209,9 +207,7 @@ const SocialList = styled.ul`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[7], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[7], "topUltra")}
 `
 
 const SocialListItem = styled.li``
@@ -248,9 +244,7 @@ const ListTitle = styled.h2`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(typeScale[4], "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
 `
 
 const ListTitleNumber = styled.span`

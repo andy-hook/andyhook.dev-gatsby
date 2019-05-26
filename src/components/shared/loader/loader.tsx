@@ -2,7 +2,7 @@ import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
 import { Expo, TimelineMax, Elastic } from "gsap"
-import { uniformScale, mq, scaleBetween } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/utils"
 import { zIndex } from "@style/variables"
 
 interface Props {
@@ -148,9 +148,7 @@ const Mark = styled.div`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(rem("100px"), "topUltra")};
-  `}
+  ${scaleGreaterThan("max-width", rem("100px"), "topUltra")}
 `
 
 const MarkSVG = styled.svg`

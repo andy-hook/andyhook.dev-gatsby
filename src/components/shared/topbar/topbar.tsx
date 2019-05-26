@@ -3,7 +3,7 @@ import Navicon from "@components/shared/navicon/navicon"
 import Logo from "@components/shared/logo/logo"
 import styled, { css } from "styled-components"
 import { rem } from "polished"
-import { mq, uniformScale, scaleBetween } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/utils"
 import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 
@@ -80,9 +80,7 @@ const LogoLink = styled(Link)`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(rem("70px"), "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", rem("70px"), "topUltra")}
 `
 
 const NaviconPos = styled.div`
@@ -100,9 +98,7 @@ const NaviconPos = styled.div`
     "bottomUltra"
   )}
 
-  ${mq.greaterThan("topUltra")`
-    font-size: ${uniformScale(rem("60px"), "topUltra")};
-  `}
+  ${scaleGreaterThan("font-size", rem("60px"), "topUltra")}
 `
 
 export default Topbar

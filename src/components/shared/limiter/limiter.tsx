@@ -1,7 +1,7 @@
 import React, { memo, ReactNode } from "react"
 import styled, { css } from "styled-components"
 import { rem } from "polished"
-import { uniformScale, mq } from "@style/utils"
+import { scaleGreaterThan } from "@style/utils"
 
 interface Props {
   size?: "small" | "medium" | "large"
@@ -38,9 +38,7 @@ const SmallLimiter = styled.div`
 
   max-width: ${smallSize};
 
-  ${mq.greaterThan("topWall")`
-    max-width: ${uniformScale(smallSize, "topWall")};
-  `}
+  ${scaleGreaterThan("max-width", smallSize, "topWall")}
 `
 
 const MediumLimiter = styled.div`
@@ -48,9 +46,7 @@ const MediumLimiter = styled.div`
 
   max-width: ${mediumSize};
 
-  ${mq.greaterThan("topWall")`
-    max-width: ${uniformScale(mediumSize, "topWall")};
-  `}
+  ${scaleGreaterThan("max-width", mediumSize, "topWall")}
 `
 
 const LargeLimiter = styled.div`
@@ -58,9 +54,7 @@ const LargeLimiter = styled.div`
 
   max-width: ${largeSize};
 
-  ${mq.greaterThan("topWall")`
-    max-width: ${uniformScale(largeSize, "topWall")};
-  `}
+  ${scaleGreaterThan("max-width", largeSize, "topWall")}
 `
 
 export default Limiter

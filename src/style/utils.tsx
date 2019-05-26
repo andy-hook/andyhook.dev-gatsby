@@ -45,3 +45,14 @@ export const scaleBetween = (
     )};
     `}
   `
+
+export const scaleGreaterThan = (
+  property: string,
+  fromValue: string | CSSProp,
+  fromBreakpoint: TBreakpointName
+) =>
+  css`
+    ${mq.greaterThan(fromBreakpoint)`
+      ${property}: ${uniformScale(`${fromValue}`, fromBreakpoint)};
+    `}
+  `
