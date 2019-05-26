@@ -160,7 +160,7 @@ const SocialPos = styled.div`
       typeScale[6],
       typeScale[8],
       emBreakpoints.bottomThumb,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 
@@ -255,7 +255,7 @@ position: relative;
       rem("1050px"),
       rem("1250px"),
       emBreakpoints.topDesk,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 

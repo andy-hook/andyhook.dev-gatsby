@@ -77,7 +77,7 @@ const LogoLink = styled(Link)`
       rem("66px"),
       rem("70px"),
       emBreakpoints.bottomThumb,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 
@@ -98,7 +98,7 @@ const NaviconPos = styled.div`
       rem("55px"),
       rem("60px"),
       emBreakpoints.bottomThumb,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 

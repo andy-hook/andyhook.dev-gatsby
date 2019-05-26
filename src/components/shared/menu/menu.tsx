@@ -158,7 +158,7 @@ const ProjectList = styled.ul`
       typeScale[8],
       typeScale[9],
       emBreakpoints.bottomThumb,
-      emBreakpoints.bottomDesk
+      emBreakpoints.bottomWide
     )};
   `}
 
@@ -166,8 +166,8 @@ const ProjectList = styled.ul`
     font-size: ${between(
       typeScale[9],
       typeScale[11],
-      emBreakpoints.bottomDesk,
-      emBreakpoints.topUltra
+      emBreakpoints.topWide,
+      emBreakpoints.bottomUltra
     )};
   `}
 
@@ -178,7 +178,7 @@ const ProjectList = styled.ul`
 
 const ProjectListItem = styled.li`
   min-width: 10em;
-  margin-right: 5em;
+  margin-right: 4em;
 `
 
 const ProjectLink = styled(Link)`
@@ -201,7 +201,7 @@ const SocialList = styled.ul`
       typeScale[4],
       typeScale[6],
       emBreakpoints.bottomThumb,
-      emBreakpoints.bottomDesk
+      emBreakpoints.bottomWide
     )};
   `}
 
@@ -209,8 +209,8 @@ const SocialList = styled.ul`
     font-size: ${between(
       typeScale[6],
       typeScale[7],
-      emBreakpoints.bottomDesk,
-      emBreakpoints.topUltra
+      emBreakpoints.topWide,
+      emBreakpoints.bottomUltra
     )};
   `}
 
@@ -227,6 +227,7 @@ const SocialLink = styled(OutboundLink)`
   /* Offset item padding for clean layout edge */
   padding-top: ${socialItemPadding};
   padding-bottom: ${socialItemPadding};
+  padding-right: 5em;
 
   display: block;
   color: ${themeText(900)};
@@ -248,8 +249,8 @@ const ListTitle = styled.h2`
     font-size: ${between(
       typeScale[3],
       typeScale[4],
-      emBreakpoints.bottomDesk,
-      emBreakpoints.topUltra
+      emBreakpoints.topWide,
+      emBreakpoints.bottomUltra
     )};
   `}
 

@@ -96,7 +96,7 @@ const StyledButton = styled(OutboundLink)`
       typeScale[2],
       typeScale[4],
       emBreakpoints.bottomThumb,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 

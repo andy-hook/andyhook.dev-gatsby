@@ -55,8 +55,8 @@ const Title = styled.h2`
     font-size: ${between(
       typeScale[11],
       typeScale[12],
-      emBreakpoints.bottomDesk,
-      emBreakpoints.topUltra
+      emBreakpoints.topDesk,
+      emBreakpoints.bottomUltra
     )};
   `}
 

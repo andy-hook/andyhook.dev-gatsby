@@ -145,7 +145,7 @@ const Mark = styled.div`
       rem("75px"),
       rem("100px"),
       emBreakpoints.bottomThumb,
-      emBreakpoints.topUltra
+      emBreakpoints.bottomUltra
     )};
   `}
 
