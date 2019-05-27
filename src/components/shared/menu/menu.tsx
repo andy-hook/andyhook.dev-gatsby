@@ -68,37 +68,37 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <MenuContainer open={open} ref={containerRef} />
-        <MenuContents open={open}>
+        <MenuBackboard open={open} ref={containerRef} />
+        <MenuContainer open={open}>
           <Gutter>
-            <MenuContentsInner>
+            <MenuContents>
               {/* Projects */}
-              <MenuProjectsContainer>
+              <ProjectsContainer>
                 <ListTitle>
                   <ListTitleNumber>01</ListTitleNumber>
                   <ListTitleDivider />
                   Projects
                 </ListTitle>
                 <ProjectList>{projectItems}</ProjectList>
-              </MenuProjectsContainer>
+              </ProjectsContainer>
               {/* Social */}
-              <MenuSocialContainer>
+              <SocialContainer>
                 <ListTitle>
                   <ListTitleNumber>02</ListTitleNumber>
                   <ListTitleDivider />
                   Connect
                 </ListTitle>
                 <SocialList>{socialItems}</SocialList>
-              </MenuSocialContainer>
-            </MenuContentsInner>
+              </SocialContainer>
+            </MenuContents>
           </Gutter>
-        </MenuContents>
+        </MenuContainer>
       </>
     )
   }
 )
 
-const MenuContainer = styled.div<Props>`
+const MenuBackboard = styled.div<Props>`
   position: absolute;
 
   top: 0;
@@ -113,22 +113,35 @@ const MenuContainer = styled.div<Props>`
   opacity: 0;
 `
 
-const MenuContents = styled.div<Props>`
+const MenuContainer = styled.div<Props>`
   position: absolute;
-  display: flex;
 
-  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
   z-index: ${zIndex.high + 1};
 
   visibility: ${props => (props.open ? "visible" : "hidden")};
+
+  ${mq.lessThan("bottomThumb")`
+    padding-top: 14rem;
+  `}
+
+  ${scaleBetween("padding-top", "14rem", "14rem", "topThumb", "bottomPalm")}
+
+  ${mq.greaterThan("topPalm")`
+    display: flex;
+
+    align-items: center;
+  `}
 `
 
-const MenuContentsInner = styled.div<Props>`
+const MenuContents = styled.div<Props>`
   display: flex;
   justify-content: center;
   margin: auto;
@@ -136,35 +149,51 @@ const MenuContentsInner = styled.div<Props>`
   ${mq.lessThan("bottomPalm")`
     flex-direction: column;
   `}
+
+  ${mq.lessThan("bottomPalm")`
+    padding-left: 2rem;
+  `}
 `
+const ProjectsContainer = styled.div<Props>``
 
-const MenuProjectsContainer = styled.div<Props>``
-
-const MenuSocialContainer = styled.div<Props>``
+const SocialContainer = styled.div<Props>``
 
 const projectItemPadding = "0.22em"
 
 const ProjectList = styled.ul`
 
-  /* Offset item padding for clean layout edge */
   margin-top: -${projectItemPadding};
-  margin-bottom: -${projectItemPadding};
+  margin-bottom: 1.75em;
 
   font-size: ${typeScale[8]};
+
+  ${mq.greaterThan("topPalm")`
+    flex-direction: column;
+
+    margin-bottom: -${projectItemPadding};
+  `}
 
   ${scaleBetween(
     "font-size",
     typeScale[8],
     typeScale[9],
-    "bottomThumb",
-    "bottomWide"
+    "topThumb",
+    "bottomDesk"
   )}
 
   ${scaleBetween(
     "font-size",
     typeScale[9],
+    typeScale[10],
+    "topDesk",
+    "bottomWall"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[10],
     typeScale[11],
-    "topWide",
+    "topWall",
     "bottomUltra"
   )}
 
@@ -172,8 +201,10 @@ const ProjectList = styled.ul`
 `
 
 const ProjectListItem = styled.li`
-  min-width: 10em;
-  margin-right: 4em;
+  min-width: 8em;
+  margin-right: 6em;
+
+  ${scaleBetween("margin-right", "2.75rem", "11.4rem", "topPalm", "bottomLap")}
 `
 
 const ProjectLink = styled(Link)`
@@ -190,12 +221,13 @@ const SocialList = styled.ul`
   margin-bottom: -${socialItemPadding};
 
   font-size: ${typeScale[4]};
+  
 
   ${scaleBetween(
     "font-size",
     typeScale[4],
     typeScale[6],
-    "bottomThumb",
+    "topThumb",
     "bottomWide"
   )}
 
@@ -218,7 +250,7 @@ const SocialLink = styled(OutboundLink)`
   /* Offset item padding for clean layout edge */
   padding-top: ${socialItemPadding};
   padding-bottom: ${socialItemPadding};
-  padding-right: 5em;
+  padding-right: 2em;
 
   display: block;
   color: ${themeText(900)};
@@ -232,9 +264,17 @@ const ListTitle = styled.h2`
 
   color: ${themeText(1000)};
 
-  margin-bottom: 4em;
+  margin-bottom: 1.75em;
 
   font-size: ${typeScale[3]};
+
+  ${mq.greaterThan("topPalm")`
+    margin-bottom: 2.3em;
+  `}
+
+  ${mq.greaterThan("topDesk")`
+    margin-bottom: 3.5em;
+  `}
 
   ${scaleBetween(
     "font-size",
