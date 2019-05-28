@@ -25,6 +25,10 @@ const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
         socialData: site {
           siteMetadata {
             social {
+              email {
+                url
+                label
+              }
               twitter {
                 url
                 label

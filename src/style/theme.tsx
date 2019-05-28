@@ -1,4 +1,9 @@
-import { ITheme, TGrey, TThemeName, TLayer } from "@custom-types/theme"
+import {
+  ITheme,
+  TGreyNames,
+  TThemeName,
+  TLayerNames,
+} from "@custom-types/theme"
 import { css, CSSProp } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
@@ -35,27 +40,27 @@ export const themes: { [key: string]: ITheme } = {
   dark: darkTheme,
 }
 
-export const themeLayer = (value: TLayer) => css`
+export const themeLayer = (value: TLayerNames) => css`
   ${props => createHsl(props.theme.layer[value])}
 `
 
-export const themeLayerAlpha = (value: TLayer, alpha: number) => css`
+export const themeLayerAlpha = (value: TLayerNames, alpha: number) => css`
   ${props => createHsla(props.theme.layer[value], alpha)}
 `
 
-export const themeTone = (value: TGrey) => css`
+export const themeTone = (value: TGreyNames) => css`
   ${props => createHsl(props.theme.tone[value])}
 `
 
-export const themeToneAlpha = (value: TGrey, alpha: number) => css`
+export const themeToneAlpha = (value: TGreyNames, alpha: number) => css`
   ${props => createHsla(props.theme.tone[value], alpha)}
 `
 
-export const themeText = (value: TGrey) => css`
+export const themeText = (value: TGreyNames) => css`
   ${props => createHsl(props.theme.text[value])}
 `
 
-export const themeTextAlpha = (value: TGrey, alpha: number) => css`
+export const themeTextAlpha = (value: TGreyNames, alpha: number) => css`
   ${props => createHsla(props.theme.text[value], alpha)}
 `
 

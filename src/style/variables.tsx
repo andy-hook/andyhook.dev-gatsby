@@ -1,6 +1,6 @@
 import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
-import { IGrey, TGrey } from "@custom-types/theme"
+import { TGreys, TGreyNames } from "@custom-types/theme"
 import { createHsl, createHsla } from "@style/utils"
 import { TBreakpoints } from "@custom-types/breakpoints"
 
@@ -162,7 +162,7 @@ export const zIndex = {
 /* Greys
   ------------------------------------------------- */
 
-export const lightGreyHSL: IGrey = {
+export const lightGreyHSL: TGreys = {
   100: "240, 3%, 100%",
   200: "240, 3%, 97%",
   300: "240, 3%, 95%",
@@ -175,12 +175,12 @@ export const lightGreyHSL: IGrey = {
   1000: "240, 3%, 30%",
 }
 
-export const lightGrey = (value: TGrey) => createHsl(lightGreyHSL[value])
+export const lightGrey = (value: TGreyNames) => createHsl(lightGreyHSL[value])
 
-export const lightGreyAlpha = (value: TGrey, alpha: number) =>
+export const lightGreyAlpha = (value: TGreyNames, alpha: number) =>
   createHsla(lightGreyHSL[value], alpha)
 
-export const darkGreyHSL: IGrey = {
+export const darkGreyHSL: TGreys = {
   100: "240, 17%, 2%",
   200: "240, 15%, 5%",
   300: "240, 15%, 11%",
@@ -193,7 +193,7 @@ export const darkGreyHSL: IGrey = {
   1000: "240, 8%, 65%",
 }
 
-export const darkGrey = (value: TGrey) => createHsl(darkGreyHSL[value])
+export const darkGrey = (value: TGreyNames) => createHsl(darkGreyHSL[value])
 
-export const darkGreyAlpha = (value: TGrey, alpha: number) =>
+export const darkGreyAlpha = (value: TGreyNames, alpha: number) =>
   createHsla(darkGreyHSL[value], alpha)

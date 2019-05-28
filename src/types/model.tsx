@@ -26,6 +26,7 @@ export interface IMeta {
   title: string
   description: string
   author: string
+  email: string
   defaultTwitterImage: string
   defaultOgImage: string
   social: ISocialMeta
