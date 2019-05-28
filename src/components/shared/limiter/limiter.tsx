@@ -26,7 +26,7 @@ const Limiter: React.FunctionComponent<Props> = memo(
 )
 
 const smallSize = rem("900px")
-const mediumSize = rem("1350px")
+const mediumSize = rem("1200px")
 const largeSize = rem("1550px")
 
 const commonStyles = css`

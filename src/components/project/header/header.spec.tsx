@@ -1,14 +1,15 @@
 import React from "react"
-import renderer from "react-test-renderer"
 import { projectsData } from "@mock-data"
 
 import Header from "./header"
+import { shallowWithTheme } from "@test-utils"
 
 describe("<Header />", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Header project={projectsData.brandwatch} />)
-      .toJSON()
+    const tree = shallowWithTheme(
+      "dark",
+      <Header project={projectsData.brandwatch} />
+    )
     expect(tree).toMatchSnapshot()
   })
 })

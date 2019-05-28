@@ -10,7 +10,7 @@ exports[`<Limiter /> renders as large 1`] = `
 
 exports[`<Limiter /> renders as medium 1`] = `
 <div
-  className="sc-bwzfXH hDOArp"
+  className="sc-bwzfXH jXoYnq"
 >
   Child text
 </div>
@@ -26,7 +26,7 @@ exports[`<Limiter /> renders as small 1`] = `
 
 exports[`<Limiter /> renders correctly 1`] = `
 <div
-  className="sc-bwzfXH hDOArp"
+  className="sc-bwzfXH jXoYnq"
 >
   Child text
 </div>

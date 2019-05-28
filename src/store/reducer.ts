@@ -34,7 +34,7 @@ const firstEntrance = (
 }
 
 const menuOpen = (
-  state: IStore["menuOpen"] = true,
+  state: IStore["menuOpen"] = false,
   action: IMenuOpenAction
 ): IStore["menuOpen"] => {
   switch (action.type) {

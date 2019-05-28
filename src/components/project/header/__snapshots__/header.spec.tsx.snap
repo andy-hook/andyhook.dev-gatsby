@@ -1,17 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> renders correctly 1`] = `
-<header
-  className="sc-ifAKCX jCLCGe"
->
-  <div
-    className="sc-bxivhb FWKFj"
-  >
-    <div
-      className="sc-bwzfXH hDOArp"
-    >
-      Brandwatch
-    </div>
-  </div>
-</header>
-`;
+exports[`<Header /> renders correctly 1`] = `ShallowWrapper {}`;
