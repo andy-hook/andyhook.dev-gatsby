@@ -60,7 +60,10 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     const socialItems = Object.keys(social).map((key, index) => (
       <SocialListItem key={index}>
-        <SocialLink href={social[key].url} target="_blank">
+        <SocialLink
+          href={social[key].url}
+          target={social[key].url.includes("mailto:") ? "" : "_blank"}
+        >
           {social[key].label}
         </SocialLink>
       </SocialListItem>

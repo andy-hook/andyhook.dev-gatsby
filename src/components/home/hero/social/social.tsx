@@ -37,7 +37,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, className }) => {
     <Link
       key={key}
       aria-label={items[key].label}
-      target="_blank"
+      target={items[key].url.includes("mailto:") ? "" : "_blank"}
       href={items[key].url}
     >
       <StyledIcon name={items[key].icon} />
