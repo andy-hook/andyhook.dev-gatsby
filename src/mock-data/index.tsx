@@ -2,6 +2,11 @@ import { ISocialMeta, IProjects } from "@custom-types/model"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 export const socialIcons: ISocialMeta = {
+  email: {
+    label: "Email",
+    url: "email address",
+    icon: "mail",
+  },
   twitter: {
     label: "Twitter",
     url: "path/to/social/profile",

@@ -1,14 +1,26 @@
 const path = require("path")
 
+const email = `hello@andy-hook.co.uk`
+
 module.exports = {
   siteMetadata: {
     title: `Andy Hook – Fast, scalable, beautiful user interfaces`,
     description: `Andy Hook is a Brighton based web developer and digital designer specialising in high-performance UI engineering`,
     author: `@Andy_Hook`,
-    email: `hello@andy-hook.co.uk`,
+    email: email,
     defaultTwitterImage: `/images/social/twitter-preview.png`,
     defaultOgImage: `/images/social/og-preview.png`,
     social: {
+      email: {
+        label: "Email",
+        url: `mailto:${email}`,
+        icon: "mail",
+      },
+      instagram: {
+        label: "Instagram",
+        url: "https://www.instagram.com/andyhooky/",
+        icon: "instagram",
+      },
       instagram: {
         label: "Instagram",
         url: "https://www.instagram.com/andyhooky/",

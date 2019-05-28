@@ -1,11 +1,14 @@
+import { TIcons } from "@custom-types/icons"
+
 export interface ISocialMetaItem {
   label: string
   url: string
-  icon: string
+  icon: TIcons
 }
 
 export interface ISocialMeta {
   [key: string]: ISocialMetaItem
+  email: ISocialMetaItem
   dribbble: ISocialMetaItem
   twitter: ISocialMetaItem
   instagram: ISocialMetaItem
@@ -23,7 +26,6 @@ export interface IMeta {
   title: string
   description: string
   author: string
-  email: string
   defaultTwitterImage: string
   defaultOgImage: string
   social: ISocialMeta

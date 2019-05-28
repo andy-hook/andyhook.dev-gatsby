@@ -19,6 +19,11 @@ const IndexPage: React.FunctionComponent = () => {
       socialIconData: site {
         siteMetadata {
           social {
+            email {
+              url
+              label
+              icon
+            }
             twitter {
               url
               label

@@ -33,34 +33,14 @@ export interface RenderItems extends ISocialMetaItem {
 }
 
 const Social: React.FunctionComponent<Props> = memo(({ items, className }) => {
-  const getIconsToRender = () => {
-    const renderItems: RenderItems[] = []
-
-    renderItems.push({
-      label: "Get in touch",
-      url: "mailto:hello@andy-hook.co.uk",
-      icon: "mail",
-    })
-
-    Object.keys(items).map(key => {
-      renderItems.push({
-        label: items[key].label,
-        url: items[key].url,
-        icon: items[key].icon as Icons,
-      })
-    })
-
-    return renderItems
-  }
-
-  const icons = getIconsToRender().map((item, key) => (
+  const icons = Object.keys(items).map(key => (
     <Link
-      key={key.toString()}
-      aria-label={item.label}
+      key={key}
+      aria-label={items[key].label}
       target="_blank"
-      href={item.url}
+      href={items[key].url}
     >
-      <StyledIcon name={item.icon} />
+      <StyledIcon name={items[key].icon} />
     </Link>
   ))
 
