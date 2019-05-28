@@ -6,20 +6,34 @@ import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { useStaticQuery, graphql } from "gatsby"
 import { IMetaData, IProjectsData } from "model"
-
-type ContainerProps = Partial<IStore>
+import { menuOpenAction } from "@store/actions"
+import { Dispatch } from "redux"
 
 interface Data {
   socialData: IMetaData
   projectsData: IProjectsData
 }
 
+export interface DispatchProps {
+  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
+}
+
+export type ContainerProps = Partial<IStore> & DispatchProps
+
 const mapStateToProps = ({ menuOpen, secondaryTheme }: IStore) => {
   return { menuOpen, secondaryTheme }
 }
 
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    setMenuOpen: (isOpen: boolean) => {
+      dispatch(menuOpenAction(isOpen))
+    },
+  }
+}
+
 const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, secondaryTheme = "light" }) => {
+  ({ menuOpen, secondaryTheme = "light", setMenuOpen }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -88,12 +102,16 @@ const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
           open={menuOpen}
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
+          setMenuOpen={setMenuOpen}
         />
       </ThemeProvider>
     )
   }
 )
 
-const ConnectedMenu = connect(mapStateToProps)(MenuContainer)
+const ConnectedMenu = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MenuContainer)
 
 export default ConnectedMenu

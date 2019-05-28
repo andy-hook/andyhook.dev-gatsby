@@ -10,6 +10,7 @@ import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/utils"
+import { DispatchProps } from "./menu.container"
 
 interface Props {
   open?: boolean
@@ -20,10 +21,10 @@ interface DataProps {
   projects: IProjects
 }
 
-type AllProps = Props & DataProps
+type AllProps = Props & DataProps & DispatchProps
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social }) => {
+  ({ open, projects, social, setMenuOpen }) => {
     const containerRef = React.useRef() as Ref
 
     const animateOpen = () => {
@@ -52,9 +53,17 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       triggerAnimation()
     })
 
+    const handleProjectClick = () => {
+      if (open) {
+        setMenuOpen(false)
+      }
+    }
+
     const projectItems = Object.keys(projects).map((key, index) => (
       <ProjectListItem key={index}>
-        <ProjectLink to={projects[key].path}>{projects[key].label}</ProjectLink>
+        <ProjectLink onClick={handleProjectClick} to={projects[key].path}>
+          {projects[key].label}
+        </ProjectLink>
       </ProjectListItem>
     ))
 
@@ -71,7 +80,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <MenuBackboard open={open} ref={containerRef} />
+        <MenuBackboard ref={containerRef} />
         <MenuContainer open={open}>
           <Gutter>
             <MenuContents>
@@ -101,7 +110,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
   }
 )
 
-const MenuBackboard = styled.div<Props>`
+const MenuBackboard = styled.div`
   position: absolute;
 
   top: 0;
@@ -144,7 +153,7 @@ const MenuContainer = styled.div<Props>`
   `}
 `
 
-const MenuContents = styled.div<Props>`
+const MenuContents = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
@@ -157,9 +166,9 @@ const MenuContents = styled.div<Props>`
     padding-left: 2rem;
   `}
 `
-const ProjectsContainer = styled.div<Props>``
+const ProjectsContainer = styled.div``
 
-const SocialContainer = styled.div<Props>``
+const SocialContainer = styled.div``
 
 const projectItemPadding = "0.22em"
 
@@ -225,7 +234,6 @@ const SocialList = styled.ul`
 
   font-size: ${typeScale[4]};
   
-
   ${scaleBetween(
     "font-size",
     typeScale[4],
