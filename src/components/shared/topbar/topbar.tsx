@@ -52,7 +52,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
   }
 )
 
-const clearance = "1em"
+const clearance = "0.9em"
 
 const commonStyles = css`
   position: absolute;
@@ -67,14 +67,14 @@ const LogoLink = styled(Link)`
 
   left: ${clearance};
 
-  margin-top: -0.2em;
-  margin-left: -0.2em;
+  margin-top: -0.15em;
+  margin-left: -0.1em;
 
-  font-size: ${rem("66px")};
+  font-size: ${rem("55px")};
 
   ${scaleBetween(
     "font-size",
-    rem("66px"),
+    rem("55px"),
     rem("70px"),
     "bottomThumb",
     "bottomUltra"
@@ -88,11 +88,11 @@ const NaviconPos = styled.div`
 
   right: ${clearance};
 
-  font-size: ${rem("55px")};
+  font-size: ${rem("48px")};
 
   ${scaleBetween(
     "font-size",
-    rem("55px"),
+    rem("48px"),
     rem("60px"),
     "bottomThumb",
     "bottomUltra"
