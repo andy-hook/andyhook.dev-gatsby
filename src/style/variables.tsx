@@ -28,10 +28,17 @@ export const letterSpacing = {
 }
 
 export const lineHeight = {
-  base: "1.4",
   flat: "1",
-  tight: "1.25",
-  longform: "1.6",
+  base: {
+    regular: "1.4",
+    tight: "1.2",
+    longform: "1.6",
+  },
+  display: {
+    regular: "1.4",
+    tight: "1.15",
+    longform: "1.6",
+  },
 }
 
 export const fontWeight = {

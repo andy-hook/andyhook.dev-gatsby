@@ -11,12 +11,9 @@ const Gutter: React.FunctionComponent<Props> = memo(({ children }) => {
 })
 
 const GutterContainer = styled.div`
-  padding-left: 8%;
-  padding-right: 8%;
-
-  ${mq.greaterThan("topPalm")`
-    padding-left: 5%;
-    padding-right: 5%;
+  ${mq.lessThan("topUltra")`
+    padding-left: 10%;
+    padding-right: 10%;
   `}
 
   width: 100%;

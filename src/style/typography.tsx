@@ -1,8 +1,14 @@
 import { css } from "styled-components"
-import { fontFamily, fontWeight, letterSpacing } from "@style/variables"
+import {
+  fontFamily,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+} from "@style/variables"
 import { themeText } from "@style/theme"
 
-// Base
+/* Re-composibles
+  ------------------------------------------------- */
 export const typeBase = css`
   font-family: ${fontFamily.base};
 `
@@ -42,7 +48,18 @@ export const typeDisplaySemi = css`
   letter-spacing: ${letterSpacing.display.semi};
 `
 
+/* Composites
+  ------------------------------------------------- */
 export const typeTitle = css`
   ${typeDisplaySemi}
+
   color: ${themeText(200)};
+  line-height: ${lineHeight.display.tight};
+`
+
+export const typeSupTitle = css`
+  ${typeBaseMedium}
+
+  color: ${themeText(1000)};
+  line-height: ${lineHeight.display.tight};
 `

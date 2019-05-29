@@ -5,7 +5,7 @@ import { TweenMax, Expo } from "gsap"
 import { zIndex, typeScale } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
-import { typeTitle, typeBaseMedium } from "@style/typography"
+import { typeTitle, typeBaseMedium, typeSupTitle } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -268,12 +268,10 @@ const SocialLink = styled(OutboundLink)`
 `
 
 const ListTitle = styled.h2`
-  ${typeBaseMedium}
+  ${typeSupTitle}
 
   display: flex;
   align-items: center;
-
-  color: ${themeText(1000)};
 
   margin-bottom: 1.75em;
 
