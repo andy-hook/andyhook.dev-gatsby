@@ -27,26 +27,51 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
               label
               desc
               path
+              details {
+                role
+                location
+                date
+              }
             }
             brandwatch {
               label
               desc
               path
+              details {
+                role
+                location
+                date
+              }
             }
             monster {
               label
               desc
               path
+              details {
+                role
+                location
+                date
+              }
             }
             jamieson {
               label
               desc
               path
+              details {
+                role
+                location
+                date
+              }
             }
             sketchbook {
               label
               desc
               path
+              details {
+                role
+                location
+                date
+              }
             }
           }
         }
