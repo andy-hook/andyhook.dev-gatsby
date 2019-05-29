@@ -36,10 +36,17 @@ export interface IMetaData {
   siteMetadata: IMeta
 }
 
+export interface IProjectDetails {
+  role: string
+  location: string
+  date: string
+}
+
 export interface IProjectItem {
   label: string
   desc: string
   path: string
+  details: IProjectDetails
 }
 
 export interface IProjects {

@@ -52,26 +52,51 @@ module.exports = {
         label: "Bright",
         desc: "Bright description",
         path: "/bright",
+        details: {
+          role: "Interface Developer",
+          location: "Brighton, UK",
+          date: "2018 – Present",
+        },
       },
       brandwatch: {
         label: "Brandwatch",
-        desc: "Brandwatch description",
+        desc: "Social listening trusted by world-leading brands",
         path: "/brandwatch",
+        details: {
+          role: "Senior Developer",
+          location: "Brighton, UK",
+          date: "2016 – 2018",
+        },
       },
       monster: {
         label: "Monster",
         desc: "Monster description",
         path: "/monster",
+        details: {
+          role: "Senior Developer",
+          location: "Brighton, UK",
+          date: "2016",
+        },
       },
       jamieson: {
         label: "Jamieson",
         desc: "Jamieson description",
         path: "/jamieson",
+        details: {
+          role: "Front-End Designer",
+          location: "Hastings, UK",
+          date: "2014 – 2016",
+        },
       },
       sketchbook: {
         label: "Sketchbook",
         desc: "Sketchbook description",
         path: "/sketchbook",
+        details: {
+          role: "Digital Designer",
+          location: "Brighton, UK",
+          date: "2016 – Present",
+        },
       },
     },
   },
