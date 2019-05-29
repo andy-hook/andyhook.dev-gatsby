@@ -39,26 +39,51 @@ export const projectsData: IProjects = {
     label: "Bright",
     desc: "Bright description",
     path: "/bright",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
   },
   brandwatch: {
     label: "Brandwatch",
     desc: "Brandwatch description",
     path: "/brandwatch",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
   },
   monster: {
     label: "Monster",
     desc: "Monster description",
     path: "/monster",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
   },
   jamieson: {
     label: "Jamieson",
     desc: "Jamieson description",
     path: "/jamieson",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
   },
   sketchbook: {
     label: "Sketchbook",
     desc: "Sketchbook description",
     path: "/sketchbook",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
   },
 }
 
