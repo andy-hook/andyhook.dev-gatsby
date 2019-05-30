@@ -63,3 +63,10 @@ export const typeSupTitle = css`
   color: ${themeText(1000)};
   line-height: ${lineHeight.display.tight};
 `
+
+export const typeSubTitle = css`
+  ${typeBaseMedium}
+
+  color: ${themeText(200)};
+  line-height: ${lineHeight.display.tight};
+`

@@ -1,12 +1,12 @@
 import React from "react"
-import { IProjectItem, IProjectDetails } from "@custom-types/model"
-import { keys } from "@custom-types/utils"
+import { IProjectItem } from "@custom-types/model"
+import { TBreakpointName } from "@custom-types/breakpoints"
 import Limiter from "@components/shared/limiter/limiter"
 import Gutter from "@components/shared/gutter/gutter"
 import styled from "styled-components"
-import { typeTitle, typeBaseMedium, typeSupTitle } from "@style/typography"
-import { themeText } from "@style/theme"
-import { scaleBetween, scaleGreaterThan } from "@style/utils"
+import { typeTitle, typeSupTitle, typeSubTitle } from "@style/typography"
+import { themeTone } from "@style/theme"
+import { scaleBetween, scaleGreaterThan, mq } from "@style/utils"
 import { typeScale } from "@style/variables"
 
 interface Props {
@@ -16,18 +16,18 @@ interface Props {
 const Header: React.FunctionComponent<Props> = ({ project }) => {
   const Details = (
     <DetailsList>
-      <li>
+      <DetailsItem>
         <DetailsTitle>Role</DetailsTitle>
         <DetailsContent>{project.details.role}</DetailsContent>
-      </li>
-      <li>
+      </DetailsItem>
+      <DetailsItem>
         <DetailsTitle>Location</DetailsTitle>
         <DetailsContent>{project.details.location}</DetailsContent>
-      </li>
-      <li>
+      </DetailsItem>
+      <DetailsItem>
         <DetailsTitle>Date</DetailsTitle>
         <DetailsContent>{project.details.date}</DetailsContent>
-      </li>
+      </DetailsItem>
     </DetailsList>
   )
 
@@ -37,17 +37,73 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
         <Limiter>
           <ProjectLabel>{project.label}</ProjectLabel>
           <ProjectDesc>{project.desc}</ProjectDesc>
-          {Details}
         </Limiter>
       </Gutter>
+
+      <Border>
+        <Gutter>
+          <Limiter>{Details}</Limiter>
+        </Gutter>
+      </Border>
     </Container>
   )
 }
 
-const DetailsList = styled.ul``
+const layoutShift: TBreakpointName = "topLap"
+
+const Border = styled.div`
+  border-top: 1px solid ${themeTone(400)};
+`
+
+const DetailsList = styled.ul`
+  padding-top: 2.1em;
+  padding-bottom: 2.1em;
+
+  font-size: ${typeScale[4]};
+
+  ${mq.greaterThan(layoutShift)`
+    display: flex;
+  `}
+  
+  ${scaleBetween(
+    "font-size",
+    typeScale[4],
+    typeScale[5],
+    "topThumb",
+    "bottomWide"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[5],
+    typeScale[6],
+    "topWide",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[6], "topUltra")}
+`
+
+const DetailsItem = styled.li`
+  display: flex;
+
+  ${mq.lessThan(layoutShift)`
+    &:not(:last-child) {
+      margin-bottom: 0.35em;
+    }
+  `}
+
+  ${mq.greaterThan(layoutShift)`
+    &:not(:last-child) {
+      margin-right: 3em;
+    }
+  `}
+`
 
 const DetailsTitle = styled.h3`
-  ${typeTitle}
+  ${typeSubTitle}
+
+  margin-right: 0.75em;
 `
 
 const DetailsContent = styled.h3`
@@ -56,11 +112,10 @@ const DetailsContent = styled.h3`
 
 const Container = styled.header`
   padding-top: 13rem;
-  padding-bottom: 6rem;
 
-  ${scaleBetween("padding-top", "13rem", "25rem", "bottomThumb", "bottomUltra")}
+  ${scaleBetween("padding-top", "13rem", "20rem", "bottomThumb", "bottomUltra")}
 
-  ${scaleGreaterThan("padding-top", "25rem", "topUltra")}
+  ${scaleGreaterThan("padding-top", "20rem", "topUltra")}
 `
 
 const ProjectLabel = styled.h1`
@@ -93,6 +148,8 @@ const ProjectDesc = styled.h2`
   ${typeTitle}
 
   max-width: 16em;
+
+  margin-bottom: 1.5em;
 
   font-size: ${typeScale[8]};
   
