@@ -7,7 +7,6 @@ export interface ISocialMetaItem {
 }
 
 export interface ISocialMeta {
-  [key: string]: ISocialMetaItem
   email: ISocialMetaItem
   dribbble: ISocialMetaItem
   twitter: ISocialMetaItem
@@ -50,7 +49,6 @@ export interface IProjectItem {
 }
 
 export interface IProjects {
-  [key: string]: IProjectItem
   bright: IProjectItem
   brandwatch: IProjectItem
   monster: IProjectItem
@@ -62,4 +60,12 @@ export interface IProjectsData {
   siteMetadata: {
     projects: IProjects
   }
+}
+
+export interface IProjectContentsItem {
+  label: string
+}
+
+export interface IProjectContents {
+  [key: string]: IProjectContentsItem
 }

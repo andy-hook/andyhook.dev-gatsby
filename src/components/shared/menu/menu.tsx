@@ -18,6 +18,7 @@ import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/utils"
 import { DispatchProps } from "./menu.container"
+import { keys } from "@custom-types/utils"
 
 interface Props {
   open?: boolean
@@ -66,7 +67,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       }
     }
 
-    const projectItems = Object.keys(projects).map((key, index) => (
+    const projectItems = keys(projects).map((key, index) => (
       <ProjectListItem key={index}>
         <ProjectLink onClick={handleProjectClick} to={projects[key].path}>
           {projects[key].label}
@@ -74,7 +75,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       </ProjectListItem>
     ))
 
-    const socialItems = Object.keys(social).map((key, index) => (
+    const socialItems = keys(social).map((key, index) => (
       <SocialListItem key={index}>
         <SocialLink
           href={social[key].url}
