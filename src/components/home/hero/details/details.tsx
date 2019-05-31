@@ -1,9 +1,8 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { typeTitle } from "@style/typography"
-import { scaleBetween, scaleGreaterThan } from "@style/utils"
+import { typeTitle, typeSizeDisplayXl } from "@style/typography"
 import { themeTone, isDarkTheme } from "@style/theme"
-import { typeScale, zIndex } from "@style/variables"
+import { zIndex } from "@style/variables"
 import Button from "@components/shared/button/button"
 
 interface Props {
@@ -28,6 +27,7 @@ const DetailsContainer = styled.div`
 `
 
 const Title = styled.h2`
+  ${typeSizeDisplayXl}
   ${typeTitle}
 
   ${isDarkTheme(`text-shadow: 0 0 2em ${themeTone(100)};`)}
@@ -38,26 +38,6 @@ const Title = styled.h2`
   margin-bottom: 0.75em;
 
   z-index: ${zIndex.low};
-
-  font-size: ${typeScale[9]};
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[9],
-    typeScale[11],
-    "bottomThumb",
-    "bottomDesk"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[11],
-    typeScale[12],
-    "topDesk",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[12], "topUltra")}
 `
 
 export default Details

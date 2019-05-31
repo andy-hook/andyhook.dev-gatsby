@@ -4,10 +4,15 @@ import { TBreakpointName } from "@custom-types/breakpoints"
 import Limiter from "@components/shared/limiter/limiter"
 import Gutter from "@components/shared/gutter/gutter"
 import styled from "styled-components"
-import { typeTitle, typeSupTitle, typeSubTitle } from "@style/typography"
+import {
+  typeTitle,
+  typeSupTitle,
+  typeSubTitle,
+  typeSizeBaseSm,
+  typeSizeDisplayLg,
+} from "@style/typography"
 import { themeTone } from "@style/theme"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/utils"
-import { typeScale } from "@style/variables"
 
 interface Props {
   project: IProjectItem
@@ -56,32 +61,14 @@ const Border = styled.div`
 `
 
 const DetailsList = styled.ul`
+  ${typeSizeBaseSm}
+
   padding-top: 2.1em;
   padding-bottom: 2.1em;
-
-  font-size: ${typeScale[4]};
 
   ${mq.greaterThan(layoutShift)`
     display: flex;
   `}
-  
-  ${scaleBetween(
-    "font-size",
-    typeScale[4],
-    typeScale[5],
-    "topThumb",
-    "bottomWide"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[5],
-    typeScale[6],
-    "topWide",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[6], "topUltra")}
 `
 
 const DetailsItem = styled.li`
@@ -119,57 +106,18 @@ const Container = styled.header`
 `
 
 const ProjectLabel = styled.h1`
+  ${typeSizeBaseSm}
   ${typeSupTitle}
-
-  margin-bottom: 1.4em;
-
-  font-size: ${typeScale[4]};
-  
-  ${scaleBetween(
-    "font-size",
-    typeScale[4],
-    typeScale[5],
-    "topThumb",
-    "bottomWide"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[5],
-    typeScale[6],
-    "topWide",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[6], "topUltra")}
 `
 
 const ProjectDesc = styled.h2`
+  ${typeSizeDisplayLg}
   ${typeTitle}
 
   max-width: 16em;
 
+  margin-top: 0.7em;
   margin-bottom: 1.5em;
-
-  font-size: ${typeScale[8]};
-  
-  ${scaleBetween(
-    "font-size",
-    typeScale[8],
-    typeScale[10],
-    "topThumb",
-    "bottomWide"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[10],
-    typeScale[11],
-    "topWide",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
 `
 
 export default Header

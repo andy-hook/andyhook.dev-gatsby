@@ -4,8 +4,10 @@ import {
   fontWeight,
   letterSpacing,
   lineHeight,
+  typeScale,
 } from "@style/variables"
 import { themeText } from "@style/theme"
+import { scaleBetween, scaleGreaterThan } from "./utils"
 
 /* Re-composibles
   ------------------------------------------------- */
@@ -69,4 +71,138 @@ export const typeSubTitle = css`
 
   color: ${themeText(200)};
   line-height: ${lineHeight.display.tight};
+`
+
+/* Base type sizes
+  ------------------------------------------------- */
+export const typeSizeBaseXs = css`
+  font-size: ${typeScale[3]};
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[3],
+    typeScale[4],
+    "topWide",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
+`
+
+export const typeSizeBaseSm = css`
+  font-size: ${typeScale[4]};
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[4],
+    typeScale[5],
+    "topThumb",
+    "bottomWide"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[5], "topUltra")}
+`
+
+export const typeSizeBaseMd = css``
+
+export const typeSizeBaseLg = css`
+  font-size: ${typeScale[4]};
+  
+  ${scaleBetween(
+    "font-size",
+    typeScale[4],
+    typeScale[6],
+    "topThumb",
+    "bottomWide"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[6],
+    typeScale[7],
+    "topWide",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[7], "topUltra")}
+`
+
+/* Display type sizes
+  ------------------------------------------------- */
+export const typeSizeDisplayXs = css``
+
+export const typeSizeDisplaySm = css``
+
+export const typeSizeDisplayMd = css`
+  font-size: ${typeScale[7]};
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[7],
+    typeScale[9],
+    "topThumb",
+    "bottomDesk"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[9],
+    typeScale[10],
+    "topDesk",
+    "bottomWall"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[10],
+    typeScale[11],
+    "topWall",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
+`
+
+export const typeSizeDisplayLg = css`
+  font-size: ${typeScale[8]};
+  
+  ${scaleBetween(
+    "font-size",
+    typeScale[8],
+    typeScale[10],
+    "topThumb",
+    "bottomWide"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[10],
+    typeScale[11],
+    "topWide",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
+`
+
+export const typeSizeDisplayXl = css`
+  font-size: ${typeScale[9]};
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[9],
+    typeScale[11],
+    "bottomThumb",
+    "bottomDesk"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[11],
+    typeScale[12],
+    "topDesk",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[12], "topUltra")}
 `

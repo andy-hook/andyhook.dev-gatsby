@@ -2,14 +2,21 @@ import React, { memo, useEffect } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
-import { zIndex, typeScale } from "@style/variables"
+import { zIndex } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
-import { typeTitle, typeBaseMedium, typeSupTitle } from "@style/typography"
+import {
+  typeTitle,
+  typeBaseMedium,
+  typeSupTitle,
+  typeSizeBaseXs,
+  typeSizeBaseLg,
+  typeSizeDisplayMd,
+} from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, IProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import { mq, scaleBetween, scaleGreaterThan } from "@style/utils"
+import { mq, scaleBetween } from "@style/utils"
 import { DispatchProps } from "./menu.container"
 
 interface Props {
@@ -173,43 +180,15 @@ const SocialContainer = styled.div``
 const projectItemPadding = "0.22em"
 
 const ProjectList = styled.ul`
-
+  ${typeSizeDisplayMd}
   margin-top: -${projectItemPadding};
   margin-bottom: 1.75em;
-
-  font-size: ${typeScale[8]};
 
   ${mq.greaterThan("topPalm")`
     flex-direction: column;
 
     margin-bottom: -${projectItemPadding};
   `}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[8],
-    typeScale[9],
-    "topThumb",
-    "bottomDesk"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[9],
-    typeScale[10],
-    "topDesk",
-    "bottomWall"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[10],
-    typeScale[11],
-    "topWall",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
 `
 
 const ProjectListItem = styled.li`
@@ -229,28 +208,9 @@ const ProjectLink = styled(Link)`
 const socialItemPadding = "0.4em"
 
 const SocialList = styled.ul`
+  ${typeSizeBaseLg}
   margin-top: -${socialItemPadding};
   margin-bottom: -${socialItemPadding};
-
-  font-size: ${typeScale[4]};
-  
-  ${scaleBetween(
-    "font-size",
-    typeScale[4],
-    typeScale[6],
-    "topThumb",
-    "bottomWide"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[6],
-    typeScale[7],
-    "topWide",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[7], "topUltra")}
 `
 
 const SocialListItem = styled.li``
@@ -269,13 +229,12 @@ const SocialLink = styled(OutboundLink)`
 
 const ListTitle = styled.h2`
   ${typeSupTitle}
+  ${typeSizeBaseXs}
 
   display: flex;
   align-items: center;
 
   margin-bottom: 1.75em;
-
-  font-size: ${typeScale[3]};
 
   ${mq.greaterThan("topPalm")`
     margin-bottom: 2.3em;
@@ -284,16 +243,6 @@ const ListTitle = styled.h2`
   ${mq.greaterThan("topDesk")`
     margin-bottom: 3.5em;
   `}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[3],
-    typeScale[4],
-    "topWide",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
 `
 
 const ListTitleNumber = styled.span`
