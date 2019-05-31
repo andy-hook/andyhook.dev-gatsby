@@ -32,6 +32,10 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
                 location
                 date
               }
+              contents {
+                label
+                key
+              }
             }
             brandwatch {
               label
@@ -41,6 +45,10 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
                 role
                 location
                 date
+              }
+              contents {
+                label
+                key
               }
             }
             monster {
@@ -52,6 +60,10 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
                 location
                 date
               }
+              contents {
+                label
+                key
+              }
             }
             jamieson {
               label
@@ -62,6 +74,10 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
                 location
                 date
               }
+              contents {
+                label
+                key
+              }
             }
             sketchbook {
               label
@@ -71,6 +87,10 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
                 role
                 location
                 date
+              }
+              contents {
+                label
+                key
               }
             }
           }
