@@ -1,4 +1,4 @@
-import { ISocialMeta, IProjects } from "@custom-types/model"
+import { ISocialMeta, TProjects } from "@custom-types/model"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 export const socialIcons: ISocialMeta = {
@@ -34,7 +34,7 @@ export const socialIcons: ISocialMeta = {
   },
 }
 
-export const projectsData: IProjects = {
+export const projectsData: TProjects = {
   bright: {
     label: "Bright",
     desc: "Bright description",
@@ -44,6 +44,12 @@ export const projectsData: IProjects = {
       location: "location",
       date: "date",
     },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
   },
   brandwatch: {
     label: "Brandwatch",
@@ -54,6 +60,12 @@ export const projectsData: IProjects = {
       location: "location",
       date: "date",
     },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
   },
   monster: {
     label: "Monster",
@@ -64,6 +76,12 @@ export const projectsData: IProjects = {
       location: "location",
       date: "date",
     },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
   },
   jamieson: {
     label: "Jamieson",
@@ -74,6 +92,12 @@ export const projectsData: IProjects = {
       location: "location",
       date: "date",
     },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
   },
   sketchbook: {
     label: "Sketchbook",
@@ -84,6 +108,12 @@ export const projectsData: IProjects = {
       location: "location",
       date: "date",
     },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
   },
 }
 

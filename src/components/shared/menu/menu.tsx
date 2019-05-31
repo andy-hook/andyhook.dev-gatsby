@@ -14,7 +14,7 @@ import {
   typeSizeDisplayMd,
 } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
-import { ISocialMeta, IProjects } from "model"
+import { ISocialMeta, TProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/utils"
 import { DispatchProps } from "./menu.container"
@@ -26,7 +26,7 @@ interface Props {
 
 interface DataProps {
   social: ISocialMeta
-  projects: IProjects
+  projects: TProjects
 }
 
 type AllProps = Props & DataProps & DispatchProps

@@ -1,7 +1,8 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
-import { ISocialMeta, ISocialMetaItem } from "@custom-types/model"
+import { ISocialMeta } from "@custom-types/model"
+import { keys } from "@custom-types/utils"
 import Icon from "@components/shared/icon/icon"
 import { mq } from "@style/utils"
 import { themeText, isTheme } from "@style/theme"
@@ -20,20 +21,8 @@ interface Props {
   visible?: boolean
 }
 
-type Icons =
-  | "dribbble"
-  | "instagram"
-  | "linkedin"
-  | "twitter"
-  | "github"
-  | "mail"
-
-export interface RenderItems extends ISocialMetaItem {
-  icon: Icons
-}
-
 const Social: React.FunctionComponent<Props> = memo(({ items, className }) => {
-  const icons = Object.keys(items).map(key => (
+  const icons = keys(items).map(key => (
     <Link
       key={key}
       aria-label={items[key].label}

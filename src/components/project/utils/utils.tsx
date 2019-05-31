@@ -1,18 +1,19 @@
-import { IProjects, IProjectItem } from "@custom-types/model"
+import { TProjects, IProjectItem, TProjectNames } from "@custom-types/model"
+import { keys } from "@custom-types/utils"
 
 export const getCurrentProjectData = (
-  dataObject: IProjects,
-  projectKey: string
+  dataObject: TProjects,
+  projectKey: TProjectNames
 ): IProjectItem => dataObject[projectKey]
 
 export const getNextProjectData = (
-  dataObject: IProjects,
-  projectKey: string
+  dataObject: TProjects,
+  projectKey: TProjectNames
 ): IProjectItem => {
-  const keys = Object.keys(dataObject)
-  const length = keys.length - 1
-  const pos = keys.indexOf(projectKey)
+  const projectKeysArray = keys(dataObject)
+  const length = projectKeysArray.length - 1
+  const pos = projectKeysArray.indexOf(projectKey)
   const nextPos = pos === length ? 0 : pos + 1
 
-  return dataObject[keys[nextPos]]
+  return dataObject[projectKeysArray[nextPos]]
 }

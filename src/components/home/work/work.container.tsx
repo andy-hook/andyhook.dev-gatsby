@@ -1,9 +1,9 @@
 import React, { memo } from "react"
 import Work from "./work"
-import { IProjects } from "@custom-types/model"
+import { TProjects } from "@custom-types/model"
 
 interface Props {
-  projectsData: IProjects
+  projectsData: TProjects
 }
 
 export type ContainerProps = Props

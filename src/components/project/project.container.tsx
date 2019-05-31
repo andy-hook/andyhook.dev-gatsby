@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import Project from "./project"
-import { IProjectsData } from "@custom-types/model"
+import { IProjectsData, TProjectNames } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
 
 interface Data {
@@ -8,7 +8,7 @@ interface Data {
 }
 
 interface Props {
-  projectName: string
+  projectName: TProjectNames
   children: ReactNode
 }
 

@@ -35,6 +35,13 @@ export interface IMetaData {
   siteMetadata: IMeta
 }
 
+export interface IProjectContentsItem {
+  label: string
+  key: string
+}
+
+export type TProjectContents = IProjectContentsItem[]
+
 export interface IProjectDetails {
   role: string
   location: string
@@ -46,26 +53,20 @@ export interface IProjectItem {
   desc: string
   path: string
   details: IProjectDetails
+  contents: TProjectContents
 }
 
-export interface IProjects {
-  bright: IProjectItem
-  brandwatch: IProjectItem
-  monster: IProjectItem
-  jamieson: IProjectItem
-  sketchbook: IProjectItem
-}
+export type TProjectNames =
+  | "bright"
+  | "brandwatch"
+  | "monster"
+  | "jamieson"
+  | "sketchbook"
+
+export type TProjects = { [key in TProjectNames]: IProjectItem }
 
 export interface IProjectsData {
   siteMetadata: {
-    projects: IProjects
+    projects: TProjects
   }
-}
-
-export interface IProjectContentsItem {
-  label: string
-}
-
-export interface IProjectContents {
-  [key: string]: IProjectContentsItem
 }

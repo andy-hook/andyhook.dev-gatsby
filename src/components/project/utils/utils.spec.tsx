@@ -1,7 +1,8 @@
 import { getCurrentProjectData, getNextProjectData } from "./utils"
 import { projectsData } from "@mock-data"
+import { keys } from "@custom-types/utils"
 
-const projectKeys = Object.keys(projectsData)
+const projectKeys = keys(projectsData)
 
 describe("getCurrentProjectData", () => {
   test("Should return specified project", () => {
