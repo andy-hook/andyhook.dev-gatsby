@@ -18,7 +18,7 @@ const mapStateToProps = ({ primaryTheme, secondaryTheme }: IStore) => {
 
 const Theme: React.FunctionComponent<AllProps> = memo(
   ({ children, themeType, primaryTheme = "dark", secondaryTheme = "dark" }) => {
-    const getTheme = (type: string): ITheme => {
+    const getTheme = (type: TThemeType): ITheme => {
       if (type === "primary-theme") {
         return themes[primaryTheme]
       } else if (type === "secondary-theme") {

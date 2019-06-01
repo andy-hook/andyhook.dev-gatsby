@@ -6,15 +6,18 @@ import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/utils"
 import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
+import { TThemeType } from "theme"
+import Theme from "@components/shared/theme/theme"
 
 interface Props {
   open?: boolean
   onMenuOpen: () => void
   onMenuClose: () => void
+  theme: TThemeType
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
-  ({ open, onMenuOpen, onMenuClose }) => {
+  ({ open, onMenuOpen, onMenuClose, theme }) => {
     const toggleMenu = () => {
       if (open) {
         onMenuClose()
@@ -24,30 +27,32 @@ const Topbar: React.FunctionComponent<Props> = memo(
     }
 
     return (
-      <>
-        <LogoLink
-          to="/"
-          entry={{
-            delay: 0,
-            length: 0,
-            state: {
-              animType: "enter-from-project",
-            },
-          }}
-          exit={{
-            delay: 0,
-            length: 0,
-            state: {
-              animType: "exit animation",
-            },
-          }}
-        >
-          <Logo open={open} />
-        </LogoLink>
-        <NaviconPos>
-          <Navicon open={open} onClick={toggleMenu} />
-        </NaviconPos>
-      </>
+      <Theme themeType={theme}>
+        <>
+          <LogoLink
+            to="/"
+            entry={{
+              delay: 0,
+              length: 0,
+              state: {
+                animType: "enter-from-project",
+              },
+            }}
+            exit={{
+              delay: 0,
+              length: 0,
+              state: {
+                animType: "exit animation",
+              },
+            }}
+          >
+            <Logo open={open} />
+          </LogoLink>
+          <NaviconPos>
+            <Navicon open={open} onClick={toggleMenu} />
+          </NaviconPos>
+        </>
+      </Theme>
     )
   }
 )

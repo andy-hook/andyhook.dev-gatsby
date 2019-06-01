@@ -1,4 +1,4 @@
-import { TThemeName } from "@custom-types/theme"
+import { TThemeName, TThemeType } from "@custom-types/theme"
 
 export interface IPayloadedAction<Type, Payload> {
   type: Type
@@ -16,6 +16,8 @@ export interface IStore {
   secondaryTheme: TThemeName
   menuOpen: boolean
   testString: string | null
+  homeTheme: TThemeType
+  topbarTheme: TThemeType
 }
 
 export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
@@ -37,3 +39,9 @@ export interface IPrimaryThemeAction
 
 export interface ISecondaryThemeAction
   extends IPayloadedAction<"secondary-theme", TThemeName> {}
+
+export interface IHomeThemeAction
+  extends IPayloadedAction<"home-theme", TThemeType> {}
+
+export interface ITopbarThemeAction
+  extends IPayloadedAction<"topbar-theme", TThemeType> {}

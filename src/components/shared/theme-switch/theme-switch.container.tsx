@@ -40,6 +40,7 @@ const ThemeSwitchContainer: React.FunctionComponent<AllProps> = memo(
         case "light":
           setPrimary("dark")
           setSecondary("light")
+
           break
       }
     }

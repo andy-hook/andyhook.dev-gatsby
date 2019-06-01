@@ -7,6 +7,8 @@ import {
   IMenuOpenAction,
   IPrimaryThemeAction,
   ISecondaryThemeAction,
+  IHomeThemeAction,
+  ITopbarThemeAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -31,6 +33,14 @@ export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(
 
 export const setPrimaryThemeAction = createPayloadedAction<IPrimaryThemeAction>(
   "primary-theme"
+)
+
+export const setHomeThemeAction = createPayloadedAction<IHomeThemeAction>(
+  "home-theme"
+)
+
+export const setTopbarAction = createPayloadedAction<ITopbarThemeAction>(
+  "topbar-theme"
 )
 
 export const setSecondaryThemeAction = createPayloadedAction<

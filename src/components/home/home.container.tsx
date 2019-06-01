@@ -1,26 +1,28 @@
 import React, { memo, ReactNode } from "react"
-import { ThemeProvider } from "styled-components"
-import { themes } from "@style/theme"
-import { IStore } from "@custom-types/store"
+import { IStore } from "store"
 import { connect } from "react-redux"
 import Home from "./home"
+import Theme from "@components/shared/theme/theme"
+import { TThemeType } from "theme"
 
 interface Props {
   children: ReactNode
 }
 
-const mapStateToProps = ({ primaryTheme }: IStore) => {
-  return { primaryTheme }
+const mapStateToProps = ({ homeTheme }: IStore) => {
+  return { homeTheme }
 }
 
 type AllProps = Props & Partial<IStore>
 
 const HomeContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, primaryTheme = "dark" }) => {
+  ({ children, homeTheme }) => {
+    const theme = homeTheme as TThemeType
+
     return (
-      <ThemeProvider theme={themes[primaryTheme]}>
+      <Theme themeType={theme}>
         <Home>{children}</Home>
-      </ThemeProvider>
+      </Theme>
     )
   }
 )
