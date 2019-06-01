@@ -11,7 +11,7 @@ import {
   typeSizeBaseSm,
   typeSizeDisplayLg,
 } from "@style/typography"
-import { themeTone, themeLayer } from "@style/theme"
+import { themeTone } from "@style/theme"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/utils"
 
 interface Props {
