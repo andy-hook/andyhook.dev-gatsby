@@ -3,10 +3,10 @@ import React from "react"
 
 import { IMetaData, IProjectsData } from "@custom-types/model"
 
-import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
 import SEO from "@components/seo"
 import HeroContainer from "@components/home/hero/hero.container"
 import WorkContainer from "@components/home/work/work.container"
+import HomeContainer from "@components/home/home.container"
 
 interface Data {
   socialIconData: IMetaData
@@ -90,12 +90,12 @@ const IndexPage: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
-      <ContentScrollContainer>
+      <HomeContainer>
         <HeroContainer
           socialIconData={data.socialIconData.siteMetadata.social}
         />
         <WorkContainer projectsData={data.projectsData.siteMetadata.projects} />
-      </ContentScrollContainer>
+      </HomeContainer>
     </>
   )
 }

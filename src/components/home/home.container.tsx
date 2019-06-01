@@ -1,8 +1,9 @@
 import React, { memo, ReactNode } from "react"
-import styled, { ThemeProvider } from "styled-components"
-import { themes, themeLayer } from "@style/theme"
+import { ThemeProvider } from "styled-components"
+import { themes } from "@style/theme"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
+import Home from "./home"
 
 interface Props {
   children: ReactNode
@@ -14,20 +15,20 @@ const mapStateToProps = ({ primaryTheme }: IStore) => {
 
 type AllProps = Props & Partial<IStore>
 
-const SiteContainer: React.FunctionComponent<AllProps> = memo(
+const HomeContainer: React.FunctionComponent<AllProps> = memo(
   ({ children, primaryTheme = "dark" }) => {
     return (
       <ThemeProvider theme={themes[primaryTheme]}>
-        <Container>{children}</Container>
+        <Home>{children}</Home>
       </ThemeProvider>
     )
   }
 )
 
-const Container = styled.div`
-  background-color: ${themeLayer("lowest")};
-`
+// const Container = styled.div`
+//   background-color: ${themeLayer("lowest")};
+// `
 
-const ConnectedSiteContainer = connect(mapStateToProps)(SiteContainer)
+const ConnectedHomeContainer = connect(mapStateToProps)(HomeContainer)
 
-export default ConnectedSiteContainer
+export default ConnectedHomeContainer

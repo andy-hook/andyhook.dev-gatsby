@@ -2,6 +2,10 @@ import React, { ReactNode } from "react"
 import Project from "./project"
 import { IProjectsData, TProjectNames } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
+import { IStore } from "store"
+import { connect } from "react-redux"
+import { ThemeProvider } from "styled-components"
+import { themes } from "@style/theme"
 
 interface Data {
   projectsData: IProjectsData
@@ -12,11 +16,16 @@ interface Props {
   children: ReactNode
 }
 
-export type ContainerProps = Props
+const mapStateToProps = ({ secondaryTheme }: IStore) => {
+  return { secondaryTheme }
+}
 
-const ProjectContainer: React.FunctionComponent<Props> = ({
+export type ContainerProps = Props & Partial<IStore>
+
+const ProjectContainer: React.FunctionComponent<ContainerProps> = ({
   children,
   projectName,
+  secondaryTheme = "light",
 }) => {
   const data: Data = useStaticQuery(graphql`
     query {
@@ -100,13 +109,17 @@ const ProjectContainer: React.FunctionComponent<Props> = ({
   `)
 
   return (
-    <Project
-      projectName={projectName}
-      projectData={data.projectsData.siteMetadata.projects}
-    >
-      {children}
-    </Project>
+    <ThemeProvider theme={themes[secondaryTheme]}>
+      <Project
+        projectName={projectName}
+        projectData={data.projectsData.siteMetadata.projects}
+      >
+        {children}
+      </Project>
+    </ThemeProvider>
   )
 }
 
-export default ProjectContainer
+const ConnectedProjectContainer = connect(mapStateToProps)(ProjectContainer)
+
+export default ConnectedProjectContainer
