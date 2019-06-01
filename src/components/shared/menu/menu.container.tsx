@@ -2,12 +2,12 @@ import React, { memo } from "react"
 import Menu from "./menu"
 import { connect } from "react-redux"
 import { IStore } from "@custom-types/store"
-import { ThemeProvider } from "styled-components"
-import { themes } from "@style/theme"
+import { TThemeType } from "@custom-types/theme"
 import { useStaticQuery, graphql } from "gatsby"
 import { IMetaData, IProjectsData } from "model"
 import { menuOpenAction } from "@store/actions"
 import { Dispatch } from "redux"
+import Theme from "@components/shared/theme/theme"
 
 interface Data {
   socialData: IMetaData
@@ -20,8 +20,8 @@ export interface DispatchProps {
 
 export type ContainerProps = Partial<IStore> & DispatchProps
 
-const mapStateToProps = ({ menuOpen, secondaryTheme }: IStore) => {
-  return { menuOpen, secondaryTheme }
+const mapStateToProps = ({ menuOpen, secondaryTheme, menuTheme }: IStore) => {
+  return { menuOpen, secondaryTheme, menuTheme }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -33,7 +33,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, secondaryTheme = "light", setMenuOpen }) => {
+  ({ menuOpen, menuTheme, setMenuOpen }) => {
+    const theme = menuTheme as TThemeType
+
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -97,14 +99,14 @@ const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
       }
     `)
     return (
-      <ThemeProvider theme={themes[secondaryTheme]}>
+      <Theme themeType={theme}>
         <Menu
           open={menuOpen}
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
           setMenuOpen={setMenuOpen}
         />
-      </ThemeProvider>
+      </Theme>
     )
   }
 )

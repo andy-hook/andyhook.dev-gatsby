@@ -11,7 +11,7 @@ import {
   typeSizeBaseSm,
   typeSizeDisplayLg,
 } from "@style/typography"
-import { themeTone } from "@style/theme"
+import { themeTone, themeLayer } from "@style/theme"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/utils"
 
 interface Props {
@@ -100,9 +100,9 @@ const DetailsContent = styled.h3`
 const Container = styled.header`
   padding-top: 13rem;
 
+  background-color: ${themeTone(100)};
   ${scaleBetween("padding-top", "13rem", "20rem", "bottomThumb", "bottomUltra")}
-
-  ${scaleGreaterThan("padding-top", "20rem", "topUltra")}
+  ${scaleGreaterThan("padding-top", "20rem", "topUltra")};
 `
 
 const ProjectLabel = styled.h1`

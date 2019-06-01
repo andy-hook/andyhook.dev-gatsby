@@ -10,6 +10,8 @@ interface Animation {
   }
 }
 
+const siteEntranceDelay = 0.65
+
 export const animation: Animation = {
   details: {
     siteEntrance: ref => {
@@ -24,6 +26,7 @@ export const animation: Animation = {
           scale: 1,
           opacity: 1,
           clearProps: "transform",
+          delay: siteEntranceDelay,
         }
       )
     },
@@ -48,6 +51,21 @@ export const animation: Animation = {
         },
         {
           opacity: 0,
+        }
+      )
+    },
+    pop: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          scale: 1.5,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
         }
       )
     },
@@ -65,6 +83,7 @@ export const animation: Animation = {
           y: "0%",
           opacity: 1,
           clearProps: "transform",
+          delay: siteEntranceDelay,
         }
       )
     },
@@ -89,6 +108,21 @@ export const animation: Animation = {
         },
         {
           opacity: 0,
+        }
+      )
+    },
+    pop: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          y: "-100%",
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
         }
       )
     },
@@ -106,6 +140,7 @@ export const animation: Animation = {
           y: "0%",
           opacity: 1,
           clearProps: "transform",
+          delay: siteEntranceDelay,
         }
       )
     },
@@ -130,6 +165,21 @@ export const animation: Animation = {
         },
         {
           opacity: 0,
+        }
+      )
+    },
+    pop: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.6,
+        {
+          y: "100%",
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
         }
       )
     },
@@ -147,6 +197,7 @@ export const animation: Animation = {
           scale: 1,
           opacity: 1,
           clearProps: "transform",
+          delay: siteEntranceDelay,
         }
       )
     },
@@ -171,6 +222,21 @@ export const animation: Animation = {
         },
         {
           opacity: 0,
+        }
+      )
+    },
+    pop: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.8,
+        {
+          scale: 1.1,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
         }
       )
     },
@@ -204,6 +270,11 @@ export const animation: Animation = {
           opacity: 0,
         }
       )
+    },
+    pop: ref => {
+      TweenMax.to(ref.current, 0.9, {
+        opacity: 1,
+      })
     },
   },
 }

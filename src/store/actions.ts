@@ -9,6 +9,7 @@ import {
   ISecondaryThemeAction,
   IHomeThemeAction,
   ITopbarThemeAction,
+  IMenuThemeAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -39,8 +40,12 @@ export const setHomeThemeAction = createPayloadedAction<IHomeThemeAction>(
   "home-theme"
 )
 
-export const setTopbarAction = createPayloadedAction<ITopbarThemeAction>(
+export const setTopbarThemeAction = createPayloadedAction<ITopbarThemeAction>(
   "topbar-theme"
+)
+
+export const setMenuThemeAction = createPayloadedAction<IMenuThemeAction>(
+  "menu-theme"
 )
 
 export const setSecondaryThemeAction = createPayloadedAction<

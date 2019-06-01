@@ -14,15 +14,12 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
+import { keys } from "@custom-types/utils"
 
 interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
   transitionState: ItransitionState
-}
-
-interface RefIterable {
-  [key: string]: Ref
 }
 
 type AllProps = Props & ContainerProps
@@ -39,7 +36,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     const backgroundRef = React.useRef() as Ref
     const dateRef = React.useRef() as Ref
 
-    const refs: RefIterable = {
+    const refs = {
       details: detailsRef,
       social: socialRef,
       date: dateRef,
@@ -47,7 +44,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     }
 
     const runAnimation = (type: string) => {
-      Object.keys(refs).map(item => {
+      keys(refs).map(item => {
         animation[item][type](refs[item])
       })
     }
@@ -74,20 +71,24 @@ const Hero: React.FunctionComponent<AllProps> = memo(
               break
           }
           break
+        case "POP":
+          runAnimation("pop")
+
+          break
       }
     }, [transitionState.transitionStatus])
 
+    // Perform this immediatley without waiting for a trigger
     useEffect(() => {
       if (canPerformIntro) {
         animation.background.siteEntrance(backgroundRef)
       }
     }, [])
 
+    // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (introTrigger && canPerformIntro) {
-        setTimeout(() => {
-          runAnimation("siteEntrance")
-        }, 650)
+        runAnimation("siteEntrance")
       }
     }, [introTrigger])
 

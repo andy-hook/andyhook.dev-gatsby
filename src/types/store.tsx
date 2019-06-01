@@ -18,6 +18,7 @@ export interface IStore {
   testString: string | null
   homeTheme: TThemeType
   topbarTheme: TThemeType
+  menuTheme: TThemeType
 }
 
 export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
@@ -45,3 +46,6 @@ export interface IHomeThemeAction
 
 export interface ITopbarThemeAction
   extends IPayloadedAction<"topbar-theme", TThemeType> {}
+
+export interface IMenuThemeAction
+  extends IPayloadedAction<"menu-theme", TThemeType> {}

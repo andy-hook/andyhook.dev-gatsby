@@ -197,7 +197,7 @@ export const darkGreyHSL: TGreys = {
   700: "240, 8%, 26%",
   800: "240, 8%, 30%",
   900: "240, 8%, 40%",
-  1000: "240, 8%, 65%",
+  1000: "240, 8%, 60%",
 }
 
 export const darkGrey = (value: TGreyNames) => createHsl(darkGreyHSL[value])

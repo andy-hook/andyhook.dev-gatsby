@@ -1,9 +1,9 @@
 import React, { memo, ReactNode } from "react"
-import { IStore } from "store"
+import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 import Home from "./home"
 import Theme from "@components/shared/theme/theme"
-import { TThemeType } from "theme"
+import { TThemeType } from "@custom-types/theme"
 
 interface Props {
   children: ReactNode

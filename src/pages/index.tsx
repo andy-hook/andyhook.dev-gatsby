@@ -90,6 +90,7 @@ const IndexPage: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
+
       <HomeContainer>
         <HeroContainer
           socialIconData={data.socialIconData.siteMetadata.social}

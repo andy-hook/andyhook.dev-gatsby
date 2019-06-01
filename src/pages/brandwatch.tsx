@@ -7,6 +7,7 @@ const BrandwatchProject: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
+
       <ProjectContainer projectName="brandwatch">hello</ProjectContainer>
     </>
   )
