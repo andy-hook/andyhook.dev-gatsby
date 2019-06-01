@@ -20,6 +20,7 @@ interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
   transitionState: ItransitionState
+  onAnimationComplete: () => void
 }
 
 type AllProps = Props & ContainerProps
@@ -30,6 +31,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     introTrigger = true,
     canPerformIntro = true,
     transitionState,
+    onAnimationComplete,
   }) => {
     const detailsRef = React.useRef() as Ref
     const socialRef = React.useRef() as Ref
@@ -53,6 +55,21 @@ const Hero: React.FunctionComponent<AllProps> = memo(
       const { transitionStatus, exit, entry } = transitionState
 
       switch (transitionStatus) {
+        // POP should always take precedence over any other status
+        case "POP":
+          runAnimation("pop")
+          onAnimationComplete()
+          break
+        case "entering":
+          switch (entry.state.animType) {
+            case "enter-from-project":
+              {
+                runAnimation("enterFromProject")
+                onAnimationComplete()
+              }
+              break
+          }
+          break
         case "exiting":
           switch (exit.state.animType) {
             case "leave-to-project":
@@ -62,19 +79,6 @@ const Hero: React.FunctionComponent<AllProps> = memo(
               break
           }
           break
-        case "entering":
-          switch (entry.state.animType) {
-            case "enter-from-project":
-              {
-                runAnimation("enterFromProject")
-              }
-              break
-          }
-          break
-        case "POP":
-          runAnimation("pop")
-
-          break
       }
     }, [transitionState.transitionStatus])
 
@@ -83,7 +87,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
       if (canPerformIntro) {
         animation.background.siteEntrance(backgroundRef)
       }
-    }, [])
+    }, [canPerformIntro])
 
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
