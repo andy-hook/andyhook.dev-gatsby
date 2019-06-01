@@ -6,7 +6,7 @@ import NextProject from "@components/project/next-project/next-project"
 import { TProjects, TProjectNames } from "@custom-types/model"
 import { ContainerProps } from "./project.container"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
-import { themeTone } from "@style/theme"
+import { themeTone, themeLayer } from "@style/theme"
 import Contents from "@components/project/contents/contents"
 
 interface Props {
@@ -23,7 +23,7 @@ const Project: React.FunctionComponent<AllProps> = ({
 }) => {
   return (
     <ContentScrollContainer>
-      <ProjectContainer>
+      <Container>
         <Header project={getCurrentProjectData(projectData, projectName)} />
         <TempIntroImage />
         <Contents
@@ -31,12 +31,13 @@ const Project: React.FunctionComponent<AllProps> = ({
         />
         {children}
         <NextProject project={getNextProjectData(projectData, projectName)} />
-      </ProjectContainer>
+      </Container>
     </ContentScrollContainer>
   )
 }
 
-const ProjectContainer = styled.article`
+const Container = styled.article`
+  background-color: ${themeLayer("lowest")};
   height: 3000px;
 `
 

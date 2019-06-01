@@ -25,10 +25,6 @@ const HomeContainer: React.FunctionComponent<AllProps> = memo(
   }
 )
 
-// const Container = styled.div`
-//   background-color: ${themeLayer("lowest")};
-// `
-
 const ConnectedHomeContainer = connect(mapStateToProps)(HomeContainer)
 
 export default ConnectedHomeContainer
