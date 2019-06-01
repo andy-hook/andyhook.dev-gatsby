@@ -8,7 +8,11 @@ describe("<Hero />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <Hero socialIconData={socialIcons} transitionState={transitionState} />
+      <Hero
+        socialIconData={socialIcons}
+        transitionState={transitionState}
+        onAnimationComplete={jest.fn()}
+      />
     )
     expect(tree).toMatchSnapshot()
   })

@@ -7,7 +7,11 @@ describe("<Topbar />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <Topbar onMenuOpen={jest.fn()} onMenuClose={jest.fn()} />
+      <Topbar
+        onMenuOpen={jest.fn()}
+        onMenuClose={jest.fn()}
+        theme="primary-theme"
+      />
     )
     expect(tree).toMatchSnapshot()
   })

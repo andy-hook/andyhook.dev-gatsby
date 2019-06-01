@@ -46,16 +46,11 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
   children,
   projectName,
   secondaryTheme = "light",
-  firstEntrance,
   setTopbarToSecondaryTheme,
   setMenuToPrimaryTheme,
 }) => {
   // Set initial theme state on first load for projects as they differ from home
   useEffect(() => {
-    if (firstEntrance) {
-      console.log("project first load, first entrance")
-    }
-
     setTopbarToSecondaryTheme()
     setMenuToPrimaryTheme()
   }, [])
