@@ -15,7 +15,6 @@ export interface IStore {
   primaryTheme: TThemeName
   secondaryTheme: TThemeName
   menuOpen: boolean
-  menuAnimated: boolean
   homeTheme: TThemeType
   topbarTheme: TThemeType
   menuTheme: TThemeType
@@ -34,9 +33,6 @@ export interface IFirstEntranceAction
 
 export interface IMenuOpenAction
   extends IPayloadedAction<"menu-open", boolean> {}
-
-export interface IMenuAnimatedAction
-  extends IPayloadedAction<"menu-animated", boolean> {}
 
 export interface IPrimaryThemeAction
   extends IPayloadedAction<"primary-theme", TThemeName> {}

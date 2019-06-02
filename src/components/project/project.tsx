@@ -45,8 +45,6 @@ const Project: React.FunctionComponent<AllProps> = ({
   useEffect(() => {
     const { transitionStatus, exit, entry } = transitionState
 
-    console.log("project", transitionState)
-
     switch (transitionStatus) {
       case "POP":
         runAnimation("pop")

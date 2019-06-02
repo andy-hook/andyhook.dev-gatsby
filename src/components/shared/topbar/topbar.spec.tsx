@@ -8,8 +8,8 @@ describe("<Topbar />", () => {
     const tree = shallowWithTheme(
       "dark",
       <Topbar
-        onMenuOpen={jest.fn()}
-        onMenuClose={jest.fn()}
+        openMenu={jest.fn()}
+        closeMenu={jest.fn()}
         theme="primary-theme"
       />
     )

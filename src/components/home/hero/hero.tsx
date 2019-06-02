@@ -58,7 +58,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
 
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
-      console.log(transitionState)
+
       switch (transitionStatus) {
         case "POP":
           runAnimation("pop")
