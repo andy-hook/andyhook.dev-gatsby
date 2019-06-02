@@ -43,6 +43,8 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
     setTopbarToPrimaryTheme,
     setMenuToSecondaryTheme,
   }) => {
+    const transitionState = useTransitionState()
+
     const switchThemeForElements = () => {
       setTopbarToPrimaryTheme()
       setMenuToSecondaryTheme()
@@ -53,8 +55,8 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
         socialIconData={socialIconData}
         introTrigger={!loaderVisible}
         canPerformIntro={firstEntrance}
-        transitionState={useTransitionState()}
-        onAnimationComplete={switchThemeForElements}
+        transitionState={transitionState}
+        switchThemeForElements={switchThemeForElements}
       />
     )
   }

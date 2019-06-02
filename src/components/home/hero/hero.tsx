@@ -20,7 +20,7 @@ interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
   transitionState: ItransitionState
-  onAnimationComplete: () => void
+  switchThemeForElements: () => void
 }
 
 type AllProps = Props & ContainerProps
@@ -31,7 +31,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
     introTrigger = true,
     canPerformIntro = true,
     transitionState,
-    onAnimationComplete,
+    switchThemeForElements,
   }) => {
     const detailsRef = React.useRef() as Ref
     const socialRef = React.useRef() as Ref
@@ -51,23 +51,31 @@ const Hero: React.FunctionComponent<AllProps> = memo(
       })
     }
 
+    // Switch themes in menu and topbar
+    useEffect(() => {
+      switchThemeForElements()
+    }, [])
+
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
 
       switch (transitionStatus) {
-        // POP should always take precedence over any other status
         case "POP":
           runAnimation("pop")
-          onAnimationComplete()
           break
         case "entering":
           switch (entry.state.animType) {
             case "enter-from-project":
               {
                 runAnimation("enterFromProject")
-                onAnimationComplete()
               }
               break
+
+            // This clause works around bug with pushstate and history navigation
+            // Hopefully this can be resolved and pop will run consistently
+            // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
+            default:
+              runAnimation("pop")
           }
           break
         case "exiting":
