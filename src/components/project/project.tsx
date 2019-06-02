@@ -68,7 +68,7 @@ const Project: React.FunctionComponent<AllProps> = ({
         break
       case "exiting":
         switch (exit.state.animType) {
-          case "leave-to-home":
+          case "exit-to-home":
             {
               runAnimation("exitToHome")
             }

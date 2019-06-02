@@ -80,7 +80,7 @@ const Hero: React.FunctionComponent<AllProps> = memo(
           break
         case "exiting":
           switch (exit.state.animType) {
-            case "leave-to-project":
+            case "exit-to-project":
               {
                 runAnimation("exitToProject")
               }

@@ -24,7 +24,7 @@ const Card: React.FunctionComponent<Props> = memo(({ label, desc, path }) => {
         // Length value should equal total running time of entire page leave animation
         length: 1,
         state: {
-          animType: "leave-to-project",
+          animType: "exit-to-project",
         },
       }}
     >
