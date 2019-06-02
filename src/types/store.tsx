@@ -15,7 +15,6 @@ export interface IStore {
   primaryTheme: TThemeName
   secondaryTheme: TThemeName
   menuOpen: boolean
-  testString: string | null
   homeTheme: TThemeType
   topbarTheme: TThemeType
   menuTheme: TThemeType
