@@ -2,7 +2,6 @@ import { createAction, createPayloadedAction } from "./action-helpers"
 import {
   IFlushTokenAction,
   ILoaderVisibleAction,
-  ISetTestStringAction,
   IFirstEntranceAction,
   IMenuOpenAction,
   IPrimaryThemeAction,
@@ -27,11 +26,6 @@ export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
 export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
   "menu-open"
 )
-
-export const setTestStringAction = createPayloadedAction<ISetTestStringAction>(
-  "set-test-string"
-)
-
 export const setPrimaryThemeAction = createPayloadedAction<IPrimaryThemeAction>(
   "primary-theme"
 )

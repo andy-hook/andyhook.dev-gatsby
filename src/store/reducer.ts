@@ -2,7 +2,6 @@ import { combineReducers } from "redux"
 import {
   IStore,
   ILoaderVisibleAction,
-  ISetTestStringAction,
   IFirstEntranceAction,
   IMenuOpenAction,
   IPrimaryThemeAction,
@@ -108,21 +107,8 @@ const menuTheme = (
   }
 }
 
-const testString = (
-  state: IStore["testString"] = null,
-  action: ISetTestStringAction
-): IStore["testString"] => {
-  switch (action.type) {
-    case "set-test-string":
-      return action.payload
-    default:
-      return state
-  }
-}
-
 const rootReducer = combineReducers<IStore>({
   loaderVisible,
-  testString,
   firstEntrance,
   menuOpen,
   primaryTheme,
