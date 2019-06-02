@@ -1,7 +1,6 @@
 import React, { memo, useEffect } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
-import { TweenMax, Expo } from "gsap"
 import { zIndex } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
@@ -19,6 +18,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/utils"
 import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
+import { animation } from "./menu.animation"
 
 interface Props {
   open?: boolean
@@ -33,33 +33,27 @@ type AllProps = Props & DataProps & DispatchProps
 
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, setMenuOpen }) => {
-    const containerRef = React.useRef() as Ref
+    const backboardRef = React.useRef() as Ref
+    const contentsRef = React.useRef() as Ref
 
-    const animateOpen = () => {
-      TweenMax.set(containerRef.current, {
-        opacity: 1,
-      })
-      TweenMax.to(containerRef.current, 0.5, {
-        ease: Expo.easeOut,
-        y: "0%",
-      })
+    const refs = {
+      backboard: backboardRef,
+      // contents: contentsRef,
     }
 
-    const animateClose = () => {
-      TweenMax.to(containerRef.current, 0.5, {
-        ease: Expo.easeOut,
-        y: "-100%",
-        clearProps: "transform opacity",
+    const runAnimation = (type: string) => {
+      keys(refs).map(item => {
+        animation[item][type](refs[item])
       })
     }
 
     const triggerAnimation = () => {
-      return open ? animateOpen() : animateClose()
+      return open ? runAnimation("open") : runAnimation("close")
     }
 
     useEffect(() => {
       triggerAnimation()
-    })
+    }, [open])
 
     const handleProjectClick = () => {
       if (open) {
@@ -90,7 +84,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       <>
         <MenuContainer open={open}>
           <Gutter>
-            <MenuContents>
+            <MenuContents ref={contentsRef}>
               {/* Projects */}
               <ProjectsContainer>
                 <ListTitle>
@@ -113,7 +107,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           </Gutter>
         </MenuContainer>
 
-        <MenuBackboard ref={containerRef} />
+        <MenuBackboard ref={backboardRef} />
       </>
     )
   }

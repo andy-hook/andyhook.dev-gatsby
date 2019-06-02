@@ -8,6 +8,7 @@ import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 import { TThemeType } from "theme"
 import Theme from "@components/shared/theme/theme"
+import { menuIsAnimating } from "@components/shared/menu/menu.animation"
 
 interface Props {
   open?: boolean
@@ -19,6 +20,9 @@ interface Props {
 const Topbar: React.FunctionComponent<Props> = memo(
   ({ open, openMenu, closeMenu, theme }) => {
     const toggleMenu = () => {
+      if (menuIsAnimating) {
+        return
+      }
       if (open) {
         closeMenu()
       } else {

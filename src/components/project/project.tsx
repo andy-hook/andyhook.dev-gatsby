@@ -117,7 +117,7 @@ const ProjectBackboard = styled.div`
 
   z-index: ${zIndex.low};
 
-  transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, -100%, 0);
   opacity: 0;
 `
 
