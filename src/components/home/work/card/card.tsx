@@ -11,15 +11,18 @@ interface Props {
 const Card: React.FunctionComponent<Props> = memo(({ label, desc, path }) => {
   return (
     <CardElement
-      to={path} // Entry animation to play on the brandwatch page
+      to={path} // Entry animation to play on the project page
       entry={{
         delay: 0,
-        length: 0,
+        length: 0.5,
+        state: {
+          animType: "enter-from-home",
+        },
       }}
       // The exit animation to play on this hero element
       exit={{
         // Length value should equal total running time of entire page leave animation
-        length: 0.75,
+        length: 1,
         state: {
           animType: "leave-to-project",
         },

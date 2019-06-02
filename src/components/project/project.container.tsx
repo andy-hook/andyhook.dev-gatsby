@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { Dispatch } from "redux"
 import { setTopbarThemeAction, setMenuThemeAction } from "@store/actions"
+import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 
 interface Data {
   projectsData: IProjectsData
@@ -54,6 +55,8 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
     setTopbarToSecondaryTheme()
     setMenuToPrimaryTheme()
   }, [])
+
+  const transitionState = useTransitionState()
 
   const data: Data = useStaticQuery(graphql`
     query {
@@ -141,6 +144,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
       <Project
         projectName={projectName}
         projectData={data.projectsData.siteMetadata.projects}
+        transitionState={transitionState}
       >
         {children}
       </Project>

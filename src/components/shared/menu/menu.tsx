@@ -88,7 +88,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <MenuBackboard ref={containerRef} />
         <MenuContainer open={open}>
           <Gutter>
             <MenuContents>
@@ -113,6 +112,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
             </MenuContents>
           </Gutter>
         </MenuContainer>
+
+        <MenuBackboard ref={containerRef} />
       </>
     )
   }

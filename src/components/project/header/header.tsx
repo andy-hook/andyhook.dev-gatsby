@@ -100,7 +100,6 @@ const DetailsContent = styled.h3`
 const Container = styled.header`
   padding-top: 13rem;
 
-  background-color: ${themeTone(100)};
   ${scaleBetween("padding-top", "13rem", "20rem", "bottomThumb", "bottomUltra")}
   ${scaleGreaterThan("padding-top", "20rem", "topUltra")};
 `

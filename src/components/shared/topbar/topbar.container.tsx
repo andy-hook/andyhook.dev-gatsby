@@ -35,8 +35,8 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
     return (
       <Topbar
         open={menuOpen}
-        onMenuOpen={openMenu}
-        onMenuClose={closeMenu}
+        openMenu={openMenu}
+        closeMenu={closeMenu}
         theme={theme}
       />
     )

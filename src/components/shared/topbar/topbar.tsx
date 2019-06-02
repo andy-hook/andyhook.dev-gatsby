@@ -11,20 +11,22 @@ import Theme from "@components/shared/theme/theme"
 
 interface Props {
   open?: boolean
-  onMenuOpen: () => void
-  onMenuClose: () => void
+  openMenu: () => void
+  closeMenu: () => void
   theme: TThemeType
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
-  ({ open, onMenuOpen, onMenuClose, theme }) => {
+  ({ open, openMenu, closeMenu, theme }) => {
     const toggleMenu = () => {
       if (open) {
-        onMenuClose()
+        closeMenu()
       } else {
-        onMenuOpen()
+        openMenu()
       }
     }
+
+    const logoReturnAnimation = open ? "enter-from-nav" : "enter-from-project"
 
     return (
       <Theme themeType={theme}>
@@ -35,7 +37,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
               delay: 0,
               length: 0,
               state: {
-                animType: "enter-from-project",
+                animType: logoReturnAnimation,
               },
             }}
             exit={{

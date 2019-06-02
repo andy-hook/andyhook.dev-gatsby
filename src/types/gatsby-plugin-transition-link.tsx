@@ -1,9 +1,15 @@
 // Quick, dirty and potted types for gatsby-plugin-transition-link
+type TAnimType =
+  | "enter-from-home"
+  | "leave-to-home"
+  | "enter-from-project"
+  | "leave-to-project"
+
 interface ItransitionProps {
   delay: number
   length: number
   state: {
-    animType?: string
+    animType?: TAnimType
   }
 }
 
