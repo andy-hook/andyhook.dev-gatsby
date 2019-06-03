@@ -6,7 +6,7 @@ import SEO from "@components/seo"
 const BrandwatchProject: React.FunctionComponent = () => {
   return (
     <>
-      <SEO />
+      <SEO bodyClasses="page-background-light" />
       <ProjectContainer projectName="sketchbook">hello</ProjectContainer>
     </>
   )

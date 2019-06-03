@@ -1,7 +1,7 @@
 import React from "react"
 import { Normalize } from "styled-normalize"
 import { createGlobalStyle } from "styled-components"
-import { zIndex } from "@style/variables"
+import { zIndex, darkGrey, lightGrey } from "@style/variables"
 
 const Global = createGlobalStyle`
 
@@ -62,7 +62,6 @@ const Global = createGlobalStyle`
 
   html {
     font-size: 100%;
-    background-color: #050506;
   }
   
   body,
@@ -117,7 +116,20 @@ const Global = createGlobalStyle`
   }
 `
 
-const TransitionLinkStyles = createGlobalStyle`
+const GlobalPageBackground = createGlobalStyle`
+
+  /* We use global styles to set body background-color per page due to server side rendering */
+  /* We want to avoid the tiny flicker that would occur if doing this dynamically on the client */
+  .page-background-dark {
+    background-color: ${darkGrey(100)}
+  }
+
+  .page-background-light {
+    background-color: ${lightGrey(100)}
+  }
+`
+
+const GlobalTransitionLink = createGlobalStyle`
 
   /* transition-portal doesn't give any granular control over the z-index level so it's overwritten here */
   /* position: fixed is also set on the portal which messes up the width of the wrapped page */
@@ -140,7 +152,8 @@ const GlobalStyle: React.FunctionComponent = () => {
     <>
       <Normalize />
       <Global />
-      <TransitionLinkStyles />
+      <GlobalPageBackground />
+      <GlobalTransitionLink />
     </>
   )
 }

@@ -12,6 +12,7 @@ import Helmet from "react-helmet"
 interface Props {
   description?: string
   lang?: string
+  bodyClasses?: string
   keywords?: string[]
   title?: string
   twitterImage?: string
@@ -21,6 +22,7 @@ interface Props {
 const SEO = ({
   description = ``,
   lang = `en`,
+  bodyClasses = ``,
   keywords = [
     `User interface`,
     `Web developer`,
@@ -57,6 +59,9 @@ const SEO = ({
     <Helmet
       htmlAttributes={{
         lang,
+      }}
+      bodyAttributes={{
+        class: bodyClasses,
       }}
       title={title}
       defaultTitle={`${site.siteMetadata.title}`}

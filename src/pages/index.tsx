@@ -89,7 +89,7 @@ const IndexPage: React.FunctionComponent = () => {
 
   return (
     <>
-      <SEO />
+      <SEO bodyClasses="page-background-dark" />
 
       <HomeContainer>
         <HeroContainer
