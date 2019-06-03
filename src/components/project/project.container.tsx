@@ -25,8 +25,12 @@ interface DispatchProps {
   setMenuToPrimaryTheme: () => void
 }
 
-const mapStateToProps = ({ secondaryTheme, firstEntrance }: IStore) => {
-  return { secondaryTheme, firstEntrance }
+const mapStateToProps = ({
+  secondaryTheme,
+  firstEntrance,
+  loaderVisible,
+}: IStore) => {
+  return { secondaryTheme, firstEntrance, loaderVisible }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -50,6 +54,8 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
   secondaryTheme = "light",
   setTopbarToSecondaryTheme,
   setMenuToPrimaryTheme,
+  firstEntrance,
+  loaderVisible,
 }) => {
   // Set initial theme state on first load for projects as they differ from home
   useEffect(() => {
@@ -147,6 +153,8 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
           projectName={projectName}
           projectData={data.projectsData.siteMetadata.projects}
           transitionState={transitionState}
+          canPerformIntro={firstEntrance}
+          introTrigger={!loaderVisible}
         >
           {children}
         </Project>

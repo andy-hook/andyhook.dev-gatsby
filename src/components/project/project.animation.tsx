@@ -15,36 +15,37 @@ const siteEntranceDelay = 0.65
 export const animation: Animation = {
   backboard: {
     siteEntrance: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          scale: 1.5,
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-          delay: siteEntranceDelay,
-        }
-      )
-    },
-
-    enterFromHome: ref => {
       TweenMax.set(ref.current, {
         opacity: 1,
-      })
-      TweenMax.to(ref.current, 0.5, {
-        ease: Expo.easeOut,
         x: "0%",
       })
     },
+    enterFromHome: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.5,
+        {
+          opacity: 1,
+        },
+        {
+          ease: Expo.easeOut,
+          x: "0%",
+        }
+      )
+    },
     exitToHome: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        ease: Expo.easeOut,
-        x: "100%",
-      })
+      TweenMax.fromTo(
+        ref.current,
+        0.5,
+        {
+          opacity: 1,
+          x: "0%",
+        },
+        {
+          ease: Expo.easeOut,
+          x: "100%",
+        }
+      )
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -66,15 +67,12 @@ export const animation: Animation = {
     siteEntrance: ref => {
       TweenMax.fromTo(
         ref.current,
-        0.75,
+        2,
         {
-          scale: 1.5,
+          opacity: 0,
         },
         {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
           opacity: 1,
-          clearProps: "transform",
           delay: siteEntranceDelay,
         }
       )

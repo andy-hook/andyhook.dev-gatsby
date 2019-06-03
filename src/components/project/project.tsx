@@ -18,6 +18,8 @@ interface Props {
   projectData: TProjects
   projectName: TProjectNames
   transitionState: ItransitionState
+  canPerformIntro?: boolean
+  introTrigger?: boolean
 }
 
 type AllProps = Props & ContainerProps
@@ -27,6 +29,8 @@ const Project: React.FunctionComponent<AllProps> = ({
   projectName,
   projectData,
   transitionState,
+  canPerformIntro,
+  introTrigger,
 }) => {
   const backboardRef = React.useRef() as Ref
   const contentRef = React.useRef() as Ref
@@ -41,6 +45,21 @@ const Project: React.FunctionComponent<AllProps> = ({
       animation[item][type](refs[item])
     })
   }
+
+  // The backboard needs to be positioned into view on the first site entrance
+  // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
+  useEffect(() => {
+    if (canPerformIntro) {
+      animation.backboard.siteEntrance(backboardRef)
+    }
+  }, [canPerformIntro])
+
+  // Only trigger site entrance animation when requested by loader
+  useEffect(() => {
+    if (introTrigger && canPerformIntro) {
+      runAnimation("siteEntrance")
+    }
+  }, [introTrigger])
 
   useEffect(() => {
     const { transitionStatus } = transitionState
