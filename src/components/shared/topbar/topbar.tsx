@@ -38,17 +38,15 @@ const Topbar: React.FunctionComponent<Props> = memo(
           <LogoLink
             to="/"
             entry={{
-              delay: 0,
-              length: 0,
+              length: 0.5,
               state: {
                 animType: logoReturnAnimation,
               },
             }}
             exit={{
-              delay: 0,
-              length: 0,
+              length: 0.5,
               state: {
-                animType: "exit animation",
+                animType: "exit-to-home",
               },
             }}
           >

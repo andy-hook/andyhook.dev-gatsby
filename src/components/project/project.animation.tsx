@@ -37,20 +37,14 @@ export const animation: Animation = {
       })
       TweenMax.to(ref.current, 0.5, {
         ease: Expo.easeOut,
-        y: "0%",
+        x: "0%",
       })
     },
     exitToHome: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        ease: Expo.easeOut,
+        x: "100%",
+      })
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -92,16 +86,9 @@ export const animation: Animation = {
       })
     },
     exitToHome: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.set(ref.current, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.fromTo(

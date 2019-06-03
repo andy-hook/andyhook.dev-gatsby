@@ -43,14 +43,16 @@ const Project: React.FunctionComponent<AllProps> = ({
   }
 
   useEffect(() => {
-    const { transitionStatus, exit, entry } = transitionState
+    const { transitionStatus } = transitionState
+    const exitType = transitionState.exit.state.animType
+    const entryType = transitionState.entry.state.animType
 
     switch (transitionStatus) {
       case "POP":
         runAnimation("pop")
         break
       case "entering":
-        switch (entry.state.animType) {
+        switch (entryType) {
           case "enter-from-home":
             {
               runAnimation("enterFromHome")
@@ -65,7 +67,7 @@ const Project: React.FunctionComponent<AllProps> = ({
         }
         break
       case "exiting":
-        switch (exit.state.animType) {
+        switch (exitType) {
           case "exit-to-home":
             {
               runAnimation("exitToHome")
@@ -117,7 +119,7 @@ const ProjectBackboard = styled.div`
 
   z-index: ${zIndex.low};
 
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(100%, 0, 0);
   opacity: 0;
 `
 

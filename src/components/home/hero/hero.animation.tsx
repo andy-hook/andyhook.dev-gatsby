@@ -43,16 +43,9 @@ export const animation: Animation = {
       )
     },
     exitToProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -100,16 +93,9 @@ export const animation: Animation = {
       )
     },
     exitToProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -157,16 +143,9 @@ export const animation: Animation = {
       )
     },
     exitToProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -214,16 +193,9 @@ export const animation: Animation = {
       )
     },
     exitToProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -260,16 +232,9 @@ export const animation: Animation = {
       )
     },
     exitToProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 0.5, {
+        opacity: 0,
+      })
     },
     pop: ref => {
       TweenMax.to(ref.current, 0.9, {

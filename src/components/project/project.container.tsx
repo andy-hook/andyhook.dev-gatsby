@@ -9,6 +9,7 @@ import { themes } from "@style/theme"
 import { Dispatch } from "redux"
 import { setTopbarThemeAction, setMenuThemeAction } from "@store/actions"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import { TransitionPortal } from "gatsby-plugin-transition-link"
 
 interface Data {
   projectsData: IProjectsData
@@ -141,13 +142,15 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
 
   return (
     <ThemeProvider theme={themes[secondaryTheme]}>
-      <Project
-        projectName={projectName}
-        projectData={data.projectsData.siteMetadata.projects}
-        transitionState={transitionState}
-      >
-        {children}
-      </Project>
+      <TransitionPortal>
+        <Project
+          projectName={projectName}
+          projectData={data.projectsData.siteMetadata.projects}
+          transitionState={transitionState}
+        >
+          {children}
+        </Project>
+      </TransitionPortal>
     </ThemeProvider>
   )
 }

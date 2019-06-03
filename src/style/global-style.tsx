@@ -1,6 +1,7 @@
 import { Normalize } from "styled-normalize"
 import { createGlobalStyle } from "styled-components"
 import React from "react"
+import { zIndex } from "./variables"
 
 const Global = createGlobalStyle`
 
@@ -116,11 +117,30 @@ const Global = createGlobalStyle`
   }
 `
 
+const TransitionLinkStyles = createGlobalStyle`
+
+  /* transition-portal doesn't give any granular control over the z-index level so it's overwritten here */
+  /* position: fixed is also set on the portal which messes up the width of the wrapped page */
+  .gatsby-plugin-transition-link-portal {
+    width: 100%;
+    z-index: 10 !important;
+  }
+
+  /* using transition-portal messes with the styling and pages dissappear due to a negative margin being set on the element */
+  .tl-wrapper + .tl-wrapper {
+    margin: 0 !important;
+  }
+`
+
+/* Images
+  ------------------------------------------------- */
+
 const GlobalStyle: React.FunctionComponent = () => {
   return (
     <>
       <Normalize />
       <Global />
+      <TransitionLinkStyles />
     </>
   )
 }
