@@ -1,6 +1,6 @@
 import React, { memo, ReactNode } from "react"
 import styled from "styled-components"
-import { mq } from "@style/utils"
+import { mq } from "@style/media-queries"
 
 interface Props {
   children: ReactNode

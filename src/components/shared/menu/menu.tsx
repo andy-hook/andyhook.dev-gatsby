@@ -15,7 +15,7 @@ import {
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, TProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import { mq, scaleBetween } from "@style/utils"
+import { mq, scaleBetween } from "@style/media-queries"
 import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
 import { animation } from "./menu.animation"

@@ -12,7 +12,7 @@ import {
   typeSizeDisplayLg,
 } from "@style/typography"
 import { themeTone } from "@style/theme"
-import { scaleBetween, scaleGreaterThan, mq } from "@style/utils"
+import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
 
 interface Props {
   project: IProjectItem

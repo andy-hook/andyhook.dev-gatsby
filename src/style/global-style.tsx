@@ -1,7 +1,7 @@
+import React from "react"
 import { Normalize } from "styled-normalize"
 import { createGlobalStyle } from "styled-components"
-import React from "react"
-import { zIndex } from "./variables"
+import { zIndex } from "@style/variables"
 
 const Global = createGlobalStyle`
 
@@ -123,7 +123,7 @@ const TransitionLinkStyles = createGlobalStyle`
   /* position: fixed is also set on the portal which messes up the width of the wrapped page */
   .gatsby-plugin-transition-link-portal {
     width: 100%;
-    z-index: 10 !important;
+    z-index: ${zIndex.low} !important;
   }
 
   /* using transition-portal messes with the styling and pages dissappear due to a negative margin being set on the element */

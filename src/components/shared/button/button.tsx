@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { scaleBetween, scaleGreaterThan } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import {
   typeScale,
   fontWeight,

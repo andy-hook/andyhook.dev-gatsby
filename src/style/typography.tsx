@@ -7,7 +7,7 @@ import {
   typeScale,
 } from "@style/variables"
 import { themeText } from "@style/theme"
-import { scaleBetween, scaleGreaterThan } from "./utils"
+import { scaleBetween, scaleGreaterThan } from "./media-queries"
 
 /* Re-composibles
   ------------------------------------------------- */

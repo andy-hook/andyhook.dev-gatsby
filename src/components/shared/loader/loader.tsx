@@ -2,7 +2,7 @@ import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
 import { Expo, TimelineMax, Elastic } from "gsap"
-import { scaleBetween, scaleGreaterThan } from "@style/utils"
+import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { zIndex } from "@style/variables"
 
 interface Props {

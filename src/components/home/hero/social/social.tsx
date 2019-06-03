@@ -4,7 +4,7 @@ import { rem } from "polished"
 import { ISocialMeta } from "@custom-types/model"
 import { keys } from "@custom-types/utils"
 import Icon from "@components/shared/icon/icon"
-import { mq } from "@style/utils"
+import { mq } from "@style/media-queries"
 import { themeText, isTheme } from "@style/theme"
 import classNames from "classnames"
 import {

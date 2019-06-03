@@ -1,7 +1,7 @@
 import React, { memo, ReactNode } from "react"
 import styled, { css } from "styled-components"
 import { rem } from "polished"
-import { scaleGreaterThan } from "@style/utils"
+import { scaleGreaterThan } from "@style/media-queries"
 
 interface Props {
   size?: "small" | "medium" | "large"
