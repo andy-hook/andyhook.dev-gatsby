@@ -1,18 +1,22 @@
 import { TweenMax, Elastic, Expo } from "gsap"
 import { Ref } from "@custom-types/ref"
+import { keys } from "@custom-types/utils"
 
-interface Animation {
-  [key: string]: {
-    [key: string]: (ref: Ref) => void
-    siteEntrance: (ref: Ref) => void
-    enterFromHome: (ref: Ref) => void
-    exitToHome: (ref: Ref) => void
-  }
+export type TAnimationStateNames =
+  | "siteEntrance"
+  | "enterFromHome"
+  | "exitToHome"
+  | "pop"
+
+type TAnimationStates = { [key in TAnimationStateNames]?: (ref: Ref) => void }
+
+interface TAnimation {
+  [key: string]: TAnimationStates
 }
 
 const siteEntranceDelay = 0.65
 
-export const animation: Animation = {
+export const animation: TAnimation = {
   backboard: {
     siteEntrance: ref => {
       TweenMax.set(ref.current, {
@@ -104,4 +108,16 @@ export const animation: Animation = {
       )
     },
   },
+}
+
+export const runAnimation = (
+  refs: { [key: string]: Ref },
+  type: TAnimationStateNames
+) => {
+  keys(refs).map(item => {
+    const animationToRun = animation[item][type]
+    if (animationToRun) {
+      animationToRun(refs[item])
+    }
+  })
 }

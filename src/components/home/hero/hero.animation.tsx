@@ -1,18 +1,22 @@
 import { TweenMax, Elastic } from "gsap"
 import { Ref } from "@custom-types/ref"
+import { keys } from "@custom-types/utils"
 
-interface Animation {
-  [key: string]: {
-    [key: string]: (ref: Ref) => void
-    siteEntrance: (ref: Ref) => void
-    enterFromProject: (ref: Ref) => void
-    exitToProject: (ref: Ref) => void
-  }
+export type TAnimationStateNames =
+  | "siteEntrance"
+  | "enterFromProject"
+  | "exitToProject"
+  | "pop"
+
+type TAnimationStates = { [key in TAnimationStateNames]?: (ref: Ref) => void }
+
+interface TAnimation {
+  [key: string]: TAnimationStates
 }
 
 const siteEntranceDelay = 0.65
 
-export const animation: Animation = {
+export const animation: TAnimation = {
   details: {
     siteEntrance: ref => {
       TweenMax.fromTo(
@@ -31,20 +35,8 @@ export const animation: Animation = {
       )
     },
     enterFromProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-    },
-    exitToProject: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        opacity: 0,
+      TweenMax.set(ref.current, {
+        opacity: 1,
       })
     },
     pop: ref => {
@@ -81,20 +73,8 @@ export const animation: Animation = {
       )
     },
     enterFromProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-    },
-    exitToProject: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        opacity: 0,
+      TweenMax.set(ref.current, {
+        opacity: 1,
       })
     },
     pop: ref => {
@@ -131,20 +111,8 @@ export const animation: Animation = {
       )
     },
     enterFromProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-    },
-    exitToProject: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        opacity: 0,
+      TweenMax.set(ref.current, {
+        opacity: 1,
       })
     },
     pop: ref => {
@@ -181,20 +149,8 @@ export const animation: Animation = {
       )
     },
     enterFromProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-    },
-    exitToProject: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        opacity: 0,
+      TweenMax.set(ref.current, {
+        opacity: 1,
       })
     },
     pop: ref => {
@@ -220,20 +176,8 @@ export const animation: Animation = {
       })
     },
     enterFromProject: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-    },
-    exitToProject: ref => {
-      TweenMax.to(ref.current, 0.5, {
-        opacity: 0,
+      TweenMax.set(ref.current, {
+        opacity: 1,
       })
     },
     pop: ref => {
@@ -242,4 +186,16 @@ export const animation: Animation = {
       })
     },
   },
+}
+
+export const runAnimation = (
+  refs: { [key: string]: Ref },
+  type: TAnimationStateNames
+) => {
+  keys(refs).map(item => {
+    const animationToRun = animation[item][type]
+    if (animationToRun) {
+      animationToRun(refs[item])
+    }
+  })
 }

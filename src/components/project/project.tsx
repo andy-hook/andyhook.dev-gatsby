@@ -11,8 +11,7 @@ import Contents from "@components/project/contents/contents"
 import { zIndex } from "@style/variables"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
-import { keys } from "@custom-types/utils"
-import { animation } from "./project.animation"
+import { animation, runAnimation } from "./project.animation"
 
 interface Props {
   projectData: TProjects
@@ -40,24 +39,20 @@ const Project: React.FunctionComponent<AllProps> = ({
     content: contentRef,
   }
 
-  const runAnimation = (type: string) => {
-    keys(refs).map(item => {
-      animation[item][type](refs[item])
-    })
-  }
-
   // The backboard needs to be positioned into view on the first site entrance
   // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
   useEffect(() => {
-    if (canPerformIntro) {
-      animation.backboard.siteEntrance(backboardRef)
+    const runBackboardEntranceAnimation = animation.backboard.siteEntrance
+
+    if (canPerformIntro && runBackboardEntranceAnimation) {
+      runBackboardEntranceAnimation(backboardRef)
     }
   }, [canPerformIntro])
 
   // Only trigger site entrance animation when requested by loader
   useEffect(() => {
     if (introTrigger && canPerformIntro) {
-      runAnimation("siteEntrance")
+      runAnimation(refs, "siteEntrance")
     }
   }, [introTrigger])
 
@@ -68,13 +63,13 @@ const Project: React.FunctionComponent<AllProps> = ({
 
     switch (transitionStatus) {
       case "POP":
-        runAnimation("pop")
+        runAnimation(refs, "pop")
         break
       case "entering":
         switch (entryType) {
           case "enter-from-home":
             {
-              runAnimation("enterFromHome")
+              runAnimation(refs, "enterFromHome")
             }
             break
 
@@ -82,14 +77,14 @@ const Project: React.FunctionComponent<AllProps> = ({
           // Hopefully this can be resolved and pop will run consistently
           // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
           default:
-            runAnimation("pop")
+            runAnimation(refs, "pop")
         }
         break
       case "exiting":
         switch (exitType) {
           case "exit-to-home":
             {
-              runAnimation("exitToHome")
+              runAnimation(refs, "exitToHome")
             }
             break
         }

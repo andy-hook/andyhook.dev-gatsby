@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import Home from "./home"
 import Theme from "@components/shared/theme/theme"
 import { TThemeType } from "@custom-types/theme"
+import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 
 interface Props {
   children: ReactNode
@@ -18,10 +19,11 @@ type AllProps = Props & Partial<IStore>
 const HomeContainer: React.FunctionComponent<AllProps> = memo(
   ({ children, homeTheme }) => {
     const theme = homeTheme as TThemeType
+    const transitionState = useTransitionState()
 
     return (
       <Theme themeType={theme}>
-        <Home>{children}</Home>
+        <Home transitionState={transitionState}>{children}</Home>
       </Theme>
     )
   }

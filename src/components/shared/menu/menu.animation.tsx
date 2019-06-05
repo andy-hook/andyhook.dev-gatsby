@@ -1,17 +1,18 @@
 import { TweenMax, Expo } from "gsap"
 import { Ref } from "@custom-types/ref"
+import { keys } from "@custom-types/utils"
 
-interface Animation {
-  [key: string]: {
-    [key: string]: (ref: Ref) => void
-    open: (ref: Ref) => void
-    close: (ref: Ref) => void
-  }
+export type TAnimationStateNames = "open" | "close"
+
+type TAnimationStates = { [key in TAnimationStateNames]: (ref: Ref) => void }
+
+interface TAnimation {
+  [key: string]: TAnimationStates
 }
 
 export let menuIsAnimating = false
 
-export const animation: Animation = {
+export const animation: TAnimation = {
   backboard: {
     open: ref => {
       menuIsAnimating = true
@@ -53,4 +54,16 @@ export const animation: Animation = {
       )
     },
   },
+}
+
+export const runAnimation = (
+  refs: { [key: string]: Ref },
+  type: TAnimationStateNames
+) => {
+  keys(refs).map(item => {
+    const animationToRun = animation[item][type]
+    if (animationToRun) {
+      animationToRun(refs[item])
+    }
+  })
 }

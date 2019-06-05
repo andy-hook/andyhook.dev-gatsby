@@ -18,7 +18,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/media-queries"
 import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
-import { animation } from "./menu.animation"
+import { runAnimation } from "./menu.animation"
 
 interface Props {
   open?: boolean
@@ -41,18 +41,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       // contents: contentsRef,
     }
 
-    const runAnimation = (type: string) => {
-      keys(refs).map(item => {
-        animation[item][type](refs[item])
-      })
-    }
-
-    const triggerAnimation = () => {
-      return open ? runAnimation("open") : runAnimation("close")
-    }
-
     useEffect(() => {
-      triggerAnimation()
+      open ? runAnimation(refs, "open") : runAnimation(refs, "close")
     }, [open])
 
     const handleProjectClick = () => {

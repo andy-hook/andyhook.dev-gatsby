@@ -5,7 +5,7 @@ import Social from "./social/social"
 import Details from "./details/details"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { typeScale, zIndex } from "@style/variables"
-import { animation } from "./hero.animation"
+import { runAnimation, animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
 import date from "./date/date"
@@ -13,7 +13,6 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
-import { keys } from "@custom-types/utils"
 import { ISocialMeta } from "model"
 
 interface Props {
@@ -44,12 +43,6 @@ const Hero: React.FunctionComponent<Props> = memo(
       background: backgroundRef,
     }
 
-    const runAnimation = (type: string) => {
-      keys(refs).map(item => {
-        animation[item][type](refs[item])
-      })
-    }
-
     // Switch themes in menu and topbar
     useEffect(() => {
       switchThemeForElements()
@@ -60,13 +53,13 @@ const Hero: React.FunctionComponent<Props> = memo(
 
       switch (transitionStatus) {
         case "POP":
-          runAnimation("pop")
+          runAnimation(refs, "pop")
           break
         case "entering":
           switch (entry.state.animType) {
             case "enter-from-project":
               {
-                runAnimation("enterFromProject")
+                runAnimation(refs, "enterFromProject")
               }
               break
 
@@ -74,14 +67,14 @@ const Hero: React.FunctionComponent<Props> = memo(
             // Hopefully this can be resolved and pop will run consistently
             // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
             default:
-              runAnimation("pop")
+              runAnimation(refs, "pop")
           }
           break
         case "exiting":
           switch (exit.state.animType) {
             case "exit-to-project":
               {
-                runAnimation("exitToProject")
+                runAnimation(refs, "exitToProject")
               }
               break
           }
@@ -91,15 +84,17 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     // Perform this immediatley without waiting for a trigger
     useEffect(() => {
-      if (canPerformIntro) {
-        animation.background.siteEntrance(backgroundRef)
+      const backgroundEntranceAnimation = animation.background.siteEntrance
+
+      if (canPerformIntro && backgroundEntranceAnimation) {
+        backgroundEntranceAnimation(backgroundRef)
       }
     }, [canPerformIntro])
 
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (introTrigger && canPerformIntro) {
-        runAnimation("siteEntrance")
+        runAnimation(refs, "siteEntrance")
       }
     }, [introTrigger])
 
