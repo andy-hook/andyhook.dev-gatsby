@@ -2,7 +2,6 @@ import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import { rem } from "polished"
 import Social from "./social/social"
-import { ContainerProps } from "./hero.container"
 import Details from "./details/details"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { typeScale, zIndex } from "@style/variables"
@@ -15,17 +14,17 @@ import Gutter from "@components/shared/gutter/gutter"
 import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
 import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 import { keys } from "@custom-types/utils"
+import { ISocialMeta } from "model"
 
 interface Props {
   introTrigger?: boolean
   canPerformIntro?: boolean
+  socialIconData: ISocialMeta
   transitionState: ItransitionState
   switchThemeForElements: () => void
 }
 
-type AllProps = Props & ContainerProps
-
-const Hero: React.FunctionComponent<AllProps> = memo(
+const Hero: React.FunctionComponent<Props> = memo(
   ({
     socialIconData,
     introTrigger = true,

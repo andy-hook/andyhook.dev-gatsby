@@ -1,14 +1,15 @@
 import React, { memo } from "react"
 import Hero from "./hero"
-import { ISocialMeta } from "@custom-types/model"
+import { IMetaData } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { Dispatch } from "redux"
 import { setTopbarThemeAction, setMenuThemeAction } from "@store/actions"
+import { useStaticQuery, graphql } from "gatsby"
 
-interface Props {
-  socialIconData: ISocialMeta
+interface Data {
+  socialIconData: IMetaData
 }
 
 interface DispatchProps {
@@ -16,7 +17,7 @@ interface DispatchProps {
   setMenuToSecondaryTheme: () => void
 }
 
-export type ContainerProps = Props & Partial<IStore>
+export type ContainerProps = Partial<IStore>
 
 type AllProps = ContainerProps & DispatchProps
 
@@ -37,13 +38,53 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 
 const HeroContainer: React.FunctionComponent<AllProps> = memo(
   ({
-    socialIconData,
     loaderVisible,
     firstEntrance,
     setTopbarToPrimaryTheme,
     setMenuToSecondaryTheme,
   }) => {
     const transitionState = useTransitionState()
+
+    const data: Data = useStaticQuery(graphql`
+      query {
+        socialIconData: site {
+          siteMetadata {
+            social {
+              email {
+                url
+                label
+                icon
+              }
+              twitter {
+                url
+                label
+                icon
+              }
+              instagram {
+                url
+                label
+                icon
+              }
+              dribbble {
+                url
+                label
+                icon
+              }
+              github {
+                url
+                label
+                icon
+              }
+              linkedin {
+                url
+                label
+                icon
+              }
+            }
+          }
+        }
+      }
+    `)
 
     const switchThemeForElements = () => {
       setTopbarToPrimaryTheme()
@@ -52,7 +93,7 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
 
     return (
       <Hero
-        socialIconData={socialIconData}
+        socialIconData={data.socialIconData.siteMetadata.social}
         introTrigger={!loaderVisible}
         canPerformIntro={firstEntrance}
         transitionState={transitionState}
