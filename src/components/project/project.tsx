@@ -72,7 +72,11 @@ const Project: React.FunctionComponent<AllProps> = ({
               runAnimation(refs, "enterFromHome")
             }
             break
-
+          case "enter-from-nav":
+            {
+              runAnimation(refs, "enterFromNav")
+            }
+            break
           // This clause works around bug with pushstate and history navigation
           // Hopefully this can be resolved and pop will run consistently
           // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94

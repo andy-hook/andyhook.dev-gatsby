@@ -53,7 +53,16 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     const projectItems = keys(projects).map((key, index) => (
       <ProjectListItem key={index}>
-        <ProjectLink onClick={handleProjectClick} to={projects[key].path}>
+        <ProjectLink
+          onClick={handleProjectClick}
+          to={projects[key].path}
+          entry={{
+            length: 0.5,
+            state: {
+              animType: "enter-from-nav",
+            },
+          }}
+        >
           {projects[key].label}
         </ProjectLink>
       </ProjectListItem>

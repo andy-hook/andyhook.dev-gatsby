@@ -1,10 +1,11 @@
-import { TweenMax, Elastic, Expo } from "gsap"
+import { TweenMax, Expo } from "gsap"
 import { Ref } from "@custom-types/ref"
 import { keys } from "@custom-types/utils"
 
 export type TAnimationStateNames =
   | "siteEntrance"
   | "enterFromHome"
+  | "enterFromNav"
   | "exitToHome"
   | "pop"
 
@@ -37,6 +38,12 @@ export const animation: TAnimation = {
         }
       )
     },
+    enterFromNav: ref => {
+      TweenMax.set(ref.current, {
+        opacity: 1,
+        x: "0%",
+      })
+    },
     exitToHome: ref => {
       TweenMax.fromTo(
         ref.current,
@@ -52,19 +59,10 @@ export const animation: TAnimation = {
       )
     },
     pop: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          scale: 1.5,
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
+      TweenMax.set(ref.current, {
+        opacity: 1,
+        x: "0%",
+      })
     },
   },
   content: {
@@ -78,6 +76,21 @@ export const animation: TAnimation = {
         {
           opacity: 1,
           delay: siteEntranceDelay,
+        }
+      )
+    },
+    enterFromNav: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.75,
+        {
+          opacity: 0,
+          y: "-10%",
+        },
+        {
+          opacity: 1,
+          y: "0%",
+          clearProps: "transform",
         }
       )
     },
@@ -95,15 +108,12 @@ export const animation: TAnimation = {
     pop: ref => {
       TweenMax.fromTo(
         ref.current,
-        0.75,
+        2,
         {
-          scale: 1.5,
+          opacity: 0,
         },
         {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
           opacity: 1,
-          clearProps: "transform",
         }
       )
     },

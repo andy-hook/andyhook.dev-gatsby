@@ -3,6 +3,7 @@ type TAnimType =
   | "enter-from-home"
   | "exit-to-home"
   | "enter-from-project"
+  | "enter-from-nav"
   | "exit-to-project"
 
 interface ItransitionProps {
