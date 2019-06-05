@@ -4,8 +4,7 @@ import styled from "styled-components"
 import { themeLayer, themeTone } from "@style/theme"
 import { zIndex } from "@style/variables"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
-import { keys } from "@custom-types/utils"
-import { animation, TAnimationStateNames } from "./home.animation"
+import { runAnimation } from "./home.animation"
 import { Ref } from "@custom-types/ref"
 
 interface Props {
@@ -21,12 +20,6 @@ const Home: React.FunctionComponent<Props> = memo(
       changeAnimationScrim: animationScrim,
     }
 
-    const runAnimation = (type: TAnimationStateNames) => {
-      keys(refs).map(item => {
-        animation[item][type](refs[item])
-      })
-    }
-
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
 
@@ -35,7 +28,7 @@ const Home: React.FunctionComponent<Props> = memo(
           switch (entry.state.animType) {
             case "enter-from-project":
               {
-                runAnimation("enterFromProject")
+                runAnimation(refs, "enterFromProject")
               }
               break
           }
@@ -44,7 +37,7 @@ const Home: React.FunctionComponent<Props> = memo(
           switch (exit.state.animType) {
             case "exit-to-project":
               {
-                runAnimation("exitToProject")
+                runAnimation(refs, "exitToProject")
               }
               break
           }

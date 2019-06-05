@@ -1,5 +1,6 @@
 import { TweenMax } from "gsap"
 import { Ref } from "@custom-types/ref"
+import { keys } from "@custom-types/utils"
 
 export type TAnimationStateNames = "enterFromProject" | "exitToProject"
 
@@ -36,4 +37,16 @@ export const animation: TAnimation = {
       )
     },
   },
+}
+
+export const runAnimation = (
+  refs: { [key: string]: Ref },
+  type: TAnimationStateNames
+) => {
+  keys(refs).map(item => {
+    const animationToRun = animation[item][type]
+    if (animationToRun) {
+      animationToRun(refs[item])
+    }
+  })
 }
