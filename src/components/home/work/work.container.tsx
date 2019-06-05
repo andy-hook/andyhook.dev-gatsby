@@ -1,17 +1,50 @@
 import React, { memo } from "react"
 import Work from "./work"
-import { TProjects } from "@custom-types/model"
+import { IProjectsData } from "@custom-types/model"
+import { useStaticQuery, graphql } from "gatsby"
 
-interface Props {
-  projectsData: TProjects
+interface Data {
+  projectsData: IProjectsData
 }
 
-export type ContainerProps = Props
+const WorkContainer: React.FunctionComponent = memo(() => {
+  const data: Data = useStaticQuery(graphql`
+    query {
+      projectsData: site {
+        siteMetadata {
+          projects {
+            bright {
+              label
+              desc
+              path
+            }
+            brandwatch {
+              label
+              desc
+              path
+            }
+            monster {
+              label
+              desc
+              path
+            }
+            jamieson {
+              label
+              desc
+              path
+            }
+            sketchbook {
+              label
+              desc
+              path
+            }
+          }
+        }
+      }
+    }
+  `)
 
-const WorkContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ projectsData }) => {
-    return <Work projectsData={projectsData} />
-  }
-)
+  return <Work projectsData={data.projectsData.siteMetadata.projects} />
+})
 
 export default WorkContainer

@@ -52,38 +52,6 @@ const IndexPage: React.FunctionComponent = () => {
           }
         }
       }
-
-      projectsData: site {
-        siteMetadata {
-          projects {
-            bright {
-              label
-              desc
-              path
-            }
-            brandwatch {
-              label
-              desc
-              path
-            }
-            monster {
-              label
-              desc
-              path
-            }
-            jamieson {
-              label
-              desc
-              path
-            }
-            sketchbook {
-              label
-              desc
-              path
-            }
-          }
-        }
-      }
     }
   `)
 
@@ -95,7 +63,7 @@ const IndexPage: React.FunctionComponent = () => {
         <HeroContainer
           socialIconData={data.socialIconData.siteMetadata.social}
         />
-        <WorkContainer projectsData={data.projectsData.siteMetadata.projects} />
+        <WorkContainer />
       </HomeContainer>
     </>
   )
