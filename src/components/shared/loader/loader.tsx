@@ -78,13 +78,9 @@ const Loader: React.FunctionComponent<Props> = memo(
       markOut()
     }
 
-    const triggerMark = () => {
-      return visible ? animateIn() : animateOut()
-    }
-
     useEffect(() => {
-      triggerMark()
-    })
+      visible ? animateIn() : animateOut()
+    }, [visible])
 
     return (
       <Container ref={containerRef}>
