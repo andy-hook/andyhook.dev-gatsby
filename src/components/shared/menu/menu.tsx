@@ -19,9 +19,11 @@ import { mq, scaleBetween } from "@style/media-queries"
 import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
 import { runAnimation } from "./menu.animation"
+import { IStore } from "@custom-types/store"
 
 interface Props {
   open?: boolean
+  firstEntrance?: IStore["firstEntrance"]
 }
 
 interface DataProps {
@@ -32,7 +34,7 @@ interface DataProps {
 type AllProps = Props & DataProps & DispatchProps
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social, setMenuOpen }) => {
+  ({ open, projects, social, setMenuOpen, firstEntrance }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
 
@@ -42,7 +44,10 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     }
 
     useEffect(() => {
-      open ? runAnimation(refs, "open") : runAnimation(refs, "close")
+      // Don't run an animation on the first entrance as it should already be in a resting hidden state
+      if (!firstEntrance) {
+        open ? runAnimation(refs, "open") : runAnimation(refs, "close")
+      }
     }, [open])
 
     const handleProjectClick = () => {

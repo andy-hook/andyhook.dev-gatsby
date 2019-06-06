@@ -20,8 +20,13 @@ export interface DispatchProps {
 
 export type ContainerProps = Partial<IStore> & DispatchProps
 
-const mapStateToProps = ({ menuOpen, secondaryTheme, menuTheme }: IStore) => {
-  return { menuOpen, secondaryTheme, menuTheme }
+const mapStateToProps = ({
+  menuOpen,
+  secondaryTheme,
+  menuTheme,
+  firstEntrance,
+}: IStore) => {
+  return { menuOpen, secondaryTheme, menuTheme, firstEntrance }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -33,7 +38,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, menuTheme, setMenuOpen }) => {
+  ({ menuOpen, menuTheme, setMenuOpen, firstEntrance }) => {
     const theme = menuTheme as TThemeType
 
     const data: Data = useStaticQuery(graphql`
@@ -105,6 +110,7 @@ const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
           setMenuOpen={setMenuOpen}
+          firstEntrance={firstEntrance}
         />
       </Theme>
     )
