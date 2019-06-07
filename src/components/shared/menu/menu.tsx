@@ -18,8 +18,8 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/media-queries"
 import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
-import { runAnimation } from "./menu.animation"
 import { IStore } from "@custom-types/store"
+import { TweenMax, Expo } from "gsap"
 
 interface Props {
   open?: boolean
@@ -33,25 +33,92 @@ interface DataProps {
 
 type AllProps = Props & DataProps & DispatchProps
 
+export let menuIsAnimating = false
+let routeTransition = false
+
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, setMenuOpen, firstEntrance }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
 
-    const refs = {
-      backboard: backboardRef,
-      // contents: contentsRef,
+    const animateOpen = () => {
+      menuIsAnimating = true
+
+      TweenMax.fromTo(
+        backboardRef.current,
+        0.75,
+        {
+          opacity: 1,
+          y: "-100%",
+        },
+        {
+          ease: Expo.easeOut,
+          y: "0%",
+          onComplete: () => {
+            menuIsAnimating = false
+          },
+        }
+      )
+    }
+
+    const animateClose = () => {
+      menuIsAnimating = true
+
+      TweenMax.fromTo(
+        backboardRef.current,
+        0.75,
+        {
+          y: "0%",
+        },
+        {
+          ease: Expo.easeOut,
+          y: "-100%",
+          clearProps: "transform, opacity",
+          onComplete: () => {
+            routeTransition = false
+            menuIsAnimating = false
+          },
+        }
+      )
+    }
+
+    const animateRouteClose = () => {
+      menuIsAnimating = true
+
+      console.log("firing")
+
+      TweenMax.fromTo(
+        backboardRef.current,
+        0.75,
+        {
+          y: "0%",
+        },
+        {
+          ease: Expo.easeOut,
+          y: "100%",
+          clearProps: "transform, opacity",
+          onComplete: () => {
+            routeTransition = false
+            menuIsAnimating = false
+          },
+        }
+      )
     }
 
     useEffect(() => {
       // Don't run an animation on the first entrance as it should already be in a resting hidden state
       if (!firstEntrance) {
-        open ? runAnimation(refs, "open") : runAnimation(refs, "close")
+        open
+          ? animateOpen()
+          : routeTransition
+          ? animateRouteClose()
+          : animateClose()
       }
     }, [open])
 
     const handleProjectClick = () => {
       if (open) {
+        routeTransition = true
         setMenuOpen(false)
       }
     }

@@ -85,7 +85,7 @@ export const animation: TAnimation = {
         0.75,
         {
           opacity: 0,
-          y: "-10%",
+          y: "-2%",
         },
         {
           opacity: 1,

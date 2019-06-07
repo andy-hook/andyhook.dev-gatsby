@@ -8,7 +8,7 @@ import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 import { TThemeType } from "theme"
 import Theme from "@components/shared/theme/theme"
-import { menuIsAnimating } from "@components/shared/menu/menu.animation"
+import { menuIsAnimating } from "@components/shared/menu/menu"
 
 interface Props {
   open?: boolean
