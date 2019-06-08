@@ -64,7 +64,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
     if (topbarTheme === "primary-theme") {
       setTopbarToSecondaryTheme()
     }
-  }, [topbarTheme])
+  }, [])
 
   // Set menu theme initially but then let state manage it via animation callbacks
   useEffect(() => {
