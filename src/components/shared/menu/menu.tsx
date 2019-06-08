@@ -20,10 +20,12 @@ import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
 import { IStore } from "@custom-types/store"
 import { TweenMax, Expo } from "gsap"
+import { TThemeType } from "@custom-types/theme"
 
 interface Props {
   open?: boolean
   firstEntrance?: IStore["firstEntrance"]
+  currentTheme: TThemeType
 }
 
 interface DataProps {
@@ -37,7 +39,15 @@ export let menuIsAnimating = false
 let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social, setMenuOpen, firstEntrance }) => {
+  ({
+    open,
+    projects,
+    social,
+    setMenuOpen,
+    firstEntrance,
+    setTheme,
+    currentTheme,
+  }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
 
@@ -85,8 +95,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateRouteClose = () => {
       menuIsAnimating = true
 
-      console.log("firing")
-
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -100,6 +108,10 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           onComplete: () => {
             routeTransition = false
             menuIsAnimating = false
+
+            if (currentTheme === "secondary-theme") {
+              setTheme("primary-theme")
+            }
           },
         }
       )
@@ -128,8 +140,11 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         <ProjectLink
           onClick={handleProjectClick}
           to={projects[key].path}
+          exit={{
+            length: 0,
+          }}
           entry={{
-            length: 0.5,
+            length: 0.75,
             state: {
               animType: "enter-from-nav",
             },

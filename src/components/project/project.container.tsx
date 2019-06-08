@@ -29,8 +29,9 @@ const mapStateToProps = ({
   secondaryTheme,
   firstEntrance,
   loaderVisible,
+  topbarTheme,
 }: IStore) => {
-  return { secondaryTheme, firstEntrance, loaderVisible }
+  return { secondaryTheme, firstEntrance, loaderVisible, topbarTheme }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -56,12 +57,21 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
   setMenuToPrimaryTheme,
   firstEntrance,
   loaderVisible,
+  topbarTheme,
 }) => {
   // Set initial theme state on first load for projects as they differ from home
   useEffect(() => {
-    setTopbarToSecondaryTheme()
-    setMenuToPrimaryTheme()
-  }, [])
+    if (topbarTheme === "primary-theme") {
+      setTopbarToSecondaryTheme()
+    }
+  }, [topbarTheme])
+
+  // Set menu theme initially but then let state manage it via animation callbacks
+  useEffect(() => {
+    if (firstEntrance) {
+      setMenuToPrimaryTheme()
+    }
+  }, [firstEntrance])
 
   const transitionState = useTransitionState()
 
