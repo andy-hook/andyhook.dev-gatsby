@@ -8,6 +8,10 @@ const Global = createGlobalStyle`
   /* A very simple reset that sits on top of Normalize
   ------------------------------------------------- */
 
+  body {
+    overflow: hidden;
+  }
+
   body,
   h1,
   h2,
