@@ -25,7 +25,7 @@ import { TThemeType } from "@custom-types/theme"
 interface Props {
   open?: boolean
   firstEntrance?: IStore["firstEntrance"]
-  currentTheme: TThemeType
+  currentTheme?: TThemeType
 }
 
 interface DataProps {
@@ -39,15 +39,7 @@ export let menuIsAnimating = false
 let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({
-    open,
-    projects,
-    social,
-    setMenuOpen,
-    firstEntrance,
-    setTheme,
-    currentTheme,
-  }) => {
+  ({ open, projects, social, firstEntrance, setTheme, currentTheme }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
 
@@ -129,10 +121,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     }, [open])
 
     const handleProjectClick = () => {
-      if (open) {
-        routeTransition = true
-        setMenuOpen(false)
-      }
+      routeTransition = true
     }
 
     const projectItems = keys(projects).map((key, index) => (
@@ -168,7 +157,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <MenuContainer open={open}>
+        <Container open={open}>
           <Gutter>
             <MenuContents ref={contentsRef}>
               {/* Projects */}
@@ -191,7 +180,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
               </SocialContainer>
             </MenuContents>
           </Gutter>
-        </MenuContainer>
+        </Container>
 
         <MenuBackboard ref={backboardRef} />
       </>
@@ -214,7 +203,7 @@ const MenuBackboard = styled.div`
   opacity: 0;
 `
 
-const MenuContainer = styled.div<Props>`
+const Container = styled.div<Props>`
   position: absolute;
 
   top: 0;

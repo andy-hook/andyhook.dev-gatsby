@@ -12,6 +12,7 @@ describe("<Menu />", () => {
         projects={projectsData}
         setMenuOpen={jest.fn()}
         social={socialIcons}
+        setTheme={jest.fn()}
       />
     )
     expect(tree).toMatchSnapshot()

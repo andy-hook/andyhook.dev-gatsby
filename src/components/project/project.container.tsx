@@ -7,7 +7,11 @@ import { connect } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { Dispatch } from "redux"
-import { setTopbarThemeAction, setMenuThemeAction } from "@store/actions"
+import {
+  setTopbarThemeAction,
+  setMenuThemeAction,
+  menuOpenAction,
+} from "@store/actions"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TransitionPortal } from "gatsby-plugin-transition-link"
 
@@ -23,6 +27,7 @@ interface Props {
 interface DispatchProps {
   setTopbarToSecondaryTheme: () => void
   setMenuToPrimaryTheme: () => void
+  closeMenu: () => void
 }
 
 const mapStateToProps = ({
@@ -30,8 +35,9 @@ const mapStateToProps = ({
   firstEntrance,
   loaderVisible,
   topbarTheme,
+  menuOpen,
 }: IStore) => {
-  return { secondaryTheme, firstEntrance, loaderVisible, topbarTheme }
+  return { secondaryTheme, firstEntrance, loaderVisible, topbarTheme, menuOpen }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -41,6 +47,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     },
     setMenuToPrimaryTheme: () => {
       dispatch(setMenuThemeAction("primary-theme"))
+    },
+    closeMenu: () => {
+      dispatch(menuOpenAction(false))
     },
   }
 }
@@ -58,20 +67,28 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
   firstEntrance,
   loaderVisible,
   topbarTheme,
+  menuOpen,
+  closeMenu,
 }) => {
   // Set initial theme state on first load for projects as they differ from home
   useEffect(() => {
     if (topbarTheme === "primary-theme") {
       setTopbarToSecondaryTheme()
     }
+
+    // Dispatch close menu action here to ensure the page is mounted before attempting to hide the menu
+    // This is a much smoother interaction than dispatching from inside the menu item click handler
+    if (menuOpen) {
+      closeMenu()
+    }
   }, [])
 
-  // Set menu theme initially but then let state manage it via animation callbacks
+  // Set the menu theme initially providing the menu isn't already open
   useEffect(() => {
-    if (firstEntrance) {
+    if (!menuOpen) {
       setMenuToPrimaryTheme()
     }
-  }, [firstEntrance])
+  }, [])
 
   const transitionState = useTransitionState()
 
