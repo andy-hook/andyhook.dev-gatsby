@@ -2,16 +2,20 @@ import { TweenMax } from "gsap"
 import { Ref } from "@custom-types/ref"
 import { keys } from "@custom-types/utils"
 
-export type TAnimationStateNames = "enterFromProject" | "exitToProject"
+export type TAnimationStateNames =
+  | "enterFromProject"
+  | "exitToProject"
+  | "openMenu"
+  | "closeMenu"
 
-type TAnimationStates = { [key in TAnimationStateNames]: (ref: Ref) => void }
+type TAnimationStates = { [key in TAnimationStateNames]?: (ref: Ref) => void }
 
 interface TAnimation {
   [key: string]: TAnimationStates
 }
 
 export const animation: TAnimation = {
-  changeAnimationScrim: {
+  animationScrim: {
     enterFromProject: ref => {
       TweenMax.fromTo(
         ref.current,
@@ -33,6 +37,30 @@ export const animation: TAnimation = {
         },
         {
           opacity: 1,
+        }
+      )
+    },
+    openMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    closeMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        1,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     },

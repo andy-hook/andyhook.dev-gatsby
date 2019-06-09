@@ -6,18 +6,20 @@ import { zIndex } from "@style/variables"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { runAnimation } from "./home.animation"
 import { Ref } from "@custom-types/ref"
+import { IStore } from "@custom-types/store"
 
 interface Props {
   children: ReactNode
+  menuOpen: IStore["menuOpen"]
   transitionState: ItransitionState
 }
 
 const Home: React.FunctionComponent<Props> = memo(
-  ({ children, transitionState }) => {
+  ({ children, transitionState, menuOpen }) => {
     const animationScrim = React.useRef() as Ref
 
     const refs = {
-      changeAnimationScrim: animationScrim,
+      animationScrim,
     }
 
     useEffect(() => {
@@ -45,9 +47,17 @@ const Home: React.FunctionComponent<Props> = memo(
       }
     }, [transitionState.transitionStatus])
 
+    useEffect(() => {
+      if (menuOpen) {
+        runAnimation(refs, "openMenu")
+      } else {
+        runAnimation(refs, "closeMenu")
+      }
+    }, [menuOpen])
+
     return (
       <>
-        <ChangeAnimationScrim ref={animationScrim} />
+        <AnimationScrim ref={animationScrim} />
         <ContentScrollContainer>
           <Container>{children}</Container>
         </ContentScrollContainer>
@@ -56,7 +66,7 @@ const Home: React.FunctionComponent<Props> = memo(
   }
 )
 
-const ChangeAnimationScrim = styled.div`
+const AnimationScrim = styled.div`
   background-color: ${themeTone(100)};
   position: absolute;
 

@@ -3,27 +3,32 @@ import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 import Home from "./home"
 import Theme from "@components/shared/theme/theme"
-import { TThemeType } from "@custom-types/theme"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 
-interface Props {
+interface IProps {
   children: ReactNode
 }
 
-const mapStateToProps = ({ homeTheme }: IStore) => {
-  return { homeTheme }
+interface IStoreProps {
+  menuOpen: IStore["menuOpen"]
+  homeTheme: IStore["homeTheme"]
 }
 
-type AllProps = Props & Partial<IStore>
+const mapStateToProps = ({ homeTheme, menuOpen }: IStore) => {
+  return { homeTheme, menuOpen }
+}
+
+type AllProps = IProps & IStoreProps
 
 const HomeContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, homeTheme }) => {
-    const theme = homeTheme as TThemeType
+  ({ children, homeTheme, menuOpen }) => {
     const transitionState = useTransitionState()
 
     return (
-      <Theme themeType={theme}>
-        <Home transitionState={transitionState}>{children}</Home>
+      <Theme themeType={homeTheme}>
+        <Home menuOpen={menuOpen} transitionState={transitionState}>
+          {children}
+        </Home>
       </Theme>
     )
   }

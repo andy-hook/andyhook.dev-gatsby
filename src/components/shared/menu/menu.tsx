@@ -42,10 +42,14 @@ const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, firstEntrance, setTheme, currentTheme }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
+    const containerRef = React.useRef() as Ref
 
     const animateOpen = () => {
       menuIsAnimating = true
 
+      TweenMax.set(containerRef.current, { visibility: "visible" })
+
+      // Backboard
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -61,11 +65,24 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           },
         }
       )
+
+      // Contents
+      TweenMax.fromTo(
+        contentsRef.current,
+        0.25,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
     }
 
     const animateClose = () => {
       menuIsAnimating = true
 
+      // Backboard
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -79,7 +96,21 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           onComplete: () => {
             routeTransition = false
             menuIsAnimating = false
+
+            TweenMax.set(containerRef.current, { clearProps: "visibility" })
           },
+        }
+      )
+
+      // Contents
+      TweenMax.fromTo(
+        contentsRef.current,
+        0.25,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     }
@@ -101,10 +132,24 @@ const Menu: React.FunctionComponent<AllProps> = memo(
             routeTransition = false
             menuIsAnimating = false
 
+            TweenMax.set(containerRef.current, { clearProps: "visibility" })
+
             if (currentTheme === "secondary-theme") {
               setTheme("primary-theme")
             }
           },
+        }
+      )
+
+      // Contents
+      TweenMax.fromTo(
+        contentsRef.current,
+        0.25,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     }
@@ -157,7 +202,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <>
-        <Container open={open}>
+        <Container ref={containerRef}>
           <Gutter>
             <MenuContents ref={contentsRef}>
               {/* Projects */}
@@ -203,7 +248,7 @@ const MenuBackboard = styled.div`
   opacity: 0;
 `
 
-const Container = styled.div<Props>`
+const Container = styled.div`
   position: absolute;
 
   top: 0;
@@ -216,7 +261,7 @@ const Container = styled.div<Props>`
 
   z-index: ${zIndex.high + 1};
 
-  visibility: ${props => (props.open ? "visible" : "hidden")};
+  visibility: hidden;
 
   ${mq.lessThan("bottomThumb")`
     padding-top: 14rem;
@@ -235,6 +280,8 @@ const MenuContents = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
+
+  opacity: 0;
 
   ${mq.lessThan("bottomPalm")`
     flex-direction: column;
