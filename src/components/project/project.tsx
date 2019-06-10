@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
 import Header from "@components/project/header/header"
@@ -22,115 +22,119 @@ interface Props {
   menuOpen: IStore["menuOpen"]
 }
 
-const Project: React.FunctionComponent<Props> = ({
-  children,
-  projectName,
-  projectData,
-  transitionState,
-  canPerformIntro,
-  introTrigger,
-  menuOpen,
-}) => {
-  const backboard = React.useRef() as Ref
-  const content = React.useRef() as Ref
-  const animationScrim = React.useRef() as Ref
+const Project: React.FunctionComponent<Props> = memo(
+  ({
+    children,
+    projectName,
+    projectData,
+    transitionState,
+    canPerformIntro,
+    introTrigger,
+    menuOpen,
+  }) => {
+    const backboard = React.useRef() as Ref
+    const content = React.useRef() as Ref
+    const animationScrim = React.useRef() as Ref
 
-  const refs = {
-    backboard,
-    content,
-    animationScrim,
-  }
-
-  // Animate scrim on menu change
-  useEffect(() => {
-    if (menuOpen) {
-      runAnimation(refs, "openMenu")
-    } else {
-      runAnimation(refs, "closeMenu")
+    const refs = {
+      backboard,
+      content,
+      animationScrim,
     }
-  }, [menuOpen])
 
-  // The backboard needs to be positioned into view on the first site entrance
-  // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
-  useEffect(() => {
-    const runBackboardEntranceAnimation = animation.backboard.siteEntrance
+    // Animate scrim on menu change
+    useEffect(() => {
+      if (menuOpen) {
+        runAnimation(refs, "openMenu")
+      } else {
+        runAnimation(refs, "closeMenu")
+      }
+    }, [menuOpen])
 
-    if (canPerformIntro && runBackboardEntranceAnimation) {
-      runBackboardEntranceAnimation(backboard)
-    }
-  }, [canPerformIntro])
+    // The backboard needs to be positioned into view on the first site entrance
+    // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
+    useEffect(() => {
+      const runBackboardEntranceAnimation = animation.backboard.siteEntrance
 
-  // Only trigger site entrance animation when requested by loader
-  useEffect(() => {
-    if (introTrigger && canPerformIntro) {
-      runAnimation(refs, "siteEntrance")
-    }
-  }, [introTrigger])
+      if (canPerformIntro && runBackboardEntranceAnimation) {
+        runBackboardEntranceAnimation(backboard)
+      }
+    }, [canPerformIntro])
 
-  useEffect(() => {
-    const { transitionStatus } = transitionState
-    const exitType = transitionState.exit.state.animType
-    const entryType = transitionState.entry.state.animType
+    // Only trigger site entrance animation when requested by loader
+    useEffect(() => {
+      if (introTrigger && canPerformIntro) {
+        runAnimation(refs, "siteEntrance")
+      }
+    }, [introTrigger])
 
-    switch (transitionStatus) {
-      case "POP":
-        runAnimation(refs, "pop")
-        break
-      case "entering":
-        switch (entryType) {
-          case "enter-from-home":
-            {
-              runAnimation(refs, "enterFromHome")
-            }
-            break
-          case "enter-from-nav":
-            {
-              runAnimation(refs, "enterFromNav")
-            }
-            break
-          // This clause works around bug with pushstate and history navigation
-          // Hopefully this can be resolved and pop will run consistently
-          // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
-          default:
-            runAnimation(refs, "pop")
-        }
-        break
-      case "exiting":
-        switch (exitType) {
-          case "exit-to-home":
-            {
-              runAnimation(refs, "exitToHome")
-            }
-            break
-        }
-        break
-    }
-  }, [transitionState.transitionStatus])
+    useEffect(() => {
+      const { transitionStatus } = transitionState
+      const exitType = transitionState.exit.state.animType
+      const entryType = transitionState.entry.state.animType
 
-  return (
-    <>
-      <AnimationScrim ref={animationScrim} />
-      <ContentScrollPos>
-        <ContentScrollContainer>
-          <Container ref={content}>
-            <Header project={getCurrentProjectData(projectData, projectName)} />
-            <TempIntroImage />
-            <Contents
-              sections={
-                getCurrentProjectData(projectData, projectName).contents
+      switch (transitionStatus) {
+        case "POP":
+          runAnimation(refs, "pop")
+          break
+        case "entering":
+          switch (entryType) {
+            case "enter-from-home":
+              {
+                runAnimation(refs, "enterFromHome")
               }
-            />
-            {children}
-            <NextProject
-              project={getNextProjectData(projectData, projectName)}
-            />
-          </Container>
-        </ContentScrollContainer>
-      </ContentScrollPos>
-      <ProjectBackboard ref={backboard} />
-    </>
-  )
-}
+              break
+            case "enter-from-nav":
+              {
+                runAnimation(refs, "enterFromNav")
+              }
+              break
+            // This clause works around bug with pushstate and history navigation
+            // Hopefully this can be resolved and pop will run consistently
+            // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
+            default:
+              runAnimation(refs, "pop")
+          }
+          break
+        case "exiting":
+          switch (exitType) {
+            case "exit-to-home":
+              {
+                runAnimation(refs, "exitToHome")
+              }
+              break
+          }
+          break
+      }
+    }, [transitionState.transitionStatus])
+
+    return (
+      <>
+        <AnimationScrim ref={animationScrim} />
+        <ContentScrollPos>
+          <ContentScrollContainer>
+            <Container ref={content}>
+              <Header
+                project={getCurrentProjectData(projectData, projectName)}
+              />
+              <TempIntroImage />
+              <Contents
+                sections={
+                  getCurrentProjectData(projectData, projectName).contents
+                }
+              />
+              {children}
+              <NextProject
+                project={getNextProjectData(projectData, projectName)}
+              />
+            </Container>
+          </ContentScrollContainer>
+        </ContentScrollPos>
+        <ProjectBackboard ref={backboard} />
+      </>
+    )
+  }
+)
 
 const AnimationScrim = styled.div`
   background-color: ${themeTone(100)};

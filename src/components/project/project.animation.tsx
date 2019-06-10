@@ -122,28 +122,15 @@ export const animation: TAnimation = {
   },
   animationScrim: {
     openMenu: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.25,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
+      TweenMax.to(ref.current, 0.25, {
+        opacity: 1,
+      })
     },
     closeMenu: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        1,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
+      TweenMax.to(ref.current, 1, {
+        opacity: 0,
+        clearProps: "opacity",
+      })
     },
   },
 }
