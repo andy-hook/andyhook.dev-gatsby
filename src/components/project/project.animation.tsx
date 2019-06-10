@@ -8,6 +8,8 @@ export type TAnimationStateNames =
   | "enterFromNav"
   | "exitToHome"
   | "pop"
+  | "openMenu"
+  | "closeMenu"
 
 type TAnimationStates = { [key in TAnimationStateNames]?: (ref: Ref) => void }
 
@@ -114,6 +116,32 @@ export const animation: TAnimation = {
         },
         {
           opacity: 1,
+        }
+      )
+    },
+  },
+  animationScrim: {
+    openMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    },
+    closeMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        1,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
         }
       )
     },

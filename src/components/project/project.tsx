@@ -4,7 +4,6 @@ import ContentScrollContainer from "@components/shared/content-scroll/content-sc
 import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
 import { TProjects, TProjectNames } from "@custom-types/model"
-import { ContainerProps } from "./project.container"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { themeTone } from "@style/theme"
 import Contents from "@components/project/contents/contents"
@@ -12,6 +11,7 @@ import { zIndex } from "@style/variables"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { animation, runAnimation } from "./project.animation"
+import { IStore } from "@custom-types/store"
 
 interface Props {
   projectData: TProjects
@@ -19,25 +19,36 @@ interface Props {
   transitionState: ItransitionState
   canPerformIntro?: boolean
   introTrigger?: boolean
+  menuOpen: IStore["menuOpen"]
 }
 
-type AllProps = Props & ContainerProps
-
-const Project: React.FunctionComponent<AllProps> = ({
+const Project: React.FunctionComponent<Props> = ({
   children,
   projectName,
   projectData,
   transitionState,
   canPerformIntro,
   introTrigger,
+  menuOpen,
 }) => {
-  const backboardRef = React.useRef() as Ref
-  const contentRef = React.useRef() as Ref
+  const backboard = React.useRef() as Ref
+  const content = React.useRef() as Ref
+  const animationScrim = React.useRef() as Ref
 
   const refs = {
-    backboard: backboardRef,
-    content: contentRef,
+    backboard,
+    content,
+    animationScrim,
   }
+
+  // Animate scrim on menu change
+  useEffect(() => {
+    if (menuOpen) {
+      runAnimation(refs, "openMenu")
+    } else {
+      runAnimation(refs, "closeMenu")
+    }
+  }, [menuOpen])
 
   // The backboard needs to be positioned into view on the first site entrance
   // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
@@ -45,7 +56,7 @@ const Project: React.FunctionComponent<AllProps> = ({
     const runBackboardEntranceAnimation = animation.backboard.siteEntrance
 
     if (canPerformIntro && runBackboardEntranceAnimation) {
-      runBackboardEntranceAnimation(backboardRef)
+      runBackboardEntranceAnimation(backboard)
     }
   }, [canPerformIntro])
 
@@ -98,9 +109,10 @@ const Project: React.FunctionComponent<AllProps> = ({
 
   return (
     <>
+      <AnimationScrim ref={animationScrim} />
       <ContentScrollPos>
         <ContentScrollContainer>
-          <Container ref={contentRef}>
+          <Container ref={content}>
             <Header project={getCurrentProjectData(projectData, projectName)} />
             <TempIntroImage />
             <Contents
@@ -115,10 +127,27 @@ const Project: React.FunctionComponent<AllProps> = ({
           </Container>
         </ContentScrollContainer>
       </ContentScrollPos>
-      <ProjectBackboard ref={backboardRef} />
+      <ProjectBackboard ref={backboard} />
     </>
   )
 }
+
+const AnimationScrim = styled.div`
+  background-color: ${themeTone(100)};
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: ${zIndex.high};
+`
 
 const ContentScrollPos = styled.div`
   position: relative;

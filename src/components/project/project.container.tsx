@@ -24,6 +24,14 @@ interface Props {
   children: ReactNode
 }
 
+interface IStoreProps {
+  menuOpen: IStore["menuOpen"]
+  secondaryTheme: IStore["secondaryTheme"]
+  firstEntrance: IStore["firstEntrance"]
+  loaderVisible: IStore["loaderVisible"]
+  topbarTheme: IStore["topbarTheme"]
+}
+
 interface DispatchProps {
   setTopbarToSecondaryTheme: () => void
   setMenuToPrimaryTheme: () => void
@@ -54,9 +62,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-export type ContainerProps = Props & Partial<IStore>
-
-type AllProps = ContainerProps & DispatchProps
+type AllProps = Props & IStoreProps & DispatchProps
 
 const ProjectContainer: React.FunctionComponent<AllProps> = ({
   children,
@@ -182,6 +188,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = ({
           transitionState={transitionState}
           canPerformIntro={firstEntrance}
           introTrigger={!loaderVisible}
+          menuOpen={menuOpen}
         >
           {children}
         </Project>
