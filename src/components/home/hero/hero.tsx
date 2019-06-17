@@ -16,21 +16,14 @@ import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 import { ISocialMeta } from "model"
 
 interface Props {
-  introTrigger?: boolean
-  canPerformIntro?: boolean
+  loaderVisible: boolean
+  firstEntrance: boolean
   socialIconData: ISocialMeta
   transitionState: ItransitionState
-  switchThemeForElements: () => void
 }
 
 const Hero: React.FunctionComponent<Props> = memo(
-  ({
-    socialIconData,
-    introTrigger = true,
-    canPerformIntro = true,
-    transitionState,
-    switchThemeForElements,
-  }) => {
+  ({ socialIconData, loaderVisible, firstEntrance, transitionState }) => {
     const detailsRef = React.useRef() as Ref
     const socialRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
@@ -42,11 +35,6 @@ const Hero: React.FunctionComponent<Props> = memo(
       date: dateRef,
       background: backgroundRef,
     }
-
-    // Switch themes in menu and topbar
-    useEffect(() => {
-      switchThemeForElements()
-    }, [])
 
     useEffect(() => {
       const { transitionStatus, exit, entry } = transitionState
@@ -86,17 +74,17 @@ const Hero: React.FunctionComponent<Props> = memo(
     useEffect(() => {
       const backgroundEntranceAnimation = animation.background.siteEntrance
 
-      if (canPerformIntro && backgroundEntranceAnimation) {
+      if (firstEntrance && backgroundEntranceAnimation) {
         backgroundEntranceAnimation(backgroundRef)
       }
-    }, [canPerformIntro])
+    }, [firstEntrance])
 
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
-      if (introTrigger && canPerformIntro) {
+      if (!loaderVisible && firstEntrance) {
         runAnimation(refs, "siteEntrance")
       }
-    }, [introTrigger])
+    }, [loaderVisible])
 
     return (
       <>

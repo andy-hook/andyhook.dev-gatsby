@@ -6,19 +6,16 @@ import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
-import { TThemeType } from "theme"
-import Theme from "@components/shared/theme/theme"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 
 interface Props {
   open?: boolean
   openMenu: () => void
   closeMenu: () => void
-  theme: TThemeType
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
-  ({ open, openMenu, closeMenu, theme }) => {
+  ({ open, openMenu, closeMenu }) => {
     const toggleMenu = () => {
       if (menuIsAnimating) {
         return
@@ -33,30 +30,28 @@ const Topbar: React.FunctionComponent<Props> = memo(
     const logoReturnAnimation = open ? "enter-from-nav" : "enter-from-project"
 
     return (
-      <Theme themeType={theme}>
-        <>
-          <LogoLink
-            to="/"
-            entry={{
-              length: 0.5,
-              state: {
-                animType: logoReturnAnimation,
-              },
-            }}
-            exit={{
-              length: 0.5,
-              state: {
-                animType: "exit-to-home",
-              },
-            }}
-          >
-            <Logo open={open} />
-          </LogoLink>
-          <NaviconPos>
-            <Navicon open={open} onClick={toggleMenu} />
-          </NaviconPos>
-        </>
-      </Theme>
+      <>
+        <LogoLink
+          to="/"
+          entry={{
+            length: 0.5,
+            state: {
+              animType: logoReturnAnimation,
+            },
+          }}
+          exit={{
+            length: 0.5,
+            state: {
+              animType: "exit-to-home",
+            },
+          }}
+        >
+          <Logo open={open} />
+        </LogoLink>
+        <NaviconPos>
+          <Navicon open={open} onClick={toggleMenu} />
+        </NaviconPos>
+      </>
     )
   }
 )

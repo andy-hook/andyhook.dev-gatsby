@@ -2,32 +2,36 @@ import React, { memo } from "react"
 import Menu from "./menu"
 import { connect } from "react-redux"
 import { IStore } from "@custom-types/store"
-import { TThemeType } from "@custom-types/theme"
 import { useStaticQuery, graphql } from "gatsby"
 import { IMetaData, IProjectsData } from "model"
-import { menuOpenAction, setMenuThemeAction } from "@store/actions"
+import { menuOpenAction } from "@store/actions"
 import { Dispatch } from "redux"
-import Theme from "@components/shared/theme/theme"
+import { themes } from "@style/theme"
+import { ThemeProvider } from "styled-components"
 
 interface Data {
   socialData: IMetaData
   projectsData: IProjectsData
 }
 
-export interface DispatchProps {
-  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
-  setTheme: (themeType: TThemeType) => void
+interface Props {
+  menuOpen: IStore["menuOpen"]
+  firstEntrance: IStore["firstEntrance"]
+  secondaryTheme: IStore["secondaryTheme"]
 }
 
-export type ContainerProps = Partial<IStore> & DispatchProps
+interface DispatchProps {
+  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
+}
+
+type AllProps = DispatchProps & Props
 
 const mapStateToProps = ({
   menuOpen,
   secondaryTheme,
-  menuTheme,
   firstEntrance,
 }: IStore) => {
-  return { menuOpen, secondaryTheme, menuTheme, firstEntrance }
+  return { menuOpen, secondaryTheme, firstEntrance }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -35,16 +39,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     setMenuOpen: (isOpen: boolean) => {
       dispatch(menuOpenAction(isOpen))
     },
-    setTheme: (themeType: TThemeType) => {
-      dispatch(setMenuThemeAction(themeType))
-    },
   }
 }
 
-const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, menuTheme, setMenuOpen, firstEntrance, setTheme }) => {
-    const theme = menuTheme as TThemeType
-
+const MenuContainer: React.FunctionComponent<AllProps> = memo(
+  ({ menuOpen, setMenuOpen, firstEntrance, secondaryTheme }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -108,17 +107,15 @@ const MenuContainer: React.FunctionComponent<ContainerProps> = memo(
       }
     `)
     return (
-      <Theme themeType={theme}>
+      <ThemeProvider theme={themes[secondaryTheme]}>
         <Menu
           open={menuOpen}
-          currentTheme={theme}
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
           setMenuOpen={setMenuOpen}
           firstEntrance={firstEntrance}
-          setTheme={setTheme}
         />
-      </Theme>
+      </ThemeProvider>
     )
   }
 )

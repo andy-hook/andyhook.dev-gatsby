@@ -7,11 +7,7 @@ import { connect } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { Dispatch } from "redux"
-import {
-  setTopbarThemeAction,
-  setMenuThemeAction,
-  menuOpenAction,
-} from "@store/actions"
+import { menuOpenAction } from "@store/actions"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TransitionPortal } from "gatsby-plugin-transition-link"
 
@@ -26,36 +22,26 @@ interface Props {
 
 interface IStoreProps {
   menuOpen: IStore["menuOpen"]
-  secondaryTheme: IStore["secondaryTheme"]
+  primaryTheme: IStore["primaryTheme"]
   firstEntrance: IStore["firstEntrance"]
   loaderVisible: IStore["loaderVisible"]
-  topbarTheme: IStore["topbarTheme"]
 }
 
 interface DispatchProps {
-  setTopbarToSecondaryTheme: () => void
-  setMenuToPrimaryTheme: () => void
   closeMenu: () => void
 }
 
 const mapStateToProps = ({
-  secondaryTheme,
+  primaryTheme,
   firstEntrance,
   loaderVisible,
-  topbarTheme,
   menuOpen,
 }: IStore) => {
-  return { secondaryTheme, firstEntrance, loaderVisible, topbarTheme, menuOpen }
+  return { primaryTheme, firstEntrance, loaderVisible, menuOpen }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    setTopbarToSecondaryTheme: () => {
-      dispatch(setTopbarThemeAction("secondary-theme"))
-    },
-    setMenuToPrimaryTheme: () => {
-      dispatch(setMenuThemeAction("primary-theme"))
-    },
     closeMenu: () => {
       dispatch(menuOpenAction(false))
     },
@@ -68,28 +54,17 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
   ({
     children,
     projectName,
-    secondaryTheme,
-    setTopbarToSecondaryTheme,
-    setMenuToPrimaryTheme,
+    primaryTheme,
     firstEntrance,
     loaderVisible,
-    topbarTheme,
     menuOpen,
     closeMenu,
   }) => {
     useEffect(() => {
-      // Set initial theme state on first load for projects as they differ from home
-      if (topbarTheme === "primary-theme") {
-        setTopbarToSecondaryTheme()
-      }
-
       if (menuOpen) {
         // Dispatch close menu action here to ensure the page is mounted before attempting to hide the menu
         // This is a much smoother interaction than dispatching from inside the menu item click handler
         closeMenu()
-      } else {
-        // Set the menu theme initially providing the menu isn't already open
-        setMenuToPrimaryTheme()
       }
     }, [])
 
@@ -177,7 +152,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
     `)
 
     return (
-      <ThemeProvider theme={themes[secondaryTheme]}>
+      <ThemeProvider theme={themes[primaryTheme]}>
         <TransitionPortal>
           <Project
             projectName={projectName}

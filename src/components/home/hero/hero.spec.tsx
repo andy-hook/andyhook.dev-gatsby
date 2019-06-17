@@ -11,7 +11,8 @@ describe("<Hero />", () => {
       <Hero
         socialIconData={socialIcons}
         transitionState={transitionState}
-        switchThemeForElements={jest.fn()}
+        firstEntrance={true}
+        loaderVisible={true}
       />
     )
     expect(tree).toMatchSnapshot()

@@ -4,17 +4,20 @@ import { connect } from "react-redux"
 import { Dispatch } from "redux"
 import { IStore } from "@custom-types/store"
 import { menuOpenAction } from "@store/actions"
-import { TThemeType } from "theme"
+import { ThemeProvider } from "styled-components"
+import { themes } from "@style/theme"
 
 interface DispatchProps {
   openMenu: () => void
   closeMenu: () => void
+  menuOpen: IStore["menuOpen"]
+  primaryTheme: IStore["primaryTheme"]
 }
 
-type ContainerProps = Partial<IStore> & DispatchProps
+type ContainerProps = DispatchProps
 
-const mapStateToProps = ({ menuOpen, topbarTheme }: IStore) => {
-  return { menuOpen, topbarTheme }
+const mapStateToProps = ({ menuOpen, primaryTheme }: IStore) => {
+  return { menuOpen, primaryTheme }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -29,16 +32,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, openMenu, closeMenu, topbarTheme }) => {
-    const theme = topbarTheme as TThemeType
-
+  ({ menuOpen, openMenu, closeMenu, primaryTheme }) => {
     return (
-      <Topbar
-        open={menuOpen}
-        openMenu={openMenu}
-        closeMenu={closeMenu}
-        theme={theme}
-      />
+      <ThemeProvider theme={themes[primaryTheme]}>
+        <Topbar open={menuOpen} openMenu={openMenu} closeMenu={closeMenu} />
+      </ThemeProvider>
     )
   }
 )

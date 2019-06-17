@@ -2,8 +2,9 @@ import React, { memo, ReactNode } from "react"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 import Home from "./home"
-import Theme from "@components/shared/theme/theme"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import { themes } from "@style/theme"
+import { ThemeProvider } from "styled-components"
 
 interface IProps {
   children: ReactNode
@@ -11,25 +12,25 @@ interface IProps {
 
 interface IStoreProps {
   menuOpen: IStore["menuOpen"]
-  homeTheme: IStore["homeTheme"]
+  primaryTheme: IStore["primaryTheme"]
 }
 
-const mapStateToProps = ({ homeTheme, menuOpen }: IStore) => {
-  return { homeTheme, menuOpen }
+const mapStateToProps = ({ menuOpen, primaryTheme }: IStore) => {
+  return { menuOpen, primaryTheme }
 }
 
 type AllProps = IProps & IStoreProps
 
 const HomeContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, homeTheme, menuOpen }) => {
+  ({ children, primaryTheme, menuOpen }) => {
     const transitionState = useTransitionState()
 
     return (
-      <Theme themeType={homeTheme}>
+      <ThemeProvider theme={themes[primaryTheme]}>
         <Home menuOpen={menuOpen} transitionState={transitionState}>
           {children}
         </Home>
-      </Theme>
+      </ThemeProvider>
     )
   }
 )

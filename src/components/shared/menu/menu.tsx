@@ -16,16 +16,18 @@ import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, TProjects } from "model"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/media-queries"
-import { DispatchProps } from "./menu.container"
 import { keys } from "@custom-types/utils"
-import { IStore } from "@custom-types/store"
 import { TweenMax, Expo } from "gsap"
-import { TThemeType } from "@custom-types/theme"
+import { IStore } from "store"
 
 interface Props {
-  open?: boolean
-  firstEntrance?: IStore["firstEntrance"]
-  currentTheme?: TThemeType
+  open: boolean
+  firstEntrance: boolean
+  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
+}
+
+export interface DispatchProps {
+  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
 }
 
 interface DataProps {
@@ -33,13 +35,13 @@ interface DataProps {
   projects: TProjects
 }
 
-type AllProps = Props & DataProps & DispatchProps
+type AllProps = Props & DataProps
 
 export let menuIsAnimating = false
 let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social, firstEntrance, setTheme, currentTheme }) => {
+  ({ open, projects, social, firstEntrance }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
     const containerRef = React.useRef() as Ref
@@ -133,10 +135,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
             menuIsAnimating = false
 
             TweenMax.set(containerRef.current, { clearProps: "visibility" })
-
-            if (currentTheme === "secondary-theme") {
-              setTheme("primary-theme")
-            }
           },
         }
       )

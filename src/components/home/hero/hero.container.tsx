@@ -4,45 +4,25 @@ import { IMetaData } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
-import { Dispatch } from "redux"
-import { setTopbarThemeAction, setMenuThemeAction } from "@store/actions"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Data {
   socialIconData: IMetaData
 }
 
-interface DispatchProps {
-  setTopbarToPrimaryTheme: () => void
-  setMenuToSecondaryTheme: () => void
+interface IStoreProps {
+  firstEntrance: IStore["firstEntrance"]
+  loaderVisible: IStore["loaderVisible"]
 }
 
-export type ContainerProps = Partial<IStore>
-
-type AllProps = ContainerProps & DispatchProps
+type AllProps = IStoreProps
 
 const mapStateToProps = ({ loaderVisible, firstEntrance }: IStore) => {
   return { loaderVisible, firstEntrance }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    setTopbarToPrimaryTheme: () => {
-      dispatch(setTopbarThemeAction("primary-theme"))
-    },
-    setMenuToSecondaryTheme: () => {
-      dispatch(setMenuThemeAction("secondary-theme"))
-    },
-  }
-}
-
 const HeroContainer: React.FunctionComponent<AllProps> = memo(
-  ({
-    loaderVisible,
-    firstEntrance,
-    setTopbarToPrimaryTheme,
-    setMenuToSecondaryTheme,
-  }) => {
+  ({ loaderVisible, firstEntrance }) => {
     const transitionState = useTransitionState()
 
     const data: Data = useStaticQuery(graphql`
@@ -86,26 +66,17 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
       }
     `)
 
-    const switchThemeForElements = () => {
-      setTopbarToPrimaryTheme()
-      setMenuToSecondaryTheme()
-    }
-
     return (
       <Hero
         socialIconData={data.socialIconData.siteMetadata.social}
-        introTrigger={!loaderVisible}
-        canPerformIntro={firstEntrance}
+        loaderVisible={loaderVisible}
+        firstEntrance={firstEntrance}
         transitionState={transitionState}
-        switchThemeForElements={switchThemeForElements}
       />
     )
   }
 )
 
-const ConnectedHero = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HeroContainer)
+const ConnectedHero = connect(mapStateToProps)(HeroContainer)
 
 export default ConnectedHero

@@ -8,7 +8,7 @@ import HomeContainer from "@components/home/home.container"
 const IndexPage: React.FunctionComponent = () => {
   return (
     <>
-      <SEO bodyClasses="page-background-dark" />
+      <SEO />
 
       <HomeContainer>
         <HeroContainer />

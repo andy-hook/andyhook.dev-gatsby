@@ -1,7 +1,7 @@
 import React from "react"
 import { Normalize } from "styled-normalize"
 import { createGlobalStyle } from "styled-components"
-import { zIndex, darkGrey, lightGrey } from "@style/variables"
+import { zIndex, darkGrey } from "@style/variables"
 
 const Global = createGlobalStyle`
 
@@ -121,15 +121,8 @@ const Global = createGlobalStyle`
 `
 
 const GlobalPageBackground = createGlobalStyle`
-
-  /* We use global styles to set body background-color per page due to server side rendering */
-  /* We want to avoid the tiny flicker that would occur if doing this dynamically on the client */
-  .page-background-dark {
+  body {
     background-color: ${darkGrey(100)}
-  }
-
-  .page-background-light {
-    background-color: ${lightGrey(100)}
   }
 `
 
