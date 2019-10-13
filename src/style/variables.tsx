@@ -20,7 +20,7 @@ export const letterSpacing = {
     medium: "0.03em",
   },
   display: {
-    bold: "-0.005em",
+    bold: "-0.02em",
   },
   uppercase: "0.06em",
 }

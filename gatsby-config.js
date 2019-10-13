@@ -174,6 +174,7 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
