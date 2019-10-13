@@ -16,8 +16,6 @@ export type TLayerNames = "lowest" | "low" | "medium" | "high" | "highest"
 
 export type TLayers = { [key in TLayerNames]: string }
 
-export type TThemeType = "primary-theme" | "secondary-theme"
-
 export type TThemeName = "light" | "dark"
 
 export interface ITheme {

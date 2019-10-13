@@ -12,21 +12,20 @@ interface IProps {
 
 interface IStoreProps {
   menuOpen: IStore["menuOpen"]
-  primaryTheme: IStore["primaryTheme"]
 }
 
-const mapStateToProps = ({ menuOpen, primaryTheme }: IStore) => {
-  return { menuOpen, primaryTheme }
+const mapStateToProps = ({ menuOpen }: IStore) => {
+  return { menuOpen }
 }
 
 type AllProps = IProps & IStoreProps
 
 const HomeContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, primaryTheme, menuOpen }) => {
+  ({ children, menuOpen }) => {
     const transitionState = useTransitionState()
 
     return (
-      <ThemeProvider theme={themes[primaryTheme]}>
+      <ThemeProvider theme={themes.dark}>
         <Home menuOpen={menuOpen} transitionState={transitionState}>
           {children}
         </Home>

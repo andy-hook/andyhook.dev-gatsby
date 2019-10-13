@@ -17,7 +17,6 @@ interface Data {
 interface Props {
   menuOpen: IStore["menuOpen"]
   firstEntrance: IStore["firstEntrance"]
-  secondaryTheme: IStore["secondaryTheme"]
 }
 
 interface DispatchProps {
@@ -26,12 +25,8 @@ interface DispatchProps {
 
 type AllProps = DispatchProps & Props
 
-const mapStateToProps = ({
-  menuOpen,
-  secondaryTheme,
-  firstEntrance,
-}: IStore) => {
-  return { menuOpen, secondaryTheme, firstEntrance }
+const mapStateToProps = ({ menuOpen, firstEntrance }: IStore) => {
+  return { menuOpen, firstEntrance }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -43,7 +38,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const MenuContainer: React.FunctionComponent<AllProps> = memo(
-  ({ menuOpen, setMenuOpen, firstEntrance, secondaryTheme }) => {
+  ({ menuOpen, setMenuOpen, firstEntrance }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -107,7 +102,7 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
       }
     `)
     return (
-      <ThemeProvider theme={themes[secondaryTheme]}>
+      <ThemeProvider theme={themes.light}>
         <Menu
           open={menuOpen}
           projects={data.projectsData.siteMetadata.projects}

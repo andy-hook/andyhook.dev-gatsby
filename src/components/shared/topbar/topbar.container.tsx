@@ -11,13 +11,12 @@ interface DispatchProps {
   openMenu: () => void
   closeMenu: () => void
   menuOpen: IStore["menuOpen"]
-  primaryTheme: IStore["primaryTheme"]
 }
 
 type ContainerProps = DispatchProps
 
-const mapStateToProps = ({ menuOpen, primaryTheme }: IStore) => {
-  return { menuOpen, primaryTheme }
+const mapStateToProps = ({ menuOpen }: IStore) => {
+  return { menuOpen }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -32,9 +31,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
-  ({ menuOpen, openMenu, closeMenu, primaryTheme }) => {
+  ({ menuOpen, openMenu, closeMenu }) => {
     return (
-      <ThemeProvider theme={themes[primaryTheme]}>
+      <ThemeProvider theme={menuOpen ? themes.light : themes.dark}>
         <Topbar open={menuOpen} openMenu={openMenu} closeMenu={closeMenu} />
       </ThemeProvider>
     )

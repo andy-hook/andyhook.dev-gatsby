@@ -12,7 +12,6 @@ import date from "./date/date"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
-import ThemeSwitch from "@components/shared/theme-switch/theme-switch.container"
 import { ISocialMeta } from "model"
 
 interface Props {
@@ -106,8 +105,6 @@ const Hero: React.FunctionComponent<Props> = memo(
             </Date>
             <BackgroundTexture />
           </BackgroundContainer>
-
-          <ThemeSwitch />
         </Container>
       </>
     )

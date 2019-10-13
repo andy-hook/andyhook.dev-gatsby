@@ -4,8 +4,6 @@ import {
   ILoaderVisibleAction,
   IFirstEntranceAction,
   IMenuOpenAction,
-  IPrimaryThemeAction,
-  ISecondaryThemeAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -23,11 +21,3 @@ export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
 export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
   "menu-open"
 )
-
-export const setPrimaryThemeAction = createPayloadedAction<IPrimaryThemeAction>(
-  "primary-theme"
-)
-
-export const setSecondaryThemeAction = createPayloadedAction<
-  ISecondaryThemeAction
->("secondary-theme")

@@ -22,7 +22,6 @@ interface Props {
 
 interface IStoreProps {
   menuOpen: IStore["menuOpen"]
-  primaryTheme: IStore["primaryTheme"]
   firstEntrance: IStore["firstEntrance"]
   loaderVisible: IStore["loaderVisible"]
 }
@@ -32,12 +31,11 @@ interface DispatchProps {
 }
 
 const mapStateToProps = ({
-  primaryTheme,
   firstEntrance,
   loaderVisible,
   menuOpen,
 }: IStore) => {
-  return { primaryTheme, firstEntrance, loaderVisible, menuOpen }
+  return { firstEntrance, loaderVisible, menuOpen }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -54,7 +52,6 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
   ({
     children,
     projectName,
-    primaryTheme,
     firstEntrance,
     loaderVisible,
     menuOpen,
@@ -152,7 +149,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
     `)
 
     return (
-      <ThemeProvider theme={themes[primaryTheme]}>
+      <ThemeProvider theme={themes.dark}>
         <TransitionPortal>
           <Project
             projectName={projectName}

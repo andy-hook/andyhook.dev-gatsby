@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styled, { css } from "styled-components"
-import { borderRadius, darkGrey, lightGrey } from "@style/variables"
-import { isTheme } from "@style/theme"
+import { borderRadius } from "@style/variables"
+import { themeTone } from "@style/theme"
 
 interface Props {
   open?: boolean
@@ -13,7 +13,7 @@ const Navicon: React.FunctionComponent<Props> = memo(({ onClick, open }) => {
 })
 
 const openStyles = css`
-  background-color: ${isTheme("dark", lightGrey(500), darkGrey(400))};
+  background-color: ${themeTone(600)};
 `
 
 const NaviconContainer = styled.button<Props>`
@@ -36,7 +36,7 @@ const NaviconContainer = styled.button<Props>`
 
     border-radius: ${borderRadius.circle};
 
-    background-color: ${isTheme("dark", darkGrey(400), lightGrey(500))};
+    background-color: ${themeTone(400)};
 
     ${props => props.open && openStyles}
   }
