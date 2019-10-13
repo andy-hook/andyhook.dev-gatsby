@@ -3,45 +3,13 @@ import { Normalize } from "styled-normalize"
 import { createGlobalStyle } from "styled-components"
 import { zIndex, darkGrey } from "@style/variables"
 
-const Fonts = createGlobalStyle`
-
-  /* Base */
-  @font-face {
-    font-family: 'inter';
-    font-style:  normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("fonts/inter-regular.woff2") format("woff2"),
-         url("fonts/inter-regular.woff") format("woff");
-  }
-
-  @font-face {
-    font-family: 'inter';
-    font-style:  normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("fonts/inter-medium.woff2") format("woff2"),
-         url("fonts/inter-medium.woff") format("woff");
-  }
-
-  /* Display */
-  @font-face {
-    font-family: "maison-neue";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url("fonts/maison-neue-bold.woff2") format("woff2"),
-         url("fonts/maison-neue-bold.woff") format("woff");
-  }
-`
-
 const Global = createGlobalStyle`
 
   /* A very simple reset that sits on top of Normalize
   ------------------------------------------------- */
 
   body {
-    overflow: hidden;
+    overflow-y: scroll;
   }
 
   body,
@@ -179,7 +147,6 @@ const GlobalTransitionLink = createGlobalStyle`
 const GlobalStyle: React.FunctionComponent = () => {
   return (
     <>
-      <Fonts />
       <Normalize />
       <Global />
       <GlobalPageBackground />

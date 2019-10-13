@@ -4,6 +4,9 @@ import LoaderContainer from "@components/shared/loader/loader.container"
 import TopbarContainer from "@components/shared/topbar/topbar.container"
 import MenuContainer from "@components/shared/menu/menu.container"
 
+// Import fonts
+import "@style/fonts.css"
+
 interface Props {
   children: ReactNode
 }
