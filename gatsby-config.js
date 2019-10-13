@@ -51,7 +51,7 @@ module.exports = {
       bright: {
         label: "Bright",
         desc: "Bright description",
-        path: "/bright",
+        path: "/projects/bright",
         details: {
           role: "Interface Developer",
           location: "Brighton, UK",
@@ -75,7 +75,7 @@ module.exports = {
       brandwatch: {
         label: "Brandwatch",
         desc: "Social listening trusted by world-leading brands",
-        path: "/brandwatch",
+        path: "/projects/brandwatch",
         details: {
           role: "Senior Developer",
           location: "Brighton, UK",
@@ -99,7 +99,7 @@ module.exports = {
       monster: {
         label: "Monster",
         desc: "Monster description",
-        path: "/monster",
+        path: "/projects/monster",
         details: {
           role: "Senior Developer",
           location: "Brighton, UK",
@@ -123,7 +123,7 @@ module.exports = {
       jamieson: {
         label: "Jamieson",
         desc: "Jamieson description",
-        path: "/jamieson",
+        path: "/projects/jamieson",
         details: {
           role: "Front-End Designer",
           location: "Hastings, UK",
@@ -147,7 +147,7 @@ module.exports = {
       sketchbook: {
         label: "Sketchbook",
         desc: "Sketchbook description",
-        path: "/sketchbook",
+        path: "/projects/sketchbook",
         details: {
           role: "Digital Designer",
           location: "Brighton, UK",
@@ -217,16 +217,6 @@ module.exports = {
           "@images": path.resolve(__dirname, "src/images"),
         },
         extensions: [],
-      },
-    },
-
-    // Typekit font loading
-    {
-      resolve: `gatsby-plugin-web-font-loader`,
-      options: {
-        typekit: {
-          id: `dfp8ggi`,
-        },
       },
     },
 

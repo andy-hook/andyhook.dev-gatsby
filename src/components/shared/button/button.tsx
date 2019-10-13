@@ -9,6 +9,7 @@ import {
   duration,
   zIndex,
   lightGreyHSL,
+  lineHeight,
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -30,11 +31,11 @@ const StyledButton = styled(OutboundLink)`
   position: relative;
 
   overflow: hidden;
-  font-family: ${fontFamily.base};
+  font-family: ${fontFamily.display};
 
   color: ${`hsl(${lightGreyHSL[100]})`};
 
-  font-weight: ${fontWeight.base.bold};
+  font-weight: ${fontWeight.display.bold};
 
   font-size: ${typeScale[2]};
 
@@ -43,7 +44,7 @@ const StyledButton = styled(OutboundLink)`
   text-decoration: none;
   text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
-  padding: 1em 1.95em;
+  padding: 1.05em 2.15em;
   background: linear-gradient(160deg, #c700b1 0%, #6609e1 100%);
 
   &::before,
@@ -101,8 +102,11 @@ const StyledButton = styled(OutboundLink)`
 `
 
 const StyledButtonInner = styled.span`
+  display: block;
   position: relative;
   z-index: ${zIndex.medium};
+
+  line-height: ${lineHeight.flat};
 `
 
 export default Button

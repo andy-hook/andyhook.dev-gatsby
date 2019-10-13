@@ -10,19 +10,17 @@ import { TBreakpoints } from "@custom-types/breakpoints"
 export const baseFontSize = 16
 
 export const fontFamily = {
-  base: `'proxima-nova', -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto,Oxygen-Sans, Ubuntu,Cantarell, "Helvetica Neue", sans-serif`,
-  display: `'montserrat', -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto,Oxygen-Sans, Ubuntu,Cantarell, "Helvetica Neue", sans-serif`,
+  base: `'inter', -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto,Oxygen-Sans, Ubuntu,Cantarell, "Helvetica Neue", sans-serif`,
+  display: `'maison-neue', -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto,Oxygen-Sans, Ubuntu,Cantarell, "Helvetica Neue", sans-serif`,
 }
 
 export const letterSpacing = {
   base: {
     regular: "0.01em",
     medium: "0.03em",
-    bold: "0.01em",
   },
   display: {
-    medium: "-0.02em",
-    semi: "-0.02em",
+    bold: "-0.005em",
   },
   uppercase: "0.06em",
 }
@@ -45,11 +43,9 @@ export const fontWeight = {
   base: {
     regular: "400",
     medium: "500",
-    bold: "700",
   },
   display: {
-    medium: "500",
-    semi: "600",
+    bold: "700",
   },
 }
 

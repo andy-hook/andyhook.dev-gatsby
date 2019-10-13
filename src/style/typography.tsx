@@ -27,33 +27,21 @@ export const typeBaseMedium = css`
   letter-spacing: ${letterSpacing.base.medium};
 `
 
-export const typeBaseBold = css`
-  ${typeBase}
-  font-weight: ${fontWeight.base.bold};
-  letter-spacing: ${letterSpacing.base.bold};
-`
-
 // Display
 export const typeDisplay = css`
   font-family: ${fontFamily.display};
 `
 
-export const typeDisplayMedium = css`
+export const typeDisplayBold = css`
   ${typeDisplay}
-  font-weight: ${fontWeight.display.semi};
-  letter-spacing: ${letterSpacing.display.medium};
-`
-
-export const typeDisplaySemi = css`
-  ${typeDisplay}
-  font-weight: ${fontWeight.display.semi};
-  letter-spacing: ${letterSpacing.display.semi};
+  font-weight: ${fontWeight.display.bold};
+  letter-spacing: ${letterSpacing.display.bold};
 `
 
 /* Composites
   ------------------------------------------------- */
 export const typeTitle = css`
-  ${typeDisplaySemi}
+  ${typeDisplayBold}
 
   color: ${themeText(200)};
   line-height: ${lineHeight.display.tight};
