@@ -38,7 +38,7 @@ export const projectsData: TProjects = {
   bright: {
     label: "Bright",
     desc: "Bright description",
-    path: "/bright",
+    path: "/projects/bright",
     details: {
       role: "role",
       location: "location",
@@ -54,7 +54,7 @@ export const projectsData: TProjects = {
   brandwatch: {
     label: "Brandwatch",
     desc: "Brandwatch description",
-    path: "/brandwatch",
+    path: "/projects/brandwatch",
     details: {
       role: "role",
       location: "location",
@@ -70,7 +70,7 @@ export const projectsData: TProjects = {
   monster: {
     label: "Monster",
     desc: "Monster description",
-    path: "/monster",
+    path: "/projects/monster",
     details: {
       role: "role",
       location: "location",
@@ -86,7 +86,7 @@ export const projectsData: TProjects = {
   jamieson: {
     label: "Jamieson",
     desc: "Jamieson description",
-    path: "/jamieson",
+    path: "/projects/jamieson",
     details: {
       role: "role",
       location: "location",
@@ -102,7 +102,7 @@ export const projectsData: TProjects = {
   sketchbook: {
     label: "Sketchbook",
     desc: "Sketchbook description",
-    path: "/sketchbook",
+    path: "/projects/sketchbook",
     details: {
       role: "role",
       location: "location",
