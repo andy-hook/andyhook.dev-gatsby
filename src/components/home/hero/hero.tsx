@@ -1,6 +1,5 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
-import { rem } from "polished"
 import Social from "./social/social"
 import Details from "./details/details"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
@@ -8,7 +7,6 @@ import { typeScale, zIndex } from "@style/variables"
 import { runAnimation, animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import heroBg from "@images/hero-bg.svg"
-import date from "./date/date"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
@@ -26,12 +24,10 @@ const Hero: React.FunctionComponent<Props> = memo(
     const detailsRef = React.useRef() as Ref
     const socialRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
-    const dateRef = React.useRef() as Ref
 
     const refs = {
       details: detailsRef,
       social: socialRef,
-      date: dateRef,
       background: backgroundRef,
     }
 
@@ -100,9 +96,6 @@ const Hero: React.FunctionComponent<Props> = memo(
 
           <BackgroundContainer ref={backgroundRef}>
             <BackgroundGradient />
-            <Date ref={dateRef}>
-              <DateGraphic />
-            </Date>
             <BackgroundTexture />
           </BackgroundContainer>
         </Container>
@@ -209,54 +202,6 @@ const BackgroundGradient = styled.div`
     ${themeLayerAlpha("lowest", 0)} 25%,
     ${themeLayer("lowest")} 65%
   );
-`
-
-const Date = styled.div`
-  position: relative;
-  width: 1em;
-  height: 0.35em;
-
-  font-size: ${rem("1400px")};
-
-  z-index: ${zIndex.low};
-
-  opacity: 0;
-
-  ${mq.lessThan("topDesk")`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    transform: translate3d(-45vw, -50%, 0);
-  `}
-
-  ${scaleBetween(
-    "font-size",
-    rem("1400px"),
-    rem("1050px"),
-    "topThumb",
-    "bottomDesk"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    rem("1050px"),
-    rem("1250px"),
-    "topDesk",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", rem("1250px"), "topUltra")}
-`
-
-const DateGraphic = styled(date)`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
 `
 
 export default Hero

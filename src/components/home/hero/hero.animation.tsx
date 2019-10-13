@@ -131,44 +131,6 @@ export const animation: TAnimation = {
       )
     },
   },
-  date: {
-    siteEntrance: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.8,
-        {
-          scale: 1.1,
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-          delay: siteEntranceDelay,
-        }
-      )
-    },
-    enterFromProject: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-      })
-    },
-    pop: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.8,
-        {
-          scale: 1.1,
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    },
-  },
   background: {
     siteEntrance: ref => {
       TweenMax.to(ref.current, 0.9, {
