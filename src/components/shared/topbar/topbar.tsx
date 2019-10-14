@@ -50,6 +50,7 @@ const Container = styled.div`
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   padding: 50px;
 
@@ -73,6 +74,8 @@ const StyledLogo = styled(Logo)`
 const NavPos = styled.div`
   z-index: ${zIndex.highest};
   display: flex;
+
+  align-items: center;
 `
 
 const StyledNavicon = styled(Navicon)`

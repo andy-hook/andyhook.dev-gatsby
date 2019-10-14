@@ -27,6 +27,12 @@ export const typeBaseMedium = css`
   letter-spacing: ${letterSpacing.base.medium};
 `
 
+export const typeBaseSemibold = css`
+  ${typeBase}
+  font-weight: ${fontWeight.base.semibold};
+  letter-spacing: ${letterSpacing.base.semibold};
+`
+
 // Display
 export const typeDisplay = css`
   font-family: ${fontFamily.display};

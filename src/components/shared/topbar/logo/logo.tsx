@@ -16,7 +16,7 @@ const Logo: React.FunctionComponent<Props> = memo(
       : "enter-from-project"
 
     return (
-      <Link
+      <LogoLink
         className={classNames("", className)}
         to="/"
         entry={{
@@ -60,18 +60,19 @@ const Logo: React.FunctionComponent<Props> = memo(
             fill="#FFF"
           />
         </LogoMark>
-      </Link>
+      </LogoLink>
     )
   }
 )
 
-const LogoMark = styled.svg<Props>`
-  transition: transform 0.3s ease;
+const LogoLink = styled(Link)`
   font-size: 1em;
   width: 1em;
   height: 1em;
+`
 
-  ${props => props.inverted && "transform: rotate(0deg)"};
+const LogoMark = styled.svg<Props>`
+  display: block;
 
   & .stop-one {
     stop-color: ${darkGrey(500)};

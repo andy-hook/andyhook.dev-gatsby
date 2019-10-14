@@ -17,7 +17,8 @@ export const fontFamily = {
 export const letterSpacing = {
   base: {
     regular: "0.01em",
-    medium: "0.03em",
+    medium: "0.01em",
+    semibold: "0.01em",
   },
   display: {
     bold: "-0.02em",
@@ -54,15 +55,15 @@ export const typeScale = {
   1: rem("12px"),
   2: rem("13px"),
   3: rem("14px"),
-  4: rem("16px"),
-  5: rem("18px"),
-  6: rem("20px"),
-  7: rem("22px"),
-  8: rem("28px"),
-  9: rem("34px"),
-  10: rem("46px"),
-  11: rem("60px"),
-  12: rem("76px"),
+  4: rem("15px"),
+  5: rem("16px"),
+  6: rem("18px"),
+  7: rem("20px"),
+  8: rem("26px"),
+  9: rem("32px"),
+  10: rem("44px"),
+  11: rem("58px"),
+  12: rem("74px"),
 }
 
 export const spacingScale = {

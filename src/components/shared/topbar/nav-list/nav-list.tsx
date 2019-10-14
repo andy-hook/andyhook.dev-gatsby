@@ -1,28 +1,58 @@
 import React, { memo } from "react"
 import Link from "gatsby-plugin-transition-link"
+import styled from "styled-components"
+import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
+import { themeText } from "@style/theme"
 
 const NavList: React.FunctionComponent = memo(() => {
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to="/" activeClassName="active" partiallyActive={true}>
+      <List>
+        <ListItem>
+          <ListItemLink to="/" activeClassName="active">
             Overview
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" activeClassName="active" partiallyActive={true}>
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
+          <ListItemLink
+            to="/projects"
+            activeClassName="active"
+            partiallyActive={true}
+          >
             Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" activeClassName="active" partiallyActive={true}>
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
+          <ListItemLink to="/about" activeClassName="active">
             About
-          </Link>
-        </li>
-      </ul>
+          </ListItemLink>
+        </ListItem>
+      </List>
     </nav>
   )
 })
+
+const List = styled.ul`
+  ${typeBaseSemibold}
+  ${typeSizeBaseXs}
+
+  display: flex;
+
+  margin-right: 4em;
+`
+
+const ListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 3em;
+  }
+`
+
+const ListItemLink = styled(Link)`
+  color: ${themeText(1000)};
+
+  &.active {
+    color: ${themeText(400)};
+  }
+`
 
 export default NavList
