@@ -199,7 +199,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     ))
 
     return (
-      <>
+      <Fixer>
         <Container ref={containerRef}>
           <Gutter>
             <MenuContents ref={contentsRef}>
@@ -226,10 +226,21 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         </Container>
 
         <MenuBackboard ref={backboardRef} />
-      </>
+      </Fixer>
     )
   }
 )
+
+const Fixer = styled.div`
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: ${zIndex.high};
+`
 
 const MenuBackboard = styled.div`
   position: absolute;
@@ -242,7 +253,6 @@ const MenuBackboard = styled.div`
   background-color: ${themeTone(100)};
   transform: translate3d(0, -100%, 0);
 
-  z-index: ${zIndex.high};
   opacity: 0;
 `
 
@@ -254,8 +264,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
 
   z-index: ${zIndex.high + 1};
 

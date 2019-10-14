@@ -9,7 +9,7 @@ exports[`<Work /> renders correctly 1`] = `
   >
     <a
       className="sc-bdVaJa gBBbQm"
-      href="/bright"
+      href="/projects/bright"
       onClick={[Function]}
     >
       Bright
@@ -17,7 +17,7 @@ exports[`<Work /> renders correctly 1`] = `
     </a>
     <a
       className="sc-bdVaJa gBBbQm"
-      href="/brandwatch"
+      href="/projects/brandwatch"
       onClick={[Function]}
     >
       Brandwatch
@@ -25,7 +25,7 @@ exports[`<Work /> renders correctly 1`] = `
     </a>
     <a
       className="sc-bdVaJa gBBbQm"
-      href="/monster"
+      href="/projects/monster"
       onClick={[Function]}
     >
       Monster
@@ -33,7 +33,7 @@ exports[`<Work /> renders correctly 1`] = `
     </a>
     <a
       className="sc-bdVaJa gBBbQm"
-      href="/jamieson"
+      href="/projects/jamieson"
       onClick={[Function]}
     >
       Jamieson
@@ -41,7 +41,7 @@ exports[`<Work /> renders correctly 1`] = `
     </a>
     <a
       className="sc-bdVaJa gBBbQm"
-      href="/sketchbook"
+      href="/projects/sketchbook"
       onClick={[Function]}
     >
       Sketchbook

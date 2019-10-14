@@ -9,7 +9,6 @@ import { themes } from "@style/theme"
 import { Dispatch } from "redux"
 import { menuOpenAction } from "@store/actions"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
-import { TransitionPortal } from "gatsby-plugin-transition-link"
 
 interface Data {
   projectsData: IProjectsData
@@ -150,18 +149,16 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
 
     return (
       <ThemeProvider theme={themes.dark}>
-        <TransitionPortal>
-          <Project
-            projectName={projectName}
-            projectData={data.projectsData.siteMetadata.projects}
-            transitionState={transitionState}
-            canPerformIntro={firstEntrance}
-            introTrigger={!loaderVisible}
-            menuOpen={menuOpen}
-          >
-            {children}
-          </Project>
-        </TransitionPortal>
+        <Project
+          projectName={projectName}
+          projectData={data.projectsData.siteMetadata.projects}
+          transitionState={transitionState}
+          canPerformIntro={firstEntrance}
+          introTrigger={!loaderVisible}
+          menuOpen={menuOpen}
+        >
+          {children}
+        </Project>
       </ThemeProvider>
     )
   }

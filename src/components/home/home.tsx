@@ -1,5 +1,4 @@
 import React, { memo, ReactNode, useEffect } from "react"
-import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
 import styled from "styled-components"
 import { themeLayer, themeTone } from "@style/theme"
 import { zIndex } from "@style/variables"
@@ -58,9 +57,8 @@ const Home: React.FunctionComponent<Props> = memo(
     return (
       <>
         <AnimationScrim ref={animationScrim} />
-        <ContentScrollContainer>
-          <Container>{children}</Container>
-        </ContentScrollContainer>
+
+        <Container>{children}</Container>
       </>
     )
   }

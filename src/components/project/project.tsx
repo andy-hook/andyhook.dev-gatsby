@@ -1,16 +1,14 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
-import ContentScrollContainer from "@components/shared/content-scroll/content-scroll.container"
 import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
 import { TProjects, TProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { themeTone } from "@style/theme"
 import Contents from "@components/project/contents/contents"
-import { zIndex } from "@style/variables"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
-import { animation, runAnimation } from "./project.animation"
+import { runAnimation } from "./project.animation"
 import { IStore } from "@custom-types/store"
 
 interface Props {
@@ -32,14 +30,10 @@ const Project: React.FunctionComponent<Props> = memo(
     introTrigger,
     menuOpen,
   }) => {
-    const backboard = React.useRef() as Ref
     const content = React.useRef() as Ref
-    const animationScrim = React.useRef() as Ref
 
     const refs = {
-      backboard,
       content,
-      animationScrim,
     }
 
     // Animate scrim on menu change
@@ -50,16 +44,6 @@ const Project: React.FunctionComponent<Props> = memo(
         runAnimation(refs, "closeMenu")
       }
     }, [menuOpen])
-
-    // The backboard needs to be positioned into view on the first site entrance
-    // This is because it's initial style must be set to offscreen to prevent flicker in other contexts
-    useEffect(() => {
-      const runBackboardEntranceAnimation = animation.backboard.siteEntrance
-
-      if (canPerformIntro && runBackboardEntranceAnimation) {
-        runBackboardEntranceAnimation(backboard)
-      }
-    }, [canPerformIntro])
 
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
@@ -110,74 +94,22 @@ const Project: React.FunctionComponent<Props> = memo(
 
     return (
       <>
-        <AnimationScrim ref={animationScrim} />
-        <ContentScrollPos>
-          <ContentScrollContainer>
-            <Container ref={content}>
-              <Header
-                project={getCurrentProjectData(projectData, projectName)}
-              />
-              <TempIntroImage />
-              <Contents
-                sections={
-                  getCurrentProjectData(projectData, projectName).contents
-                }
-              />
-              {children}
-              <NextProject
-                project={getNextProjectData(projectData, projectName)}
-              />
-            </Container>
-          </ContentScrollContainer>
-        </ContentScrollPos>
-        <ProjectBackboard ref={backboard} />
+        <Container ref={content}>
+          <Header project={getCurrentProjectData(projectData, projectName)} />
+          <TempIntroImage />
+          <Contents
+            sections={getCurrentProjectData(projectData, projectName).contents}
+          />
+          {children}
+          <NextProject project={getNextProjectData(projectData, projectName)} />
+        </Container>
       </>
     )
   }
 )
 
-const AnimationScrim = styled.div`
-  background-color: ${themeTone(100)};
-  position: absolute;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: ${zIndex.high};
-`
-
-const ContentScrollPos = styled.div`
-  position: relative;
-  z-index: ${zIndex.medium};
-`
-
-const ProjectBackboard = styled.div`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: ${themeTone(100)};
-
-  z-index: ${zIndex.low};
-
-  transform: translate3d(100%, 0, 0);
-  opacity: 0;
-`
-
 const Container = styled.article`
   height: 3000px;
-
-  opacity: 0;
 `
 
 const TempIntroImage = styled.div`

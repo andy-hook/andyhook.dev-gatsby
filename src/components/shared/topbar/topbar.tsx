@@ -1,12 +1,13 @@
 import React, { memo } from "react"
 import Navicon from "@components/shared/navicon/navicon"
 import Logo from "@components/shared/logo/logo"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 import { menuIsAnimating } from "@components/shared/menu/menu"
+import NavList from "@components/shared/nav/nav-list"
 
 interface Props {
   open?: boolean
@@ -30,7 +31,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
     const logoReturnAnimation = open ? "enter-from-nav" : "enter-from-project"
 
     return (
-      <>
+      <Container>
         <LogoLink
           to="/"
           entry={{
@@ -48,32 +49,33 @@ const Topbar: React.FunctionComponent<Props> = memo(
         >
           <Logo open={open} />
         </LogoLink>
-        <NaviconPos>
-          <Navicon open={open} onClick={toggleMenu} />
-        </NaviconPos>
-      </>
+
+        <Menu>
+          <NavList />
+          <StyledNavicon open={open} onClick={toggleMenu} />
+        </Menu>
+      </Container>
     )
   }
 )
 
-const clearance = "0.9em"
-
-const commonStyles = css`
-  position: absolute;
-
-  top: ${clearance};
-
+const Container = styled.div`
+  position: fixed;
   z-index: ${zIndex.highest};
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 50px;
+
+  border-bottom: 1px solid white;
 `
 
 const LogoLink = styled(Link)`
-  ${commonStyles}
-
-  left: ${clearance};
-
-  margin-top: -0.15em;
-  margin-left: -0.1em;
-
   font-size: ${rem("55px")};
 
   ${scaleBetween(
@@ -87,11 +89,12 @@ const LogoLink = styled(Link)`
   ${scaleGreaterThan("font-size", rem("70px"), "topUltra")}
 `
 
-const NaviconPos = styled.div`
-  ${commonStyles}
+const Menu = styled.div`
+  z-index: ${zIndex.highest};
+  display: flex;
+`
 
-  right: ${clearance};
-
+const StyledNavicon = styled(Navicon)`
   font-size: ${rem("48px")};
 
   ${scaleBetween(

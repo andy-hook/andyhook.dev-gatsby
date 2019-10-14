@@ -2,15 +2,25 @@ import React, { memo } from "react"
 import styled, { css } from "styled-components"
 import { borderRadius } from "@style/variables"
 import { themeTone } from "@style/theme"
+import classNames from "classnames"
 
 interface Props {
   open?: boolean
+  className?: string
   onClick: () => void
 }
 
-const Navicon: React.FunctionComponent<Props> = memo(({ onClick, open }) => {
-  return <NaviconContainer onClick={onClick} open={open} />
-})
+const Navicon: React.FunctionComponent<Props> = memo(
+  ({ onClick, open, className }) => {
+    return (
+      <NaviconContainer
+        className={classNames("", className)}
+        onClick={onClick}
+        open={open}
+      />
+    )
+  }
+)
 
 const openStyles = css`
   background-color: ${themeTone(600)};
