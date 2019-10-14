@@ -1,6 +1,5 @@
 import React, { memo } from "react"
 import styled from "styled-components"
-import { darkGrey } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 import classNames from "classnames"
 import { themeText } from "@style/theme"

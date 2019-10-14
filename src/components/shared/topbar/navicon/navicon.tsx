@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import styled, { css } from "styled-components"
-import { borderRadius } from "@style/variables"
-import { themeTone } from "@style/theme"
+import { borderRadius, zIndex } from "@style/variables"
+import { themeTone, themeText } from "@style/theme"
 import classNames from "classnames"
 
 interface Props {
@@ -17,7 +17,12 @@ const Navicon: React.FunctionComponent<Props> = memo(
         className={classNames("", className)}
         onClick={onClick}
         open={open}
-      />
+      >
+        <BarsSVG viewBox="0 0 23 9">
+          <rect width="23" height="2" />
+          <rect y="7" width="23" height="2" />
+        </BarsSVG>
+      </NaviconContainer>
     )
   }
 )
@@ -28,13 +33,21 @@ const openStyles = css`
 
 const NaviconContainer = styled.button<Props>`
   position: relative;
-  font-size: 1em;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 4em;
 
   width: 1em;
   height: 1em;
 
   &::after {
     content: "";
+
+    opacity: 0;
 
     position: absolute;
 
@@ -49,6 +62,25 @@ const NaviconContainer = styled.button<Props>`
     background-color: ${themeTone(400)};
 
     ${props => props.open && openStyles}
+
+    z-index: ${zIndex.floor};
+  }
+`
+
+const BarsSVG = styled.svg`
+  display: block;
+
+  font-size: 0.425em;
+
+  height: 0.4em;
+  width: 1em;
+
+  margin-bottom: -0.1em;
+
+  z-index: ${zIndex.low};
+
+  & rect {
+    fill: ${themeText(500)};
   }
 `
 

@@ -1,11 +1,11 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { shallowWithTheme } from "@test-utils"
 
 import Logo from "./logo"
 
 describe("<Logo />", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Logo />).toJSON()
+    const tree = shallowWithTheme("dark", <Logo />)
     expect(tree).toMatchSnapshot()
   })
 })

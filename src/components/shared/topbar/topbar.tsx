@@ -8,6 +8,7 @@ import { zIndex, borderThickness } from "@style/variables"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 import NavList from "./nav-list/nav-list"
 import { themeTone } from "@style/theme"
+import { typeSizeBaseXs } from "@style/typography"
 
 interface Props {
   open?: boolean
@@ -34,7 +35,9 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
         <NavPos>
           <NavList />
-          <StyledNavicon open={open} onClick={toggleMenu} />
+          <NaviconSizing>
+            <Navicon open={open} onClick={toggleMenu} />
+          </NaviconSizing>
         </NavPos>
       </Container>
     )
@@ -119,18 +122,9 @@ const NavPos = styled.div`
   align-items: center;
 `
 
-const StyledNavicon = styled(Navicon)`
-  font-size: ${rem("48px")};
-
-  ${scaleBetween(
-    "font-size",
-    rem("48px"),
-    rem("60px"),
-    "bottomThumb",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", rem("60px"), "topUltra")}
+const NaviconSizing = styled.div`
+  /* Align scaling with navigation text */
+  ${typeSizeBaseXs}
 `
 
 export default Topbar
