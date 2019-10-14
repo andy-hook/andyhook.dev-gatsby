@@ -43,6 +43,7 @@ export const fontWeight = {
   base: {
     regular: "400",
     medium: "500",
+    semibold: "600",
   },
   display: {
     bold: "700",
