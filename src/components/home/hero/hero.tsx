@@ -22,12 +22,10 @@ interface Props {
 const Hero: React.FunctionComponent<Props> = memo(
   ({ socialIconData, loaderVisible, firstEntrance, transitionState }) => {
     const detailsRef = React.useRef() as Ref
-    const socialRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
 
     const refs = {
       details: detailsRef,
-      social: socialRef,
       background: backgroundRef,
     }
 
@@ -90,10 +88,6 @@ const Hero: React.FunctionComponent<Props> = memo(
             </Gutter>
           </DetailsPos>
 
-          <SocialPos ref={socialRef}>
-            <Social items={socialIconData} />
-          </SocialPos>
-
           <BackgroundContainer ref={backgroundRef}>
             <BackgroundGradient />
             <BackgroundTexture />
@@ -118,37 +112,13 @@ const DetailsPos = styled.div`
 
   width: 100%;
 
-  margin-bottom: -3vh;
+  margin-bottom: -6vh;
 
   z-index: ${zIndex.low};
 
   opacity: 0;
 
   will-change: transform;
-`
-
-const SocialPos = styled.div`
-  position: absolute;
-  width: 100%;
-  left: 0;
-
-  bottom: 9vh;
-
-  z-index: ${zIndex.low};
-
-  font-size: ${typeScale[6]};
-
-  opacity: 0;
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[6],
-    typeScale[8],
-    "bottomThumb",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[8], "topUltra")}
 `
 
 const BackgroundContainer = styled.div`

@@ -70,7 +70,15 @@ export const typeSubTitle = css`
 /* Base type sizes
   ------------------------------------------------- */
 export const typeSizeBaseXs = css`
-  font-size: ${typeScale[3]};
+  font-size: ${typeScale[2]};
+  
+  ${scaleBetween(
+    "font-size",
+    typeScale[2],
+    typeScale[3],
+    "topThumb",
+    "bottomWide"
+  )}
 
   ${scaleBetween(
     "font-size",

@@ -93,12 +93,12 @@ const StyledButton = styled(OutboundLink)`
   ${scaleBetween(
     "font-size",
     typeScale[2],
-    typeScale[4],
+    typeScale[5],
     "bottomThumb",
     "bottomUltra"
   )}
 
-  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
+  ${scaleGreaterThan("font-size", typeScale[5], "topUltra")}
 `
 
 const StyledButtonInner = styled.span`

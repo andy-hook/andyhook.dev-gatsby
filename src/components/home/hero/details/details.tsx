@@ -35,7 +35,7 @@ const Title = styled.h2`
   text-align: center;
   max-width: 12em;
   margin-top: 0;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.6em;
 
   z-index: ${zIndex.low};
 `
