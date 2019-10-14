@@ -1,13 +1,12 @@
 import React, { memo } from "react"
-import Navicon from "@components/shared/navicon/navicon"
-import Logo from "@components/shared/logo/logo"
+import Navicon from "./navicon/navicon"
+import Logo from "./logo/logo"
 import styled from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { zIndex } from "@style/variables"
-import Link from "gatsby-plugin-transition-link"
 import { menuIsAnimating } from "@components/shared/menu/menu"
-import NavList from "@components/shared/nav/nav-list"
+import NavList from "./nav-list/nav-list"
 
 interface Props {
   open?: boolean
@@ -28,32 +27,14 @@ const Topbar: React.FunctionComponent<Props> = memo(
       }
     }
 
-    const logoReturnAnimation = open ? "enter-from-nav" : "enter-from-project"
-
     return (
       <Container>
-        <LogoLink
-          to="/"
-          entry={{
-            length: 0.5,
-            state: {
-              animType: logoReturnAnimation,
-            },
-          }}
-          exit={{
-            length: 0.5,
-            state: {
-              animType: "exit-to-home",
-            },
-          }}
-        >
-          <Logo open={open} />
-        </LogoLink>
+        <StyledLogo inverted={open} />
 
-        <Menu>
+        <NavPos>
           <NavList />
           <StyledNavicon open={open} onClick={toggleMenu} />
-        </Menu>
+        </NavPos>
       </Container>
     )
   }
@@ -75,7 +56,7 @@ const Container = styled.div`
   border-bottom: 1px solid white;
 `
 
-const LogoLink = styled(Link)`
+const StyledLogo = styled(Logo)`
   font-size: ${rem("55px")};
 
   ${scaleBetween(
@@ -89,7 +70,7 @@ const LogoLink = styled(Link)`
   ${scaleGreaterThan("font-size", rem("70px"), "topUltra")}
 `
 
-const Menu = styled.div`
+const NavPos = styled.div`
   z-index: ${zIndex.highest};
   display: flex;
 `
