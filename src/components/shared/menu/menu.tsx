@@ -199,8 +199,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     ))
 
     return (
-      <Fixer>
-        <Container ref={containerRef}>
+      <Fixer ref={containerRef}>
+        <Container>
           <Gutter>
             <MenuContents ref={contentsRef}>
               {/* Projects */}
@@ -240,6 +240,8 @@ const Fixer = styled.div`
   height: 100%;
 
   z-index: ${zIndex.high};
+
+  visibility: hidden;
 `
 
 const MenuBackboard = styled.div`
@@ -264,11 +266,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  overflow-y: hidden;
-
   z-index: ${zIndex.high + 1};
 
-  visibility: hidden;
+  overflow-y: hidden;
 
   ${mq.lessThan("bottomThumb")`
     padding-top: 14rem;
