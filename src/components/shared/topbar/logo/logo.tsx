@@ -1,37 +1,45 @@
 import React, { memo } from "react"
 import styled from "styled-components"
 import Link from "gatsby-plugin-transition-link"
-import classNames from "classnames"
 import { themeText } from "@style/theme"
+import { Ref } from "@custom-types/ref"
+import { Expo, TweenMax } from "gsap"
+import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
-  inverted?: boolean
-  className?: string
+  hidden?: boolean
 }
 
-const Logo: React.FunctionComponent<Props> = memo(
-  ({ inverted = false, className }) => {
-    const logoReturnAnimation = inverted
-      ? "enter-from-nav"
-      : "enter-from-project"
+const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
+  const logoRef = React.useRef() as Ref
 
-    return (
-      <LogoLink
-        className={classNames("", className)}
-        to="/"
-        entry={{
-          length: 0.5,
-          state: {
-            animType: logoReturnAnimation,
-          },
-        }}
-        exit={{
-          length: 0.5,
-          state: {
-            animType: "exit-to-home",
-          },
-        }}
-      >
+  const animateHide = () => {
+    TweenMax.to(logoRef.current, 0.5, {
+      ease: Expo.easeOut,
+      y: "25%",
+      opacity: 0,
+    })
+  }
+
+  const animateShow = () => {
+    TweenMax.to(logoRef.current, 0.5, {
+      ease: Expo.easeOut,
+      y: "0%",
+      opacity: 1,
+    })
+  }
+
+  useDeferredRunEffect(() => {
+    if (hidden) {
+      animateHide()
+    } else {
+      animateShow()
+    }
+  }, [hidden])
+
+  return (
+    <LogoWrap ref={logoRef}>
+      <LogoLink to="/">
         <LogoLettering viewBox="0 0 665.2 148.6">
           <path
             d="M23.8,71.4l19.6-2.9c4.5-0.6,6-2.9,6-5.7c0-5.7-4.4-10.4-13.4-10.4c-9.4,0-14.6,6-15.2,12.9l-19.1-4
@@ -65,14 +73,18 @@ const Logo: React.FunctionComponent<Props> = memo(
           <path d="M632.7,71l32.5,46.1h-26.4l-21-30.4l-8.9,9.4v21h-21.5V0h21.5v67.2l27.5-29.6h28.2L632.7,71z" />
         </LogoLettering>
       </LogoLink>
-    )
-  }
-)
+    </LogoWrap>
+  )
+})
 
-const LogoLink = styled(Link)`
+const LogoWrap = styled.div`
   font-size: 1em;
   width: 1em;
   height: 0.2em;
+`
+
+const LogoLink = styled(Link)`
+  display: block;
 `
 
 const LogoLettering = styled.svg`

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react"
+import React, { memo } from "react"
 import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
@@ -6,6 +6,7 @@ import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
+import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
   hidden?: boolean
@@ -30,7 +31,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
     })
   }
 
-  useEffect(() => {
+  useDeferredRunEffect(() => {
     if (hidden) {
       animateHide()
     } else {

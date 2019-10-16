@@ -31,7 +31,9 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
     return (
       <Container>
-        <StyledLogo inverted={open} />
+        <LogoPos>
+          <Logo hidden={open} />
+        </LogoPos>
 
         <NavPos>
           <NavList hidden={open} />
@@ -101,7 +103,7 @@ const Container = styled.div`
   border-bottom: ${borderThickness.regular} solid ${themeTone(300)};
 `
 
-const StyledLogo = styled(Logo)`
+const LogoPos = styled.div`
   font-size: ${rem("65px")};
 
   ${scaleBetween(
