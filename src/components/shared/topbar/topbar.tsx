@@ -34,7 +34,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
         <StyledLogo inverted={open} />
 
         <NavPos>
-          <NavList />
+          <NavList hidden={open} />
           <NaviconSizing>
             <Navicon open={open} onClick={toggleMenu} />
           </NaviconSizing>

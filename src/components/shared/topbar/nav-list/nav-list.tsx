@@ -1,13 +1,45 @@
-import React, { memo } from "react"
+import React, { memo, useEffect } from "react"
 import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
 import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
+import { Ref } from "@custom-types/ref"
+import { TweenMax, Expo } from "gsap"
 
-const NavList: React.FunctionComponent = memo(() => {
+interface Props {
+  hidden?: boolean
+}
+
+const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
+  const navRef = React.useRef() as Ref
+
+  const animateHide = () => {
+    TweenMax.to(navRef.current, 0.5, {
+      ease: Expo.easeOut,
+      y: "25%",
+      opacity: 0,
+    })
+  }
+
+  const animateShow = () => {
+    TweenMax.to(navRef.current, 0.5, {
+      ease: Expo.easeOut,
+      y: "0%",
+      opacity: 1,
+    })
+  }
+
+  useEffect(() => {
+    if (hidden) {
+      animateHide()
+    } else {
+      animateShow()
+    }
+  }, [hidden])
+
   return (
-    <nav>
+    <ListNav ref={navRef}>
       <List>
         <ListItem>
           <ListItemLink to="/" activeClassName="active">
@@ -29,17 +61,19 @@ const NavList: React.FunctionComponent = memo(() => {
           </ListItemLink>
         </ListItem>
       </List>
-    </nav>
+    </ListNav>
   )
 })
+
+const ListNav = styled.nav`
+  margin-right: 2.5em;
+`
 
 const List = styled.ul`
   ${typeBaseSemibold}
   ${typeSizeBaseXs}
 
   display: flex;
-
-  margin-right: 2.5em;
 `
 
 const ListItem = styled.li`
