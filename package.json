@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@testing-library/react": "^9.3.0",
     "babel-plugin-styled-components": "^1.10.0",
     "change-case": "^3.1.0",
     "classnames": "^2.2.6",
