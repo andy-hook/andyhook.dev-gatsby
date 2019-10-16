@@ -216,6 +216,7 @@ module.exports = {
           "@store": path.resolve(__dirname, "src/store"),
           "@custom-types": path.resolve(__dirname, "src/types"),
           "@images": path.resolve(__dirname, "src/images"),
+          "@hooks": path.resolve(__dirname, "src/hooks"),
         },
         extensions: [],
       },
