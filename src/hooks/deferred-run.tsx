@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react"
 
-const useDeferredRunEffect = (func: () => void, deps: [any]) => {
+const useDeferredRunEffect = (cb: () => void, deps?: any[] | undefined) => {
   const didMount = useRef(false)
 
   useEffect(() => {
     if (didMount.current) {
-      func()
+      cb()
     } else {
       didMount.current = true
     }
