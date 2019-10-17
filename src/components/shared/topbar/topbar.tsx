@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import Navicon from "./navicon/navicon"
 import Logo from "./logo/logo"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { zIndex, borderThickness } from "@style/variables"
@@ -10,10 +10,14 @@ import NavList from "./nav-list/nav-list"
 import { themeTone } from "@style/theme"
 import { typeSizeBaseXs } from "@style/typography"
 
-interface Props {
+interface Props extends StyleProps {
   open?: boolean
   openMenu: () => void
   closeMenu: () => void
+}
+
+interface StyleProps {
+  borderVisible?: boolean
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
@@ -30,7 +34,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
     }
 
     return (
-      <Container>
+      <Container borderVisible={!open}>
         <LogoPos>
           <Logo hidden={open} />
         </LogoPos>
@@ -46,7 +50,11 @@ const Topbar: React.FunctionComponent<Props> = memo(
   }
 )
 
-const Container = styled.div`
+const closedBorderStyle = css`
+  border-bottom: ${borderThickness.regular} solid ${themeTone(300)};
+`
+
+const Container = styled.div<StyleProps>`
   position: fixed;
   z-index: ${zIndex.highest};
 
@@ -100,7 +108,7 @@ const Container = styled.div`
   ${scaleGreaterThan("padding-left", rem("45px"), "topUltra")}
   ${scaleGreaterThan("padding-right", rem("45px"), "topUltra")}
 
-  border-bottom: ${borderThickness.regular} solid ${themeTone(300)};
+  ${props => props.borderVisible && closedBorderStyle}
 `
 
 const LogoPos = styled.div`
