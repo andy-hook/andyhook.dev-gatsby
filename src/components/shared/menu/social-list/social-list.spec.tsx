@@ -4,7 +4,7 @@ import { socialIcons } from "@mock-data"
 import SocialListComponent from "./social-list"
 import { shallowWithTheme } from "@test-utils"
 
-describe("SocialListComponent", () => {
+describe("<SocialListComponent />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "light",

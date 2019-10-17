@@ -3,7 +3,7 @@ import ProjectListComponent from "./project-list"
 import { shallowWithTheme } from "@test-utils"
 import { projectsData } from "@mock-data"
 
-describe("ProjectListComponent", () => {
+describe("<ProjectListComponent />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "light",
