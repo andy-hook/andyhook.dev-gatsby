@@ -1,14 +1,12 @@
 import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import Details from "./details/details"
-import { mq } from "@style/media-queries"
 import { zIndex } from "@style/variables"
 import { runAnimation, animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
-import heroBg from "@images/hero-bg.svg"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
-import { isTheme, themeLayer, themeLayerAlpha, themeTone } from "@style/theme"
+import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
 
 interface Props {
@@ -89,7 +87,6 @@ const Hero: React.FunctionComponent<Props> = memo(
 
           <BackgroundContainer ref={backgroundRef}>
             <BackgroundGradient />
-            <BackgroundTexture />
           </BackgroundContainer>
         </Container>
       </>
@@ -130,31 +127,11 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${isTheme("dark", themeTone(200), themeTone(700))};
-
   overflow: hidden;
 
   z-index: ${zIndex.floor};
 
   opacity: 0;
-`
-
-const BackgroundTexture = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background: url(${heroBg}) repeat top left;
-
-  ${isTheme("light", `opacity: 0.06;`)}
-
-  z-index: ${zIndex.floor};
-
-  ${mq.greaterThan("topWall")`
-    background-size: 35%;
-  `}
 `
 
 const BackgroundGradient = styled.div`
@@ -168,8 +145,8 @@ const BackgroundGradient = styled.div`
 
   background: linear-gradient(
     175deg,
-    ${themeLayerAlpha("lowest", 0)} 25%,
-    ${themeLayer("lowest")} 65%
+    ${themeToneAlpha(100, 0)} 25%,
+    ${themeTone(100)} 65%
   );
 `
 

@@ -16,7 +16,6 @@ interface Data {
 
 interface Props {
   menuOpen: IStore["menuOpen"]
-  firstEntrance: IStore["firstEntrance"]
 }
 
 interface DispatchProps {
