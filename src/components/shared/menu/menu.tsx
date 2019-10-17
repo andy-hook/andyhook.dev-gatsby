@@ -1,7 +1,7 @@
-import React, { memo, useEffect } from "react"
+import React, { memo } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
-import { zIndex } from "@style/variables"
+import { zIndex, darkGrey } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
 import {
@@ -45,6 +45,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
     const containerRef = React.useRef() as Ref
+    const animationScrim = React.useRef() as Ref
 
     const animateOpen = () => {
       menuIsAnimating = true
@@ -79,11 +80,17 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           opacity: 1,
         }
       )
+
+      // Scrim
+      TweenMax.to(animationScrim.current, 0.25, {
+        opacity: 1,
+      })
     }
 
     const animateClose = () => {
       menuIsAnimating = true
 
+      // Backboard
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -114,6 +121,12 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           opacity: 0,
         }
       )
+
+      // Scrim
+      TweenMax.to(animationScrim.current, 1, {
+        opacity: 0,
+        clearProps: "opacity",
+      })
     }
 
     const animateRouteClose = () => {
@@ -191,10 +204,28 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         </Container>
 
         <MenuBackboard ref={backboardRef} />
+        <AnimationScrim ref={animationScrim} />
       </Fixer>
     )
   }
 )
+
+const AnimationScrim = styled.div`
+  background-color: ${darkGrey(100)};
+  position: fixed;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: ${zIndex.floor};
+`
 
 const Fixer = styled.div`
   position: fixed;
@@ -219,6 +250,8 @@ const MenuBackboard = styled.div`
 
   background-color: ${themeTone(100)};
   transform: translate3d(0, -100%, 0);
+
+  z-index: ${zIndex.medium};
 
   opacity: 0;
 `

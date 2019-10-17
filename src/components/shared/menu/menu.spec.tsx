@@ -12,7 +12,6 @@ describe("<Menu />", () => {
         projects={projectsData}
         setMenuOpen={jest.fn()}
         social={socialIcons}
-        firstEntrance={true}
         open={true}
       />
     )
