@@ -2,24 +2,22 @@ import React, { memo } from "react"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { zIndex, darkGrey } from "@style/variables"
-import { themeTone, themeText } from "@style/theme"
+import { themeTone } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
 import {
   typeTitle,
-  typeBaseMedium,
   typeSupTitle,
   typeSizeBaseXs,
-  typeSizeBaseLg,
   typeSizeDisplayMd,
 } from "@style/typography"
 import Link from "gatsby-plugin-transition-link"
 import { ISocialMeta, TProjects } from "model"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { mq, scaleBetween } from "@style/media-queries"
 import { keys } from "@custom-types/utils"
 import { TweenMax, Expo } from "gsap"
 import { IStore } from "store"
 import useDeferredRunEffect from "@hooks/deferred-run"
+import SocialListComponent from "./social-list/social-list"
 
 interface Props {
   open: boolean
@@ -165,17 +163,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       </ProjectListItem>
     ))
 
-    const socialItems = keys(social).map((key, index) => (
-      <SocialListItem key={index}>
-        <SocialLink
-          href={social[key].url}
-          target={social[key].url.includes("mailto:") ? "" : "_blank"}
-        >
-          {social[key].label}
-        </SocialLink>
-      </SocialListItem>
-    ))
-
     return (
       <Fixer ref={containerRef}>
         <Container>
@@ -197,7 +184,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
                   <ListTitleDivider />
                   Connect
                 </ListTitle>
-                <SocialList>{socialItems}</SocialList>
+                <SocialListComponent socialDataList={social} />
               </SocialContainer>
             </MenuContents>
           </Gutter>
@@ -327,27 +314,6 @@ const ProjectLink = styled(Link)`
   display: block;
   padding-top: ${projectItemPadding};
   padding-bottom: ${projectItemPadding};
-`
-const socialItemPadding = "0.4em"
-
-const SocialList = styled.ul`
-  ${typeSizeBaseLg}
-  margin-top: -${socialItemPadding};
-  margin-bottom: -${socialItemPadding};
-`
-
-const SocialListItem = styled.li``
-
-const SocialLink = styled(OutboundLink)`
-  ${typeBaseMedium}
-  
-  /* Offset item padding for clean layout edge */
-  padding-top: ${socialItemPadding};
-  padding-bottom: ${socialItemPadding};
-  padding-right: 2em;
-
-  display: block;
-  color: ${themeText(900)};
 `
 
 const ListTitle = styled.h2`
