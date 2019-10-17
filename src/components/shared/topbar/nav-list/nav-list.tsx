@@ -74,7 +74,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
 })
 
 const ListNav = styled.nav`
-  margin-right: 2.5em;
+  margin-right: 2.25em;
 `
 
 const List = styled.ul`
