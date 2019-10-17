@@ -19,10 +19,10 @@ import { mq, scaleBetween } from "@style/media-queries"
 import { keys } from "@custom-types/utils"
 import { TweenMax, Expo } from "gsap"
 import { IStore } from "store"
+import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
   open: boolean
-  firstEntrance: boolean
   setMenuOpen: (isOpen: IStore["menuOpen"]) => void
 }
 
@@ -41,7 +41,7 @@ export let menuIsAnimating = false
 let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social, firstEntrance }) => {
+  ({ open, projects, social }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
     const containerRef = React.useRef() as Ref
@@ -120,15 +120,12 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       animateClose()
     }
 
-    useEffect(() => {
-      // Don't run an animation on the first entrance as it should already be in a resting hidden state
-      if (!firstEntrance) {
-        open
-          ? animateOpen()
-          : routeTransition
-          ? animateRouteClose()
-          : animateClose()
-      }
+    useDeferredRunEffect(() => {
+      open
+        ? animateOpen()
+        : routeTransition
+        ? animateRouteClose()
+        : animateClose()
     }, [open])
 
     const handleProjectClick = () => {
