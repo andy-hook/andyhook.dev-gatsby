@@ -4,20 +4,14 @@ import { Ref } from "@custom-types/ref"
 import { zIndex, darkGrey } from "@style/variables"
 import { themeTone } from "@style/theme"
 import Gutter from "@components/shared/gutter/gutter"
-import {
-  typeTitle,
-  typeSupTitle,
-  typeSizeBaseXs,
-  typeSizeDisplayMd,
-} from "@style/typography"
-import Link from "gatsby-plugin-transition-link"
+import { typeSupTitle, typeSizeBaseXs } from "@style/typography"
 import { ISocialMeta, TProjects } from "model"
 import { mq, scaleBetween } from "@style/media-queries"
-import { keys } from "@custom-types/utils"
 import { TweenMax, Expo } from "gsap"
 import { IStore } from "store"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import SocialListComponent from "./social-list/social-list"
+import ProjectListComponent from "./project-list/project-list"
 
 interface Props {
   open: boolean
@@ -143,49 +137,32 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       routeTransition = true
     }
 
-    const projectItems = keys(projects).map((key, index) => (
-      <ProjectListItem key={index}>
-        <ProjectLink
-          onClick={handleProjectClick}
-          to={projects[key].path}
-          exit={{
-            length: 0,
-          }}
-          entry={{
-            length: 0.75,
-            state: {
-              animType: "enter-from-nav",
-            },
-          }}
-        >
-          {projects[key].label}
-        </ProjectLink>
-      </ProjectListItem>
-    ))
-
     return (
       <Fixer ref={containerRef}>
         <Container>
           <Gutter>
             <MenuContents ref={contentsRef}>
               {/* Projects */}
-              <ProjectsContainer>
+              <div>
                 <ListTitle>
                   <ListTitleNumber>01</ListTitleNumber>
                   <ListTitleDivider />
                   Projects
                 </ListTitle>
-                <ProjectList>{projectItems}</ProjectList>
-              </ProjectsContainer>
+                <ProjectListComponent
+                  projectDataList={projects}
+                  onClick={handleProjectClick}
+                />
+              </div>
               {/* Social */}
-              <SocialContainer>
+              <div>
                 <ListTitle>
                   <ListTitleNumber>02</ListTitleNumber>
                   <ListTitleDivider />
                   Connect
                 </ListTitle>
                 <SocialListComponent socialDataList={social} />
-              </SocialContainer>
+              </div>
             </MenuContents>
           </Gutter>
         </Container>
@@ -282,38 +259,6 @@ const MenuContents = styled.div`
   ${mq.lessThan("bottomPalm")`
     padding-left: 2rem;
   `}
-`
-const ProjectsContainer = styled.div``
-
-const SocialContainer = styled.div``
-
-const projectItemPadding = "0.22em"
-
-const ProjectList = styled.ul`
-  ${typeSizeDisplayMd}
-  margin-top: -${projectItemPadding};
-  margin-bottom: 1.75em;
-
-  ${mq.greaterThan("topPalm")`
-    flex-direction: column;
-
-    margin-bottom: -${projectItemPadding};
-  `}
-`
-
-const ProjectListItem = styled.li`
-  min-width: 8em;
-  margin-right: 6em;
-
-  ${scaleBetween("margin-right", "2.75rem", "11.4rem", "topPalm", "bottomLap")}
-`
-
-const ProjectLink = styled(Link)`
-  ${typeTitle}
-
-  display: block;
-  padding-top: ${projectItemPadding};
-  padding-bottom: ${projectItemPadding};
 `
 
 const ListTitle = styled.h2`
