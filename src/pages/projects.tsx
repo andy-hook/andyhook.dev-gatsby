@@ -1,14 +1,21 @@
 import React from "react"
 
 import SEO from "@components/seo"
+import styled from "styled-components"
 
-const IndexPage: React.FunctionComponent = () => {
+const ProjectsPage: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
-      This is the root project page
+      <ProjectsWrapper>This is the root project page</ProjectsWrapper>
     </>
   )
 }
 
-export default IndexPage
+const ProjectsWrapper = styled.div`
+  background-color: blue;
+
+  height: 2000px;
+`
+
+export default ProjectsPage
