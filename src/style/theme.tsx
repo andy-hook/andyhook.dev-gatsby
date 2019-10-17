@@ -1,9 +1,4 @@
-import {
-  ITheme,
-  TGreyNames,
-  TThemeName,
-  TLayerNames,
-} from "@custom-types/theme"
+import { ITheme, TGreyNames, TThemeName } from "@custom-types/theme"
 import { css, CSSProp } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
@@ -13,40 +8,18 @@ export const lightTheme: ITheme = {
   name: "light",
   text: darkGreyHSL,
   tone: lightGreyHSL,
-  layer: {
-    lowest: lightGreyHSL[500],
-    low: lightGreyHSL[400],
-    medium: lightGreyHSL[300],
-    high: lightGreyHSL[200],
-    highest: lightGreyHSL[100],
-  },
 }
 
 export const darkTheme: ITheme = {
   name: "dark",
   text: lightGreyHSL,
   tone: darkGreyHSL,
-  layer: {
-    lowest: darkGreyHSL[100],
-    low: darkGreyHSL[200],
-    medium: darkGreyHSL[300],
-    high: darkGreyHSL[600],
-    highest: darkGreyHSL[800],
-  },
 }
 
 export const themes: { [key: string]: ITheme } = {
   light: lightTheme,
   dark: darkTheme,
 }
-
-export const themeLayer = (value: TLayerNames) => css`
-  ${props => createHsl(props.theme.layer[value])}
-`
-
-export const themeLayerAlpha = (value: TLayerNames, alpha: number) => css`
-  ${props => createHsla(props.theme.layer[value], alpha)}
-`
 
 export const themeTone = (value: TGreyNames) => css`
   ${props => createHsl(props.theme.tone[value])}

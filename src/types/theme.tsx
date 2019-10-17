@@ -12,15 +12,10 @@ export type TGreyNames =
 
 export type TGreys = { [key in TGreyNames]: string }
 
-export type TLayerNames = "lowest" | "low" | "medium" | "high" | "highest"
-
-export type TLayers = { [key in TLayerNames]: string }
-
 export type TThemeName = "light" | "dark"
 
 export interface ITheme {
   name: TThemeName
   text: TGreys
   tone: TGreys
-  layer: TLayers
 }

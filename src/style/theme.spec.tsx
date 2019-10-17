@@ -8,8 +8,6 @@ import {
   isDarkTheme,
   isLightTheme,
   isTheme,
-  themeLayer,
-  themeLayerAlpha,
 } from "@style/theme"
 import styled from "styled-components"
 import "jest-styled-components"
@@ -44,14 +42,6 @@ const IsThemeComponent = styled.div`
 
 const IsNotThemeComponent = styled.div`
   ${isTheme("dark", "color: red;", "color: blue;")};
-`
-
-const ThemeLayerComponent = styled.div`
-  color: ${themeLayer("high")};
-`
-
-const ThemeLayerAlphaComponent = styled.div`
-  color: ${themeLayerAlpha("high", 0)};
 `
 
 describe("themeTone", () => {
@@ -125,19 +115,5 @@ describe("isTheme", () => {
   it("renders second style block argument when using a light theme", () => {
     const tree = mountWithTheme("light", <IsNotThemeComponent />)
     expect(tree).toHaveStyleRule("color", "blue")
-  })
-})
-
-describe("themeLayer", () => {
-  it("renders correct hsl from given layer value", () => {
-    const tree = mountWithTheme("dark", <ThemeLayerComponent />)
-    expect(tree).toHaveStyleRule("color", "hsl(240,8%,21%)")
-  })
-})
-
-describe("themeLayerAlpha", () => {
-  it("renders correct hsla from given layer value", () => {
-    const tree = mountWithTheme("dark", <ThemeLayerAlphaComponent />)
-    expect(tree).toHaveStyleRule("color", "hsla(240,8%,21%,0)")
   })
 })
