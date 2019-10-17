@@ -3,6 +3,9 @@ import styled, { css } from "styled-components"
 import { borderRadius, zIndex } from "@style/variables"
 import { themeTone, themeText } from "@style/theme"
 import classNames from "classnames"
+import { Ref } from "@custom-types/ref"
+import { TweenMax, Expo } from "gsap"
+import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
   open?: boolean
@@ -12,15 +15,53 @@ interface Props {
 
 const Navicon: React.FunctionComponent<Props> = memo(
   ({ onClick, open, className }) => {
+    const topBar = React.useRef() as Ref
+    const bottomBar = React.useRef() as Ref
+
+    const animateOpen = () => {
+      TweenMax.set(topBar.current, { transformOrigin: "center center" })
+      TweenMax.set(bottomBar.current, { transformOrigin: "center center" })
+
+      TweenMax.to(topBar.current, 1, {
+        ease: Expo.easeOut,
+        rotation: 45,
+        y: 3.5,
+      })
+
+      TweenMax.to(bottomBar.current, 1, {
+        ease: Expo.easeOut,
+        rotation: -45,
+        y: -3.5,
+      })
+    }
+
+    const animateClose = () => {
+      TweenMax.to(topBar.current, 1, {
+        ease: Expo.easeOut,
+        rotation: 0,
+        y: 0,
+      })
+
+      TweenMax.to(bottomBar.current, 1, {
+        ease: Expo.easeOut,
+        rotation: 0,
+        y: 0,
+      })
+    }
+
+    useDeferredRunEffect(() => {
+      open ? animateOpen() : animateClose()
+    }, [open])
+
     return (
       <NaviconContainer
         className={classNames("", className)}
         onClick={onClick}
         open={open}
       >
-        <BarsSVG viewBox="0 0 23 9">
-          <rect width="23" height="2" />
-          <rect y="7" width="23" height="2" />
+        <BarsSVG viewBox="0 0 25 25">
+          <rect x="1" y="8" width="23" height="2" ref={topBar} />
+          <rect x="1" y="15" width="23" height="2" ref={bottomBar} />
         </BarsSVG>
       </NaviconContainer>
     )
@@ -39,7 +80,7 @@ const NaviconContainer = styled.button<Props>`
   justify-content: center;
   align-items: center;
 
-  font-size: 4em;
+  font-size: 4.5em;
 
   width: 1em;
   height: 1em;
@@ -72,7 +113,7 @@ const BarsSVG = styled.svg`
 
   font-size: 0.425em;
 
-  height: 0.4em;
+  height: 1em;
   width: 1em;
 
   margin-bottom: -0.1em;
@@ -80,6 +121,7 @@ const BarsSVG = styled.svg`
   z-index: ${zIndex.low};
 
   & rect {
+    /* transform-origin: center center; */
     fill: ${themeText(500)};
   }
 `
