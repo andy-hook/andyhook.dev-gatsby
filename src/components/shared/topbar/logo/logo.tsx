@@ -14,19 +14,26 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const logoRef = React.useRef() as Ref
 
   const animateHide = () => {
-    TweenMax.to(logoRef.current, 0.5, {
+    TweenMax.to(logoRef.current, 0.2, {
       ease: Expo.easeOut,
-      y: "25%",
+      y: "100%",
       opacity: 0,
     })
   }
 
   const animateShow = () => {
-    TweenMax.to(logoRef.current, 0.5, {
-      ease: Expo.easeOut,
-      y: "0%",
-      opacity: 1,
-    })
+    TweenMax.fromTo(
+      logoRef.current,
+      0.6,
+      {
+        y: "-100%",
+      },
+      {
+        ease: Expo.easeOut,
+        y: "0%",
+        opacity: 1,
+      }
+    )
   }
 
   useDeferredRunEffect(() => {

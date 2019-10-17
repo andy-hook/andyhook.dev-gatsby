@@ -16,19 +16,26 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const navRef = React.useRef() as Ref
 
   const animateHide = () => {
-    TweenMax.to(navRef.current, 0.5, {
+    TweenMax.to(navRef.current, 0.2, {
       ease: Expo.easeOut,
-      y: "25%",
+      y: "50%",
       opacity: 0,
     })
   }
 
   const animateShow = () => {
-    TweenMax.to(navRef.current, 0.5, {
-      ease: Expo.easeOut,
-      y: "0%",
-      opacity: 1,
-    })
+    TweenMax.fromTo(
+      navRef.current,
+      0.5,
+      {
+        y: "-50%",
+      },
+      {
+        ease: Expo.easeOut,
+        y: "0%",
+        opacity: 1,
+      }
+    )
   }
 
   useDeferredRunEffect(() => {

@@ -84,42 +84,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateClose = () => {
       menuIsAnimating = true
 
-      // Backboard
-      TweenMax.fromTo(
-        backboardRef.current,
-        0.75,
-        {
-          y: "0%",
-        },
-        {
-          ease: Expo.easeOut,
-          y: "-100%",
-          clearProps: "transform, opacity",
-          onComplete: () => {
-            routeTransition = false
-            menuIsAnimating = false
-
-            TweenMax.set(containerRef.current, { clearProps: "visibility" })
-          },
-        }
-      )
-
-      // Contents
-      TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
-    }
-
-    const animateRouteClose = () => {
-      menuIsAnimating = true
-
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -150,6 +114,10 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           opacity: 0,
         }
       )
+    }
+
+    const animateRouteClose = () => {
+      animateClose()
     }
 
     useEffect(() => {
