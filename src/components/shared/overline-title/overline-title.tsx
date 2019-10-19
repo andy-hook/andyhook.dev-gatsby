@@ -10,8 +10,8 @@ interface Props {
 const OverlineTitle: React.FunctionComponent<Props> = memo(
   ({ overline, children }) => (
     <div>
-      <Overline>{{ overline }}</Overline>
-      <Title>{{ children }}</Title>
+      <Overline>{overline}</Overline>
+      <Title>{children}</Title>
     </div>
   )
 )
