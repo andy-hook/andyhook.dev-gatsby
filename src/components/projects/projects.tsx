@@ -3,6 +3,7 @@ import { runAnimation } from "./projects.animation"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
+import OverlineTitle from "@components/shared/overline-title/overline-title"
 
 const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -46,6 +47,7 @@ const Projects: React.FunctionComponent = memo(() => {
 
   return (
     <AboutWrapper>
+      <OverlineTitle overline="Overline text">Title text</OverlineTitle>
       <TestDiv ref={testDiv} />
     </AboutWrapper>
   )
