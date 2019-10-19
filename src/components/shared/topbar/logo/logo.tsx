@@ -5,6 +5,7 @@ import { themeText } from "@style/theme"
 import { Ref } from "@custom-types/ref"
 import { Expo, TweenMax } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
+import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
 
 interface Props {
   hidden?: boolean
@@ -46,7 +47,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
 
   return (
     <LogoWrap ref={logoRef}>
-      <LogoLink to="/">
+      <LogoLink to="/" {...linkProps}>
         <LogoLettering viewBox="0 0 665.2 148.6">
           <path
             d="M23.8,71.4l19.6-2.9c4.5-0.6,6-2.9,6-5.7c0-5.7-4.4-10.4-13.4-10.4c-9.4,0-14.6,6-15.2,12.9l-19.1-4
