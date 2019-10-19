@@ -1,27 +1,25 @@
 import React, { memo, ReactNode } from "react"
 import styled from "styled-components"
-import { typeSupTitle, typeTitle } from "@style/typography"
+import Limiter from "@components/shared/limiter/limiter"
+import Footer from "@components/shared/footer/footer"
+import Gutter from "@components/shared/gutter/gutter"
 
 interface Props {
-  overline: string
   children: ReactNode
 }
 
-const CommonPage: React.FunctionComponent<Props> = memo(
-  ({ overline, children }) => (
-    <div>
-      <Overline>{overline}</Overline>
-      <Title>{children}</Title>
-    </div>
-  )
-)
+const CommonPage: React.FunctionComponent<Props> = memo(({ children }) => (
+  <Container>
+    <Gutter>
+      <Limiter>{children}</Limiter>
+    </Gutter>
+    <Footer />
+  </Container>
+))
 
-const Overline = styled.h2`
-  ${typeSupTitle}
-`
-
-const Title = styled.h3`
-  ${typeTitle}
+const Container = styled.div`
+  padding-top: 200px;
+  height: 2000px;
 `
 
 export default CommonPage

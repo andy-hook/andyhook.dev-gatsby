@@ -3,6 +3,7 @@ import { runAnimation } from "./about.animation"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
+import CommonPage from "@components/shared/common-page/common-page"
 
 const About: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -45,9 +46,9 @@ const About: React.FunctionComponent = memo(() => {
   }, [transitionState.transitionStatus])
 
   return (
-    <AboutWrapper>
+    <CommonPage>
       <TestDiv ref={testDiv} />
-    </AboutWrapper>
+    </CommonPage>
   )
 })
 
@@ -58,10 +59,6 @@ const TestDiv = styled.div`
 
   width: 300px;
   height: 300px;
-`
-
-const AboutWrapper = styled.div`
-  height: 2000px;
 `
 
 export default About
