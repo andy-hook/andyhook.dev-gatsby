@@ -10,5 +10,6 @@ storiesOf("Hero", module).add("with text", () => (
     transitionState={transitionState}
     firstEntrance={true}
     loaderVisible={true}
+    menuOpen={false}
   />
 ))

@@ -4,10 +4,7 @@ import { shallowWithTheme } from "@test-utils"
 
 describe("<CommonPage />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
-      "dark",
-      <CommonPage overline="Overline text">Title text</CommonPage>
-    )
+    const tree = shallowWithTheme("dark", <CommonPage>Content</CommonPage>)
     expect(tree).toMatchSnapshot()
   })
 })
