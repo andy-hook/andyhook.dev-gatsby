@@ -1,23 +1,18 @@
 import React, { memo } from "react"
 import Navicon from "./navicon/navicon"
 import Logo from "./logo/logo"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
-import { zIndex, borderThickness } from "@style/variables"
+import { zIndex } from "@style/variables"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 import NavList from "./nav-list/nav-list"
-import { themeTone } from "@style/theme"
 import { typeSizeBaseXs } from "@style/typography"
 
-interface Props extends StyleProps {
+interface Props {
   open?: boolean
   openMenu: () => void
   closeMenu: () => void
-}
-
-interface StyleProps {
-  borderVisible?: boolean
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
@@ -34,7 +29,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
     }
 
     return (
-      <Container borderVisible={!open}>
+      <Container>
         <LogoPos>
           <Logo hidden={open} />
         </LogoPos>
@@ -50,11 +45,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
   }
 )
 
-const closedBorderStyle = css`
-  border-bottom: ${borderThickness.regular} solid ${themeTone(300)};
-`
-
-const Container = styled.div<StyleProps>`
+const Container = styled.div`
   position: fixed;
   z-index: ${zIndex.highest};
 
@@ -74,7 +65,7 @@ const Container = styled.div<StyleProps>`
   ${scaleBetween(
     "padding-top",
     rem("5px"),
-    rem("10px"),
+    rem("15px"),
     "bottomThumb",
     "bottomUltra"
   )}
@@ -82,7 +73,7 @@ const Container = styled.div<StyleProps>`
   ${scaleBetween(
     "padding-bottom",
     rem("5px"),
-    rem("10px"),
+    rem("15px"),
     "bottomThumb",
     "bottomUltra"
   )}
@@ -103,12 +94,10 @@ const Container = styled.div<StyleProps>`
     "bottomUltra"
   )}
   
-  ${scaleGreaterThan("padding-top", rem("10px"), "topUltra")}
-  ${scaleGreaterThan("padding-bottom", rem("10px"), "topUltra")}
+  ${scaleGreaterThan("padding-top", rem("15px"), "topUltra")}
+  ${scaleGreaterThan("padding-bottom", rem("15px"), "topUltra")}
   ${scaleGreaterThan("padding-left", rem("45px"), "topUltra")}
   ${scaleGreaterThan("padding-right", rem("45px"), "topUltra")}
-
-  ${props => props.borderVisible && closedBorderStyle}
 `
 
 const LogoPos = styled.div`
