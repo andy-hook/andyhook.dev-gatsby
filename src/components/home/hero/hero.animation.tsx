@@ -61,7 +61,7 @@ export const animation: IpageAnimation = {
           y: "0%",
         },
         {
-          y: "10%",
+          y: "50%",
           opacity: 0,
           clearProps: "transform",
         }
@@ -72,7 +72,8 @@ export const animation: IpageAnimation = {
         ref.current,
         0.25,
         {
-          y: "-10%",
+          opacity: 0,
+          y: "-50%",
         },
         {
           y: "0%",

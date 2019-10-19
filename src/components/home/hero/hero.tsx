@@ -8,16 +8,24 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
+import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
   loaderVisible: boolean
   firstEntrance: boolean
   socialIconData: ISocialMeta
   transitionState: ItransitionState
+  menuOpen: boolean
 }
 
 const Hero: React.FunctionComponent<Props> = memo(
-  ({ socialIconData, loaderVisible, firstEntrance, transitionState }) => {
+  ({
+    socialIconData,
+    loaderVisible,
+    firstEntrance,
+    transitionState,
+    menuOpen,
+  }) => {
     const detailsRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
 
@@ -72,6 +80,14 @@ const Hero: React.FunctionComponent<Props> = memo(
         runAnimation(refs, "firstEnter")
       }
     }, [loaderVisible])
+
+    useDeferredRunEffect(() => {
+      if (menuOpen) {
+        runAnimation(refs, "openMenu")
+      } else {
+        runAnimation(refs, "closeMenu")
+      }
+    }, [menuOpen])
 
     return (
       <>
