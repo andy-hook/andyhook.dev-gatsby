@@ -7,9 +7,10 @@ import heroBg from "@images/hero-bg.svg"
 
 import "@style/fonts.css"
 import styled, { ThemeProvider } from "styled-components"
-import { themes, themeTone } from "@style/theme"
+import { themes, themeTone, themeToneAlpha } from "@style/theme"
 import { zIndex } from "@style/variables"
-import { mq } from "@style/media-queries"
+import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
+import { rem } from "polished"
 
 interface Props {
   children: ReactNode
@@ -23,6 +24,7 @@ const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
         <SiteWrapper>
           <LoaderContainer />
           <TopbarContainer />
+          <TopbarEdgeGradient />
           <MenuContainer />
           {children}
           <SiteTexture />
@@ -34,6 +36,41 @@ const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
 
 const SiteWrapper = styled.div`
   background-color: ${themeTone(200)};
+`
+
+const TopbarEdgeGradient = styled.div`
+  position: fixed;
+
+  z-index: ${zIndex.medium};
+
+  pointer-events: none;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: linear-gradient(
+    1deg,
+    ${themeToneAlpha(100, 0)} 20%,
+    ${themeToneAlpha(100, 0.95)} 80%,
+    ${themeToneAlpha(100, 1)} 100%
+  );
+
+  height: ${rem("150px")};
+
+  ${scaleBetween(
+    "height",
+    rem("100px"),
+    rem("250px"),
+    "topThumb",
+    "bottomDesk"
+  )}
+
+  ${mq.between("topDesk", "bottomUltra")`
+    height: ${rem("250px")};
+  `}
+
+  ${scaleGreaterThan("height", rem("250px"), "topUltra")}
 `
 
 const SiteTexture = styled.div`
