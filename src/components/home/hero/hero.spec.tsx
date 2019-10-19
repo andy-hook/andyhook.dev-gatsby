@@ -13,6 +13,7 @@ describe("<Hero />", () => {
         transitionState={transitionState}
         firstEntrance={true}
         loaderVisible={true}
+        menuOpen={true}
       />
     )
     expect(tree).toMatchSnapshot()

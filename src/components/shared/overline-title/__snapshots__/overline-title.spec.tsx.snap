@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OverlineTitle /> renders correctly 1`] = `ShallowWrapper {}`;

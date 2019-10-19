@@ -4,7 +4,7 @@ import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 
-const ProjectsComponent: React.FunctionComponent = memo(() => {
+const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
   const transitionState = useTransitionState()
 
@@ -61,9 +61,7 @@ const TestDiv = styled.div`
 `
 
 const AboutWrapper = styled.div`
-  background-color: blue;
-
   height: 2000px;
 `
 
-export default ProjectsComponent
+export default Projects
