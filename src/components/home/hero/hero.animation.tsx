@@ -1,24 +1,16 @@
 import { TweenMax, Elastic } from "gsap"
 import { Ref } from "@custom-types/ref"
 import { keys } from "@custom-types/utils"
-
-export type TAnimationStateNames =
-  | "siteEntrance"
-  | "enterFromProject"
-  | "exitToProject"
-  | "pop"
-
-type TAnimationStates = { [key in TAnimationStateNames]?: (ref: Ref) => void }
-
-interface TAnimation {
-  [key: string]: TAnimationStates
-}
+import {
+  IpageAnimation,
+  TpageAnimationType,
+} from "@custom-types/gatsby-plugin-transition-link"
 
 const siteEntranceDelay = 0.65
 
-export const animation: TAnimation = {
+export const animation: IpageAnimation = {
   details: {
-    siteEntrance: ref => {
+    firstEnter: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
@@ -34,10 +26,60 @@ export const animation: TAnimation = {
         }
       )
     },
-    enterFromProject: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-      })
+    enter: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          y: "10%",
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+    },
+    exit: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          y: "0%",
+        },
+        {
+          y: "-10%",
+          opacity: 0,
+        }
+      )
+    },
+    openMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          y: "0%",
+        },
+        {
+          y: "10%",
+          opacity: 0,
+          clearProps: "transform",
+        }
+      )
+    },
+    closeMenu: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          y: "-10%",
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
     },
     pop: ref => {
       TweenMax.fromTo(
@@ -49,82 +91,6 @@ export const animation: TAnimation = {
         {
           ease: Elastic.easeOut.config(0.8, 1),
           scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    },
-  },
-  logo: {
-    siteEntrance: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          y: "-100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-          delay: siteEntranceDelay,
-        }
-      )
-    },
-    enterFromProject: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-      })
-    },
-    pop: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.75,
-        {
-          y: "-100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
-    },
-  },
-  social: {
-    siteEntrance: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.6,
-        {
-          y: "100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-          delay: siteEntranceDelay,
-        }
-      )
-    },
-    enterFromProject: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-      })
-    },
-    pop: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        0.6,
-        {
-          y: "100%",
-        },
-        {
-          ease: Elastic.easeOut.config(0.8, 1),
-          y: "0%",
           opacity: 1,
           clearProps: "transform",
         }
@@ -132,14 +98,19 @@ export const animation: TAnimation = {
     },
   },
   background: {
-    siteEntrance: ref => {
+    firstEnter: ref => {
       TweenMax.to(ref.current, 0.9, {
         opacity: 1,
       })
     },
-    enterFromProject: ref => {
-      TweenMax.set(ref.current, {
+    enter: ref => {
+      TweenMax.to(ref.current, 0.25, {
         opacity: 1,
+      })
+    },
+    exit: ref => {
+      TweenMax.to(ref.current, 0.25, {
+        opacity: 0,
       })
     },
     pop: ref => {
@@ -152,7 +123,7 @@ export const animation: TAnimation = {
 
 export const runAnimation = (
   refs: { [key: string]: Ref },
-  type: TAnimationStateNames
+  type: TpageAnimationType
 ) => {
   keys(refs).map(item => {
     const animationToRun = animation[item][type]

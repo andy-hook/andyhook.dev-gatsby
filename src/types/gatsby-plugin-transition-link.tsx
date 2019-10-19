@@ -1,16 +1,28 @@
-// Quick, dirty and potted types for gatsby-plugin-transition-link
-type TAnimType =
-  | "enter-from-home"
-  | "exit-to-home"
-  | "enter-from-project"
-  | "enter-from-nav"
-  | "exit-to-project"
+import { Ref } from "@custom-types/ref"
 
+export type TpageAnimationType =
+  | "enter"
+  | "exit"
+  | "firstEnter"
+  | "openMenu"
+  | "closeMenu"
+  | "menuEnter"
+  | "pop"
+
+export type TpageAnimationStates = {
+  [key in TpageAnimationType]?: (ref: Ref) => void
+}
+
+export interface IpageAnimation {
+  [key: string]: TpageAnimationStates
+}
+
+// Quick, dirty and potted types for gatsby-plugin-transition-link
 interface ItransitionProps {
   delay: number
   length: number
   state: {
-    animType?: TAnimType
+    animType?: TpageAnimationType
   }
 }
 

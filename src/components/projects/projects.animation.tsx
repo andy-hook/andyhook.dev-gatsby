@@ -1,72 +1,50 @@
-import { TweenMax } from "gsap"
+import { TweenMax, Elastic } from "gsap"
 import { Ref } from "@custom-types/ref"
 import { keys } from "@custom-types/utils"
-
 import {
   IpageAnimation,
   TpageAnimationType,
 } from "@custom-types/gatsby-plugin-transition-link"
 
-const siteEntranceDelay = 0.65
-
 export const animation: IpageAnimation = {
-  backboard: {
-    firstEnter: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-        x: "0%",
-      })
-    },
-    menuEnter: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-        x: "0%",
-      })
-    },
-    pop: ref => {
-      TweenMax.set(ref.current, {
-        opacity: 1,
-        x: "0%",
-      })
-    },
-  },
-  content: {
-    firstEnter: ref => {
+  test: {
+    enter: ref => {
       TweenMax.fromTo(
         ref.current,
-        2,
+        0.25,
         {
+          y: "50%",
           opacity: 0,
         },
         {
+          y: "0%",
           opacity: 1,
-          delay: siteEntranceDelay,
         }
       )
     },
-    menuEnter: ref => {
+    exit: ref => {
+      TweenMax.fromTo(
+        ref.current,
+        0.25,
+        {
+          y: "0%",
+        },
+        {
+          y: "-50%",
+          opacity: 0,
+        }
+      )
+    },
+    pop: ref => {
       TweenMax.fromTo(
         ref.current,
         0.75,
         {
-          opacity: 0,
-          y: "-2%",
+          scale: 1.5,
         },
         {
-          opacity: 1,
-          y: "0%",
-          clearProps: "transform",
-        }
-      )
-    },
-    pop: ref => {
-      TweenMax.fromTo(
-        ref.current,
-        2,
-        {
-          opacity: 0,
-        },
-        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
           opacity: 1,
         }
       )

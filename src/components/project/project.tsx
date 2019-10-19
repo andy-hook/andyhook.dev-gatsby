@@ -48,13 +48,12 @@ const Project: React.FunctionComponent<Props> = memo(
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (introTrigger && canPerformIntro) {
-        runAnimation(refs, "siteEntrance")
+        runAnimation(refs, "firstEnter")
       }
     }, [introTrigger])
 
     useEffect(() => {
       const { transitionStatus } = transitionState
-      const exitType = transitionState.exit.state.animType
       const entryType = transitionState.entry.state.animType
 
       switch (transitionStatus) {
@@ -63,14 +62,9 @@ const Project: React.FunctionComponent<Props> = memo(
           break
         case "entering":
           switch (entryType) {
-            case "enter-from-home":
+            case "menuEnter":
               {
-                runAnimation(refs, "enterFromHome")
-              }
-              break
-            case "enter-from-nav":
-              {
-                runAnimation(refs, "enterFromNav")
+                runAnimation(refs, "menuEnter")
               }
               break
             // This clause works around bug with pushstate and history navigation
@@ -81,13 +75,6 @@ const Project: React.FunctionComponent<Props> = memo(
           }
           break
         case "exiting":
-          switch (exitType) {
-            case "exit-to-home":
-              {
-                runAnimation(refs, "exitToHome")
-              }
-              break
-          }
           break
       }
     }, [transitionState.transitionStatus])

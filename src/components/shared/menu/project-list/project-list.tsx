@@ -24,7 +24,7 @@ const ProjectListComponent: React.FunctionComponent<Props> = memo(
           entry={{
             length: 0.75,
             state: {
-              animType: "enter-from-nav",
+              animType: "menuEnter",
             },
           }}
         >

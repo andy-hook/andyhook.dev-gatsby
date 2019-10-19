@@ -66,23 +66,23 @@ const Container = styled.div<StyleProps>`
   justify-content: space-between;
   align-items: center;
 
-  padding-top: ${rem("10px")};
-  padding-bottom: ${rem("10px")};
+  padding-top: ${rem("5px")};
+  padding-bottom: ${rem("5px")};
   padding-left: ${rem("15px")};
   padding-right: ${rem("15px")};
 
   ${scaleBetween(
     "padding-top",
+    rem("5px"),
     rem("10px"),
-    rem("15px"),
     "bottomThumb",
     "bottomUltra"
   )}
 
   ${scaleBetween(
     "padding-bottom",
+    rem("5px"),
     rem("10px"),
-    rem("15px"),
     "bottomThumb",
     "bottomUltra"
   )}
@@ -103,8 +103,8 @@ const Container = styled.div<StyleProps>`
     "bottomUltra"
   )}
   
-  ${scaleGreaterThan("padding-top", rem("15px"), "topUltra")}
-  ${scaleGreaterThan("padding-bottom", rem("15px"), "topUltra")}
+  ${scaleGreaterThan("padding-top", rem("10px"), "topUltra")}
+  ${scaleGreaterThan("padding-bottom", rem("10px"), "topUltra")}
   ${scaleGreaterThan("padding-left", rem("45px"), "topUltra")}
   ${scaleGreaterThan("padding-right", rem("45px"), "topUltra")}
 
@@ -135,6 +135,8 @@ const NavPos = styled.div`
 const NaviconSizing = styled.div`
   /* Align scaling with navigation text */
   ${typeSizeBaseXs}
+
+  margin-right: -1.25em;
 `
 
 export default Topbar

@@ -35,12 +35,10 @@ const Hero: React.FunctionComponent<Props> = memo(
           break
         case "entering":
           switch (entry.state.animType) {
-            case "enter-from-project":
-              {
-                runAnimation(refs, "enterFromProject")
-              }
-              break
+            case "enter":
+              runAnimation(refs, "enter")
 
+              break
             // This clause works around bug with pushstate and history navigation
             // Hopefully this can be resolved and pop will run consistently
             // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
@@ -50,10 +48,9 @@ const Hero: React.FunctionComponent<Props> = memo(
           break
         case "exiting":
           switch (exit.state.animType) {
-            case "exit-to-project":
-              {
-                runAnimation(refs, "exitToProject")
-              }
+            case "exit":
+              runAnimation(refs, "exit")
+
               break
           }
           break
@@ -62,7 +59,7 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     // Perform this immediatley without waiting for a trigger
     useEffect(() => {
-      const backgroundEntranceAnimation = animation.background.siteEntrance
+      const backgroundEntranceAnimation = animation.background.firstEnter
 
       if (firstEntrance && backgroundEntranceAnimation) {
         backgroundEntranceAnimation(backgroundRef)
@@ -72,7 +69,7 @@ const Hero: React.FunctionComponent<Props> = memo(
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (!loaderVisible && firstEntrance) {
-        runAnimation(refs, "siteEntrance")
+        runAnimation(refs, "firstEnter")
       }
     }, [loaderVisible])
 

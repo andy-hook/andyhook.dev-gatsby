@@ -46,25 +46,39 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
     }
   }, [hidden])
 
+  const linkProps = {
+    activeClassName: "active",
+
+    exit: {
+      state: {
+        animType: "exit",
+      },
+      length: 0.25, // Should match entry delay
+    },
+    entry: {
+      state: {
+        animType: "enter",
+      },
+      delay: 0.25, // How long the current page should show for before changing scroll position
+      length: 0.25,
+    },
+  }
+
   return (
     <ListNav ref={navRef}>
       <List>
         <ListItem>
-          <ListItemLink to="/" activeClassName="active">
+          <ListItemLink to="/" activeClassName="active" {...linkProps}>
             Overview
           </ListItemLink>
         </ListItem>
         <ListItem>
-          <ListItemLink
-            to="/projects/"
-            activeClassName="active"
-            partiallyActive={true}
-          >
+          <ListItemLink to="/projects/" partiallyActive={true} {...linkProps}>
             Projects
           </ListItemLink>
         </ListItem>
         <ListItem>
-          <ListItemLink to="/about/" activeClassName="active">
+          <ListItemLink to="/about/" {...linkProps}>
             About
           </ListItemLink>
         </ListItem>
