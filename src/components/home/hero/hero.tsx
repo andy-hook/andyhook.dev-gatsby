@@ -9,6 +9,7 @@ import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
 import useDeferredRunEffect from "@hooks/deferred-run"
+import { useInView } from "react-intersection-observer"
 
 interface Props {
   loaderVisible: boolean
@@ -28,6 +29,8 @@ const Hero: React.FunctionComponent<Props> = memo(
   }) => {
     const detailsRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
+
+    const [inviewRef, inView] = useInView()
 
     const refs = {
       details: detailsRef,
@@ -82,27 +85,27 @@ const Hero: React.FunctionComponent<Props> = memo(
     }, [loaderVisible])
 
     useDeferredRunEffect(() => {
-      if (menuOpen) {
-        runAnimation(refs, "openMenu")
-      } else {
-        runAnimation(refs, "closeMenu")
+      if (inView) {
+        if (menuOpen) {
+          runAnimation(refs, "openMenu")
+        } else {
+          runAnimation(refs, "closeMenu")
+        }
       }
     }, [menuOpen])
 
     return (
-      <>
-        <Container>
-          <DetailsPos ref={detailsRef}>
-            <Gutter>
-              <Details buttonHref={socialIconData.dribbble.url} />
-            </Gutter>
-          </DetailsPos>
+      <Container ref={inviewRef}>
+        <DetailsPos ref={detailsRef}>
+          <Gutter>
+            <Details buttonHref={socialIconData.dribbble.url} />
+          </Gutter>
+        </DetailsPos>
 
-          <BackgroundContainer ref={backgroundRef}>
-            <BackgroundGradient />
-          </BackgroundContainer>
-        </Container>
-      </>
+        <BackgroundContainer ref={backgroundRef}>
+          <BackgroundGradient />
+        </BackgroundContainer>
+      </Container>
     )
   }
 )
