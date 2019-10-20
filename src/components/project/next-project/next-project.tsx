@@ -6,6 +6,7 @@ import Link from "gatsby-plugin-transition-link"
 import { zIndex } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
+import "gsap/ScrollToPlugin"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { themeTone } from "@style/theme"
 
@@ -24,7 +25,7 @@ export const linkProps = {
     state: {
       animType: "nextProjectExit",
     },
-    length: totalAnimationLength + 0.1, // Ensure there is a 0.1s crossover when both components remain mounted to avoid visible flicker
+    length: totalAnimationLength + 0.05, // Ensure there is a single frame crossover when both components remain mounted to avoid visible flicker
   },
   entry: {
     state: {
@@ -43,9 +44,9 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
   const [fixBackground, setFixBackground] = useState(false)
 
   const animateLeave = () => {
-    TweenMax.to(backgroundRef.current, 0.5, {
+    TweenMax.to(backgroundRef.current, totalAnimationLength, {
       ease: Expo.easeOut,
-      scale: 1.2,
+      scale: 1.1,
       opacity: 1,
       onComplete: () => {
         setFixBackground(true)
@@ -53,8 +54,15 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
     })
 
     TweenMax.to(linkRef.current, 0.4, {
-      ease: Expo.easeOut,
       opacity: 0,
+    })
+
+    TweenMax.to(window, totalAnimationLength, {
+      scrollTo: {
+        ease: Expo.easeOut,
+        y: "max",
+        autoKill: false,
+      },
     })
   }
 

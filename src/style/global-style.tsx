@@ -152,7 +152,7 @@ const GlobalTransitionLink = createGlobalStyle`
   /* This is primarily used to prevent jank when click to go to the next project at the bottm of a page */
   .tl-wrapper-status--entering,
   .tl-wrapper-status--entered {
-    z-index: ${zIndex.medium} !important;
+    z-index: ${zIndex.low + 1} !important;
   }
 
   .tl-wrapper-status--exiting {

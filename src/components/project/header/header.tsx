@@ -30,7 +30,7 @@ const BackgroundImage = styled.header`
   height: 100%;
   opacity: 1;
 
-  transform: scale(1.2);
+  transform: scale(1.1);
 `
 
 export default Header
