@@ -139,6 +139,10 @@ const GlobalTransitionLink = createGlobalStyle`
     z-index: ${zIndex.low} !important;
   }
 
+  .tl-edges {
+    overflow: hidden !important;
+  }
+
   /* using transition-portal messes with the styling and pages dissappear due to a negative margin being set on the element */
   .tl-wrapper + .tl-wrapper {
     margin: 0 !important;

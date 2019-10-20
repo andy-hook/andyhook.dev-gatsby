@@ -95,9 +95,7 @@ const Project: React.FunctionComponent<Props> = memo(
   }
 )
 
-const Container = styled.article`
-  height: 3000px;
-`
+const Container = styled.article``
 
 const TempIntroImage = styled.div`
   background-color: ${themeTone(400)};

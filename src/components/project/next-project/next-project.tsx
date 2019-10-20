@@ -1,7 +1,7 @@
 import React from "react"
 import { IProjectItem } from "@custom-types/model"
-import Limiter from "@components/shared/limiter/limiter"
-import Gutter from "@components/shared/gutter/gutter"
+import styled from "styled-components"
+import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
 
 interface Props {
   project: IProjectItem
@@ -9,10 +9,15 @@ interface Props {
 
 const NextProject: React.FunctionComponent<Props> = ({ project }) => {
   return (
-    <Gutter>
-      <Limiter>{project.label}</Limiter>
-    </Gutter>
+    <Container>
+      <CoverImageContainer imagePath={project.images} />
+    </Container>
   )
 }
+
+const Container = styled.div`
+  height: 100vh;
+  background-color: blue;
+`
 
 export default NextProject

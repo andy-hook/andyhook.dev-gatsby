@@ -51,6 +51,7 @@ export interface IProjectDetails {
 export interface IProjectItem {
   label: string
   desc: string
+  images: string
   path: string
   details: IProjectDetails
   contents: TProjectContents

@@ -1,13 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NextProject /> renders correctly 1`] = `
-<div
-  className="sc-bxivhb jmToBC"
->
-  <div
-    className="sc-bwzfXH jXoYnq"
-  >
-    Brandwatch
-  </div>
-</div>
-`;
+exports[`<NextProject /> renders correctly 1`] = `ShallowWrapper {}`;

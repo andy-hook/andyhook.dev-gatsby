@@ -75,6 +75,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
                 label
                 desc
                 path
+                images
                 details {
                   role
                   location
@@ -89,6 +90,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
                 label
                 desc
                 path
+                images
                 details {
                   role
                   location
@@ -103,6 +105,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
                 label
                 desc
                 path
+                images
                 details {
                   role
                   location
@@ -117,6 +120,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
                 label
                 desc
                 path
+                images
                 details {
                   role
                   location
@@ -131,6 +135,7 @@ const ProjectContainer: React.FunctionComponent<AllProps> = memo(
                 label
                 desc
                 path
+                images
                 details {
                   role
                   location

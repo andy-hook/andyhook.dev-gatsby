@@ -51,6 +51,7 @@ module.exports = {
       bright: {
         label: "Bright",
         desc: "Bright description",
+        images: "bright",
         path: "/projects/bright",
         details: {
           role: "Interface Developer",
@@ -75,6 +76,7 @@ module.exports = {
       brandwatch: {
         label: "Brandwatch",
         desc: "Social listening trusted by world-leading brands",
+        images: "brandwatch",
         path: "/projects/brandwatch",
         details: {
           role: "Senior Developer",
@@ -99,6 +101,7 @@ module.exports = {
       monster: {
         label: "Monster",
         desc: "Monster description",
+        images: "monster",
         path: "/projects/monster",
         details: {
           role: "Senior Developer",
@@ -123,6 +126,7 @@ module.exports = {
       jamieson: {
         label: "Jamieson",
         desc: "Jamieson description",
+        images: "jamieson",
         path: "/projects/jamieson",
         details: {
           role: "Front-End Designer",
@@ -147,6 +151,7 @@ module.exports = {
       sketchbook: {
         label: "Sketchbook",
         desc: "Sketchbook description",
+        images: "sketchbook",
         path: "/projects/sketchbook",
         details: {
           role: "Digital Designer",

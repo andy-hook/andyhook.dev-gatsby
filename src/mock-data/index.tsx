@@ -1,5 +1,6 @@
 import { ISocialMeta, TProjects } from "@custom-types/model"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+import { FluidObject } from "gatsby-image"
 
 export const socialIcons: ISocialMeta = {
   email: {
@@ -38,6 +39,7 @@ export const projectsData: TProjects = {
   bright: {
     label: "Bright",
     desc: "Bright description",
+    images: "bright",
     path: "/projects/bright",
     details: {
       role: "role",
@@ -54,6 +56,7 @@ export const projectsData: TProjects = {
   brandwatch: {
     label: "Brandwatch",
     desc: "Brandwatch description",
+    images: "brandwatch",
     path: "/projects/brandwatch",
     details: {
       role: "role",
@@ -70,6 +73,7 @@ export const projectsData: TProjects = {
   monster: {
     label: "Monster",
     desc: "Monster description",
+    images: "monster",
     path: "/projects/monster",
     details: {
       role: "role",
@@ -86,6 +90,7 @@ export const projectsData: TProjects = {
   jamieson: {
     label: "Jamieson",
     desc: "Jamieson description",
+    images: "jamieson",
     path: "/projects/jamieson",
     details: {
       role: "role",
@@ -102,6 +107,7 @@ export const projectsData: TProjects = {
   sketchbook: {
     label: "Sketchbook",
     desc: "Sketchbook description",
+    images: "sketchbook",
     path: "/projects/sketchbook",
     details: {
       role: "role",
@@ -135,4 +141,12 @@ export const transitionState: ItransitionState = {
     state: {},
   },
   mount: true,
+}
+
+export const fluidImageObject: FluidObject = {
+  aspectRatio: 1.5,
+  sizes: "(max-width: 1000px) 100vw, 1000px",
+  src: "/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg",
+  srcSet:
+    "/static/4a7de89fcee5d7cd97c940895602fbe0/4d406/cover-image.jpg 250w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/32ee9/cover-image.jpg 500w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg",
 }

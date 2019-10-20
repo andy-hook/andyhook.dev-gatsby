@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CoverImage /> renders correctly 1`] = `
+<div
+  className=" gatsby-image-wrapper"
+  style={
+    Object {
+      "height": "100%",
+      "overflow": "hidden",
+      "position": "relative",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "paddingBottom": "66.66666666666667%",
+        "width": "100%",
+      }
+    }
+  />
+  <picture>
+    <source
+      sizes="(max-width: 1000px) 100vw, 1000px"
+      srcSet="/static/4a7de89fcee5d7cd97c940895602fbe0/4d406/cover-image.jpg 250w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/32ee9/cover-image.jpg 500w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg"
+    />
+    <img
+      alt=""
+      loading="lazy"
+      onLoad={[Function]}
+      sizes="(max-width: 1000px) 100vw, 1000px"
+      src="/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg"
+      srcSet="/static/4a7de89fcee5d7cd97c940895602fbe0/4d406/cover-image.jpg 250w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/32ee9/cover-image.jpg 500w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "opacity": 0,
+          "position": "absolute",
+          "top": 0,
+          "transition": "opacity 500ms",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+  <noscript
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<picture><source srcset=\\"/static/4a7de89fcee5d7cd97c940895602fbe0/4d406/cover-image.jpg 250w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/32ee9/cover-image.jpg 500w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg\\" sizes=\\"(max-width: 1000px) 100vw, 1000px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1000px) 100vw, 1000px\\" srcset=\\"/static/4a7de89fcee5d7cd97c940895602fbe0/4d406/cover-image.jpg 250w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/32ee9/cover-image.jpg 500w,↵/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg\\" src=\\"/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg\\" alt=\\"\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+      }
+    }
+  />
+</div>
+`;
