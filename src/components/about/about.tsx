@@ -4,6 +4,7 @@ import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import CommonPage from "@components/shared/common-page/common-page"
+import OverlineTitle from "@components/shared/overline-title/overline-title"
 
 const About: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -47,6 +48,7 @@ const About: React.FunctionComponent = memo(() => {
 
   return (
     <CommonPage>
+      <OverlineTitle overline="Overline text">Title text</OverlineTitle>
       <TestDiv ref={testDiv} />
     </CommonPage>
   )
