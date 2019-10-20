@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const CoverImage: React.FunctionComponent<Props> = ({ imageObject }) => {
-  return <Img fluid={imageObject} style={{ height: "100%" }} />
+  return <Img fluid={imageObject} style={{ height: "100%" }} loading="eager" />
 }
 
 export default CoverImage

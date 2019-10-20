@@ -13,7 +13,7 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
       bright: file(relativePath: { eq: "project/bright/cover-image.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -22,21 +22,21 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
       ) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       monster: file(relativePath: { eq: "project/monster/cover-image.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jamieson: file(relativePath: { eq: "project/jamieson/cover-image.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -45,7 +45,7 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
       ) {
         childImageSharp {
           fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
