@@ -4,12 +4,11 @@ import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
 import { TProjects, TProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
-import { themeTone } from "@style/theme"
-import Contents from "@components/project/contents/contents"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { runAnimation } from "./project.animation"
 import { IStore } from "@custom-types/store"
+import { themeTone } from "@style/theme"
 
 interface Props {
   projectData: TProjects
@@ -83,23 +82,22 @@ const Project: React.FunctionComponent<Props> = memo(
       <>
         <Container ref={content}>
           <Header project={getCurrentProjectData(projectData, projectName)} />
-          <TempIntroImage />
-          <Contents
-            sections={getCurrentProjectData(projectData, projectName).contents}
+          <MainSection>{children}</MainSection>
+          <NextProject
+            nextProjectItem={getNextProjectData(projectData, projectName)}
           />
-          {children}
-          <NextProject project={getNextProjectData(projectData, projectName)} />
         </Container>
       </>
     )
   }
 )
 
-const Container = styled.article``
+const MainSection = styled.header`
+  height: 1000px;
 
-const TempIntroImage = styled.div`
-  background-color: ${themeTone(400)};
-  height: 500px;
+  background-color: ${themeTone(200)};
 `
+
+const Container = styled.article``
 
 export default Project

@@ -8,7 +8,7 @@ describe("<NextProject />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <NextProject project={mockProjectsData.brandwatch} />
+      <NextProject nextProjectItem={mockProjectsData.brandwatch} />
     )
     expect(tree).toMatchSnapshot()
   })

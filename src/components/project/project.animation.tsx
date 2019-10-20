@@ -36,7 +36,7 @@ export const animation: IpageAnimation = {
         ref.current,
         2,
         {
-          opacity: 0,
+          opacity: 1,
         },
         {
           opacity: 1,
@@ -64,7 +64,7 @@ export const animation: IpageAnimation = {
         ref.current,
         2,
         {
-          opacity: 0,
+          opacity: 1,
         },
         {
           opacity: 1,

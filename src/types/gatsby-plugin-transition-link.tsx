@@ -8,6 +8,8 @@ export type TpageAnimationType =
   | "closeMenu"
   | "menuEnter"
   | "pop"
+  | "nextProjectExit"
+  | "nextProjectEnter"
 
 export type TpageAnimationStates = {
   [key in TpageAnimationType]?: (ref: Ref) => void

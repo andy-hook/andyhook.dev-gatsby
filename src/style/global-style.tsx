@@ -147,6 +147,17 @@ const GlobalTransitionLink = createGlobalStyle`
   .tl-wrapper + .tl-wrapper {
     margin: 0 !important;
   }
+
+  /* Entering page should always sit above the exiting */
+  /* This is primarily used to prevent jank when click to go to the next project at the bottm of a page */
+  .tl-wrapper-status--entering,
+  .tl-wrapper-status--entered {
+    z-index: ${zIndex.medium} !important;
+  }
+
+  .tl-wrapper-status--exiting {
+    z-index: ${zIndex.low} !important;
+  }
 `
 
 /* Images
