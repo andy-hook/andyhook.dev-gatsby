@@ -2,7 +2,7 @@ import { ISocialMeta, TProjects } from "@custom-types/model"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { FluidObject } from "gatsby-image"
 
-export const socialIcons: ISocialMeta = {
+export const mockSocialIcons: ISocialMeta = {
   email: {
     label: "Email",
     url: "email address",
@@ -35,7 +35,7 @@ export const socialIcons: ISocialMeta = {
   },
 }
 
-export const projectsData: TProjects = {
+export const mockProjectsData: TProjects = {
   bright: {
     label: "Bright",
     desc: "Bright description",
@@ -123,7 +123,7 @@ export const projectsData: TProjects = {
   },
 }
 
-export const transitionState: ItransitionState = {
+export const mockTransitionState: ItransitionState = {
   transitionStatus: "entering",
   current: {
     delay: 0,
@@ -143,7 +143,7 @@ export const transitionState: ItransitionState = {
   mount: true,
 }
 
-export const fluidImageObject: FluidObject = {
+export const mockFluidImageObject: FluidObject = {
   aspectRatio: 1.5,
   sizes: "(max-width: 1000px) 100vw, 1000px",
   src: "/static/4a7de89fcee5d7cd97c940895602fbe0/2f7e7/cover-image.jpg",

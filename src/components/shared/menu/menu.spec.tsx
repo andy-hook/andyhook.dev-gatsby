@@ -1,6 +1,6 @@
 import React from "react"
 import { shallowWithTheme } from "@test-utils"
-import { socialIcons, projectsData } from "@mock-data"
+import { mockSocialIcons, mockProjectsData } from "@mock-data"
 
 import Menu from "./menu"
 
@@ -9,9 +9,9 @@ describe("<Menu />", () => {
     const tree = shallowWithTheme(
       "dark",
       <Menu
-        projects={projectsData}
+        projects={mockProjectsData}
         setMenuOpen={jest.fn()}
-        social={socialIcons}
+        social={mockSocialIcons}
         open={true}
       />
     )
