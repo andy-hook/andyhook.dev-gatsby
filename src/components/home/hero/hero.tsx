@@ -4,33 +4,27 @@ import Details from "./details/details"
 import { zIndex } from "@style/variables"
 import { runAnimation, animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
-import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useInView } from "react-intersection-observer"
+import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 
 interface Props {
   loaderVisible: boolean
   firstEntrance: boolean
   socialIconData: ISocialMeta
-  transitionState: ItransitionState
   menuOpen: boolean
 }
 
 const Hero: React.FunctionComponent<Props> = memo(
-  ({
-    socialIconData,
-    loaderVisible,
-    firstEntrance,
-    transitionState,
-    menuOpen,
-  }) => {
+  ({ socialIconData, loaderVisible, firstEntrance, menuOpen }) => {
     const detailsRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
 
     const [inviewRef, inView] = useInView()
+    const transitionState = useTransitionState()
 
     const refs = {
       details: detailsRef,

@@ -3,7 +3,6 @@ import Hero from "./hero"
 import { IMetaData } from "@custom-types/model"
 import { IStore } from "@custom-types/store"
 import { connect } from "react-redux"
-import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Data {
@@ -28,8 +27,6 @@ const mapStateToProps = ({
 
 const HeroContainer: React.FunctionComponent<AllProps> = memo(
   ({ loaderVisible, firstEntrance, menuOpen }) => {
-    const transitionState = useTransitionState()
-
     const data: Data = useStaticQuery(graphql`
       query {
         socialIconData: site {
@@ -77,7 +74,6 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
         loaderVisible={loaderVisible}
         firstEntrance={firstEntrance}
         menuOpen={menuOpen}
-        transitionState={transitionState}
       />
     )
   }

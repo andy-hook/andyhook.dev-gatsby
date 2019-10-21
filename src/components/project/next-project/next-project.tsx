@@ -14,18 +14,14 @@ interface Props {
   nextProjectItem: IProjectItem
 }
 
-interface StyleProps {
-  fixed: boolean
-}
-
-const totalAnimationLength = 0.5
+const totalAnimationLength = 1
 
 export const linkProps = {
   exit: {
     state: {
       animType: "nextProjectExit",
     },
-    length: totalAnimationLength + 0.05, // Ensure there is a single frame crossover when both components remain mounted to avoid visible flicker
+    length: totalAnimationLength, // Ensure there is a single frame crossover when both components remain mounted to avoid visible flicker
   },
   entry: {
     state: {
@@ -41,16 +37,13 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
   const linkRef = React.useRef() as Ref
 
   const [animateToNextProject, setAnimateToNextProject] = useState(false)
-  const [fixBackground, setFixBackground] = useState(false)
 
   const animateLeave = () => {
     TweenMax.to(backgroundRef.current, totalAnimationLength, {
       ease: Expo.easeOut,
       scale: 1.1,
-      opacity: 1,
-      onComplete: () => {
-        setFixBackground(true)
-      },
+      y: "-2%",
+      opacity: 0,
     })
 
     TweenMax.to(linkRef.current, 0.4, {
@@ -86,7 +79,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
       >
         dfsdfds
       </StyledLink>
-      <BackgroundImageFixer fixed={fixBackground}>
+      <BackgroundImageFixer>
         <BackgroundImagePosition ref={backgroundRef}>
           <CoverImageContainer imagePath={nextProjectItem.images} />
         </BackgroundImagePosition>
@@ -108,8 +101,8 @@ const Container = styled.div`
   overflow: hidden;
 `
 
-const BackgroundImageFixer = styled.div<StyleProps>`
-  position: ${props => (props.fixed ? "fixed" : "absolute")};
+const BackgroundImageFixer = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
 
@@ -131,7 +124,7 @@ const BackgroundImagePosition = styled.div`
 
   z-index: ${zIndex.floor};
 
-  opacity: 0.5;
+  opacity: 0.25;
 `
 
 const StyledLink = styled(Link)`
