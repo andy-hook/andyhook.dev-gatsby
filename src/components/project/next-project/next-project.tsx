@@ -6,7 +6,6 @@ import Link from "gatsby-plugin-transition-link"
 import { zIndex } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
-import "gsap/umd/ScrollToPlugin"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { themeTone } from "@style/theme"
 
@@ -48,14 +47,6 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
 
     TweenMax.to(linkRef.current, 0.4, {
       opacity: 0,
-    })
-
-    TweenMax.to(window, totalAnimationLength, {
-      scrollTo: {
-        ease: Expo.easeOut,
-        y: "max",
-        autoKill: false,
-      },
     })
   }
 

@@ -48,7 +48,6 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
 
   const animateExit = () => {
     if (inView) {
-      console.log("inview fire")
       TweenMax.fromTo(
         backgroundRef.current,
         0.25,
