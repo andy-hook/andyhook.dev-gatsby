@@ -15,7 +15,6 @@ interface Props {
 const Header: React.FunctionComponent<Props> = ({ project }) => {
   const transitionState = useTransitionState()
   const backgroundRef = React.useRef() as Ref
-
   const [inviewRef, inView] = useInView()
 
   const animatePop = () => {
