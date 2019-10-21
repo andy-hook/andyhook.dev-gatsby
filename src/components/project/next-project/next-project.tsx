@@ -15,21 +15,19 @@ interface Props {
   nextProjectItem: IProjectItem
 }
 
-const totalAnimationLength = 1
-
 export const linkProps = {
   exit: {
     state: {
       animType: "nextProjectExit",
     },
-    length: totalAnimationLength, // Ensure there is a single frame crossover when both components remain mounted to avoid visible flicker
+    length: 0.5, // Should match entry delay
   },
   entry: {
     state: {
       animType: "nextProjectEnter",
     },
-    delay: totalAnimationLength, // How long the current page should show for before changing scroll position
-    length: totalAnimationLength,
+    delay: 0.5, // How long the current page should show for before changing scroll position
+    length: 0.5,
   },
 }
 
@@ -40,14 +38,14 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
   const [inviewRef, inView] = useInView()
 
   const animateProjectChange = () => {
-    TweenMax.to(backgroundRef.current, totalAnimationLength, {
+    TweenMax.to(backgroundRef.current, 0.3, {
       ease: Expo.easeOut,
       scale: 1.1,
       y: "-2%",
       opacity: 0,
     })
 
-    TweenMax.to(linkRef.current, 0.4, {
+    TweenMax.to(linkRef.current, 0.3, {
       opacity: 0,
     })
   }

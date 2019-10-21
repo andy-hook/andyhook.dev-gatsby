@@ -52,6 +52,7 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
         0.25,
         {
           y: 0,
+          opacity: 1,
         },
         {
           y: 40,
