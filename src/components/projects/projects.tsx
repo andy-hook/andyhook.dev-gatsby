@@ -1,17 +1,57 @@
 import React, { memo, useEffect } from "react"
-import { runAnimation } from "./projects.animation"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import CommonPage from "@components/shared/common-page/common-page"
+import { TweenMax, Elastic } from "gsap"
 
 const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
   const transitionState = useTransitionState()
 
-  const refs = {
-    test: testDiv,
+  const animatePop = () => {
+    TweenMax.fromTo(
+      testDiv.current,
+      0.75,
+      {
+        scale: 1.5,
+      },
+      {
+        ease: Elastic.easeOut.config(0.8, 1),
+        scale: 1,
+        opacity: 1,
+      }
+    )
+  }
+
+  const animateEnter = () => {
+    TweenMax.fromTo(
+      testDiv.current,
+      0.25,
+      {
+        y: "50%",
+        opacity: 0,
+      },
+      {
+        y: "0%",
+        opacity: 1,
+      }
+    )
+  }
+
+  const animateExit = () => {
+    TweenMax.fromTo(
+      testDiv.current,
+      0.25,
+      {
+        y: "0%",
+      },
+      {
+        y: "-50%",
+        opacity: 0,
+      }
+    )
   }
 
   useEffect(() => {
@@ -19,12 +59,12 @@ const Projects: React.FunctionComponent = memo(() => {
 
     switch (transitionStatus) {
       case "POP":
-        runAnimation(refs, "pop")
+        animatePop()
         break
       case "entering":
         switch (entry.state.animType) {
           case "enter":
-            runAnimation(refs, "enter")
+            animateEnter()
 
             break
 
@@ -32,13 +72,13 @@ const Projects: React.FunctionComponent = memo(() => {
           // Hopefully this can be resolved and pop will run consistently
           // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
           default:
-            runAnimation(refs, "pop")
+            animatePop()
         }
         break
       case "exiting":
         switch (exit.state.animType) {
           case "exit":
-            runAnimation(refs, "exit")
+            animateExit()
 
             break
         }
