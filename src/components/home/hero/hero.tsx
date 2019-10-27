@@ -2,7 +2,6 @@ import React, { useEffect, memo } from "react"
 import styled from "styled-components"
 import Details from "./details/details"
 import { zIndex } from "@style/variables"
-import { runAnimation, animation } from "./hero.animation"
 import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha, themeTone } from "@style/theme"
@@ -10,6 +9,7 @@ import { ISocialMeta } from "model"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useInView } from "react-intersection-observer"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import { TweenMax, Elastic } from "gsap"
 
 interface Props {
   loaderVisible: boolean
@@ -26,9 +26,109 @@ const Hero: React.FunctionComponent<Props> = memo(
     const [inviewRef, inView] = useInView()
     const transitionState = useTransitionState()
 
-    const refs = {
-      details: detailsRef,
-      background: backgroundRef,
+    const animatePop = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.75,
+        {
+          scale: 1.5,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+
+      TweenMax.to(backgroundRef.current, 0.9, {
+        opacity: 1,
+      })
+    }
+
+    const animateEnter = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.25,
+        {
+          y: "10%",
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+
+      TweenMax.to(backgroundRef.current, 0.25, {
+        opacity: 1,
+      })
+    }
+
+    const animateExit = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.25,
+        {
+          y: "0%",
+        },
+        {
+          y: "-10%",
+          opacity: 0,
+        }
+      )
+
+      TweenMax.to(backgroundRef.current, 0.25, {
+        opacity: 0,
+      })
+    }
+
+    const animateOpenMenu = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.25,
+        {
+          y: "0%",
+        },
+        {
+          y: "-50%",
+          opacity: 0,
+          clearProps: "transform",
+        }
+      )
+    }
+
+    const animateCloseMenu = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.25,
+        {
+          opacity: 0,
+          y: "50%",
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          clearProps: "transform",
+        }
+      )
+    }
+
+    const animateFirstEnter = () => {
+      TweenMax.fromTo(
+        detailsRef.current,
+        0.75,
+        {
+          scale: 1.5,
+        },
+        {
+          ease: Elastic.easeOut.config(0.8, 1),
+          scale: 1,
+          opacity: 1,
+          clearProps: "transform",
+          delay: 0.65,
+        }
+      )
     }
 
     useEffect(() => {
@@ -36,25 +136,25 @@ const Hero: React.FunctionComponent<Props> = memo(
 
       switch (transitionStatus) {
         case "POP":
-          runAnimation(refs, "pop")
+          animatePop()
           break
         case "entering":
           switch (entry.state.animType) {
             case "enter":
-              runAnimation(refs, "enter")
+              animateEnter()
 
               break
             // This clause works around bug with pushstate and history navigation
             // Hopefully this can be resolved and pop will run consistently
             // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
             default:
-              runAnimation(refs, "pop")
+              animatePop()
           }
           break
         case "exiting":
           switch (exit.state.animType) {
             case "exit":
-              runAnimation(refs, "exit")
+              animateExit()
 
               break
           }
@@ -62,28 +162,27 @@ const Hero: React.FunctionComponent<Props> = memo(
       }
     }, [transitionState.transitionStatus])
 
-    // Perform this immediatley without waiting for a trigger
     useEffect(() => {
-      const backgroundEntranceAnimation = animation.background.firstEnter
-
-      if (firstEntrance && backgroundEntranceAnimation) {
-        backgroundEntranceAnimation(backgroundRef)
+      if (firstEntrance) {
+        TweenMax.to(backgroundRef.current, 0.9, {
+          opacity: 1,
+        })
       }
     }, [firstEntrance])
 
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (!loaderVisible && firstEntrance) {
-        runAnimation(refs, "firstEnter")
+        animateFirstEnter()
       }
     }, [loaderVisible])
 
     useDeferredRunEffect(() => {
       if (inView) {
         if (menuOpen) {
-          runAnimation(refs, "openMenu")
+          animateOpenMenu()
         } else {
-          runAnimation(refs, "closeMenu")
+          animateCloseMenu()
         }
       }
     }, [menuOpen])
