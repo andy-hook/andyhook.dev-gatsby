@@ -122,7 +122,7 @@ const Project: React.FunctionComponent<Props> = memo(
 const MainSection = styled.header`
   height: 1000px;
 
-  background-color: ${themeTone(200)};
+  background-color: ${themeTone(100)};
 `
 
 const Container = styled.article``

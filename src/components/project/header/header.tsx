@@ -22,7 +22,7 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
       backgroundRef.current,
       0.75,
       {
-        scale: 1.5,
+        scale: 1.05,
       },
       {
         scale: 1,
@@ -36,7 +36,7 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
       backgroundRef.current,
       0.75,
       {
-        scale: 1.5,
+        scale: 1.05,
       },
       {
         scale: 1,
