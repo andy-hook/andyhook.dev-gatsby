@@ -14,19 +14,21 @@ interface Props {
   nextProjectItem: IProjectItem
 }
 
+const projectChangeDuration = 1.3
+
 export const linkProps = {
   exit: {
     state: {
       animType: "nextProjectExit",
     },
-    length: 1.3, // Should match entry delay
+    length: projectChangeDuration, // Should match entry delay
   },
   entry: {
     state: {
       animType: "nextProjectEnter",
     },
-    delay: 1.3, // How long the current page should show for before changing scroll position
-    length: 1.3,
+    delay: projectChangeDuration, // How long the current page should show for before changing scroll position
+    length: projectChangeDuration,
   },
 }
 

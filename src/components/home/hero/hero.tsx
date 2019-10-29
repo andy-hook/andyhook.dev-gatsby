@@ -75,6 +75,9 @@ const Hero: React.FunctionComponent<Props> = memo(
         {
           y: "-10%",
           opacity: 0,
+          onComplete: () => {
+            window.scrollTo(0, 0)
+          },
         }
       )
 
@@ -91,7 +94,7 @@ const Hero: React.FunctionComponent<Props> = memo(
           y: "0%",
         },
         {
-          y: "-50%",
+          y: "50%",
           opacity: 0,
           clearProps: "transform",
         }
@@ -104,7 +107,7 @@ const Hero: React.FunctionComponent<Props> = memo(
         0.25,
         {
           opacity: 0,
-          y: "50%",
+          y: "-50%",
         },
         {
           y: "0%",

@@ -36,7 +36,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const animateHide = () => {
     TweenMax.to(navRef.current, 0.2, {
       ease: Expo.easeOut,
-      y: "-50%",
+      y: "50%",
       opacity: 0,
     })
   }
@@ -46,7 +46,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
       navRef.current,
       0.5,
       {
-        y: "50%",
+        y: "-50%",
       },
       {
         ease: Expo.easeOut,

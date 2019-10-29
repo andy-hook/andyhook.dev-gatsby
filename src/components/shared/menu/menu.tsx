@@ -50,7 +50,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         0.75,
         {
           opacity: 1,
-          y: "100%",
+          y: "-100%",
         },
         {
           ease: Expo.easeOut,
@@ -91,7 +91,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         },
         {
           ease: Expo.easeOut,
-          y: "-100%",
+          y: "100%",
           clearProps: "transform, opacity",
           onComplete: () => {
             routeTransition = false

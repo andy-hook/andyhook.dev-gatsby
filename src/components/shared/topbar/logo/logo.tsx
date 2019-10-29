@@ -17,7 +17,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const animateHide = () => {
     TweenMax.to(logoRef.current, 0.2, {
       ease: Expo.easeOut,
-      y: "-100%",
+      y: "100%",
       opacity: 0,
     })
   }
@@ -27,7 +27,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
       logoRef.current,
       0.6,
       {
-        y: "100%",
+        y: "-100%",
       },
       {
         ease: Expo.easeOut,

@@ -50,6 +50,9 @@ const About: React.FunctionComponent = memo(() => {
       {
         y: "-50%",
         opacity: 0,
+        onComplete: () => {
+          window.scrollTo(0, 0)
+        },
       }
     )
   }
