@@ -153,6 +153,37 @@ export const breakpoints: TBreakpoints = {
 export const emBreakpoints = pxToEm(breakpoints, baseFontSize)
 export const remBreakpoints = pxToRem(breakpoints, baseFontSize)
 
+export const constructMaxMediaString = (breakpoint: string) => {
+  return `(max-width: ${breakpoint})`
+}
+
+export const constructMinMediaString = (breakpoint: string) => {
+  return `(min-width: ${breakpoint})`
+}
+
+export const matchMediaStrings: TBreakpoints = {
+  bottomThumb: constructMaxMediaString(breakpoints.bottomThumb),
+  topThumb: constructMinMediaString(breakpoints.bottomThumb),
+
+  bottomPalm: constructMaxMediaString(breakpoints.bottomPalm),
+  topPalm: constructMinMediaString(breakpoints.topPalm),
+
+  bottomLap: constructMaxMediaString(breakpoints.bottomLap),
+  topLap: constructMinMediaString(breakpoints.topLap),
+
+  bottomDesk: constructMaxMediaString(breakpoints.bottomDesk),
+  topDesk: constructMinMediaString(breakpoints.topDesk),
+
+  bottomWide: constructMaxMediaString(breakpoints.bottomWide),
+  topWide: constructMinMediaString(breakpoints.topWide),
+
+  bottomWall: constructMaxMediaString(breakpoints.bottomWall),
+  topWall: constructMinMediaString(breakpoints.topWall),
+
+  bottomUltra: constructMaxMediaString(breakpoints.bottomUltra),
+  topUltra: constructMinMediaString(breakpoints.topUltra),
+}
+
 /* Index
   ------------------------------------------------- */
 
