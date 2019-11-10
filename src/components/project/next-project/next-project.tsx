@@ -1,14 +1,11 @@
 import React from "react"
 import { IProjectItem } from "@custom-types/model"
-import styled, { css } from "styled-components"
-import Link from "gatsby-plugin-transition-link"
-import { zIndex } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
-import { themeTone } from "@style/theme"
 import { useInView } from "react-intersection-observer"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import * as S from "./next-project.style"
 
 interface Props {
   nextProjectItem: IProjectItem
@@ -108,95 +105,25 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
   return (
     <>
       <div ref={inviewRef}>
-        <Container ref={containerRef}>
-          <StyledLink
+        <S.Container ref={containerRef}>
+          <S.StyledLink
             to={nextProjectItem.path}
             {...linkProps}
             onClick={animateProjectChange}
           >
             dfsdfds
-          </StyledLink>
-        </Container>
+          </S.StyledLink>
+        </S.Container>
       </div>
-      <SlideContainer ref={slideContainerRef}>
-        <Slide ref={slideRef}>
-          <SlideInner ref={slideInnerRef} />
-        </Slide>
+      <S.SlideContainer ref={slideContainerRef}>
+        <S.Slide ref={slideRef}>
+          <S.SlideInner ref={slideInnerRef} />
+        </S.Slide>
 
-        <SlideOver ref={slideOverRef} />
-      </SlideContainer>
+        <S.SlideOver ref={slideOverRef} />
+      </S.SlideContainer>
     </>
   )
 }
-
-const Container = styled.div`
-  height: 64vh;
-
-  position: relative;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background-color: ${themeTone(200)};
-`
-
-const StyledLink = styled(Link)`
-  z-index: ${zIndex.floor};
-`
-
-const SlideContainer = styled.div`
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  height: 100vh;
-  width: 100%;
-
-  pointer-events: none;
-  visibility: hidden;
-
-  z-index: ${zIndex.low};
-`
-
-const absolutePositioning = css`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  height: 100%;
-  width: 100%;
-`
-
-const Slide = styled.div`
-  ${absolutePositioning}
-
-  overflow: hidden;
-
-  z-index: ${zIndex.floor};
-`
-
-const SlideInner = styled.div`
-  ${absolutePositioning}
-
-  background-color: ${themeTone(200)};
-
-  transform: translate3d(0, 100%, 0);
-`
-
-const SlideOver = styled.div`
-  ${absolutePositioning}
-
-  background-color: ${themeTone(100)};
-
-  transform: translate3d(0, 100%, 0);
-
-  z-index: ${zIndex.low};
-`
 
 export default NextProject

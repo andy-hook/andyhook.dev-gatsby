@@ -1,10 +1,10 @@
 import React, { memo, useEffect } from "react"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
-import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import CommonPage from "@components/shared/common-page/common-page"
 import { TweenMax, Elastic } from "gsap"
+import * as S from "./projects.style"
 
 const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -92,18 +92,9 @@ const Projects: React.FunctionComponent = memo(() => {
   return (
     <CommonPage>
       <OverlineTitle overline="Overline text">Title text</OverlineTitle>
-      <TestDiv ref={testDiv} />
+      <S.TestDiv ref={testDiv} />
     </CommonPage>
   )
 })
-
-const TestDiv = styled.div`
-  background-color: red;
-
-  opacity: 0;
-
-  width: 300px;
-  height: 300px;
-`
 
 export default Projects

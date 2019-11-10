@@ -1,5 +1,4 @@
 import React, { useEffect, memo } from "react"
-import styled from "styled-components"
 import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
 import { TProjects, TProjectNames } from "@custom-types/model"
@@ -7,8 +6,8 @@ import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { IStore } from "@custom-types/store"
-import { themeTone } from "@style/theme"
 import { TweenMax } from "gsap"
+import * as S from "./project.style"
 
 interface Props {
   projectData: TProjects
@@ -107,24 +106,16 @@ const Project: React.FunctionComponent<Props> = memo(
 
     return (
       <>
-        <Container ref={content}>
+        <S.Container ref={content}>
           <Header project={getCurrentProjectData(projectData, projectName)} />
-          <MainSection>{children}</MainSection>
+          <S.MainSection>{children}</S.MainSection>
           <NextProject
             nextProjectItem={getNextProjectData(projectData, projectName)}
           />
-        </Container>
+        </S.Container>
       </>
     )
   }
 )
-
-const MainSection = styled.header`
-  height: 1000px;
-
-  background-color: ${themeTone(100)};
-`
-
-const Container = styled.article``
 
 export default Project

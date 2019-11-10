@@ -1,22 +1,12 @@
 import React, { memo, ReactNode } from "react"
-import styled from "styled-components"
-import { mq } from "@style/media-queries"
+import * as S from "./gutter.style"
 
 interface Props {
   children: ReactNode
 }
 
 const Gutter: React.FunctionComponent<Props> = memo(({ children }) => {
-  return <GutterContainer>{children}</GutterContainer>
+  return <S.GutterContainer>{children}</S.GutterContainer>
 })
-
-const GutterContainer = styled.div`
-  ${mq.lessThan("topUltra")`
-    padding-left: 10%;
-    padding-right: 10%;
-  `}
-
-  width: 100%;
-`
 
 export default Gutter

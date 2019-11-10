@@ -1,14 +1,9 @@
 import React, { memo, useState } from "react"
-import Link from "gatsby-plugin-transition-link"
-import styled, { css } from "styled-components"
-import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
-import { themeText } from "@style/theme"
-import { lineHeight } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
-import { mq } from "@style/media-queries"
+import * as S from "./nav-list.style"
 
 interface Props {
   hidden?: boolean
@@ -89,68 +84,29 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
   }, [hidden])
 
   return (
-    <Container
+    <S.Container
       ref={navRef}
       className={hiddenApplied ? "is-hidden" : "is-visible"}
     >
-      <List>
-        <ListItem>
-          <ListItemLink to="/" activeClassName="active" {...linkProps}>
+      <S.List>
+        <S.ListItem>
+          <S.ListItemLink to="/" activeClassName="active" {...linkProps}>
             Overview
-          </ListItemLink>
-        </ListItem>
-        <ListItem>
-          <ListItemLink to="/projects/" partiallyActive={true} {...linkProps}>
+          </S.ListItemLink>
+        </S.ListItem>
+        <S.ListItem>
+          <S.ListItemLink to="/projects/" partiallyActive={true} {...linkProps}>
             Projects
-          </ListItemLink>
-        </ListItem>
-        <ListItem>
-          <ListItemLink to="/about/" {...linkProps}>
+          </S.ListItemLink>
+        </S.ListItem>
+        <S.ListItem>
+          <S.ListItemLink to="/about/" {...linkProps}>
             About
-          </ListItemLink>
-        </ListItem>
-      </List>
-    </Container>
+          </S.ListItemLink>
+        </S.ListItem>
+      </S.List>
+    </S.Container>
   )
 })
-
-const Container = styled.nav`
-  &.is-hidden {
-    opacity: 0;
-  }
-
-  ${mq.lessThan("bottomPalm")`
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-  `}
-`
-
-const List = styled.ul`
-  ${typeBaseSemibold}
-  ${typeSizeBaseXs}
-
-  display: flex;
-  margin-right: -1em;
-`
-
-const ListItem = styled.li`
-  &:not(:last-child) {
-    margin-right: 1.1em;
-  }
-`
-
-const ListItemLink = styled(Link)`
-  display: block;
-  color: ${themeText(1000)};
-
-  padding: 1em;
-
-  line-height: ${lineHeight.flat};
-
-  &.active {
-    color: ${themeText(400)};
-  }
-`
 
 export default NavList

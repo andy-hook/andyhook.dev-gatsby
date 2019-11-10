@@ -1,12 +1,10 @@
 import React, { memo } from "react"
-import styled from "styled-components"
-import Link from "gatsby-plugin-transition-link"
-import { themeText } from "@style/theme"
 import { Ref } from "@custom-types/ref"
 import { Expo, TweenMax } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
+import * as S from "./logo.style"
 
 interface Props {
   hidden?: boolean
@@ -48,9 +46,9 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   }, [hidden])
 
   return (
-    <LogoWrap ref={logoRef}>
-      <LogoLink to="/" {...linkProps}>
-        <LogoLettering viewBox="0 0 665.2 148.6">
+    <S.LogoWrap ref={logoRef}>
+      <S.LogoLink to="/" {...linkProps}>
+        <S.LogoLettering viewBox="0 0 665.2 148.6">
           <path
             d="M23.8,71.4l19.6-2.9c4.5-0.6,6-2.9,6-5.7c0-5.7-4.4-10.4-13.4-10.4c-9.4,0-14.6,6-15.2,12.9l-19.1-4
         c1.3-12.5,12.8-26.2,34.1-26.2c25.2,0,34.6,14.2,34.6,30.3v39.2c0,4.2,0.5,9.9,1,12.6H51.6c-0.5-2.1-0.8-6.5-0.8-9.5
@@ -81,28 +79,10 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
         M561.7,77.3c0-15.1-9.7-22.7-20.2-22.7c-10.5,0-20.2,7.6-20.2,22.7c0,14.9,9.7,22.7,20.2,22.7C552,100,561.7,92.4,561.7,77.3z"
           />
           <path d="M632.7,71l32.5,46.1h-26.4l-21-30.4l-8.9,9.4v21h-21.5V0h21.5v67.2l27.5-29.6h28.2L632.7,71z" />
-        </LogoLettering>
-      </LogoLink>
-    </LogoWrap>
+        </S.LogoLettering>
+      </S.LogoLink>
+    </S.LogoWrap>
   )
 })
-
-const LogoWrap = styled.div`
-  font-size: 1em;
-  width: 1em;
-  height: 0.2em;
-`
-
-const LogoLink = styled(Link)`
-  display: block;
-`
-
-const LogoLettering = styled.svg`
-  display: block;
-
-  & path {
-    fill: ${themeText(500)};
-  }
-`
 
 export default Logo

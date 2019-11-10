@@ -1,20 +1,15 @@
 import React, { memo, ReactNode, useState } from "react"
-import styled, { css } from "styled-components"
-import { mq } from "@style/media-queries"
-import { sidebarWidth } from "@components/shared/menu/menu"
+import { sidebarWidth } from "@components/shared/menu/menu.style"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { TweenMax, Expo } from "gsap"
 import { Ref } from "@custom-types/ref"
 import { useInView } from "react-intersection-observer"
+import * as S from "./sidebar-slide.style"
 
 interface Props {
   children: ReactNode
   open?: boolean
-}
-
-interface StyleProps {
-  slide?: boolean
 }
 
 const SidebarSlide: React.FunctionComponent<Props> = memo(
@@ -107,51 +102,15 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
 
     return (
       <div ref={inviewRef}>
-        <SlideAnimation
+        <S.SlideAnimation
           ref={animationRef}
           className={openPosition ? "is-open" : "is-closed"}
         >
           {children}
-        </SlideAnimation>
+        </S.SlideAnimation>
       </div>
     )
   }
 )
-
-const applyTransform = (size: any) => {
-  return css`
-    transform: translate3d(${size}%, 0, 0);
-  `
-}
-
-const SlideAnimation = styled.div<StyleProps>`
-  &.is-open {
-    ${applyTransform(sidebarWidth.initial)}
-
-    ${mq.greaterThan("topThumb")`
-      ${applyTransform(sidebarWidth.thumb)}
-    `}
-
-    ${mq.greaterThan("topPalm")`
-      ${applyTransform(sidebarWidth.palm)}
-    `}
-
-    ${mq.greaterThan("topLap")`
-      ${applyTransform(sidebarWidth.lap)}
-    `}
-
-    ${mq.greaterThan("topDesk")`
-      ${applyTransform(sidebarWidth.desk)}
-    `}
-
-    ${mq.greaterThan("topWide")`
-      ${applyTransform(sidebarWidth.wide)}
-    `}
-
-    ${mq.greaterThan("topWall")`
-      ${applyTransform(sidebarWidth.wall)}
-    `}
-  }
-`
 
 export default SidebarSlide

@@ -1,0 +1,75 @@
+import styled from "styled-components"
+import { rem } from "polished"
+import { mq } from "@style/media-queries"
+import { themeText, isTheme } from "@style/theme"
+import {
+  borderRadius,
+  easing,
+  duration,
+  borderThickness,
+} from "@style/variables"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+
+export const Restricter = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mq.lessThan("bottomThumb")`
+    max-width: ${rem("250px")};
+    margin: auto;
+  `}
+`
+
+export const Link = styled(OutboundLink)`
+  position: relative;
+  display: block;
+  color: ${themeText(100)};
+
+  padding: 0.75em;
+
+  &:not(:last-child) {
+    margin-right: 0.1em;
+  }
+
+  &::after {
+    transition: transform ${duration.slow} ${easing("subtleBounce")},
+      opacity ${duration.fast} linear;
+
+    content: "";
+    position: absolute;
+
+    top: 0.1em;
+    left: 0.1em;
+    right: 0.1em;
+    bottom: 0.1em;
+    border: ${borderThickness.regular} solid ${themeText(100)};
+
+    border-radius: ${borderRadius.circle};
+
+    opacity: 0;
+
+    transform: scale(1.5);
+
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+`
+export const IconPos = styled.div`
+  transition: opacity ${duration.slow} ${easing("subtleBounce")};
+  opacity: ${isTheme("dark", "0.25", "0.4")};
+
+  ${Link}:hover &,
+  ${Link}:focus & {
+    opacity: 1;
+  }
+`

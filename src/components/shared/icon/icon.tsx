@@ -1,32 +1,18 @@
 import { withPrefix } from "gatsby"
 import React, { memo } from "react"
-import styled from "styled-components"
-import classNames from "classnames"
 import { TIcons } from "@custom-types/icons"
+import * as S from "./icon.style"
 
 interface Props {
   name: TIcons
-  className?: string
 }
 
-const IconWrapper = styled.div`
-  width: 1em;
-  height: 1em;
-`
-
-const IconSvg = styled.svg`
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: currentColor;
-`
-
-const Icon: React.FunctionComponent<Props> = memo(({ name, className }) => (
-  <IconWrapper className={classNames("", className)}>
-    <IconSvg className="icon">
+const Icon: React.FunctionComponent<Props> = memo(({ name }) => (
+  <S.IconWrapper>
+    <S.IconSvg className="icon">
       <use xlinkHref={withPrefix(`icon-sprite.svg#${name}`)} />
-    </IconSvg>
-  </IconWrapper>
+    </S.IconSvg>
+  </S.IconWrapper>
 ))
 
 export default Icon

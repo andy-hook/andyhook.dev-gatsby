@@ -4,9 +4,8 @@ import { keys } from "@custom-types/utils"
 import Card from "./card/card"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
-import { themeTone } from "@style/theme"
-import styled from "styled-components"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
+import * as S from "./work.style"
 
 interface Props {
   projectsData: TProjects
@@ -24,18 +23,14 @@ const Work: React.FunctionComponent<Props> = memo(({ projectsData }) => {
   ))
 
   return (
-    <Container>
+    <S.Container>
       <SidebarSlide>
         <Gutter>
           <Limiter size="large">{renderItems}</Limiter>
         </Gutter>
       </SidebarSlide>
-    </Container>
+    </S.Container>
   )
 })
-
-const Container = styled.div`
-  background-color: ${themeTone(100)};
-`
 
 export default Work

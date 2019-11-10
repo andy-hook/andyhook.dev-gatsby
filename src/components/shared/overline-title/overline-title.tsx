@@ -1,6 +1,5 @@
 import React, { memo, ReactNode } from "react"
-import styled from "styled-components"
-import { typeSupTitle, typeTitle } from "@style/typography"
+import * as S from "./overline-title.style"
 
 interface Props {
   overline: string
@@ -10,18 +9,10 @@ interface Props {
 const OverlineTitle: React.FunctionComponent<Props> = memo(
   ({ overline, children }) => (
     <div>
-      <Overline>{overline}</Overline>
-      <Title>{children}</Title>
+      <S.Overline>{overline}</S.Overline>
+      <S.Title>{children}</S.Title>
     </div>
   )
 )
-
-const Overline = styled.h2`
-  ${typeSupTitle}
-`
-
-const Title = styled.h3`
-  ${typeTitle}
-`
 
 export default OverlineTitle

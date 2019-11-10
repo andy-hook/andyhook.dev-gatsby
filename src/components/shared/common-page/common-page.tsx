@@ -1,25 +1,20 @@
 import React, { memo, ReactNode } from "react"
-import styled from "styled-components"
 import Limiter from "@components/shared/limiter/limiter"
 import Footer from "@components/shared/footer/footer"
 import Gutter from "@components/shared/gutter/gutter"
+import * as S from "./common-page.style"
 
 interface Props {
   children: ReactNode
 }
 
 const CommonPage: React.FunctionComponent<Props> = memo(({ children }) => (
-  <Container>
+  <S.Container>
     <Gutter>
       <Limiter>{children}</Limiter>
     </Gutter>
     <Footer />
-  </Container>
+  </S.Container>
 ))
-
-const Container = styled.div`
-  padding-top: 200px;
-  height: 2000px;
-`
 
 export default CommonPage

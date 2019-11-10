@@ -3,7 +3,7 @@
 exports[`<SidebarSlide /> renders correctly 1`] = `
 <div>
   <div
-    className="sc-gqjmRU eRmjDw is-closed"
+    className="sc-dnqmqq hNHpNn is-closed"
   >
     Child text
   </div>

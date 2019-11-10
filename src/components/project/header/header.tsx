@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
 import { IProjectItem } from "@custom-types/model"
-import styled from "styled-components"
 import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
-import { themeTone } from "@style/theme"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { Ref } from "@custom-types/ref"
 import { TweenMax } from "gsap"
 import { useInView } from "react-intersection-observer"
+import * as S from "./header.style"
 
 interface Props {
   project: IProjectItem
@@ -94,27 +93,12 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   }, [transitionState.transitionStatus])
 
   return (
-    <Container ref={inviewRef}>
-      <BackgroundImage ref={backgroundRef}>
+    <S.Container ref={inviewRef}>
+      <S.BackgroundImage ref={backgroundRef}>
         <CoverImageContainer imagePath={project.images} />
-      </BackgroundImage>
-    </Container>
+      </S.BackgroundImage>
+    </S.Container>
   )
 }
-
-const Container = styled.header`
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-
-  background-color: ${themeTone(200)};
-`
-
-const BackgroundImage = styled.header`
-  height: 100%;
-  opacity: 0;
-
-  transform: scale(1.1);
-`
 
 export default Header

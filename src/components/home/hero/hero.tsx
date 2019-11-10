@@ -1,14 +1,12 @@
 import React, { useEffect, memo } from "react"
-import styled from "styled-components"
 import Details from "./details/details"
-import { zIndex } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
-import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TweenMax, Elastic } from "gsap"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
+import * as S from "./hero.style"
 
 interface Props {
   loaderVisible: boolean
@@ -148,76 +146,20 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     return (
       <SidebarSlide>
-        <Container>
-          <DetailsPos ref={detailsRef}>
+        <S.Container>
+          <S.DetailsPos ref={detailsRef}>
             <Gutter>
               <Details buttonHref={socialIconData.dribbble.url} />
             </Gutter>
-          </DetailsPos>
+          </S.DetailsPos>
 
-          <BackgroundContainer ref={backgroundRef}>
-            <BackgroundGradient />
-          </BackgroundContainer>
-        </Container>
+          <S.BackgroundContainer ref={backgroundRef}>
+            <S.BackgroundGradient />
+          </S.BackgroundContainer>
+        </S.Container>
       </SidebarSlide>
     )
   }
 )
-
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-`
-
-const DetailsPos = styled.div`
-  position: relative;
-
-  width: 100%;
-
-  margin-bottom: -6vh;
-
-  z-index: ${zIndex.low};
-
-  opacity: 0;
-
-  will-change: transform;
-`
-
-const BackgroundContainer = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  z-index: ${zIndex.floor};
-
-  opacity: 0;
-`
-
-const BackgroundGradient = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  z-index: ${zIndex.medium};
-
-  background: linear-gradient(
-    175deg,
-    ${themeToneAlpha(100, 0)} 25%,
-    ${themeTone(100)} 65%
-  );
-`
 
 export default Hero
