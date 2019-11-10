@@ -1,33 +1,29 @@
-import { typeTitle, typeSizeDisplayMd } from "@style/typography"
+import { typeTitle } from "@style/typography"
 import styled from "styled-components"
 import Link from "gatsby-plugin-transition-link"
-import { scaleBetween, mq } from "@style/media-queries"
-
-export const projectItemPadding = "0.22em"
+import { typeScale } from "@style/variables"
+import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 
 export const ProjectList = styled.ul`
-  ${typeSizeDisplayMd}
-  margin-top: -${projectItemPadding};
-  margin-bottom: 1.75em;
+  font-size: ${typeScale[8]};
 
-  ${mq.greaterThan("topPalm")`
-    flex-direction: column;
+  ${scaleBetween(
+    "font-size",
+    typeScale[8],
+    typeScale[9],
+    "topThumb",
+    "bottomUltra"
+  )}
 
-    margin-bottom: -${projectItemPadding};
-  `}
+  ${scaleGreaterThan("font-size", typeScale[9], "topUltra")}
 `
 
-export const ProjectListItem = styled.li`
-  min-width: 8em;
-  margin-right: 6em;
-
-  ${scaleBetween("margin-right", "2.75rem", "11.4rem", "topPalm", "bottomLap")}
-`
+export const ProjectListItem = styled.li``
 
 export const ProjectLink = styled(Link)`
   ${typeTitle}
 
   display: block;
-  padding-top: ${projectItemPadding};
-  padding-bottom: ${projectItemPadding};
+  padding-top: 0.22em;
+  padding-bottom: 0.22em;
 `

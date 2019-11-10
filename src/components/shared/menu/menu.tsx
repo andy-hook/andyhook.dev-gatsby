@@ -131,11 +131,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(({ open, projects }) => {
       <S.Container>
         <S.Sidebar>
           <S.Contents ref={contentsRef}>
-            <S.ListTitle>
-              <S.ListTitleNumber>01</S.ListTitleNumber>
-              <S.ListTitleDivider />
-              Projects
-            </S.ListTitle>
             <ProjectListComponent
               projectDataList={projects}
               onClick={handleProjectClick}

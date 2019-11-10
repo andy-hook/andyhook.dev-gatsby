@@ -2,38 +2,47 @@ import styled, { css } from "styled-components"
 import { mq } from "@style/media-queries"
 import { sidebarWidth } from "@components/shared/menu/menu.style"
 
-const applyTransform = (size: any) => {
+const applyPositiveTransform = (size: any) => {
   return css`
     transform: translate3d(${size}%, 0, 0);
   `
 }
 
+const applyNegativeTransform = (size: any) => {
+  return css`
+    transform: translate3d(-${size}%, 0, 0);
+  `
+}
+
 export const SlideAnimation = styled.div`
   &.is-open {
-    ${applyTransform(sidebarWidth.initial)}
-
+    ${mq.lessThan("bottomThumb")`
+      ${applyNegativeTransform(sidebarWidth.initial)}
+    `}
+  
     ${mq.greaterThan("topThumb")`
-      ${applyTransform(sidebarWidth.thumb)}
+      ${applyNegativeTransform(sidebarWidth.thumb)}
     `}
 
     ${mq.greaterThan("topPalm")`
-      ${applyTransform(sidebarWidth.palm)}
+      ${applyPositiveTransform(sidebarWidth.palm)}
     `}
 
     ${mq.greaterThan("topLap")`
-      ${applyTransform(sidebarWidth.lap)}
+      ${applyPositiveTransform(sidebarWidth.lap)}
     `}
 
     ${mq.greaterThan("topDesk")`
-      ${applyTransform(sidebarWidth.desk)}
+      ${applyPositiveTransform(sidebarWidth.desk)}
     `}
 
     ${mq.greaterThan("topWide")`
-      ${applyTransform(sidebarWidth.wide)}
+      ${applyPositiveTransform(sidebarWidth.wide)}
     `}
 
     ${mq.greaterThan("topWall")`
-      ${applyTransform(sidebarWidth.wall)}
+      ${applyPositiveTransform(sidebarWidth.wall)}
     `}
   }
+  
 `
