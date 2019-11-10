@@ -53,10 +53,10 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
       }
 
       if (topThumb) {
-        return `${sidebarWidth.thumb}%`
+        return `-${sidebarWidth.thumb}%`
       }
 
-      return `${sidebarWidth.initial}%`
+      return `-${sidebarWidth.initial}%`
     }
 
     const animateOpen = () => {

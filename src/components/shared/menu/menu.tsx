@@ -9,6 +9,7 @@ import { mq, scaleBetween } from "@style/media-queries"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import ProjectListComponent from "./project-list/project-list"
+import { useMediaQueryContext } from "../media-query-provider/media-query-provider"
 
 interface Props {
   open: boolean
@@ -29,6 +30,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(({ open, projects }) => {
   const contentsRef = React.useRef() as Ref
   const containerRef = React.useRef() as Ref
   const animationScrim = React.useRef() as Ref
+  const { topPalm } = useMediaQueryContext()
 
   const animateOpen = () => {
     menuIsAnimating = true
@@ -41,7 +43,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(({ open, projects }) => {
       0.75,
       {
         opacity: 1,
-        x: "-100%",
+        x: topPalm ? "-100%" : "100%",
       },
       {
         ease: Expo.easeOut,
@@ -82,7 +84,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(({ open, projects }) => {
       },
       {
         ease: Expo.easeOut,
-        x: "-100%",
+        x: topPalm ? "-100%" : "100%",
         clearProps: "transform, opacity",
         onComplete: () => {
           routeTransition = false
@@ -197,7 +199,7 @@ const Container = styled.div`
   position: absolute;
 
   top: 0;
-  left: 0;
+  right: 0;
   height: 100%;
   width: ${sidebarWidth.initial}%;
 
@@ -214,6 +216,7 @@ const Container = styled.div`
   `}
 
   ${mq.greaterThan("topPalm")`
+    left: 0;
     width: ${sidebarWidth.palm}%;
   `}
 

@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react"
 import Link from "gatsby-plugin-transition-link"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
 import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
@@ -118,6 +118,12 @@ const Container = styled.nav`
   &.is-hidden {
     opacity: 0;
   }
+
+  ${mq.lessThan("bottomPalm")`
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  `}
 `
 
 const List = styled.ul`
@@ -126,12 +132,6 @@ const List = styled.ul`
 
   display: flex;
   margin-right: -1em;
-
-  ${mq.lessThan("bottomPalm")`
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-  `}
 `
 
 const ListItem = styled.li`

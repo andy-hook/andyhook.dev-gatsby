@@ -6,6 +6,7 @@ import { Ref } from "@custom-types/ref"
 import { Expo, TweenMax } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
+import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 
 interface Props {
   hidden?: boolean
@@ -13,6 +14,7 @@ interface Props {
 
 const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const logoRef = React.useRef() as Ref
+  const { topPalm } = useMediaQueryContext()
 
   const animateHide = () => {
     TweenMax.to(logoRef.current, 1.5, {
@@ -27,7 +29,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
       logoRef.current,
       1.5,
       {
-        x: "100%",
+        x: topPalm ? "100%" : "-100%",
       },
       {
         ease: Expo.easeOut,
