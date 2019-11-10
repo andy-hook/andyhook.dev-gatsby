@@ -4,8 +4,6 @@ import { connect } from "react-redux"
 import { IStore } from "@custom-types/store"
 import { useStaticQuery, graphql } from "gatsby"
 import { IMetaData, IProjectsData } from "model"
-import { menuOpenAction } from "@store/actions"
-import { Dispatch } from "redux"
 import { themes } from "@style/theme"
 import { ThemeProvider } from "styled-components"
 
@@ -14,30 +12,18 @@ interface Data {
   projectsData: IProjectsData
 }
 
-interface Props {
+interface IStoreProps {
   menuOpen: IStore["menuOpen"]
 }
 
-interface DispatchProps {
-  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
-}
-
-type AllProps = DispatchProps & Props
+type AllProps = IStoreProps
 
 const mapStateToProps = ({ menuOpen }: IStore) => {
   return { menuOpen }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    setMenuOpen: (isOpen: boolean) => {
-      dispatch(menuOpenAction(isOpen))
-    },
-  }
-}
-
 const MenuContainer: React.FunctionComponent<AllProps> = memo(
-  ({ menuOpen, setMenuOpen }) => {
+  ({ menuOpen }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -106,16 +92,12 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
           open={menuOpen}
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
-          setMenuOpen={setMenuOpen}
         />
       </ThemeProvider>
     )
   }
 )
 
-const ConnectedMenu = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MenuContainer)
+const ConnectedMenu = connect(mapStateToProps)(MenuContainer)
 
 export default ConnectedMenu

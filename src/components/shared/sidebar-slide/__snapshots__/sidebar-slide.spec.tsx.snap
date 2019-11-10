@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SidebarSlide /> renders correctly 1`] = `
+<div>
+  <div
+    className="sc-gqjmRU eRmjDw is-closed"
+  >
+    Child text
+  </div>
+</div>
+`;

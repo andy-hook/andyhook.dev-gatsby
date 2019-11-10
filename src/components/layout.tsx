@@ -11,6 +11,7 @@ import { themes, themeTone, themeToneAlpha } from "@style/theme"
 import { zIndex } from "@style/variables"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import { rem } from "polished"
+import MediaQueryProvider from "@components/shared/media-query-provider/media-query-provider"
 
 interface Props {
   children: ReactNode
@@ -18,7 +19,7 @@ interface Props {
 
 const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
   return (
-    <>
+    <MediaQueryProvider>
       <GlobalStyle />
       <ThemeProvider theme={themes.dark}>
         <SiteWrapper>
@@ -30,7 +31,7 @@ const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
           <SiteTexture />
         </SiteWrapper>
       </ThemeProvider>
-    </>
+    </MediaQueryProvider>
   )
 })
 

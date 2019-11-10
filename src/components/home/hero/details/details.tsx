@@ -12,7 +12,7 @@ interface Props {
 const Details: React.FunctionComponent<Props> = memo(({ buttonHref }) => {
   return (
     <DetailsContainer>
-      <Title>I design & build quality digital interfaces</Title>
+      <Title>I design & build beautiful digital interfaces</Title>
       <Button href={buttonHref}>View my latest projects</Button>
     </DetailsContainer>
   )

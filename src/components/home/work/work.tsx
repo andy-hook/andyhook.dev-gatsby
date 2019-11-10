@@ -6,6 +6,7 @@ import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
 import { themeTone } from "@style/theme"
 import styled from "styled-components"
+import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 
 interface Props {
   projectsData: TProjects
@@ -23,15 +24,17 @@ const Work: React.FunctionComponent<Props> = memo(({ projectsData }) => {
   ))
 
   return (
-    <SiteWrapper>
-      <Gutter>
-        <Limiter size="large">{renderItems}</Limiter>
-      </Gutter>
-    </SiteWrapper>
+    <Container>
+      <SidebarSlide>
+        <Gutter>
+          <Limiter size="large">{renderItems}</Limiter>
+        </Gutter>
+      </SidebarSlide>
+    </Container>
   )
 })
 
-const SiteWrapper = styled.div`
+const Container = styled.div`
   background-color: ${themeTone(100)};
 `
 

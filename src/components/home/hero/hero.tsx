@@ -6,24 +6,21 @@ import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
 import { themeToneAlpha, themeTone } from "@style/theme"
 import { ISocialMeta } from "model"
-import useDeferredRunEffect from "@hooks/deferred-run"
-import { useInView } from "react-intersection-observer"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TweenMax, Elastic } from "gsap"
+import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 
 interface Props {
   loaderVisible: boolean
   firstEntrance: boolean
   socialIconData: ISocialMeta
-  menuOpen: boolean
 }
 
 const Hero: React.FunctionComponent<Props> = memo(
-  ({ socialIconData, loaderVisible, firstEntrance, menuOpen }) => {
+  ({ socialIconData, loaderVisible, firstEntrance }) => {
     const detailsRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
 
-    const [inviewRef, inView] = useInView()
     const transitionState = useTransitionState()
 
     const animatePop = () => {
@@ -84,37 +81,6 @@ const Hero: React.FunctionComponent<Props> = memo(
       TweenMax.to(backgroundRef.current, 0.25, {
         opacity: 0,
       })
-    }
-
-    const animateOpenMenu = () => {
-      TweenMax.fromTo(
-        detailsRef.current,
-        0.25,
-        {
-          y: "0%",
-        },
-        {
-          y: "50%",
-          opacity: 0,
-          clearProps: "transform",
-        }
-      )
-    }
-
-    const animateCloseMenu = () => {
-      TweenMax.fromTo(
-        detailsRef.current,
-        0.25,
-        {
-          opacity: 0,
-          y: "-50%",
-        },
-        {
-          y: "0%",
-          opacity: 1,
-          clearProps: "transform",
-        }
-      )
     }
 
     const animateFirstEnter = () => {
@@ -180,28 +146,20 @@ const Hero: React.FunctionComponent<Props> = memo(
       }
     }, [loaderVisible])
 
-    useDeferredRunEffect(() => {
-      if (inView) {
-        if (menuOpen) {
-          animateOpenMenu()
-        } else {
-          animateCloseMenu()
-        }
-      }
-    }, [menuOpen])
-
     return (
-      <Container ref={inviewRef}>
-        <DetailsPos ref={detailsRef}>
-          <Gutter>
-            <Details buttonHref={socialIconData.dribbble.url} />
-          </Gutter>
-        </DetailsPos>
+      <SidebarSlide>
+        <Container>
+          <DetailsPos ref={detailsRef}>
+            <Gutter>
+              <Details buttonHref={socialIconData.dribbble.url} />
+            </Gutter>
+          </DetailsPos>
 
-        <BackgroundContainer ref={backgroundRef}>
-          <BackgroundGradient />
-        </BackgroundContainer>
-      </Container>
+          <BackgroundContainer ref={backgroundRef}>
+            <BackgroundGradient />
+          </BackgroundContainer>
+        </Container>
+      </SidebarSlide>
     )
   }
 )

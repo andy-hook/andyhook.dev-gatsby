@@ -3,23 +3,15 @@ import styled from "styled-components"
 import { Ref } from "@custom-types/ref"
 import { zIndex, darkGrey } from "@style/variables"
 import { themeTone } from "@style/theme"
-import Gutter from "@components/shared/gutter/gutter"
 import { typeSupTitle, typeSizeBaseXs } from "@style/typography"
 import { ISocialMeta, TProjects } from "model"
 import { mq, scaleBetween } from "@style/media-queries"
 import { TweenMax, Expo } from "gsap"
-import { IStore } from "store"
 import useDeferredRunEffect from "@hooks/deferred-run"
-import SocialListComponent from "./social-list/social-list"
 import ProjectListComponent from "./project-list/project-list"
 
 interface Props {
   open: boolean
-  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
-}
-
-export interface DispatchProps {
-  setMenuOpen: (isOpen: IStore["menuOpen"]) => void
 }
 
 interface DataProps {
@@ -32,147 +24,134 @@ type AllProps = Props & DataProps
 export let menuIsAnimating = false
 let routeTransition = false
 
-const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social }) => {
-    const backboardRef = React.useRef() as Ref
-    const contentsRef = React.useRef() as Ref
-    const containerRef = React.useRef() as Ref
-    const animationScrim = React.useRef() as Ref
+const Menu: React.FunctionComponent<AllProps> = memo(({ open, projects }) => {
+  const backboardRef = React.useRef() as Ref
+  const contentsRef = React.useRef() as Ref
+  const containerRef = React.useRef() as Ref
+  const animationScrim = React.useRef() as Ref
 
-    const animateOpen = () => {
-      menuIsAnimating = true
+  const animateOpen = () => {
+    menuIsAnimating = true
 
-      TweenMax.set(containerRef.current, { visibility: "visible" })
+    TweenMax.set(containerRef.current, { visibility: "visible" })
 
-      // Backboard
-      TweenMax.fromTo(
-        backboardRef.current,
-        0.75,
-        {
-          opacity: 1,
-          y: "-100%",
-        },
-        {
-          ease: Expo.easeOut,
-          y: "0%",
-          onComplete: () => {
-            menuIsAnimating = false
-          },
-        }
-      )
-
-      // Contents
-      TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
-
-      // Scrim
-      TweenMax.to(animationScrim.current, 0.25, {
+    // Backboard
+    TweenMax.fromTo(
+      backboardRef.current,
+      0.75,
+      {
         opacity: 1,
-      })
-    }
-
-    const animateClose = () => {
-      menuIsAnimating = true
-
-      // Backboard
-      TweenMax.fromTo(
-        backboardRef.current,
-        0.75,
-        {
-          y: "0%",
+        x: "-100%",
+      },
+      {
+        ease: Expo.easeOut,
+        x: "0%",
+        onComplete: () => {
+          menuIsAnimating = false
         },
-        {
-          ease: Expo.easeOut,
-          y: "100%",
-          clearProps: "transform, opacity",
-          onComplete: () => {
-            routeTransition = false
-            menuIsAnimating = false
-
-            TweenMax.set(containerRef.current, { clearProps: "visibility" })
-          },
-        }
-      )
-
-      // Contents
-      TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
-
-      // Scrim
-      TweenMax.to(animationScrim.current, 1, {
-        opacity: 0,
-        clearProps: "opacity",
-      })
-    }
-
-    const animateRouteClose = () => {
-      animateClose()
-    }
-
-    useDeferredRunEffect(() => {
-      open
-        ? animateOpen()
-        : routeTransition
-        ? animateRouteClose()
-        : animateClose()
-    }, [open])
-
-    const handleProjectClick = () => {
-      routeTransition = true
-    }
-
-    return (
-      <Fixer ref={containerRef}>
-        <Container>
-          <Gutter>
-            <MenuContents ref={contentsRef}>
-              {/* Projects */}
-              <div>
-                <ListTitle>
-                  <ListTitleNumber>01</ListTitleNumber>
-                  <ListTitleDivider />
-                  Projects
-                </ListTitle>
-                <ProjectListComponent
-                  projectDataList={projects}
-                  onClick={handleProjectClick}
-                />
-              </div>
-              {/* Social */}
-              <div>
-                <ListTitle>
-                  <ListTitleNumber>02</ListTitleNumber>
-                  <ListTitleDivider />
-                  Connect
-                </ListTitle>
-                <SocialListComponent socialDataList={social} />
-              </div>
-            </MenuContents>
-          </Gutter>
-        </Container>
-
-        <MenuBackboard ref={backboardRef} />
-        <AnimationScrim ref={animationScrim} />
-      </Fixer>
+      }
     )
+
+    // Contents
+    TweenMax.fromTo(
+      contentsRef.current,
+      0.25,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      }
+    )
+
+    // Scrim
+    TweenMax.to(animationScrim.current, 0.25, {
+      opacity: 0.5,
+    })
   }
-)
+
+  const animateClose = () => {
+    menuIsAnimating = true
+
+    // Backboard
+    TweenMax.fromTo(
+      backboardRef.current,
+      0.75,
+      {
+        x: "0%",
+      },
+      {
+        ease: Expo.easeOut,
+        x: "-100%",
+        clearProps: "transform, opacity",
+        onComplete: () => {
+          routeTransition = false
+          menuIsAnimating = false
+
+          TweenMax.set(containerRef.current, { clearProps: "visibility" })
+        },
+      }
+    )
+
+    // Contents
+    TweenMax.fromTo(
+      contentsRef.current,
+      0.25,
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+      }
+    )
+
+    // Scrim
+    TweenMax.to(animationScrim.current, 1, {
+      opacity: 0,
+      clearProps: "opacity",
+    })
+  }
+
+  const animateRouteClose = () => {
+    animateClose()
+  }
+
+  useDeferredRunEffect(() => {
+    open
+      ? animateOpen()
+      : routeTransition
+      ? animateRouteClose()
+      : animateClose()
+  }, [open])
+
+  const handleProjectClick = () => {
+    routeTransition = true
+  }
+
+  return (
+    <Fixer ref={containerRef}>
+      <Container>
+        <Sidebar>
+          <Contents ref={contentsRef}>
+            <ListTitle>
+              <ListTitleNumber>01</ListTitleNumber>
+              <ListTitleDivider />
+              Projects
+            </ListTitle>
+            <ProjectListComponent
+              projectDataList={projects}
+              onClick={handleProjectClick}
+            />
+          </Contents>
+
+          <MenuBackboard ref={backboardRef} />
+        </Sidebar>
+      </Container>
+
+      <AnimationScrim ref={animationScrim} />
+    </Fixer>
+  )
+})
 
 const AnimationScrim = styled.div`
   background-color: ${darkGrey(100)};
@@ -204,29 +183,23 @@ const Fixer = styled.div`
   visibility: hidden;
 `
 
-const MenuBackboard = styled.div`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: ${themeTone(100)};
-  transform: translate3d(0, -100%, 0);
-
-  z-index: ${zIndex.medium};
-
-  opacity: 0;
-`
+export const sidebarWidth = {
+  initial: 100,
+  thumb: 90,
+  palm: 70,
+  lap: 50,
+  desk: 40,
+  wide: 30,
+  wall: 25,
+}
 
 const Container = styled.div`
   position: absolute;
 
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: ${sidebarWidth.initial}%;
 
   z-index: ${zIndex.high + 1};
 
@@ -234,6 +207,30 @@ const Container = styled.div`
 
   ${mq.lessThan("bottomThumb")`
     padding-top: 14rem;
+  `}
+
+  ${mq.greaterThan("topThumb")`
+    width: ${sidebarWidth.thumb}%;
+  `}
+
+  ${mq.greaterThan("topPalm")`
+    width: ${sidebarWidth.palm}%;
+  `}
+
+  ${mq.greaterThan("topLap")`
+    width: ${sidebarWidth.lap}%;
+  `}
+
+  ${mq.greaterThan("topDesk")`
+    width: ${sidebarWidth.desk}%;
+  `}
+
+  ${mq.greaterThan("topWide")`
+    width: ${sidebarWidth.wide}%;
+  `}
+
+  ${mq.greaterThan("topWall")`
+    width: ${sidebarWidth.wall}%;
   `}
 
   ${scaleBetween("padding-top", "14rem", "14rem", "topThumb", "bottomPalm")}
@@ -245,12 +242,10 @@ const Container = styled.div`
   `}
 `
 
-const MenuContents = styled.div`
+const Sidebar = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
-
-  opacity: 0;
 
   ${mq.lessThan("bottomPalm")`
     flex-direction: column;
@@ -259,6 +254,29 @@ const MenuContents = styled.div`
   ${mq.lessThan("bottomPalm")`
     padding-left: 2rem;
   `}
+`
+
+const Contents = styled.div`
+  position: relative;
+  opacity: 0;
+
+  z-index: ${zIndex.medium};
+`
+
+const MenuBackboard = styled.div`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: ${themeTone(100)};
+  transform: translate3d(0, 0, 0);
+
+  z-index: ${zIndex.low};
+
+  opacity: 0;
 `
 
 const ListTitle = styled.h2`

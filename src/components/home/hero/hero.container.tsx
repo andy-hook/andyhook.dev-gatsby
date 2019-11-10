@@ -12,21 +12,16 @@ interface Data {
 interface IStoreProps {
   firstEntrance: IStore["firstEntrance"]
   loaderVisible: IStore["loaderVisible"]
-  menuOpen: IStore["menuOpen"]
 }
 
 type AllProps = IStoreProps
 
-const mapStateToProps = ({
-  loaderVisible,
-  firstEntrance,
-  menuOpen,
-}: IStore) => {
-  return { loaderVisible, firstEntrance, menuOpen }
+const mapStateToProps = ({ loaderVisible, firstEntrance }: IStore) => {
+  return { loaderVisible, firstEntrance }
 }
 
 const HeroContainer: React.FunctionComponent<AllProps> = memo(
-  ({ loaderVisible, firstEntrance, menuOpen }) => {
+  ({ loaderVisible, firstEntrance }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialIconData: site {
@@ -73,7 +68,6 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
         socialIconData={data.socialIconData.siteMetadata.social}
         loaderVisible={loaderVisible}
         firstEntrance={firstEntrance}
-        menuOpen={menuOpen}
       />
     )
   }

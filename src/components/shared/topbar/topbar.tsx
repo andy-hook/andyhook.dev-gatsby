@@ -30,15 +30,18 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
     return (
       <Container>
-        <LogoPos>
-          <Logo hidden={open} />
-        </LogoPos>
-
-        <NavPos>
-          <NavList hidden={open} />
+        <LogoNavicon>
           <NaviconSizing>
             <Navicon open={open} onClick={toggleMenu} />
           </NaviconSizing>
+
+          <LogoPos>
+            <Logo hidden={open} />
+          </LogoPos>
+        </LogoNavicon>
+
+        <NavPos>
+          <NavList hidden={open} />
         </NavPos>
       </Container>
     )
@@ -100,6 +103,13 @@ const Container = styled.div`
   ${scaleGreaterThan("padding-right", rem("45px"), "topUltra")}
 `
 
+const LogoNavicon = styled.div`
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+`
+
 const LogoPos = styled.div`
   font-size: ${rem("65px")};
 
@@ -125,7 +135,8 @@ const NaviconSizing = styled.div`
   /* Align scaling with navigation text */
   ${typeSizeBaseXs}
 
-  margin-right: -1.25em;
+  margin-left: -1.25em;
+  margin-right: 1em;
 `
 
 export default Topbar

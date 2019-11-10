@@ -65,7 +65,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
   }, [hidden])
 
   return (
-    <ListNav ref={navRef}>
+    <nav ref={navRef}>
       <List>
         <ListItem>
           <ListItemLink to="/" activeClassName="active" {...linkProps}>
@@ -83,13 +83,9 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
           </ListItemLink>
         </ListItem>
       </List>
-    </ListNav>
+    </nav>
   )
 })
-
-const ListNav = styled.nav`
-  margin-right: 2.25em;
-`
 
 const List = styled.ul`
   ${typeBaseSemibold}

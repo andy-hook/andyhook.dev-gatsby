@@ -116,7 +116,7 @@ const BarsSVG = styled.svg`
   height: 1em;
   width: 1em;
 
-  margin-bottom: -0.1em;
+  margin-bottom: -0.05em;
 
   z-index: ${zIndex.low};
 
