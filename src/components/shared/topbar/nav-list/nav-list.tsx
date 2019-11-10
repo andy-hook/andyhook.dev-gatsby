@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React, { memo, useState } from "react"
 import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
 import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
@@ -7,6 +7,8 @@ import { lineHeight } from "@style/variables"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
+import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
+import { mq } from "@style/media-queries"
 
 interface Props {
   hidden?: boolean
@@ -32,40 +34,65 @@ export const linkProps = {
 
 const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const navRef = React.useRef() as Ref
+  const { topPalm } = useMediaQueryContext()
+  const [hiddenApplied, setHiddenApplied] = useState(false)
 
   const animateHide = () => {
-    TweenMax.to(navRef.current, 0.2, {
-      ease: Expo.easeOut,
-      y: "50%",
-      opacity: 0,
-    })
+    TweenMax.fromTo(
+      navRef.current,
+      1,
+      {
+        opacity: 1,
+      },
+      {
+        ease: Expo.easeOut,
+        opacity: 0,
+        clearProps: "all",
+        onComplete: () => {
+          setHiddenApplied(true)
+        },
+      }
+    )
   }
 
   const animateShow = () => {
     TweenMax.fromTo(
       navRef.current,
-      0.5,
+      1,
       {
-        y: "-50%",
+        x: "100%",
+        opacity: 0,
       },
       {
         ease: Expo.easeOut,
-        y: "0%",
+        x: "0%",
         opacity: 1,
+        clearProps: "all",
+        onComplete: () => {
+          setHiddenApplied(false)
+        },
       }
     )
   }
 
   useDeferredRunEffect(() => {
-    if (hidden) {
-      animateHide()
+    // Don't waste resources animating hidden elements on small screens
+    if (topPalm) {
+      if (hidden) {
+        animateHide()
+      } else {
+        animateShow()
+      }
     } else {
-      animateShow()
+      hidden ? setHiddenApplied(true) : setHiddenApplied(false)
     }
   }, [hidden])
 
   return (
-    <nav ref={navRef}>
+    <Container
+      ref={navRef}
+      className={hiddenApplied ? "is-hidden" : "is-visible"}
+    >
       <List>
         <ListItem>
           <ListItemLink to="/" activeClassName="active" {...linkProps}>
@@ -83,15 +110,28 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
           </ListItemLink>
         </ListItem>
       </List>
-    </nav>
+    </Container>
   )
 })
+
+const Container = styled.nav`
+  &.is-hidden {
+    opacity: 0;
+  }
+`
 
 const List = styled.ul`
   ${typeBaseSemibold}
   ${typeSizeBaseXs}
 
   display: flex;
+  margin-right: -1em;
+
+  ${mq.lessThan("bottomPalm")`
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  `}
 `
 
 const ListItem = styled.li`

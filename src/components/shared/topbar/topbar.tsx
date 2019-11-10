@@ -1,13 +1,14 @@
 import React, { memo } from "react"
 import Navicon from "./navicon/navicon"
 import Logo from "./logo/logo"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { rem } from "polished"
-import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
+import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
 import { zIndex } from "@style/variables"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 import NavList from "./nav-list/nav-list"
 import { typeSizeBaseXs } from "@style/typography"
+import SidebarSlide from "../sidebar-slide/sidebar-slide.container"
 
 interface Props {
   open?: boolean
@@ -30,19 +31,25 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
     return (
       <Container>
-        <LogoNavicon>
+        <Over>
           <NaviconSizing>
             <Navicon open={open} onClick={toggleMenu} />
           </NaviconSizing>
+        </Over>
 
-          <LogoPos>
-            <Logo hidden={open} />
-          </LogoPos>
-        </LogoNavicon>
+        <Under>
+          <SidebarSlide>
+            <ContainerInner>
+              <LogoPos>
+                <Logo hidden={open} />
+              </LogoPos>
 
-        <NavPos>
-          <NavList hidden={open} />
-        </NavPos>
+              <NavPos>
+                <NavList hidden={open} />
+              </NavPos>
+            </ContainerInner>
+          </SidebarSlide>
+        </Under>
       </Container>
     )
   }
@@ -55,69 +62,111 @@ const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
+`
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const spacingXSmall = rem("25px")
+const spacingXBig = rem("45px")
 
-  padding-top: ${rem("5px")};
-  padding-bottom: ${rem("5px")};
-  padding-left: ${rem("15px")};
-  padding-right: ${rem("15px")};
-
-  ${scaleBetween(
-    "padding-top",
-    rem("5px"),
-    rem("15px"),
-    "bottomThumb",
-    "bottomUltra"
-  )}
-
-  ${scaleBetween(
-    "padding-bottom",
-    rem("5px"),
-    rem("15px"),
-    "bottomThumb",
-    "bottomUltra"
-  )}
+const paddingX = css`
+  padding-left: ${spacingXSmall};
+  padding-right: ${spacingXSmall};
 
   ${scaleBetween(
     "padding-left",
-    rem("25px"),
-    rem("45px"),
-    "bottomThumb",
+    spacingXSmall,
+    spacingXBig,
+    "topThumb",
     "bottomUltra"
   )}
 
   ${scaleBetween(
     "padding-right",
-    rem("25px"),
-    rem("45px"),
-    "bottomThumb",
+    spacingXSmall,
+    spacingXBig,
+    "topThumb",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("padding-left", spacingXBig, "topUltra")}
+  ${scaleGreaterThan("padding-right", spacingXBig, "topUltra")}
+`
+
+const Over = styled.div`
+  ${paddingX}
+
+  position: absolute;
+  display: flex;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  z-index: ${zIndex.low};
+
+  pointer-events: none;
+
+  ${mq.greaterThan("bottomPalm")`
+    justify-content: flex-start;
+  `}
+`
+
+const Under = styled.div`
+  position: relative;
+
+  z-index: ${zIndex.floor};
+`
+
+const spacingYSmall = rem("15px")
+const spacingYBig = rem("27px")
+
+const ContainerInner = styled.div`
+  ${paddingX}
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: ${spacingYSmall};
+  padding-bottom: ${spacingYSmall};
+
+  ${scaleBetween(
+    "padding-top",
+    spacingYSmall,
+    spacingYBig,
+    "topThumb",
+    "bottomUltra"
+  )}
+
+  ${scaleBetween(
+    "padding-bottom",
+    spacingYSmall,
+    spacingYBig,
+    "topThumb",
     "bottomUltra"
   )}
   
-  ${scaleGreaterThan("padding-top", rem("15px"), "topUltra")}
-  ${scaleGreaterThan("padding-bottom", rem("15px"), "topUltra")}
-  ${scaleGreaterThan("padding-left", rem("45px"), "topUltra")}
-  ${scaleGreaterThan("padding-right", rem("45px"), "topUltra")}
-`
-
-const LogoNavicon = styled.div`
-  display: flex;
-
-  flex-direction: row;
-  align-items: center;
+  ${scaleGreaterThan("padding-top", spacingYBig, "topUltra")}
+  ${scaleGreaterThan("padding-bottom", spacingYBig, "topUltra")}
+  
 `
 
 const LogoPos = styled.div`
   font-size: ${rem("65px")};
 
+  ${mq.greaterThan("bottomPalm")`
+    margin-left: 0.75em;
+  `}
+
   ${scaleBetween(
     "font-size",
     rem("65px"),
     rem("85px"),
-    "bottomThumb",
+    "topThumb",
     "bottomUltra"
   )}
 
@@ -135,8 +184,13 @@ const NaviconSizing = styled.div`
   /* Align scaling with navigation text */
   ${typeSizeBaseXs}
 
-  margin-left: -1.25em;
-  margin-right: 1em;
+  margin-right: -1.25em;
+
+  pointer-events: auto;
+
+  ${mq.greaterThan("bottomPalm")`
+    margin-left: -1.25em;
+  `}
 `
 
 export default Topbar
