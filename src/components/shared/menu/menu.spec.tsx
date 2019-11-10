@@ -8,7 +8,12 @@ describe("<Menu />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <Menu projects={mockProjectsData} social={mockSocialIcons} open={true} />
+      <Menu
+        projects={mockProjectsData}
+        social={mockSocialIcons}
+        open={true}
+        onScrimClick={jest.fn}
+      />
     )
     expect(tree).toMatchSnapshot()
   })

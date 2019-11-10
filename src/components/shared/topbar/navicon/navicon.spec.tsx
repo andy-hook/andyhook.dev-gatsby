@@ -5,7 +5,7 @@ import Navicon from "./navicon"
 
 describe("<Navicon />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("dark", <Navicon onClick={jest.fn()} />)
+    const tree = shallowWithTheme("dark", <Navicon onClick={jest.fn} />)
     expect(tree).toMatchSnapshot()
   })
 })

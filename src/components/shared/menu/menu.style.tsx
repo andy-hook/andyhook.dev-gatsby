@@ -9,8 +9,6 @@ export const AnimationScrim = styled.div`
 
   opacity: 0;
 
-  pointer-events: none;
-
   top: 0;
   left: 0;
 

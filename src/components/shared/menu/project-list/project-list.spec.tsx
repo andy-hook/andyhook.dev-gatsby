@@ -9,7 +9,7 @@ describe("<ProjectListComponent />", () => {
       "light",
       <ProjectListComponent
         projectDataList={mockProjectsData}
-        onClick={jest.fn()}
+        onClick={jest.fn}
       />
     )
     expect(tree).toMatchSnapshot()
