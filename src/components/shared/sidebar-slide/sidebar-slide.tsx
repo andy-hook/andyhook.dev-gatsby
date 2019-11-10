@@ -99,10 +99,8 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
 
     useDeferredRunEffect(() => {
       if (inView) {
-        console.log("in view")
         open ? animateOpen() : animateClose()
       } else {
-        console.log("out of view")
         open ? setOpenPosition(true) : setOpenPosition(false)
       }
     }, [open])

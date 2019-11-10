@@ -12,7 +12,6 @@ describe("<Hero />", () => {
         socialIconData={mockSocialIcons}
         firstEntrance={true}
         loaderVisible={true}
-        menuOpen={true}
       />
     )
     expect(tree).toMatchSnapshot()
