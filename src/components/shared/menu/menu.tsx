@@ -6,6 +6,7 @@ import useDeferredRunEffect from "@hooks/deferred-run"
 import ProjectListComponent from "./project-list/project-list"
 import { useMediaQueryContext } from "../media-query-provider/media-query-provider"
 import * as S from "./menu.style"
+import Social from "./social/social"
 
 interface Props {
   open: boolean
@@ -23,7 +24,7 @@ export let menuIsAnimating = false
 let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, onScrimClick }) => {
+  ({ open, projects, social, onScrimClick }) => {
     const backboardRef = React.useRef() as Ref
     const contentsRef = React.useRef() as Ref
     const containerRef = React.useRef() as Ref
@@ -143,6 +144,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
                 projectDataList={projects}
                 onClick={handleProjectClick}
               />
+              <Social items={social} />
             </S.Contents>
 
             <S.MenuBackboard ref={backboardRef} />
