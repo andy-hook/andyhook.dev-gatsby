@@ -10,10 +10,12 @@ import {
 } from "@style/variables"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-export const Restricter = styled.div`
+export const SocialList = styled.ul`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+
+  font-size: 1em;
+
+  margin: -0.75em;
 
   ${mq.lessThan("bottomThumb")`
     max-width: ${rem("250px")};
@@ -21,16 +23,14 @@ export const Restricter = styled.div`
   `}
 `
 
+export const SocialItem = styled.li``
+
 export const Link = styled(OutboundLink)`
   position: relative;
   display: block;
   color: ${themeText(100)};
 
   padding: 0.75em;
-
-  &:not(:last-child) {
-    margin-right: 0.1em;
-  }
 
   &::after {
     transition: transform ${duration.slow} ${easing("subtleBounce")},

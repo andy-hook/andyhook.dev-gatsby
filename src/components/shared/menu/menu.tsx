@@ -140,11 +140,16 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         <S.Container>
           <S.Sidebar>
             <S.Contents ref={contentsRef}>
-              <ProjectListComponent
-                projectDataList={projects}
-                onClick={handleProjectClick}
-              />
-              <Social items={social} />
+              <S.SidebarNav>
+                <ProjectListComponent
+                  projectDataList={projects}
+                  onClick={handleProjectClick}
+                />
+              </S.SidebarNav>
+
+              <S.SocialContainer>
+                <Social items={social} />
+              </S.SocialContainer>
             </S.Contents>
 
             <S.MenuBackboard ref={backboardRef} />

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { zIndex, darkGrey, spacingScale } from "@style/variables"
+import { zIndex, darkGrey, spacingScale, typeScale } from "@style/variables"
 import { themeTone } from "@style/theme"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 
@@ -129,10 +129,43 @@ export const Sidebar = styled.div`
 `
 
 export const Contents = styled.div`
+  display: flex;
   position: relative;
   opacity: 0;
 
+  flex-direction: column;
+  height: 100%;
+
   z-index: ${zIndex.medium};
+`
+
+export const SidebarNav = styled.nav`
+  display: flex;
+
+  align-items: center;
+  flex: 1;
+`
+
+export const SocialContainer = styled.div`
+  font-size: ${typeScale[5]};
+  
+  ${scaleBetween(
+    "font-size",
+    typeScale[5],
+    typeScale[6],
+    "topThumb",
+    "bottomWide"
+  )}
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[6],
+    typeScale[7],
+    "topWide",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[7], "topUltra")}
 `
 
 export const MenuBackboard = styled.div`
