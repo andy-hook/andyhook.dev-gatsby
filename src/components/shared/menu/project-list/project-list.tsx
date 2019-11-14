@@ -8,7 +8,7 @@ interface Props {
   onClick: () => void
 }
 
-const ProjectListComponent: React.FunctionComponent<Props> = memo(
+const ProjectList: React.FunctionComponent<Props> = memo(
   ({ projectDataList, onClick }) => {
     const projectItems = keys(projectDataList).map((key, index) => (
       <S.ProjectListItem key={index}>
@@ -33,4 +33,4 @@ const ProjectListComponent: React.FunctionComponent<Props> = memo(
   }
 )
 
-export default ProjectListComponent
+export default ProjectList

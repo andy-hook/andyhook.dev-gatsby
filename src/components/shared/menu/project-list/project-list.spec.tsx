@@ -1,16 +1,13 @@
 import React from "react"
-import ProjectListComponent from "./project-list"
+import ProjectList from "./project-list"
 import { shallowWithTheme } from "@test-utils"
 import { mockProjectsData } from "@mock-data"
 
-describe("<ProjectListComponent />", () => {
+describe("<ProjectList />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "light",
-      <ProjectListComponent
-        projectDataList={mockProjectsData}
-        onClick={jest.fn}
-      />
+      <ProjectList projectDataList={mockProjectsData} onClick={jest.fn} />
     )
     expect(tree).toMatchSnapshot()
   })

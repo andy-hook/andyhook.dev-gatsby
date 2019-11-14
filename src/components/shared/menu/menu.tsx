@@ -7,6 +7,7 @@ import ProjectListComponent from "./project-list/project-list"
 import { useMediaQueryContext } from "../media-query-provider/media-query-provider"
 import * as S from "./menu.style"
 import Social from "./social/social"
+import MenuNavList from "./menu-nav-list/menu-nav-list"
 
 interface Props {
   open: boolean
@@ -141,10 +142,15 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           <S.Sidebar>
             <S.Contents ref={contentsRef}>
               <S.SidebarNav>
-                <ProjectListComponent
-                  projectDataList={projects}
-                  onClick={handleProjectClick}
-                />
+                <S.SidebarNavInner>
+                  <S.ProjectListContainer>
+                    <ProjectListComponent
+                      projectDataList={projects}
+                      onClick={handleProjectClick}
+                    />
+                  </S.ProjectListContainer>
+                  <MenuNavList />
+                </S.SidebarNavInner>
               </S.SidebarNav>
 
               <S.SocialContainer>

@@ -67,24 +67,23 @@ export const typeSubTitle = css`
   line-height: ${lineHeight.display.tight};
 `
 
+export const typeBodySubtle = css`
+  ${typeBaseRegular}
+
+  color: ${themeText(900)};
+  line-height: ${lineHeight.display.tight};
+`
+
 /* Base type sizes
   ------------------------------------------------- */
 export const typeSizeBaseXs = css`
-  font-size: ${typeScale[2]};
-  
-  ${scaleBetween(
-    "font-size",
-    typeScale[2],
-    typeScale[3],
-    "topThumb",
-    "bottomWide"
-  )}
+  font-size: ${typeScale[3]};
 
   ${scaleBetween(
     "font-size",
     typeScale[3],
     typeScale[4],
-    "topWide",
+    "topThumb",
     "bottomUltra"
   )}
 
@@ -99,7 +98,7 @@ export const typeSizeBaseSm = css`
     typeScale[4],
     typeScale[5],
     "topThumb",
-    "bottomWide"
+    "bottomUltra"
   )}
 
   ${scaleGreaterThan("font-size", typeScale[5], "topUltra")}

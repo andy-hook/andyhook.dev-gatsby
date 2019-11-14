@@ -21,11 +21,6 @@ module.exports = {
         url: "https://www.instagram.com/andyhooky/",
         icon: "instagram",
       },
-      instagram: {
-        label: "Instagram",
-        url: "https://www.instagram.com/andyhooky/",
-        icon: "instagram",
-      },
       twitter: {
         label: "Twitter",
         url: "https://twitter.com/andy_hook",
