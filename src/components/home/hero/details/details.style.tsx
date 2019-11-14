@@ -20,7 +20,7 @@ export const Title = styled.h2`
   text-align: center;
   max-width: 12em;
   margin-top: 0;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.8em;
 
   z-index: ${zIndex.low};
 `

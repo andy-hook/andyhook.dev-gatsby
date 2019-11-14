@@ -8,6 +8,7 @@ import {
 } from "@style/variables"
 import { themeText } from "@style/theme"
 import { scaleBetween, scaleGreaterThan } from "./media-queries"
+import { setDisplayCropAndLineHeight, setBaseCropAndLineHeight } from "./utils"
 
 /* Re-composibles
   ------------------------------------------------- */
@@ -44,13 +45,20 @@ export const typeDisplayBold = css`
   letter-spacing: ${letterSpacing.display.bold};
 `
 
+// Button
+export const typeDisplayButton = css`
+  font-family: ${fontFamily.display};
+  font-weight: ${fontWeight.display.bold};
+  letter-spacing: ${letterSpacing.display.button};
+`
+
 /* Composites
   ------------------------------------------------- */
 export const typeTitle = css`
+  ${setDisplayCropAndLineHeight(lineHeight.display.tight)}
   ${typeDisplayBold}
 
   color: ${themeText(200)};
-  line-height: ${lineHeight.display.tight};
 `
 
 export const typeSupTitle = css`
@@ -60,18 +68,11 @@ export const typeSupTitle = css`
   line-height: ${lineHeight.display.tight};
 `
 
-export const typeSubTitle = css`
-  ${typeBaseMedium}
-
-  color: ${themeText(200)};
-  line-height: ${lineHeight.display.tight};
-`
-
 export const typeBodySubtle = css`
+  ${setBaseCropAndLineHeight(lineHeight.display.regular)}
   ${typeBaseRegular}
 
   color: ${themeText(900)};
-  line-height: ${lineHeight.display.tight};
 `
 
 /* Base type sizes

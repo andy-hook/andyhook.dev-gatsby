@@ -2,35 +2,29 @@ import styled from "styled-components"
 import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
 import {
   typeScale,
-  fontWeight,
-  fontFamily,
   borderRadius,
   duration,
   zIndex,
-  lightGreyHSL,
   lineHeight,
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { typeDisplayButton } from "@style/typography"
+import { themeText } from "@style/theme"
+import { setDisplayCropAndLineHeight } from "@style/utils"
 
 export const StyledButton = styled(OutboundLink)`
   position: relative;
 
   overflow: hidden;
-  font-family: ${fontFamily.display};
-
-  color: ${`hsl(${lightGreyHSL[100]})`};
-
-  font-weight: ${fontWeight.display.bold};
 
   font-size: ${typeScale[2]};
 
   border-radius: ${borderRadius.pill};
 
   text-decoration: none;
-  text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 
-  padding: 1.05em 2.15em;
+  padding: 1.18em 2.15em;
   background: linear-gradient(160deg, #c700b1 0%, #6609e1 100%);
 
   &::before,
@@ -88,9 +82,14 @@ export const StyledButton = styled(OutboundLink)`
 `
 
 export const StyledButtonInner = styled.span`
+  ${setDisplayCropAndLineHeight(lineHeight.flat)}
+  ${typeDisplayButton}
+
+  color: ${themeText(100)};
+
   display: block;
   position: relative;
   z-index: ${zIndex.medium};
 
-  line-height: ${lineHeight.flat};
+  text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
 `

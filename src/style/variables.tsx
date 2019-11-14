@@ -22,21 +22,22 @@ export const letterSpacing = {
   },
   display: {
     bold: "-0.02em",
+    button: "0.01em",
   },
   uppercase: "0.06em",
 }
 
 export const lineHeight = {
-  flat: "1",
+  flat: 1,
   base: {
-    regular: "1.4",
-    tight: "1.2",
-    longform: "1.6",
+    regular: 1.4,
+    tight: 1.2,
+    longform: 1.6,
   },
   display: {
-    regular: "1.4",
-    tight: "1.15",
-    longform: "1.6",
+    regular: 1.4,
+    tight: 1.15,
+    longform: 1.6,
   },
 }
 
