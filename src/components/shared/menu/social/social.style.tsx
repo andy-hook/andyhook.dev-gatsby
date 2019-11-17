@@ -10,17 +10,19 @@ import {
 } from "@style/variables"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
+const padding = "0.6em"
+
 export const SocialList = styled.ul`
   display: flex;
 
   font-size: 1em;
 
-  margin: -0.75em;
+  margin: -${padding};
 
   ${mq.lessThan("bottomThumb")`
     max-width: ${rem("250px")};
     margin: auto;
-  `}
+  `};
 `
 
 export const SocialItem = styled.li``
@@ -31,6 +33,7 @@ export const Link = styled(OutboundLink)`
   color: ${themeText(100)};
 
   padding: 0.75em;
+  padding: ${padding};
 
   &::after {
     transition: transform ${duration.slow} ${easing("subtleBounce")},

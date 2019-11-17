@@ -5,6 +5,7 @@ import CommonPage from "@components/shared/common-page/common-page"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import { TweenMax, Elastic } from "gsap"
 import * as S from "./about.styles"
+import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 
 const About: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -91,8 +92,10 @@ const About: React.FunctionComponent = memo(() => {
 
   return (
     <CommonPage>
-      <OverlineTitle overline="Overline text">Title text</OverlineTitle>
-      <S.TestDiv ref={testDiv} />
+      <SidebarSlide>
+        <OverlineTitle overline="Overline text">Title text</OverlineTitle>
+        <S.TestDiv ref={testDiv} />
+      </SidebarSlide>
     </CommonPage>
   )
 })

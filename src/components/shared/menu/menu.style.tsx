@@ -139,23 +139,6 @@ export const Contents = styled.div`
   z-index: ${zIndex.medium};
 `
 
-export const ProjectListContainer = styled.div`
-  font-size: ${typeScale[8]};
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[8],
-    typeScale[9],
-    "topThumb",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[9], "topUltra")}
-
-  margin-top: 2.5em;
-  margin-bottom: 1.25em;
-`
-
 export const SidebarNav = styled.nav`
   display: flex;
 
@@ -163,7 +146,9 @@ export const SidebarNav = styled.nav`
   flex: 1;
 `
 
-export const SidebarNavInner = styled.div``
+export const SidebarNavInner = styled.div`
+  margin-bottom: -12.5vh;
+`
 
 export const SocialContainer = styled.div`
   font-size: ${typeScale[5]};

@@ -4,6 +4,7 @@ import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
 import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
 import { mq } from "@style/media-queries"
+import { setBaseCropAndLineHeight } from "@style/utils"
 
 export const Container = styled.nav`
   &.is-hidden {
@@ -32,12 +33,12 @@ export const ListItem = styled.li`
 `
 
 export const ListItemLink = styled(Link)`
+  ${setBaseCropAndLineHeight(lineHeight.display.regular)}
+
   display: block;
-  color: ${themeText(1000)};
+  color: ${themeText(900)};
 
   padding: 1em;
-
-  line-height: ${lineHeight.flat};
 
   &.active {
     color: ${themeText(400)};

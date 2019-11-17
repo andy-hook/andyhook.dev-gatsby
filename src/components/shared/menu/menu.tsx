@@ -132,7 +132,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         : animateClose()
     }, [open])
 
-    const handleProjectClick = () => {
+    const handleNavClick = () => {
       routeTransition = true
     }
 
@@ -143,13 +143,12 @@ const Menu: React.FunctionComponent<AllProps> = memo(
             <S.Contents ref={contentsRef}>
               <S.SidebarNav>
                 <S.SidebarNavInner>
-                  <S.ProjectListContainer>
-                    <ProjectListComponent
-                      projectDataList={projects}
-                      onClick={handleProjectClick}
-                    />
-                  </S.ProjectListContainer>
-                  <MenuNavList />
+                  <ProjectListComponent
+                    projectDataList={projects}
+                    onClick={handleNavClick}
+                  />
+
+                  <MenuNavList onClick={handleNavClick} />
                 </S.SidebarNavInner>
               </S.SidebarNav>
 

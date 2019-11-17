@@ -80,15 +80,7 @@ export const typeBodySubtle = css`
 export const typeSizeBaseXs = css`
   font-size: ${typeScale[3]};
 
-  ${scaleBetween(
-    "font-size",
-    typeScale[3],
-    typeScale[4],
-    "topThumb",
-    "bottomUltra"
-  )}
-
-  ${scaleGreaterThan("font-size", typeScale[4], "topUltra")}
+  ${scaleGreaterThan("font-size", typeScale[3], "topUltra")}
 `
 
 export const typeSizeBaseSm = css`
