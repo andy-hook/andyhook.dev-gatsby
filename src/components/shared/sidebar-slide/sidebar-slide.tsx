@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useState } from "react"
+import React, { memo, ReactNode, useState, useEffect } from "react"
 import { sidebarWidth } from "@components/shared/menu/menu.style"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -23,8 +23,9 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
       topWall,
     } = useMediaQueryContext()
     const animationRef = React.useRef() as Ref
-    const [openPosition, setOpenPosition] = useState(false)
+    const [openPosition, setOpenPosition] = useState(open)
     const [inviewRef, inView] = useInView()
+    let cancelInternalStateUpdate = false
 
     const movementAmount = () => {
       if (topWall) {
@@ -54,6 +55,18 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
       return `-${sidebarWidth.initial}%`
     }
 
+    const applyOpenStyleClass = () => {
+      if (!cancelInternalStateUpdate) {
+        setOpenPosition(false)
+      }
+    }
+
+    const applyClosedStyleClass = () => {
+      if (!cancelInternalStateUpdate) {
+        setOpenPosition(true)
+      }
+    }
+
     const animateOpen = () => {
       // Backboard
       TweenMax.fromTo(
@@ -66,9 +79,7 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
           ease: Expo.easeOut,
           x: movementAmount(),
           clearProps: "transform",
-          onComplete: () => {
-            setOpenPosition(true)
-          },
+          onComplete: applyClosedStyleClass,
         }
       )
     }
@@ -85,18 +96,25 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
           ease: Expo.easeOut,
           x: "0%",
           clearProps: "transform",
-          onComplete: () => {
-            setOpenPosition(false)
-          },
+          onComplete: applyOpenStyleClass,
         }
       )
     }
 
+    // Prevent the GSAP onComplete callbacks setting useState after the component as unmounted
+    // https://github.com/facebook/react/issues/14369#issuecomment-468267798
+    useEffect(() => {
+      return () => {
+        cancelInternalStateUpdate = true
+      }
+    }, [open])
+
     useDeferredRunEffect(() => {
+      // For performance we animate only if in view, otherwise set the position immediatley using a css class
       if (inView) {
         open ? animateOpen() : animateClose()
       } else {
-        open ? setOpenPosition(true) : setOpenPosition(false)
+        open ? applyClosedStyleClass() : applyOpenStyleClass()
       }
     }, [open])
 
