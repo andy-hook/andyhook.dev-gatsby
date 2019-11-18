@@ -36,7 +36,7 @@ export const ListItemLink = styled(Link)`
   ${setBaseCropAndLineHeight(lineHeight.display.regular)}
 
   display: block;
-  color: ${themeText(900)};
+  color: ${themeText(1000)};
 
   padding: 1em;
 

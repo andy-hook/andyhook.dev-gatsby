@@ -26,7 +26,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
     }
 
     return (
-      <S.Container>
+      <>
         <S.Over>
           <S.NaviconSizing>
             <Navicon open={open} onClick={toggleMenu} />
@@ -46,7 +46,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
             </S.ContainerInner>
           </SidebarSlide>
         </S.Under>
-      </S.Container>
+      </>
     )
   }
 )

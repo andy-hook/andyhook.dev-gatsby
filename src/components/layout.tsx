@@ -22,7 +22,6 @@ const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
         <S.SiteWrapper>
           <LoaderContainer />
           <TopbarContainer />
-          <S.TopbarEdgeGradient />
           <MenuContainer />
           {children}
           <S.SiteTexture />
