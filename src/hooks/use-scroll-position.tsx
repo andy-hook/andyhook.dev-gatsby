@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, DependencyList } from "react"
+import { useLayoutEffect, useEffect, useRef, DependencyList } from "react"
 import { throttle } from "lodash"
 
 interface ScrollProps {
@@ -12,14 +12,22 @@ interface ScrollProps {
   }
 }
 
+const isBrowser = typeof window !== `undefined`
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect
+
 function getScrollPosition() {
+  if (!isBrowser) {
+    return { x: 0, y: 0 }
+  }
   return { x: window.scrollX, y: window.scrollY }
 }
 
 export function useScrollPosition(
   effect: (props: ScrollProps) => void,
-  deps?: DependencyList,
-  wait: number = 300
+  wait: number,
+  deps?: DependencyList
 ) {
   const position = useRef(getScrollPosition())
 
@@ -29,8 +37,15 @@ export function useScrollPosition(
     position.current = currPos
   }
 
-  useLayoutEffect(() => {
-    const throttleScroll = throttle(callBack, wait)
+  useIsomorphicLayoutEffect(() => {
+    if (!isBrowser) {
+      return
+    }
+
+    const throttleScroll = throttle(callBack, wait, {
+      leading: true,
+      trailing: true,
+    })
 
     window.addEventListener("scroll", throttleScroll)
 

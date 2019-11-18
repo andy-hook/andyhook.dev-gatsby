@@ -1,16 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> renders correctly 1`] = `
-<a
-  className="sc-bdVaJa ifcGz"
-  href="https://www.google.com"
-  onClick={[Function]}
-  target="_blank"
->
-  <span
-    className="sc-bwzfXH jWRJzG"
-  >
-    This is a button
-  </span>
-</a>
-`;
+exports[`<Button /> renders correctly 1`] = `ShallowWrapper {}`;

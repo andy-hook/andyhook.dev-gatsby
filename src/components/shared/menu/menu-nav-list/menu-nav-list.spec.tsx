@@ -5,7 +5,7 @@ import { shallowWithTheme } from "@test-utils"
 
 describe("<MenuNavList />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("light", <MenuNavList />)
+    const tree = shallowWithTheme("light", <MenuNavList onClick={jest.fn} />)
     expect(tree).toMatchSnapshot()
   })
 })

@@ -1,13 +1,15 @@
 import React from "react"
-import renderer from "react-test-renderer"
 
 import Button from "./button"
+import { shallowWithTheme } from "@test-utils"
 
 describe("<Button />", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Button href="https://www.google.com">This is a button</Button>)
-      .toJSON()
+    const tree = shallowWithTheme(
+      "dark",
+      <Button href="https://www.google.com">This is a button</Button>
+    )
+
     expect(tree).toMatchSnapshot()
   })
 })
