@@ -59,7 +59,7 @@ export const Over = styled.div`
 
   justify-content: flex-end;
 
-  z-index: ${topbarZindex};
+  z-index: ${topbarZindex + 1};
 
   mix-blend-mode: difference;
   pointer-events: none;
@@ -72,7 +72,7 @@ export const Over = styled.div`
 export const Under = styled.div`
   ${topbarFixed}
 
-  z-index: ${topbarZindex - 1};
+  z-index: ${topbarZindex};
 `
 
 export const ContainerInner = styled.div`
@@ -120,4 +120,29 @@ export const NaviconSizing = styled.div`
   ${mq.greaterThan("bottomPalm")`
     margin-left: -1.25em;
   `}
+`
+
+export const HideOffsetHolder = styled.div`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  pointer-events: none;
+
+  z-index: ${topbarZindex - 1};
+
+  height: ${rem("65px")};
+
+  ${scaleBetween(
+    "height",
+    rem("65px"),
+    rem("250px"),
+    "topThumb",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("height", rem("250px"), "topUltra")}
 `

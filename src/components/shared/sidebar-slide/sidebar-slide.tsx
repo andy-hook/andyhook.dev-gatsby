@@ -120,7 +120,6 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
     }, [open])
 
     useDeferredRunEffect(() => {
-      console.log("click")
       animateOpenSidebar(open)
     }, [open])
 

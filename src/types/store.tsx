@@ -11,6 +11,7 @@ export interface IStore {
   loaderVisible: boolean
   firstEntrance: boolean
   menuOpen: boolean
+  topbarVisible: boolean
 }
 
 export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
@@ -26,3 +27,6 @@ export interface IFirstEntranceAction
 
 export interface IMenuOpenAction
   extends IPayloadedAction<"menu-open", boolean> {}
+
+export interface ITopbarVisibleAction
+  extends IPayloadedAction<"topbar-visible", boolean> {}

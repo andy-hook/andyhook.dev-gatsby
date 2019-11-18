@@ -4,6 +4,7 @@ import {
   ILoaderVisibleAction,
   IFirstEntranceAction,
   IMenuOpenAction,
+  ITopbarVisibleAction,
 } from "@custom-types/store"
 
 const loaderVisible = (
@@ -42,10 +43,23 @@ const menuOpen = (
   }
 }
 
+const topbarVisible = (
+  state: IStore["topbarVisible"] = true,
+  action: ITopbarVisibleAction
+): IStore["topbarVisible"] => {
+  switch (action.type) {
+    case "topbar-visible":
+      return action.payload
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers<IStore>({
   loaderVisible,
   firstEntrance,
   menuOpen,
+  topbarVisible,
 })
 
 export default rootReducer

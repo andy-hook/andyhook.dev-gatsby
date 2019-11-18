@@ -4,6 +4,7 @@ import {
   ILoaderVisibleAction,
   IFirstEntranceAction,
   IMenuOpenAction,
+  ITopbarVisibleAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
@@ -20,4 +21,8 @@ export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
 
 export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
   "menu-open"
+)
+
+export const topbarVisibleAction = createPayloadedAction<ITopbarVisibleAction>(
+  "topbar-visible"
 )
