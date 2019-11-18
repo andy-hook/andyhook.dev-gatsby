@@ -74,7 +74,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       // Scrim
       TweenMax.to(animationScrim.current, 0.25, {
-        opacity: 0.5,
+        opacity: 0.75,
       })
     }
 

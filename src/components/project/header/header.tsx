@@ -6,6 +6,7 @@ import { Ref } from "@custom-types/ref"
 import { TweenMax } from "gsap"
 import { useInView } from "react-intersection-observer"
 import * as S from "./header.style"
+import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 
 interface Props {
   project: IProjectItem
@@ -17,17 +18,20 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   const [inviewRef, inView] = useInView()
 
   const animatePop = () => {
-    TweenMax.fromTo(
-      backgroundRef.current,
-      0.75,
-      {
-        scale: 1.05,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-      }
-    )
+    TweenMax.set(backgroundRef.current, {
+      opacity: 1,
+    })
+
+    // TweenMax.fromTo(
+    //   backgroundRef.current,
+    //   0.75,
+    //   {
+    //     scale: 1.05,
+    //   },
+    //   {
+    //     scale: 1,
+    //   }
+    // )
   }
 
   const animateEnter = () => {
@@ -93,11 +97,13 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   }, [transitionState.transitionStatus])
 
   return (
-    <S.Container ref={inviewRef}>
-      <S.BackgroundImage ref={backgroundRef}>
-        <CoverImageContainer imagePath={project.images} />
-      </S.BackgroundImage>
-    </S.Container>
+    <SidebarSlide>
+      <S.Container ref={inviewRef}>
+        <S.BackgroundImage ref={backgroundRef}>
+          <CoverImageContainer imagePath={project.images} />
+        </S.BackgroundImage>
+      </S.Container>
+    </SidebarSlide>
   )
 }
 

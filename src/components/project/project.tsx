@@ -5,7 +5,6 @@ import { TProjects, TProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
-import { IStore } from "@custom-types/store"
 import { TweenMax } from "gsap"
 import * as S from "./project.style"
 
@@ -15,7 +14,6 @@ interface Props {
   transitionState: ItransitionState
   canPerformIntro?: boolean
   introTrigger?: boolean
-  menuOpen: IStore["menuOpen"]
 }
 
 const Project: React.FunctionComponent<Props> = memo(

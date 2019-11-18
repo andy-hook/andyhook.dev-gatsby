@@ -24,7 +24,8 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
     } = useMediaQueryContext()
     const animationRef = React.useRef() as Ref
     const [openPosition, setOpenPosition] = useState(open)
-    const [inviewRef, inView] = useInView()
+    const [openOnInitialRender, setOpenOnInitialRender] = useState(open)
+    const [inviewRef, inView, entry] = useInView()
     let cancelInternalStateUpdate = false
 
     const movementAmount = () => {
@@ -57,13 +58,13 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
 
     const applyOpenStyleClass = () => {
       if (!cancelInternalStateUpdate) {
-        setOpenPosition(false)
+        setOpenPosition(true)
       }
     }
 
     const applyClosedStyleClass = () => {
       if (!cancelInternalStateUpdate) {
-        setOpenPosition(true)
+        setOpenPosition(false)
       }
     }
 
@@ -79,7 +80,7 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
           ease: Expo.easeOut,
           x: movementAmount(),
           clearProps: "transform",
-          onComplete: applyClosedStyleClass,
+          onComplete: applyOpenStyleClass,
         }
       )
     }
@@ -96,9 +97,18 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
           ease: Expo.easeOut,
           x: "0%",
           clearProps: "transform",
-          onComplete: applyOpenStyleClass,
+          onComplete: applyClosedStyleClass,
         }
       )
+    }
+
+    const animateOpenSidebar = (openSidebar?: boolean) => {
+      // For performance we animate only if in view, otherwise set the position immediatley using a css class
+      if (inView) {
+        openSidebar ? animateOpen() : animateClose()
+      } else {
+        openSidebar ? applyOpenStyleClass() : applyClosedStyleClass()
+      }
     }
 
     // Prevent the GSAP onComplete callbacks setting useState after the component as unmounted
@@ -110,13 +120,22 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
     }, [open])
 
     useDeferredRunEffect(() => {
-      // For performance we animate only if in view, otherwise set the position immediatley using a css class
-      if (inView) {
-        open ? animateOpen() : animateClose()
-      } else {
-        open ? applyClosedStyleClass() : applyOpenStyleClass()
-      }
+      console.log("click")
+      animateOpenSidebar(open)
     }, [open])
+
+    // Ensure inView is correctly evaluated on component mount
+    // https://github.com/thebuilder/react-intersection-observer/issues/284
+    useEffect(() => {
+      setOpenOnInitialRender(open)
+    }, [])
+
+    useEffect(() => {
+      if (entry && openOnInitialRender) {
+        animateOpenSidebar(false)
+        setOpenOnInitialRender(false)
+      }
+    }, [entry])
 
     return (
       <div ref={inviewRef}>
