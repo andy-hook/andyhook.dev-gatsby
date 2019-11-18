@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@testing-library/react": "^9.3.0",
+    "@types/lodash": "^4.14.148",
     "babel-plugin-styled-components": "^1.10.0",
     "change-case": "^3.1.0",
     "classnames": "^2.2.6",
@@ -27,6 +28,7 @@
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.1.17",
     "gsap": "^2.1.2",
+    "lodash": "^4.17.15",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
