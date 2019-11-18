@@ -1,11 +1,6 @@
-import styled, { css } from "styled-components"
-import { borderRadius, zIndex } from "@style/variables"
-import { themeTone, themeText } from "@style/theme"
+import styled from "styled-components"
+import { zIndex } from "@style/variables"
 import { Props } from "./navicon"
-
-export const openStyles = css`
-  background-color: ${themeTone(600)};
-`
 
 export const NaviconContainer = styled.button<Props>`
   position: relative;
@@ -19,28 +14,6 @@ export const NaviconContainer = styled.button<Props>`
 
   width: 1em;
   height: 1em;
-
-  &::after {
-    content: "";
-
-    opacity: 0;
-
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    top: 0;
-    left: 0;
-
-    border-radius: ${borderRadius.circle};
-
-    background-color: ${themeTone(400)};
-
-    ${props => props.open && openStyles}
-
-    z-index: ${zIndex.floor};
-  }
 `
 
 export const BarsSVG = styled.svg`
@@ -55,7 +28,9 @@ export const BarsSVG = styled.svg`
 
   z-index: ${zIndex.low};
 
+  fill: white;
+
   & rect {
-    fill: ${themeText(500)};
+    fill: inherit;
   }
 `

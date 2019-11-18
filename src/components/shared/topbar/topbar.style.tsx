@@ -11,6 +11,8 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
+
+  mix-blend-mode: difference;
 `
 
 export const spacingXSmall = rem("25px")
@@ -66,7 +68,6 @@ export const Over = styled.div`
 
 export const Under = styled.div`
   position: relative;
-
   z-index: ${zIndex.floor};
 `
 
