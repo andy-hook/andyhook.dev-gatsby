@@ -6,7 +6,7 @@ import { IStore } from "@custom-types/store"
 import { menuOpenAction, topbarVisibleAction } from "@store/actions"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
-import { useScrollPosition } from "@hooks/use-scroll-position"
+import useScrollPosition from "@hooks/use-scroll-position"
 import * as S from "./topbar.style"
 import { useInView } from "react-intersection-observer"
 
