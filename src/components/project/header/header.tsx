@@ -18,10 +18,9 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   const [inviewRef, inView] = useInView()
 
   const animatePop = () => {
-    TweenMax.set(backgroundRef.current, {
-      opacity: 1,
-    })
-
+    // TweenMax.set(backgroundRef.current, {
+    //   opacity: 0.2,
+    // })
     // TweenMax.fromTo(
     //   backgroundRef.current,
     //   0.75,
@@ -35,33 +34,36 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   }
 
   const animateEnter = () => {
-    TweenMax.fromTo(
-      backgroundRef.current,
-      0.75,
-      {
-        scale: 1.05,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-      }
-    )
+    // TweenMax.set(backgroundRef.current, {
+    //   opacity: 0.2,
+    // })
+    // TweenMax.fromTo(
+    //   backgroundRef.current,
+    //   0.75,
+    //   {
+    //     scale: 1,
+    //   },
+    //   {
+    //     scale: 1,
+    //     opacity: 1,
+    //   }
+    // )
   }
 
   const animateExit = () => {
     if (inView) {
-      TweenMax.fromTo(
-        backgroundRef.current,
-        0.25,
-        {
-          y: 0,
-          opacity: 1,
-        },
-        {
-          y: 40,
-          opacity: 0,
-        }
-      )
+      // TweenMax.fromTo(
+      //   backgroundRef.current,
+      //   0.25,
+      //   {
+      //     y: 0,
+      //     opacity: 0.2,
+      //   },
+      //   {
+      //     y: 40,
+      //     opacity: 0,
+      //   }
+      // )
     }
   }
 

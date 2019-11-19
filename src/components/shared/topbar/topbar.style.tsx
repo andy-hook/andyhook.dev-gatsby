@@ -1,9 +1,15 @@
 import styled, { css } from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
-import { zIndex, borderThickness } from "@style/variables"
+import { zIndex, borderThickness, ease } from "@style/variables"
 import { typeSizeBaseXs } from "@style/typography"
 import { themeText, themeTone } from "@style/theme"
+
+interface StyleProps {
+  hasScrolled?: boolean
+  open?: boolean
+  visible?: boolean
+}
 
 const spacingXSmall = rem("25px")
 const spacingXBig = rem("40px")
@@ -50,12 +56,23 @@ const paddingX = css`
   ${scaleGreaterThan("padding-right", spacingXBig, "topUltra")}
 `
 
-export const Over = styled.div`
+const visiblityTransition = styled.div<StyleProps>`
   ${topbarFixed}
+
+  transition: transform 1s ${ease("easeOutCirc")};
+
+  transform: translate3d(0, -100%, 0);
+
+  ${props =>
+    props.visible &&
+    css`
+      transform: translate3d(0, 0, 0);
+    `}
+`
+
+export const Over = styled(visiblityTransition)`
   ${topbarHeight}
   ${paddingX}
-
-  transition: transform 0.5s ease;
 
   display: flex;
   align-items: center;
@@ -70,42 +87,23 @@ export const Over = styled.div`
   ${mq.greaterThan("bottomPalm")`
     justify-content: flex-start;
   `}
-
-  &.is-visible {
-    transform: translate3d(0,0,0)
-  }
-
-  &.is-hidden {
-    transform: translate3d(0,-100%,0)
-  }
 `
 
-export const Under = styled.div`
-  ${topbarFixed}
-
-  transition: transform 0.5s ease;
-
+export const Under = styled(visiblityTransition)`
   z-index: ${topbarZindex};
-
-  &.is-visible {
-    transform: translate3d(0, 0, 0);
-  }
-
-  &.is-hidden {
-    transform: translate3d(0, -100%, 0);
-  }
 `
 
-export const ContainerInner = styled.div`
-  position: relative;
-
+export const ContainerInner = styled.div<StyleProps>`
   ${topbarHeight}
   ${paddingX}
+
+  position: relative;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  /* Background colour */
   &::before {
     transition: opacity 0.2s ease;
 
@@ -123,13 +121,24 @@ export const ContainerInner = styled.div`
     z-index: ${zIndex.floor};
 
     opacity: 0;
+
+    ${props =>
+      props.hasScrolled &&
+      css`
+        opacity: 1;
+      `}
+
+    ${props =>
+      (props.open || !props.visible) &&
+      css`
+        opacity: 0;
+      `}
   }
 
-  &.has-scrolled::before {
-    opacity: 1;
-  }
-
+  /* Underline */
   &::after {
+    transition: opacity 0.2s ease, transform 1s ${ease("easeOutSine")};
+
     content: "";
     position: absolute;
 
@@ -143,6 +152,20 @@ export const ContainerInner = styled.div`
     opacity: 0.075;
 
     z-index: ${zIndex.low};
+
+    transform: translate3d(-100%, 0, 0);
+
+    ${props =>
+      (props.open || !props.visible) &&
+      css`
+        opacity: 0;
+      `}
+
+    ${props =>
+      props.visible &&
+      css`
+        transform: translate3d(0, 0, 0);
+      `}
   }
 `
 

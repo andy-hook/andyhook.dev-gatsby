@@ -15,7 +15,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const { topPalm } = useMediaQueryContext()
 
   const animateHide = () => {
-    TweenMax.to(logoRef.current, 1.5, {
+    TweenMax.to(logoRef.current, 0.5, {
       ease: Expo.easeOut,
       x: "0%",
       opacity: 0,
@@ -25,7 +25,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const animateShow = () => {
     TweenMax.fromTo(
       logoRef.current,
-      1.5,
+      1,
       {
         x: topPalm ? "100%" : "-100%",
       },

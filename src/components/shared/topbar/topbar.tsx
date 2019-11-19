@@ -8,9 +8,9 @@ import * as S from "./topbar.style"
 import { Ref } from "@custom-types/ref"
 
 interface Props {
-  open?: boolean
-  visible?: boolean
-  hasScrolled?: boolean
+  open: boolean
+  visible: boolean
+  hasScrolled: boolean
   openMenu: () => void
   closeMenu: () => void
 }
@@ -33,19 +33,18 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
     return (
       <>
-        <S.Over ref={overRef} className={visible ? "is-visible" : "is-hidden"}>
+        <S.Over ref={overRef} visible={visible}>
           <S.NaviconSizing>
             <Navicon open={open} onClick={toggleMenu} />
           </S.NaviconSizing>
         </S.Over>
 
-        <S.Under
-          ref={underRef}
-          className={visible ? "is-visible" : "is-hidden"}
-        >
+        <S.Under ref={underRef} visible={visible}>
           <SidebarSlide>
             <S.ContainerInner
-              className={hasScrolled ? "has-scrolled" : "has-not-scrolled"}
+              hasScrolled={hasScrolled}
+              open={open}
+              visible={visible}
             >
               <S.LogoPos>
                 <Logo hidden={open} />
