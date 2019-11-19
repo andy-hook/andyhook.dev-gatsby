@@ -5,6 +5,12 @@ export const createHsl = (value: string) => `hsl(${value})`
 export const createHsla = (value: string, alpha: number) =>
   `hsla(${value},${alpha})`
 
+export const createCubicBezier = (values: number[]) => {
+  const valueString = values.join(",")
+
+  return `cubic-bezier(${valueString})`
+}
+
 interface CropSettings {
   lHeight: number
   topCrop: number
