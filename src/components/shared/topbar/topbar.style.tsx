@@ -1,18 +1,19 @@
 import styled, { css } from "styled-components"
 import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
-import { zIndex } from "@style/variables"
+import { zIndex, borderThickness } from "@style/variables"
 import { typeSizeBaseXs } from "@style/typography"
+import { themeText, themeTone } from "@style/theme"
 
 const spacingXSmall = rem("25px")
-const spacingXBig = rem("45px")
+const spacingXBig = rem("40px")
 
 const topbarHeight = css`
   height: ${rem("65px")};
 
-  ${scaleBetween("height", rem("65px"), rem("95px"), "topThumb", "bottomUltra")}
+  ${scaleBetween("height", rem("65px"), rem("90px"), "topThumb", "bottomUltra")}
 
-  ${scaleGreaterThan("height", rem("95px"), "topUltra")}
+  ${scaleGreaterThan("height", rem("90px"), "topUltra")}
 `
 
 const topbarZindex = zIndex.highest
@@ -54,6 +55,8 @@ export const Over = styled.div`
   ${topbarHeight}
   ${paddingX}
 
+  transition: transform 0.5s ease;
+
   display: flex;
   align-items: center;
 
@@ -67,24 +70,85 @@ export const Over = styled.div`
   ${mq.greaterThan("bottomPalm")`
     justify-content: flex-start;
   `}
+
+  &.is-visible {
+    transform: translate3d(0,0,0)
+  }
+
+  &.is-hidden {
+    transform: translate3d(0,-100%,0)
+  }
 `
 
 export const Under = styled.div`
   ${topbarFixed}
 
+  transition: transform 0.5s ease;
+
   z-index: ${topbarZindex};
+
+  &.is-visible {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.is-hidden {
+    transform: translate3d(0, -100%, 0);
+  }
 `
 
 export const ContainerInner = styled.div`
+  position: relative;
+
   ${topbarHeight}
   ${paddingX}
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &::before {
+    transition: opacity 0.2s ease;
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: ${themeTone(200)};
+
+    z-index: ${zIndex.floor};
+
+    opacity: 0;
+  }
+
+  &.has-scrolled::before {
+    opacity: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: ${borderThickness.regular};
+    background-color: ${themeText(100)};
+
+    opacity: 0.075;
+
+    z-index: ${zIndex.low};
+  }
 `
 
 export const LogoPos = styled.div`
+  z-index: ${zIndex.medium};
+
   font-size: ${rem("65px")};
 
   ${mq.greaterThan("bottomPalm")`
@@ -103,7 +167,7 @@ export const LogoPos = styled.div`
 `
 
 export const NavPos = styled.div`
-  z-index: ${zIndex.highest};
+  z-index: ${zIndex.medium};
   display: flex;
 
   align-items: center;
@@ -139,10 +203,10 @@ export const HideOffsetHolder = styled.div`
   ${scaleBetween(
     "height",
     rem("65px"),
-    rem("250px"),
+    rem("150px"),
     "topThumb",
     "bottomUltra"
   )}
 
-  ${scaleGreaterThan("height", rem("250px"), "topUltra")}
+  ${scaleGreaterThan("height", rem("150px"), "topUltra")}
 `

@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React, { memo, useState } from "react"
 import Topbar from "./topbar"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
@@ -52,10 +52,17 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
     hideTopbar,
   }) => {
     const [offsetHolderInviewRef, inView] = useInView()
+    const [hasScrolled, setHasScrolled] = useState(false)
 
     useScrollPosition(({ prevPos, currPos }) => {
       const canHideTopbar = currPos.y > prevPos.y
       const canShowTopbar = currPos.y <= prevPos.y
+
+      if (currPos.y > 5) {
+        setHasScrolled(true)
+      } else if (currPos.y <= 5) {
+        setHasScrolled(false)
+      }
 
       if (canHideTopbar && topbarVisible && !menuOpen && !inView) {
         hideTopbar()
@@ -65,11 +72,12 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
     })
 
     return (
-      <ThemeProvider theme={menuOpen ? themes.light : themes.dark}>
+      <ThemeProvider theme={themes.dark}>
         <>
           <Topbar
             open={menuOpen}
             visible={topbarVisible}
+            hasScrolled={hasScrolled}
             openMenu={openMenu}
             closeMenu={closeMenu}
           />
