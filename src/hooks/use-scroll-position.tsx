@@ -1,5 +1,4 @@
 import { useLayoutEffect, useEffect, useRef, DependencyList } from "react"
-import { throttle } from "lodash"
 
 interface ScrollProps {
   prevPos: {
@@ -26,15 +25,30 @@ const getScrollPosition = () => {
 
 const useScrollPosition = (
   effect: (props: ScrollProps) => void,
-  wait: number,
   deps?: DependencyList
 ) => {
-  const position = useRef(getScrollPosition())
+  const currPosition = useRef(getScrollPosition())
+  const prevPosition = useRef(getScrollPosition())
+  const ticking = useRef(false)
 
-  const callBack = () => {
-    const currPos = getScrollPosition()
-    effect({ prevPos: position.current, currPos })
-    position.current = currPos
+  const update = () => {
+    ticking.current = false
+
+    effect({ prevPos: prevPosition.current, currPos: currPosition.current })
+  }
+
+  const requestTick = () => {
+    if (!ticking.current) {
+      requestAnimationFrame(update)
+    }
+    ticking.current = true
+  }
+
+  const onScroll = () => {
+    prevPosition.current = currPosition.current
+    currPosition.current = getScrollPosition()
+
+    requestTick()
   }
 
   useIsomorphicLayoutEffect(() => {
@@ -42,14 +56,9 @@ const useScrollPosition = (
       return
     }
 
-    const throttleScroll = throttle(callBack, wait, {
-      leading: true,
-      trailing: true,
-    })
+    window.addEventListener("scroll", onScroll)
 
-    window.addEventListener("scroll", throttleScroll)
-
-    return () => window.removeEventListener("scroll", throttleScroll)
+    return () => window.removeEventListener("scroll", onScroll)
   }, deps)
 }
 

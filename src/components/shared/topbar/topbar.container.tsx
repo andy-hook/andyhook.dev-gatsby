@@ -54,17 +54,15 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
     const [offsetHolderInviewRef, inView] = useInView()
 
     useScrollPosition(({ prevPos, currPos }) => {
-      const hideGrace = 50
-      const showGrace = 50
-      const canHideTopbar = currPos.y > prevPos.y + hideGrace
-      const canShowTopbar = currPos.y <= prevPos.y - showGrace
+      const canHideTopbar = currPos.y > prevPos.y
+      const canShowTopbar = currPos.y <= prevPos.y
 
       if (canHideTopbar && topbarVisible && !menuOpen && !inView) {
         hideTopbar()
       } else if (canShowTopbar && !topbarVisible && !menuOpen) {
         showTopbar()
       }
-    }, 250)
+    })
 
     return (
       <ThemeProvider theme={menuOpen ? themes.light : themes.dark}>
