@@ -12,8 +12,8 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
     query {
       bright: file(relativePath: { eq: "project/bright/cover-image.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 4000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -21,22 +21,22 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
         relativePath: { eq: "project/brandwatch/cover-image.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 4000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       monster: file(relativePath: { eq: "project/monster/cover-image.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 4000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       jamieson: file(relativePath: { eq: "project/jamieson/cover-image.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 4000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -44,8 +44,8 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
         relativePath: { eq: "project/sketchbook/cover-image.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 3000) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 4000) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

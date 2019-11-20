@@ -3,7 +3,7 @@ import { rem } from "polished"
 import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
 import { zIndex, borderThickness, ease } from "@style/variables"
 import { typeSizeBaseXs } from "@style/typography"
-import { themeText, themeTone } from "@style/theme"
+import { themeTone } from "@style/theme"
 
 interface StyleProps {
   hasScrolled?: boolean
@@ -17,9 +17,9 @@ const spacingXBig = rem("40px")
 const topbarHeight = css`
   height: ${rem("65px")};
 
-  ${scaleBetween("height", rem("65px"), rem("90px"), "topThumb", "bottomUltra")}
+  ${scaleBetween("height", rem("65px"), rem("85px"), "topThumb", "bottomUltra")}
 
-  ${scaleGreaterThan("height", rem("90px"), "topUltra")}
+  ${scaleGreaterThan("height", rem("85px"), "topUltra")}
 `
 
 const topbarZindex = zIndex.highest
@@ -59,7 +59,7 @@ const paddingX = css`
 const visiblityTransition = styled.div<StyleProps>`
   ${topbarFixed}
 
-  transition: transform 1s ${ease("easeOutCirc")};
+  transition: transform 1.5s ${ease("easeOutCirc")};
 
   transform: translate3d(0, -100%, 0);
 
@@ -120,16 +120,10 @@ export const ContainerInner = styled.div<StyleProps>`
 
     z-index: ${zIndex.floor};
 
-    opacity: 0;
+    opacity: 1;
 
     ${props =>
-      props.hasScrolled &&
-      css`
-        opacity: 1;
-      `}
-
-    ${props =>
-      (props.open || !props.visible) &&
+      props.open &&
       css`
         opacity: 0;
       `}
@@ -137,7 +131,7 @@ export const ContainerInner = styled.div<StyleProps>`
 
   /* Underline */
   &::after {
-    transition: opacity 0.2s ease, transform 1s ${ease("easeOutSine")};
+    transition: opacity 0.2s ease;
 
     content: "";
     position: absolute;
@@ -147,24 +141,14 @@ export const ContainerInner = styled.div<StyleProps>`
 
     width: 100%;
     height: ${borderThickness.regular};
-    background-color: ${themeText(100)};
-
-    opacity: 0.075;
+    background-color: ${themeTone(600)};
 
     z-index: ${zIndex.low};
 
-    transform: translate3d(-100%, 0, 0);
-
     ${props =>
-      (props.open || !props.visible) &&
+      props.open &&
       css`
         opacity: 0;
-      `}
-
-    ${props =>
-      props.visible &&
-      css`
-        transform: translate3d(0, 0, 0);
       `}
   }
 `
@@ -221,15 +205,15 @@ export const HideOffsetHolder = styled.div`
 
   z-index: ${topbarZindex - 1};
 
-  height: ${rem("65px")};
+  height: ${rem("100px")};
 
   ${scaleBetween(
     "height",
     rem("65px"),
-    rem("150px"),
+    rem("300px"),
     "topThumb",
     "bottomUltra"
   )}
 
-  ${scaleGreaterThan("height", rem("150px"), "topUltra")}
+  ${scaleGreaterThan("height", rem("300px"), "topUltra")}
 `
