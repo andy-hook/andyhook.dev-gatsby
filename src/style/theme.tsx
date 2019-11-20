@@ -2,18 +2,23 @@ import { ITheme, TGreyNames, TThemeName } from "@custom-types/theme"
 import { css, CSSProp } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
-import { lightGreyHSL, darkGreyHSL } from "@style/variables"
+import {
+  darkThemeTextHSL,
+  darkThemeToneHSL,
+  lightThemeTextHSL,
+  lightThemeToneHSL,
+} from "@style/variables"
 
 export const lightTheme: ITheme = {
   name: "light",
-  text: darkGreyHSL,
-  tone: lightGreyHSL,
+  text: lightThemeTextHSL,
+  tone: lightThemeToneHSL,
 }
 
 export const darkTheme: ITheme = {
   name: "dark",
-  text: lightGreyHSL,
-  tone: darkGreyHSL,
+  text: darkThemeTextHSL,
+  tone: darkThemeToneHSL,
 }
 
 export const themes: { [key: string]: ITheme } = {

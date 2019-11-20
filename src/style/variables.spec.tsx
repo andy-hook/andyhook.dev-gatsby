@@ -1,10 +1,14 @@
 import {
-  lightGrey,
-  darkGrey,
-  lightGreyAlpha,
-  darkGreyAlpha,
   constructMaxMediaString,
   constructMinMediaString,
+  darkThemeText,
+  darkThemeTextAlpha,
+  darkThemeTone,
+  darkThemeToneAlpha,
+  lightThemeText,
+  lightThemeTextAlpha,
+  lightThemeTone,
+  lightThemeToneAlpha,
 } from "./variables"
 
 describe("constructMaxMediaString", () => {
@@ -19,26 +23,50 @@ describe("constructMinMediaString", () => {
   })
 })
 
-describe("lightGrey", () => {
-  test("should return correct light grey value as hsl string", () => {
-    expect(lightGrey(100)).toEqual("hsl(240, 3%, 100%)")
+describe("darkThemeText", () => {
+  test("should return correct value as hsl string", () => {
+    expect(darkThemeText(100)).toEqual("hsl(240, 3%, 100%)")
   })
 })
 
-describe("lightGreyAlpha", () => {
-  test("should return correct light grey value as hsla string", () => {
-    expect(lightGreyAlpha(100, 50)).toEqual("hsla(240, 3%, 100%,50)")
+describe("darkThemeTextAlpha", () => {
+  test("should return correct value as hsla string", () => {
+    expect(darkThemeTextAlpha(100, 50)).toEqual("hsla(240, 3%, 100%,50)")
   })
 })
 
-describe("darkGrey", () => {
-  test("should return correct dark grey value as hsl string", () => {
-    expect(darkGrey(100)).toEqual("hsl(240, 17%, 2%)")
+describe("darkThemeTone", () => {
+  test("should return correct value as hsl string", () => {
+    expect(darkThemeTone(100)).toEqual("hsl(240, 17%, 2%)")
   })
 })
 
-describe("darkGreyAlpha", () => {
-  test("should return correct dark grey value as hsla string", () => {
-    expect(darkGreyAlpha(100, 50)).toEqual("hsla(240, 17%, 2%,50)")
+describe("darkThemeToneAlpha", () => {
+  test("should return correct value as hsla string", () => {
+    expect(darkThemeToneAlpha(100, 50)).toEqual("hsla(240, 17%, 2%,50)")
+  })
+})
+
+describe("lightThemeText", () => {
+  test("should return correct value as hsl string", () => {
+    expect(lightThemeText(100)).toEqual("hsl(240, 3%, 100%)")
+  })
+})
+
+describe("lightThemeTextAlpha", () => {
+  test("should return correct value as hsla string", () => {
+    expect(lightThemeTextAlpha(100, 50)).toEqual("hsla(240, 3%, 100%,50)")
+  })
+})
+
+describe("lightThemeTone", () => {
+  test("should return correct value as hsl string", () => {
+    expect(lightThemeTone(100)).toEqual("hsl(240, 3%, 100%)")
+  })
+})
+
+describe("lightThemeToneAlpha", () => {
+  test("should return correct value as hsla string", () => {
+    expect(lightThemeToneAlpha(100, 50)).toEqual("hsla(240, 3%, 100%,50)")
   })
 })

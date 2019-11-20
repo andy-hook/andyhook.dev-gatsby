@@ -197,7 +197,7 @@ export const zIndex = {
   highest: 400,
 }
 
-/* Greys
+/* Light greys
   ------------------------------------------------- */
 
 export const lightGreyHSL: TGreys = {
@@ -218,6 +218,9 @@ export const lightGrey = (value: TGreyNames) => createHsl(lightGreyHSL[value])
 export const lightGreyAlpha = (value: TGreyNames, alpha: number) =>
   createHsla(lightGreyHSL[value], alpha)
 
+/* Dark greys
+------------------------------------------------- */
+
 export const darkGreyHSL: TGreys = {
   100: "240, 17%, 2%",
   200: "240, 15%, 5%",
@@ -235,6 +238,92 @@ export const darkGrey = (value: TGreyNames) => createHsl(darkGreyHSL[value])
 
 export const darkGreyAlpha = (value: TGreyNames, alpha: number) =>
   createHsla(darkGreyHSL[value], alpha)
+
+/* Dark theme greys
+------------------------------------------------- */
+
+// Tone
+export const darkThemeToneHSL: TGreys = {
+  100: "240, 17%, 2%",
+  200: "240, 15%, 5%",
+  300: "240, 15%, 11%",
+  400: "240, 10%, 14%",
+  500: "240, 8%, 18%",
+  600: "240, 8%, 21%",
+  700: "240, 8%, 26%",
+  800: "240, 8%, 30%",
+  900: "240, 8%, 40%",
+  1000: "240, 8%, 60%",
+}
+
+export const darkThemeTone = (value: TGreyNames) =>
+  createHsl(darkThemeToneHSL[value])
+
+export const darkThemeToneAlpha = (value: TGreyNames, alpha: number) =>
+  createHsla(darkThemeToneHSL[value], alpha)
+
+// Text
+export const darkThemeTextHSL: TGreys = {
+  100: "240, 3%, 100%",
+  200: "240, 3%, 97%",
+  300: "240, 3%, 95%",
+  400: "240, 3%, 93%",
+  500: "240, 3%, 90%",
+  600: "240, 3%, 86%",
+  700: "240, 3%, 83%",
+  800: "240, 3%, 60%",
+  900: "240, 3%, 40%",
+  1000: "240, 3%, 30%",
+}
+
+export const darkThemeText = (value: TGreyNames) =>
+  createHsl(darkThemeTextHSL[value])
+
+export const darkThemeTextAlpha = (value: TGreyNames, alpha: number) =>
+  createHsla(darkThemeTextHSL[value], alpha)
+
+/* Light theme greys
+------------------------------------------------- */
+
+// Tone
+export const lightThemeToneHSL: TGreys = {
+  100: "240, 3%, 100%",
+  200: "240, 3%, 97%",
+  300: "240, 3%, 95%",
+  400: "240, 3%, 93%",
+  500: "240, 3%, 90%",
+  600: "240, 3%, 86%",
+  700: "240, 3%, 83%",
+  800: "240, 3%, 60%",
+  900: "240, 3%, 40%",
+  1000: "240, 3%, 30%",
+}
+
+export const lightThemeTone = (value: TGreyNames) =>
+  createHsl(lightThemeToneHSL[value])
+
+export const lightThemeToneAlpha = (value: TGreyNames, alpha: number) =>
+  createHsla(lightThemeToneHSL[value], alpha)
+
+// Text
+export const lightThemeTextHSL: TGreys = {
+  100: "240, 17%, 2%",
+  200: "240, 15%, 5%",
+  300: "240, 15%, 11%",
+  400: "240, 10%, 14%",
+  500: "240, 8%, 18%",
+  600: "240, 8%, 21%",
+  700: "240, 8%, 26%",
+  800: "240, 8%, 30%",
+  900: "240, 8%, 40%",
+  1000: "240, 8%, 60%",
+}
+
+export const lightThemeText = (value: TGreyNames) =>
+  createHsl(darkThemeTextHSL[value])
+
+export const lightThemeTextAlpha = (value: TGreyNames, alpha: number) =>
+  createHsla(darkThemeTextHSL[value], alpha)
 
 export const easeValues: TEases = {
   // Cubic
