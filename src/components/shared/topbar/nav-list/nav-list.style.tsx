@@ -1,10 +1,13 @@
 import Link from "gatsby-plugin-transition-link"
 import styled from "styled-components"
-import { typeBaseSemibold, typeSizeBaseXs } from "@style/typography"
+import {
+  typeBaseSemibold,
+  typeSizeBaseXs,
+  setBaseCropAndLineHeight,
+} from "@style/typography"
 import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
 import { mq } from "@style/media-queries"
-import { setBaseCropAndLineHeight } from "@style/utils"
 
 export const Container = styled.nav`
   &.is-hidden {

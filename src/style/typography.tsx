@@ -8,7 +8,27 @@ import {
 } from "@style/variables"
 import { themeText } from "@style/theme"
 import { scaleBetween, scaleGreaterThan } from "./media-queries"
-import { setDisplayCropAndLineHeight, setBaseCropAndLineHeight } from "./utils"
+import { createTextCrop } from "./utils"
+
+/* Base text cropping
+  ------------------------------------------------- */
+export const setBaseCropAndLineHeight = (lHeight: number) => {
+  return createTextCrop({
+    lHeight,
+    topCrop: 10,
+    bottomCrop: 15,
+  })
+}
+
+/* Display text cropping
+  ------------------------------------------------- */
+export const setDisplayCropAndLineHeight = (lHeight: number) => {
+  return createTextCrop({
+    lHeight,
+    topCrop: 4,
+    bottomCrop: 19,
+  })
+}
 
 /* Re-composibles
   ------------------------------------------------- */

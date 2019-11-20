@@ -17,7 +17,7 @@ interface CropSettings {
   bottomCrop: number
 }
 
-const createDisplayCrop = (
+export const createTextCrop = (
   settings: CropSettings,
   topAdjustment = "0px",
   bottomAdjustment = "0px"
@@ -53,20 +53,4 @@ const createDisplayCrop = (
       margin-top: calc(-${dynamicBottomCrop}em + ${bottomAdjustment});
     }
   `
-}
-
-export const setDisplayCropAndLineHeight = (lHeight: number) => {
-  return createDisplayCrop({
-    lHeight,
-    topCrop: 4,
-    bottomCrop: 19,
-  })
-}
-
-export const setBaseCropAndLineHeight = (lHeight: number) => {
-  return createDisplayCrop({
-    lHeight,
-    topCrop: 10,
-    bottomCrop: 15,
-  })
 }

@@ -9,9 +9,11 @@ import {
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
-import { typeDisplayButton } from "@style/typography"
+import {
+  typeDisplayButton,
+  setDisplayCropAndLineHeight,
+} from "@style/typography"
 import { themeText } from "@style/theme"
-import { setDisplayCropAndLineHeight } from "@style/utils"
 
 export const StyledButton = styled(OutboundLink)`
   position: relative;
