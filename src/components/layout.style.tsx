@@ -17,6 +17,8 @@ export const SiteTexture = styled.div`
   width: 100%;
   height: 100%;
 
+  opacity: 0.04;
+
   transform: translate3d(0, 0, 0);
 
   background: url(${heroBg}) repeat top left;
