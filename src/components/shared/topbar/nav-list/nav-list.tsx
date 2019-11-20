@@ -4,6 +4,7 @@ import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import * as S from "./nav-list.style"
+import { PAGE_TRANSITION_DURATION } from "@constants"
 
 interface Props {
   hidden?: boolean
@@ -16,14 +17,14 @@ export const linkProps = {
     state: {
       animType: "exit",
     },
-    length: 0.25, // Should match entry delay
+    length: PAGE_TRANSITION_DURATION, // Should match entry delay
   },
   entry: {
     state: {
       animType: "enter",
     },
-    delay: 0.25, // How long the current page should show for before changing scroll position
-    length: 0.25,
+    delay: PAGE_TRANSITION_DURATION, // How long the current page should show for before changing scroll position
+    length: PAGE_TRANSITION_DURATION,
   },
 }
 

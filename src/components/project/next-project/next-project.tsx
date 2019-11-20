@@ -72,7 +72,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
     if (inView) {
       // TweenMax.fromTo(
       //   backgroundRef.current,
-      //   0.25,
+      //   PAGE_EXIT_DURATION,
       //   {
       //     y: 0,
       //   },
@@ -81,7 +81,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
       //     opacity: 0,
       //   }
       // )
-      // TweenMax.to(linkRef.current, 0.2, {
+      // TweenMax.to(linkRef.current, PAGE_EXIT_DURATION, {
       //   opacity: 0,
       // })
     }

@@ -7,6 +7,7 @@ import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TweenMax, Elastic } from "gsap"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./hero.style"
+import { PAGE_TRANSITION_DURATION } from "@constants"
 
 interface Props {
   loaderVisible: boolean
@@ -63,7 +64,7 @@ const Hero: React.FunctionComponent<Props> = memo(
     const animateExit = () => {
       TweenMax.fromTo(
         detailsRef.current,
-        0.25,
+        PAGE_TRANSITION_DURATION,
         {
           y: "0%",
         },
@@ -76,7 +77,7 @@ const Hero: React.FunctionComponent<Props> = memo(
         }
       )
 
-      TweenMax.to(backgroundRef.current, 0.25, {
+      TweenMax.to(backgroundRef.current, PAGE_TRANSITION_DURATION, {
         opacity: 0,
       })
     }

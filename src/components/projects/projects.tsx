@@ -8,6 +8,7 @@ import * as S from "./projects.style"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
+import { PAGE_TRANSITION_DURATION } from "@constants"
 
 const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -46,7 +47,7 @@ const Projects: React.FunctionComponent = memo(() => {
   const animateExit = () => {
     TweenMax.fromTo(
       testDiv.current,
-      0.25,
+      PAGE_TRANSITION_DURATION,
       {
         y: "0%",
       },
