@@ -37,13 +37,13 @@ describe("darkThemeTextAlpha", () => {
 
 describe("darkThemeTone", () => {
   test("should return correct value as hsl string", () => {
-    expect(darkThemeTone(100)).toEqual("hsl(240, 17%, 2%)")
+    expect(darkThemeTone(100)).toEqual("hsl(240, 6%, 7%)")
   })
 })
 
 describe("darkThemeToneAlpha", () => {
   test("should return correct value as hsla string", () => {
-    expect(darkThemeToneAlpha(100, 50)).toEqual("hsla(240, 17%, 2%,50)")
+    expect(darkThemeToneAlpha(100, 50)).toEqual("hsla(240, 6%, 7%,50)")
   })
 })
 

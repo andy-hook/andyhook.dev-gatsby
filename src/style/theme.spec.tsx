@@ -47,14 +47,14 @@ const IsNotThemeComponent = styled.div`
 describe("themeTone", () => {
   it("renders correct hsl from given tone value", () => {
     const tree = mountWithTheme("dark", <ThemeToneComponent />)
-    expect(tree).toHaveStyleRule("color", `hsl(240,17%,2%)`)
+    expect(tree).toHaveStyleRule("color", `hsl(240,6%,7%)`)
   })
 })
 
 describe("themeToneAlpha", () => {
   it("renders correct hsla from given tone value", () => {
     const tree = mountWithTheme("dark", <ThemeToneAlphaComponent />)
-    expect(tree).toHaveStyleRule("color", "hsla(240,17%,2%,0)")
+    expect(tree).toHaveStyleRule("color", "hsla(240,6%,7%,0)")
   })
 })
 
