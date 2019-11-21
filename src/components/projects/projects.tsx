@@ -8,7 +8,14 @@ import * as S from "./projects.style"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
-import { PAGE_TRANSITION_DURATION } from "@constants"
+import {
+  PAGE_TRANSITION_DURATION,
+  TRANSITION_STATUS_POP,
+  TRANSITION_STATUS_ENTERING,
+  TRANSITION_TYPE_ENTER,
+  TRANSITION_STATUS_EXITING,
+  TRANSITION_TYPE_EXIT,
+} from "@constants"
 
 const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as Ref
@@ -65,12 +72,12 @@ const Projects: React.FunctionComponent = memo(() => {
     const { transitionStatus, exit, entry } = transitionState
 
     switch (transitionStatus) {
-      case "POP":
+      case TRANSITION_STATUS_POP:
         animatePop()
         break
-      case "entering":
+      case TRANSITION_STATUS_ENTERING:
         switch (entry.state.animType) {
-          case "enter":
+          case TRANSITION_TYPE_ENTER:
             animateEnter()
 
             break
@@ -82,9 +89,9 @@ const Projects: React.FunctionComponent = memo(() => {
             animatePop()
         }
         break
-      case "exiting":
+      case TRANSITION_STATUS_EXITING:
         switch (exit.state.animType) {
-          case "exit":
+          case TRANSITION_TYPE_EXIT:
             animateExit()
 
             break

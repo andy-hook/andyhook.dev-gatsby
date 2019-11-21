@@ -1,37 +1,41 @@
-import { Ref } from "@custom-types/ref"
+import { GatsbyLinkProps } from "gatsby-link"
 
-export type TpageAnimationType =
+type TtransitionType =
   | "enter"
   | "exit"
   | "firstEnter"
-  | "openMenu"
-  | "closeMenu"
   | "menuEnter"
   | "pop"
   | "nextProjectExit"
   | "nextProjectEnter"
 
-export type TpageAnimationStates = {
-  [key in TpageAnimationType]?: (ref: Ref) => void
+type TtransitionStatus = "entering" | "entered" | "exiting" | "exited" | "POP"
+
+interface ItransitionLinkProps {
+  delay?: number
+  length?: number
+  state?: {
+    animType: TtransitionType
+  }
 }
 
-export interface IpageAnimation {
-  [key: string]: TpageAnimationStates
-}
-
-// Quick, dirty and potted types for gatsby-plugin-transition-link
-interface ItransitionProps {
+interface ItransitionStateProps {
   delay: number
   length: number
   state: {
-    animType?: TpageAnimationType
+    animType: TtransitionType
   }
 }
 
 export interface ItransitionState {
-  transitionStatus: "entering" | "entered" | "exiting" | "exited" | "POP"
-  current: ItransitionProps
-  entry: ItransitionProps
-  exit: ItransitionProps
+  transitionStatus: TtransitionStatus
+  current: ItransitionStateProps
+  entry: ItransitionStateProps
+  exit: ItransitionStateProps
   mount: boolean
+}
+
+export interface ItransitionLink<TState> extends GatsbyLinkProps<TState> {
+  entry?: ItransitionLinkProps
+  exit?: ItransitionLinkProps
 }

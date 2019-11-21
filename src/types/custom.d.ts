@@ -7,13 +7,23 @@ declare module "*.svg" {
 // gatsby-plugin-transition-link doesn't currently have type declarations
 // https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/14
 declare module "gatsby-plugin-transition-link" {
-  export const TransitionState: any
-  export const TransitionPortal: any
-  export const Link: any
+  import React from "react"
+  import {
+    ItransitionLink,
+    ItransitionState,
+  } from "@custom-types/gatsby-plugin-transition-link"
 
-  export default Link
+  export const TransitionState: ItransitionState
+  export const TransitionPortal: any
+
+  export default class Link<TState> extends React.Component<
+    ItransitionLink<TState>,
+    any
+  > {}
 }
 
 declare module "gatsby-plugin-transition-link/hooks" {
-  export const useTransitionState: any
+  import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+
+  export const useTransitionState: () => ItransitionState
 }

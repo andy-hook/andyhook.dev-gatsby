@@ -6,6 +6,12 @@ import useDeferredRunEffect from "@hooks/deferred-run"
 import { useInView } from "react-intersection-observer"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import * as S from "./next-project.style"
+import {
+  TRANSITION_TYPE_NEXT_PROJECT_EXIT,
+  TRANSITION_TYPE_NEXT_PROJECT_ENTER,
+  TRANSITION_STATUS_EXITING,
+  TRANSITION_TYPE_EXIT,
+} from "@constants"
 
 interface Props {
   nextProjectItem: IProjectItem
@@ -16,13 +22,13 @@ const projectChangeDuration = 1.3
 export const linkProps = {
   exit: {
     state: {
-      animType: "nextProjectExit",
+      animType: TRANSITION_TYPE_NEXT_PROJECT_EXIT,
     },
     length: projectChangeDuration, // Should match entry delay
   },
   entry: {
     state: {
-      animType: "nextProjectEnter",
+      animType: TRANSITION_TYPE_NEXT_PROJECT_ENTER,
     },
     delay: projectChangeDuration, // How long the current page should show for before changing scroll position
     length: projectChangeDuration,
@@ -72,7 +78,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
     if (inView) {
       // TweenMax.fromTo(
       //   backgroundRef.current,
-      //   PAGE_EXIT_DURATION,
+      //   PAGE_TRANSITION_DURATION,
       //   {
       //     y: 0,
       //   },
@@ -81,7 +87,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
       //     opacity: 0,
       //   }
       // )
-      // TweenMax.to(linkRef.current, PAGE_EXIT_DURATION, {
+      // TweenMax.to(linkRef.current, PAGE_TRANSITION_DURATION, {
       //   opacity: 0,
       // })
     }
@@ -91,9 +97,9 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
     const { transitionStatus, exit } = transitionState
 
     switch (transitionStatus) {
-      case "exiting":
+      case TRANSITION_STATUS_EXITING:
         switch (exit.state.animType) {
-          case "exit":
+          case TRANSITION_TYPE_EXIT:
             animateExit()
 
             break

@@ -12,20 +12,6 @@ const Card: React.FunctionComponent<Props> = memo(({ label, desc, path }) => {
   return (
     <CardElement
       to={path} // Entry animation to play on the project page
-      entry={{
-        length: 0.5,
-        state: {
-          animType: "enter-from-home",
-        },
-      }}
-      // The exit animation to play on this hero element
-      exit={{
-        // Length value should equal total running time of entire page leave animation
-        length: 0.5,
-        state: {
-          animType: "exit-to-project",
-        },
-      }}
     >
       {label}
       {desc}

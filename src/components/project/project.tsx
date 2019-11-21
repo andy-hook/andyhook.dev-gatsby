@@ -7,6 +7,12 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { TweenMax } from "gsap"
 import * as S from "./project.style"
+import {
+  TRANSITION_STATUS_POP,
+  TRANSITION_STATUS_ENTERING,
+  TRANSITION_TYPE_MENU_ENTER,
+  TRANSITION_STATUS_EXITING,
+} from "@constants"
 
 interface Props {
   projectData: TProjects
@@ -80,12 +86,12 @@ const Project: React.FunctionComponent<Props> = memo(
       const entryType = transitionState.entry.state.animType
 
       switch (transitionStatus) {
-        case "POP":
+        case TRANSITION_STATUS_POP:
           animatePop()
           break
-        case "entering":
+        case TRANSITION_STATUS_ENTERING:
           switch (entryType) {
-            case "menuEnter":
+            case TRANSITION_TYPE_MENU_ENTER:
               {
                 animateMenuEnter()
               }
@@ -97,7 +103,7 @@ const Project: React.FunctionComponent<Props> = memo(
               animatePop()
           }
           break
-        case "exiting":
+        case TRANSITION_STATUS_EXITING:
           break
       }
     }, [transitionState.transitionStatus])

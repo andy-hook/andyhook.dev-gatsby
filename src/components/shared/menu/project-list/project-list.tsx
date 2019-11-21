@@ -2,6 +2,7 @@ import React, { memo } from "react"
 import { keys } from "@custom-types/utils"
 import { TProjects } from "model"
 import * as S from "./project-list.style"
+import { TRANSITION_TYPE_MENU_ENTER } from "@constants"
 
 interface Props {
   projectDataList: TProjects
@@ -21,7 +22,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
           entry={{
             length: 0.75,
             state: {
-              animType: "menuEnter",
+              animType: TRANSITION_TYPE_MENU_ENTER,
             },
           }}
         >
