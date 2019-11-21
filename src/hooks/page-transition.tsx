@@ -11,6 +11,7 @@ import {
   TRANSITION_TYPE_NEXT_PROJECT_EXIT,
 } from "@constants"
 import { useInView } from "react-intersection-observer"
+import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 type callback = () => void
 
@@ -36,84 +37,87 @@ function run(cb: callback | undefined) {
   cb()
 }
 
-const usePageTransition = ({ runInview, runOutOfView }: Props) => {
-  const transitionState = useTransitionState()
-
-  const [inviewRef, inView, inviewEntry] = useInView()
-
-  const runCallbacks = ({
+export const runCallbacks = (
+  {
     onPop,
     onEnter,
     onEnterFromProject,
     onEnterFromMenu,
     onExitFromProject,
     onExit,
-  }: Callbacks) => {
-    const { transitionStatus, exit, entry } = transitionState
-    const entryType = entry.state.animType
-    const exitType = exit.state.animType
+  }: Callbacks,
+  internalTransitionState: ItransitionState
+) => {
+  const { transitionStatus, exit, entry } = internalTransitionState
+  const entryType = entry.state.animType
+  const exitType = exit.state.animType
 
-    switch (transitionStatus) {
-      // Browser history change
-      case TRANSITION_STATUS_POP:
-        run(onPop)
-        break
+  switch (transitionStatus) {
+    // Browser history change
+    case TRANSITION_STATUS_POP:
+      run(onPop)
+      break
 
-      // Entering
-      case TRANSITION_STATUS_ENTERING:
-        switch (entryType) {
-          // Enter
-          case TRANSITION_TYPE_ENTER:
-            run(onEnter)
+    // Entering
+    case TRANSITION_STATUS_ENTERING:
+      switch (entryType) {
+        // Enter
+        case TRANSITION_TYPE_ENTER:
+          run(onEnter)
 
-            break
+          break
 
-          // Enter from project
-          case TRANSITION_TYPE_NEXT_PROJECT_ENTER:
-            run(onEnterFromProject)
+        // Enter from project
+        case TRANSITION_TYPE_NEXT_PROJECT_ENTER:
+          run(onEnterFromProject)
 
-            break
+          break
 
-          // Enter from menu
-          case TRANSITION_TYPE_MENU_ENTER:
-            run(onEnterFromMenu)
+        // Enter from menu
+        case TRANSITION_TYPE_MENU_ENTER:
+          run(onEnterFromMenu)
 
-            break
+          break
 
-          // This clause works around bug with pushstate and history navigation
-          // Hopefully this can be resolved and pop will run consistently
-          // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
-          default:
-            run(onPop)
-        }
-        break
+        // This clause works around bug with pushstate and history navigation
+        // Hopefully this can be resolved and pop will run consistently
+        // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
+        default:
+          run(onPop)
+      }
+      break
 
-      // Exiting
-      case TRANSITION_STATUS_EXITING:
-        switch (exitType) {
-          // Exit
-          case TRANSITION_TYPE_EXIT:
-            run(onExit)
+    // Exiting
+    case TRANSITION_STATUS_EXITING:
+      switch (exitType) {
+        // Exit
+        case TRANSITION_TYPE_EXIT:
+          run(onExit)
 
-            break
+          break
 
-          // Exit from project
-          case TRANSITION_TYPE_NEXT_PROJECT_EXIT:
-            run(onExitFromProject)
+        // Exit from project
+        case TRANSITION_TYPE_NEXT_PROJECT_EXIT:
+          run(onExitFromProject)
 
-            break
-        }
-        break
-    }
+          break
+      }
+      break
   }
+}
+
+const usePageTransition = ({ runInview, runOutOfView }: Props) => {
+  const transitionState = useTransitionState()
+
+  const [inviewRef, inView, inviewEntry] = useInView()
 
   useEffect(() => {
     // Avoid double firing by waiting for inview to be ready
     if (inviewEntry) {
       if (inView) {
-        runCallbacks(runInview)
+        runCallbacks(runInview, transitionState)
       } else if (runOutOfView) {
-        runCallbacks(runOutOfView)
+        runCallbacks(runOutOfView, transitionState)
       }
     }
 

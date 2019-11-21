@@ -23,7 +23,7 @@ interface ItransitionStateProps {
   delay: number
   length: number
   state: {
-    animType: TtransitionType
+    animType?: TtransitionType
   }
 }
 
