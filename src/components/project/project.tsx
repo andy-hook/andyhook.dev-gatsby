@@ -7,12 +7,7 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { TweenMax } from "gsap"
 import * as S from "./project.style"
-import {
-  TRANSITION_STATUS_POP,
-  TRANSITION_STATUS_ENTERING,
-  TRANSITION_TYPE_MENU_ENTER,
-  TRANSITION_STATUS_EXITING,
-} from "@constants"
+import usePageTransition from "@hooks/page-transition"
 
 interface Props {
   projectData: TProjects
@@ -23,14 +18,7 @@ interface Props {
 }
 
 const Project: React.FunctionComponent<Props> = memo(
-  ({
-    children,
-    projectName,
-    projectData,
-    transitionState,
-    canPerformIntro,
-    introTrigger,
-  }) => {
+  ({ children, projectName, projectData, canPerformIntro, introTrigger }) => {
     const content = React.useRef() as Ref
 
     const animatePop = () => {
@@ -74,39 +62,17 @@ const Project: React.FunctionComponent<Props> = memo(
       )
     }
 
+    usePageTransition({
+      onPop: animatePop,
+      onEnterFromMenu: animateMenuEnter,
+    })
+
     // Only trigger site entrance animation when requested by loader
     useEffect(() => {
       if (introTrigger && canPerformIntro) {
         animateFirstEnter()
       }
     }, [introTrigger])
-
-    useEffect(() => {
-      const { transitionStatus } = transitionState
-      const entryType = transitionState.entry.state.animType
-
-      switch (transitionStatus) {
-        case TRANSITION_STATUS_POP:
-          animatePop()
-          break
-        case TRANSITION_STATUS_ENTERING:
-          switch (entryType) {
-            case TRANSITION_TYPE_MENU_ENTER:
-              {
-                animateMenuEnter()
-              }
-              break
-            // This clause works around bug with pushstate and history navigation
-            // Hopefully this can be resolved and pop will run consistently
-            // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
-            default:
-              animatePop()
-          }
-          break
-        case TRANSITION_STATUS_EXITING:
-          break
-      }
-    }, [transitionState.transitionStatus])
 
     return (
       <>

@@ -3,18 +3,11 @@ import Details from "./details/details"
 import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
 import { ISocialMeta } from "model"
-import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import { TweenMax, Elastic } from "gsap"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./hero.style"
-import {
-  PAGE_TRANSITION_DURATION,
-  TRANSITION_STATUS_POP,
-  TRANSITION_STATUS_ENTERING,
-  TRANSITION_STATUS_EXITING,
-  TRANSITION_TYPE_ENTER,
-  TRANSITION_TYPE_EXIT,
-} from "@constants"
+import { PAGE_TRANSITION_DURATION } from "@constants"
+import usePageTransition from "@hooks/page-transition"
 
 interface Props {
   loaderVisible: boolean
@@ -26,8 +19,6 @@ const Hero: React.FunctionComponent<Props> = memo(
   ({ socialIconData, loaderVisible, firstEntrance }) => {
     const detailsRef = React.useRef() as Ref
     const backgroundRef = React.useRef() as Ref
-
-    const transitionState = useTransitionState()
 
     const animatePop = () => {
       TweenMax.fromTo(
@@ -106,36 +97,12 @@ const Hero: React.FunctionComponent<Props> = memo(
       )
     }
 
-    useEffect(() => {
-      const { transitionStatus, exit, entry } = transitionState
-
-      switch (transitionStatus) {
-        case TRANSITION_STATUS_POP:
-          animatePop()
-          break
-        case TRANSITION_STATUS_ENTERING:
-          switch (entry.state.animType) {
-            case TRANSITION_TYPE_ENTER:
-              animateEnter()
-
-              break
-            // This clause works around bug with pushstate and history navigation
-            // Hopefully this can be resolved and pop will run consistently
-            // TODO – https://github.com/TylerBarnes/gatsby-plugin-transition-link/issues/94
-            default:
-              animatePop()
-          }
-          break
-        case TRANSITION_STATUS_EXITING:
-          switch (exit.state.animType) {
-            case TRANSITION_TYPE_EXIT:
-              animateExit()
-
-              break
-          }
-          break
-      }
-    }, [transitionState.transitionStatus])
+    usePageTransition({
+      onEnter: animateEnter,
+      onExit: animateExit,
+      onPop: animatePop,
+      onEnterFromMenu: animateEnter,
+    })
 
     useEffect(() => {
       if (firstEntrance) {
