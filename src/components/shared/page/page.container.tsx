@@ -31,12 +31,12 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 const PageContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, menuOpen, closeMenu }) => {
+  ({ children, menuOpen }) => {
     useEffect(() => {
       if (menuOpen) {
         // Dispatch close menu action here to ensure the page is mounted before attempting to hide the menu
         // This is a much smoother interaction than dispatching from inside the menu item click handler
-        closeMenu()
+        // closeMenu()
       }
     }, [])
 

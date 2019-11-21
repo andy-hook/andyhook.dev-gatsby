@@ -102,12 +102,20 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
       )
     }
 
-    const animateOpenSidebar = (openSidebar?: boolean) => {
+    const animateToggle = (sidebarIsOpen?: boolean) => {
+      sidebarIsOpen ? animateOpen() : animateClose()
+    }
+
+    const staticToggle = (sidebarIsOpen?: boolean) => {
+      sidebarIsOpen ? applyOpenStyleClass() : applyClosedStyleClass()
+    }
+
+    const viewCheckToggle = (sidebarIsOpen?: boolean) => {
       // For performance we animate only if in view, otherwise set the position immediatley using a css class
       if (inView) {
-        openSidebar ? animateOpen() : animateClose()
+        animateToggle(sidebarIsOpen)
       } else {
-        openSidebar ? applyOpenStyleClass() : applyClosedStyleClass()
+        staticToggle(sidebarIsOpen)
       }
     }
 
@@ -120,7 +128,7 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
     }, [open])
 
     useDeferredRunEffect(() => {
-      animateOpenSidebar(open)
+      viewCheckToggle(open)
     }, [open])
 
     // Ensure inView is correctly evaluated on component mount
@@ -131,7 +139,8 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
 
     useEffect(() => {
       if (entry && openOnInitialRender) {
-        animateOpenSidebar(false)
+        // viewCheckToggle(open)
+        staticToggle(open)
         setOpenOnInitialRender(false)
       }
     }, [entry])
