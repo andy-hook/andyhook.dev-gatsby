@@ -1,5 +1,4 @@
 import { ISocialMeta, TProjects } from "@custom-types/model"
-import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { FluidObject } from "gatsby-image"
 
 export const mockSocialIcons: ISocialMeta = {
@@ -121,26 +120,6 @@ export const mockProjectsData: TProjects = {
       },
     ],
   },
-}
-
-export const mockTransitionState: ItransitionState = {
-  transitionStatus: "entering",
-  current: {
-    delay: 0,
-    length: 0,
-    state: {},
-  },
-  entry: {
-    delay: 0,
-    length: 0,
-    state: {},
-  },
-  exit: {
-    delay: 0,
-    length: 0,
-    state: {},
-  },
-  mount: true,
 }
 
 export const mockFluidImageObject: FluidObject = {

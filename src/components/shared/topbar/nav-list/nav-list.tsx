@@ -4,7 +4,11 @@ import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import * as S from "./nav-list.style"
-import { PAGE_TRANSITION_DURATION } from "@constants"
+import {
+  PAGE_TRANSITION_DURATION,
+  TRANSITION_TYPE_EXIT,
+  TRANSITION_TYPE_ENTER,
+} from "@constants"
 
 interface Props {
   hidden?: boolean
@@ -15,13 +19,13 @@ export const linkProps = {
 
   exit: {
     state: {
-      animType: "exit",
+      animType: TRANSITION_TYPE_EXIT,
     },
     length: PAGE_TRANSITION_DURATION, // Should match entry delay
   },
   entry: {
     state: {
-      animType: "enter",
+      animType: TRANSITION_TYPE_ENTER,
     },
     delay: PAGE_TRANSITION_DURATION, // How long the current page should show for before changing scroll position
     length: PAGE_TRANSITION_DURATION,
@@ -91,7 +95,7 @@ const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
     >
       <S.List>
         <S.ListItem>
-          <S.ListItemLink to="/" activeClassName="active" {...linkProps}>
+          <S.ListItemLink to="/" {...linkProps}>
             Overview
           </S.ListItemLink>
         </S.ListItem>
