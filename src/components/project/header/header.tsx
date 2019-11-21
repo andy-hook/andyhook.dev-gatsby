@@ -3,7 +3,6 @@ import { IProjectItem } from "@custom-types/model"
 import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
 import { Ref } from "@custom-types/ref"
 // import { TweenMax } from "gsap"
-import { useInView } from "react-intersection-observer"
 import * as S from "./header.style"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import usePageTransition from "@hooks/page-transition"
@@ -14,7 +13,6 @@ interface Props {
 
 const Header: React.FunctionComponent<Props> = ({ project }) => {
   const backgroundRef = React.useRef() as Ref
-  const [inviewRef, inView] = useInView()
 
   const animatePop = () => {
     // TweenMax.set(backgroundRef.current, {
@@ -50,27 +48,29 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   }
 
   const animateExit = () => {
-    if (inView) {
-      // TweenMax.fromTo(
-      //   backgroundRef.current,
-      //   0.25,
-      //   {
-      //     y: 0,
-      //     opacity: 0.2,
-      //   },
-      //   {
-      //     y: 40,
-      //     opacity: 0,
-      //   }
-      // )
-    }
+    // if (inView) {
+    // TweenMax.fromTo(
+    //   backgroundRef.current,
+    //   0.25,
+    //   {
+    //     y: 0,
+    //     opacity: 0.2,
+    //   },
+    //   {
+    //     y: 40,
+    //     opacity: 0,
+    //   }
+    // )
+    // }
   }
 
-  usePageTransition({
-    onEnter: animateEnter,
-    onExit: animateExit,
-    onPop: animatePop,
-    onEnterFromMenu: animateEnter,
+  const { inviewRef } = usePageTransition({
+    runInview: {
+      onEnter: animateEnter,
+      onExit: animateExit,
+      onPop: animatePop,
+      onEnterFromMenu: animateEnter,
+    },
   })
 
   return (

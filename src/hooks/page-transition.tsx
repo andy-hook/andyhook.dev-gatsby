@@ -10,10 +10,11 @@ import {
   TRANSITION_TYPE_NEXT_PROJECT_ENTER,
   TRANSITION_TYPE_NEXT_PROJECT_EXIT,
 } from "@constants"
+import { useInView } from "react-intersection-observer"
 
 type callback = () => void
 
-interface IAnimations {
+interface Callbacks {
   onPop?: callback
   onEnter?: callback
   onEnterFromProject?: callback
@@ -22,24 +23,32 @@ interface IAnimations {
   onExit?: callback
 }
 
+interface Props {
+  runInview: Callbacks
+  runOutOfView?: Callbacks
+}
+
 const noop = () => undefined
 
+// Run only the callbacks that are supplied
 function run(cb: callback | undefined) {
   cb = cb || noop
   cb()
 }
 
-const usePageTransition = ({
-  onPop,
-  onEnter,
-  onEnterFromProject,
-  onEnterFromMenu,
-  onExitFromProject,
-  onExit,
-}: IAnimations) => {
+const usePageTransition = ({ runInview, runOutOfView }: Props) => {
   const transitionState = useTransitionState()
 
-  useEffect(() => {
+  const [inviewRef, inView, inviewEntry] = useInView()
+
+  const runCallbacks = ({
+    onPop,
+    onEnter,
+    onEnterFromProject,
+    onEnterFromMenu,
+    onExitFromProject,
+    onExit,
+  }: Callbacks) => {
     const { transitionStatus, exit, entry } = transitionState
     const entryType = entry.state.animType
     const exitType = exit.state.animType
@@ -96,7 +105,22 @@ const usePageTransition = ({
         }
         break
     }
-  }, [transitionState.transitionStatus])
+  }
+
+  useEffect(() => {
+    // Avoid double firing by waiting for inview to be ready
+    if (inviewEntry) {
+      if (inView) {
+        runCallbacks(runInview)
+      } else if (runOutOfView) {
+        runCallbacks(runOutOfView)
+      }
+    }
+
+    // Ensure that callbacks fire as soon as visibility status is available
+  }, [transitionState.transitionStatus, inviewEntry])
+
+  return { inviewRef, inView, inviewEntry }
 }
 
 export default usePageTransition

@@ -97,11 +97,13 @@ const Hero: React.FunctionComponent<Props> = memo(
       )
     }
 
-    usePageTransition({
-      onEnter: animateEnter,
-      onExit: animateExit,
-      onPop: animatePop,
-      onEnterFromMenu: animateEnter,
+    const { inviewRef } = usePageTransition({
+      runInview: {
+        onEnter: animateEnter,
+        onExit: animateExit,
+        onPop: animatePop,
+        onEnterFromMenu: animateEnter,
+      },
     })
 
     useEffect(() => {
@@ -121,7 +123,7 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     return (
       <SidebarSlide>
-        <S.Container>
+        <S.Container ref={inviewRef}>
           <S.DetailsPos ref={detailsRef}>
             <Gutter>
               <Details buttonHref={socialIconData.dribbble.url} />

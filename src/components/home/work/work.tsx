@@ -6,6 +6,7 @@ import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./work.style"
+import usePageTransition from "@hooks/page-transition"
 
 interface Props {
   projectsData: TProjects
@@ -22,11 +23,31 @@ const Work: React.FunctionComponent<Props> = memo(({ projectsData }) => {
     <Card label={item.label} desc={item.desc} path={item.path} key={key} />
   ))
 
+  const testVisiblityMethod = () => {
+    console.log("visible runs")
+  }
+
+  const testHiddenMethod = () => {
+    console.log("hidden runs")
+  }
+
+  const { inviewRef } = usePageTransition({
+    runInview: {
+      onEnter: testVisiblityMethod,
+    },
+    runOutOfView: {
+      onEnter: testHiddenMethod,
+    },
+  })
+
   return (
     <S.Container>
       <SidebarSlide>
         <Gutter>
           <Limiter size="large">{renderItems}</Limiter>
+          <div ref={inviewRef}>
+            <Card label="dfsdf" desc="dfsfd" path="/brandwatch" />
+          </div>
         </Gutter>
       </SidebarSlide>
     </S.Container>

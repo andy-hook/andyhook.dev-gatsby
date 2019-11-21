@@ -60,22 +60,26 @@ const Projects: React.FunctionComponent = memo(() => {
     )
   }
 
-  usePageTransition({
-    onEnter: animateEnter,
-    onExit: animateExit,
-    onPop: animatePop,
-    onEnterFromMenu: animateEnter,
+  const { inviewRef } = usePageTransition({
+    runInview: {
+      onEnter: animateEnter,
+      onExit: animateExit,
+      onPop: animatePop,
+      onEnterFromMenu: animateEnter,
+    },
   })
 
   return (
     <CommonPage>
       <SidebarSlide>
-        <Gutter>
-          <Limiter>
-            <OverlineTitle overline="Overline text">Title text</OverlineTitle>
-            <S.TestDiv ref={testDiv} />
-          </Limiter>
-        </Gutter>
+        <div ref={inviewRef}>
+          <Gutter>
+            <Limiter>
+              <OverlineTitle overline="Overline text">Title text</OverlineTitle>
+              <S.TestDiv ref={testDiv} />
+            </Limiter>
+          </Gutter>
+        </div>
       </SidebarSlide>
     </CommonPage>
   )

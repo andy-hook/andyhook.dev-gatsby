@@ -62,9 +62,11 @@ const Project: React.FunctionComponent<Props> = memo(
       )
     }
 
-    usePageTransition({
-      onPop: animatePop,
-      onEnterFromMenu: animateMenuEnter,
+    const { inviewRef } = usePageTransition({
+      runInview: {
+        onPop: animatePop,
+        onEnterFromMenu: animateMenuEnter,
+      },
     })
 
     // Only trigger site entrance animation when requested by loader
@@ -75,7 +77,7 @@ const Project: React.FunctionComponent<Props> = memo(
     }, [introTrigger])
 
     return (
-      <>
+      <div ref={inviewRef}>
         <S.Container ref={content}>
           <Header project={getCurrentProjectData(projectData, projectName)} />
           <S.MainSection>{children}</S.MainSection>
@@ -83,7 +85,7 @@ const Project: React.FunctionComponent<Props> = memo(
             nextProjectItem={getNextProjectData(projectData, projectName)}
           />
         </S.Container>
-      </>
+      </div>
     )
   }
 )
