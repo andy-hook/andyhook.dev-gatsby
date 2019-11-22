@@ -4,6 +4,7 @@ import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
 import { zIndex, borderThickness, ease } from "@style/variables"
 import { typeSizeBaseXs } from "@style/typography"
 import { themeTone } from "@style/theme"
+import { menuZindex } from "../menu/menu.style"
 
 interface StyleProps {
   hasScrolled?: boolean
@@ -21,8 +22,6 @@ const topbarHeight = css`
 
   ${scaleGreaterThan("height", rem("85px"), "topUltra")}
 `
-
-const topbarZindex = zIndex.highest
 
 const topbarFixed = css`
   position: fixed;
@@ -79,7 +78,7 @@ export const Over = styled(visiblityTransition)`
 
   justify-content: flex-end;
 
-  z-index: ${topbarZindex + 1};
+  z-index: ${menuZindex + 1};
 
   mix-blend-mode: difference;
   pointer-events: none;
@@ -90,7 +89,7 @@ export const Over = styled(visiblityTransition)`
 `
 
 export const Under = styled(visiblityTransition)`
-  z-index: ${topbarZindex};
+  z-index: ${menuZindex - 1};
 `
 
 export const ContainerInner = styled.div<StyleProps>`
@@ -125,7 +124,7 @@ export const ContainerInner = styled.div<StyleProps>`
     ${props =>
       props.open &&
       css`
-        opacity: 0;
+        /* opacity: 0; */
       `}
   }
 
@@ -203,7 +202,7 @@ export const HideOffsetHolder = styled.div`
 
   pointer-events: none;
 
-  z-index: ${topbarZindex - 1};
+  z-index: ${menuZindex - 1};
 
   height: ${rem("100px")};
 

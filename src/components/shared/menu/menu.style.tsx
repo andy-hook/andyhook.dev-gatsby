@@ -3,6 +3,8 @@ import { zIndex, darkGrey, spacingScale, typeScale } from "@style/variables"
 import { themeTone } from "@style/theme"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 
+export const menuZindex = zIndex.high
+
 export const AnimationScrim = styled.div`
   background-color: ${darkGrey(100)};
   position: fixed;
@@ -26,7 +28,7 @@ export const Fixer = styled.div`
   width: 100%;
   height: 100%;
 
-  z-index: ${zIndex.high};
+  z-index: ${menuZindex};
 
   visibility: hidden;
 `
