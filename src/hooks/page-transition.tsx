@@ -15,7 +15,7 @@ import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 type callback = () => void
 
-interface Callbacks {
+interface CallbackProps {
   onPop?: callback
   onEnter?: callback
   onEnterFromProject?: callback
@@ -25,8 +25,8 @@ interface Callbacks {
 }
 
 interface Props {
-  runInview: Callbacks
-  runOutOfView?: Callbacks
+  runInview: CallbackProps
+  runOutOfView?: CallbackProps
 }
 
 const noop = () => undefined
@@ -45,7 +45,7 @@ export const runCallbacks = (
     onEnterFromMenu,
     onExitFromProject,
     onExit,
-  }: Callbacks,
+  }: CallbackProps,
   internalTransitionState: ItransitionState
 ) => {
   const { transitionStatus, exit, entry } = internalTransitionState
