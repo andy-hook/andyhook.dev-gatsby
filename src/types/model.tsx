@@ -1,9 +1,9 @@
-import { TIcons } from "@custom-types/icons"
+import { Icons } from "@custom-types/icons"
 
 export interface SocialMetaItem {
   label: string
   url: string
-  icon: TIcons
+  icon: Icons
 }
 
 export interface SocialMeta {

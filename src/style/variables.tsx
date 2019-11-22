@@ -1,9 +1,9 @@
 import { pxToEm, pxToRem } from "styled-media-query"
 import { rem } from "polished"
-import { TGreys, TGreyNames } from "@custom-types/theme"
+import { Greys, GreyNames } from "@custom-types/theme"
 import { createHsl, createHsla, createCubicBezier } from "@style/utils"
-import { TBreakpoints } from "@custom-types/breakpoints"
-import { TEaseName, TEases } from "ease"
+import { Breakpoints } from "@custom-types/breakpoints"
+import { EaseName, Eases } from "ease"
 
 /* Typography
   ------------------------------------------------- */
@@ -129,7 +129,7 @@ export const borderThickness = {
 /* Breakpoints
   ------------------------------------------------- */
 
-export const breakpoints: TBreakpoints = {
+export const breakpoints: Breakpoints = {
   bottomThumb: "479px",
   topThumb: "480px",
 
@@ -163,7 +163,7 @@ export const constructMinMediaString = (breakpoint: string) => {
   return `(min-width: ${breakpoint})`
 }
 
-export const matchMediaStrings: TBreakpoints = {
+export const matchMediaStrings: Breakpoints = {
   bottomThumb: constructMaxMediaString(breakpoints.bottomThumb),
   topThumb: constructMinMediaString(breakpoints.bottomThumb),
 
@@ -200,7 +200,7 @@ export const zIndex = {
 /* Light greys
   ------------------------------------------------- */
 
-export const lightGreyHSL: TGreys = {
+export const lightGreyHSL: Greys = {
   100: "240, 3%, 100%",
   200: "240, 3%, 97%",
   300: "240, 3%, 95%",
@@ -213,15 +213,15 @@ export const lightGreyHSL: TGreys = {
   1000: "240, 3%, 30%",
 }
 
-export const lightGrey = (value: TGreyNames) => createHsl(lightGreyHSL[value])
+export const lightGrey = (value: GreyNames) => createHsl(lightGreyHSL[value])
 
-export const lightGreyAlpha = (value: TGreyNames, alpha: number) =>
+export const lightGreyAlpha = (value: GreyNames, alpha: number) =>
   createHsla(lightGreyHSL[value], alpha)
 
 /* Dark greys
 ------------------------------------------------- */
 
-export const darkGreyHSL: TGreys = {
+export const darkGreyHSL: Greys = {
   100: "240, 17%, 2%",
   200: "240, 15%, 5%",
   300: "240, 15%, 11%",
@@ -234,16 +234,16 @@ export const darkGreyHSL: TGreys = {
   1000: "240, 8%, 60%",
 }
 
-export const darkGrey = (value: TGreyNames) => createHsl(darkGreyHSL[value])
+export const darkGrey = (value: GreyNames) => createHsl(darkGreyHSL[value])
 
-export const darkGreyAlpha = (value: TGreyNames, alpha: number) =>
+export const darkGreyAlpha = (value: GreyNames, alpha: number) =>
   createHsla(darkGreyHSL[value], alpha)
 
 /* Dark theme greys
 ------------------------------------------------- */
 
 // Tone
-export const darkThemeToneHSL: TGreys = {
+export const darkThemeToneHSL: Greys = {
   100: "240, 6%, 7%",
   200: "240, 5%, 8%",
   300: "240, 4%, 10%",
@@ -256,14 +256,14 @@ export const darkThemeToneHSL: TGreys = {
   1000: "240, 2%, 17%",
 }
 
-export const darkThemeTone = (value: TGreyNames) =>
+export const darkThemeTone = (value: GreyNames) =>
   createHsl(darkThemeToneHSL[value])
 
-export const darkThemeToneAlpha = (value: TGreyNames, alpha: number) =>
+export const darkThemeToneAlpha = (value: GreyNames, alpha: number) =>
   createHsla(darkThemeToneHSL[value], alpha)
 
 // Text
-export const darkThemeTextHSL: TGreys = {
+export const darkThemeTextHSL: Greys = {
   100: "240, 3%, 100%",
   200: "240, 3%, 97%",
   300: "240, 3%, 95%",
@@ -276,17 +276,17 @@ export const darkThemeTextHSL: TGreys = {
   1000: "240, 3%, 30%",
 }
 
-export const darkThemeText = (value: TGreyNames) =>
+export const darkThemeText = (value: GreyNames) =>
   createHsl(darkThemeTextHSL[value])
 
-export const darkThemeTextAlpha = (value: TGreyNames, alpha: number) =>
+export const darkThemeTextAlpha = (value: GreyNames, alpha: number) =>
   createHsla(darkThemeTextHSL[value], alpha)
 
 /* Light theme greys
 ------------------------------------------------- */
 
 // Tone
-export const lightThemeToneHSL: TGreys = {
+export const lightThemeToneHSL: Greys = {
   100: "240, 3%, 100%",
   200: "240, 3%, 97%",
   300: "240, 3%, 95%",
@@ -299,14 +299,14 @@ export const lightThemeToneHSL: TGreys = {
   1000: "240, 3%, 30%",
 }
 
-export const lightThemeTone = (value: TGreyNames) =>
+export const lightThemeTone = (value: GreyNames) =>
   createHsl(lightThemeToneHSL[value])
 
-export const lightThemeToneAlpha = (value: TGreyNames, alpha: number) =>
+export const lightThemeToneAlpha = (value: GreyNames, alpha: number) =>
   createHsla(lightThemeToneHSL[value], alpha)
 
 // Text
-export const lightThemeTextHSL: TGreys = {
+export const lightThemeTextHSL: Greys = {
   100: "240, 17%, 2%",
   200: "240, 15%, 5%",
   300: "240, 15%, 11%",
@@ -319,13 +319,13 @@ export const lightThemeTextHSL: TGreys = {
   1000: "240, 8%, 60%",
 }
 
-export const lightThemeText = (value: TGreyNames) =>
+export const lightThemeText = (value: GreyNames) =>
   createHsl(darkThemeTextHSL[value])
 
-export const lightThemeTextAlpha = (value: TGreyNames, alpha: number) =>
+export const lightThemeTextAlpha = (value: GreyNames, alpha: number) =>
   createHsla(darkThemeTextHSL[value], alpha)
 
-export const easeValues: TEases = {
+export const easeValues: Eases = {
   // Cubic
   easeInCubic: [0.55, 0.055, 0.675, 0.19],
   easeOutCubic: [0.215, 0.61, 0.355, 1.0],
@@ -367,5 +367,5 @@ export const easeValues: TEases = {
   easeInOutBack: [0.68, -0.55, 0.265, 1.55],
 }
 
-export const ease = (easeName: TEaseName) =>
+export const ease = (easeName: EaseName) =>
   createCubicBezier(easeValues[easeName])

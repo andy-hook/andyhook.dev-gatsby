@@ -1,4 +1,4 @@
-export type TBreakpointName =
+export type BreakpointName =
   | "bottomThumb"
   | "topThumb"
   | "bottomPalm"
@@ -14,4 +14,4 @@ export type TBreakpointName =
   | "bottomUltra"
   | "topUltra"
 
-export type TBreakpoints = { [key in TBreakpointName]: string }
+export type Breakpoints = { [key in BreakpointName]: string }

@@ -1,4 +1,4 @@
-export type TEaseName =
+export type EaseName =
   | "easeInCubic"
   | "easeOutCubic"
   | "easeInOutCubic"
@@ -24,4 +24,4 @@ export type TEaseName =
   | "easeOutBack"
   | "easeInOutBack"
 
-export type TEases = { [key in TEaseName]: number[] }
+export type Eases = { [key in EaseName]: number[] }

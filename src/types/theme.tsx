@@ -1,4 +1,4 @@
-export type TGreyNames =
+export type GreyNames =
   | 100
   | 200
   | 300
@@ -10,12 +10,12 @@ export type TGreyNames =
   | 900
   | 1000
 
-export type TGreys = { [key in TGreyNames]: string }
+export type Greys = { [key in GreyNames]: string }
 
-export type TThemeName = "light" | "dark"
+export type ThemeName = "light" | "dark"
 
-export interface ITheme {
-  name: TThemeName
-  text: TGreys
-  tone: TGreys
+export interface Theme {
+  name: ThemeName
+  text: Greys
+  tone: Greys
 }

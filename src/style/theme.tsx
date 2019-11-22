@@ -1,4 +1,4 @@
-import { ITheme, TGreyNames, TThemeName } from "@custom-types/theme"
+import { Theme, GreyNames, ThemeName } from "@custom-types/theme"
 import { css, CSSProp } from "styled-components"
 import { createHsl, createHsla } from "@style/utils"
 
@@ -9,36 +9,36 @@ import {
   lightThemeToneHSL,
 } from "@style/variables"
 
-export const lightTheme: ITheme = {
+export const lightTheme: Theme = {
   name: "light",
   text: lightThemeTextHSL,
   tone: lightThemeToneHSL,
 }
 
-export const darkTheme: ITheme = {
+export const darkTheme: Theme = {
   name: "dark",
   text: darkThemeTextHSL,
   tone: darkThemeToneHSL,
 }
 
-export const themes: { [key: string]: ITheme } = {
+export const themes: { [key: string]: Theme } = {
   light: lightTheme,
   dark: darkTheme,
 }
 
-export const themeTone = (value: TGreyNames) => css`
+export const themeTone = (value: GreyNames) => css`
   ${props => createHsl(props.theme.tone[value])}
 `
 
-export const themeToneAlpha = (value: TGreyNames, alpha: number) => css`
+export const themeToneAlpha = (value: GreyNames, alpha: number) => css`
   ${props => createHsla(props.theme.tone[value], alpha)}
 `
 
-export const themeText = (value: TGreyNames) => css`
+export const themeText = (value: GreyNames) => css`
   ${props => createHsl(props.theme.text[value])}
 `
 
-export const themeTextAlpha = (value: TGreyNames, alpha: number) => css`
+export const themeTextAlpha = (value: GreyNames, alpha: number) => css`
   ${props => createHsla(props.theme.text[value], alpha)}
 `
 
@@ -51,7 +51,7 @@ export const isLightTheme = (output: string | CSSProp) => css`
 `
 
 export const isTheme = (
-  themeName: TThemeName,
+  themeName: ThemeName,
   validOutput: string | CSSProp,
   invalidOutput?: string | CSSProp
 ) => css`

@@ -2,13 +2,13 @@ import { generateMedia } from "styled-media-query"
 import { stripUnit, between } from "polished"
 import { breakpoints, baseFontSize, emBreakpoints } from "@style/variables"
 import { css, CSSProp } from "styled-components"
-import { TBreakpointName } from "@custom-types/breakpoints"
+import { BreakpointName } from "@custom-types/breakpoints"
 
 export const mq = generateMedia(emBreakpoints)
 
 export const uniformScale = (
   cssValue: string,
-  targetMediaQuery: TBreakpointName
+  targetMediaQuery: BreakpointName
 ): string => {
   // Split into value and unit
   const value = stripUnit(cssValue)
@@ -27,8 +27,8 @@ export const scaleBetween = (
   property: string,
   fromValue: string | CSSProp,
   toValue: string | CSSProp,
-  fromBreakpoint: TBreakpointName,
-  toBreakpoint: TBreakpointName
+  fromBreakpoint: BreakpointName,
+  toBreakpoint: BreakpointName
 ) =>
   css`
     ${mq.between(fromBreakpoint, toBreakpoint)`
@@ -44,7 +44,7 @@ export const scaleBetween = (
 export const scaleGreaterThan = (
   property: string,
   fromValue: string | CSSProp,
-  fromBreakpoint: TBreakpointName
+  fromBreakpoint: BreakpointName
 ) =>
   css`
     ${mq.greaterThan(fromBreakpoint)`
