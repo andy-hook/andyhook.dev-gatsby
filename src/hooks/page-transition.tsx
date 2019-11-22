@@ -11,7 +11,7 @@ import {
   TRANSITION_TYPE_NEXT_PROJECT_EXIT,
 } from "@constants"
 import { useInView } from "react-intersection-observer"
-import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
 type callback = () => void
 
@@ -46,7 +46,7 @@ export const runCallbacks = (
     onExitFromProject,
     onExit,
   }: CallbackProps,
-  internalTransitionState: ItransitionState
+  internalTransitionState: TransitionState
 ) => {
   const { transitionStatus, exit, entry } = internalTransitionState
   const entryType = entry.state.animType

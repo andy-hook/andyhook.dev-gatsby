@@ -7,7 +7,7 @@ export interface IAction<Type> {
   type: Type
 }
 
-export interface IStore {
+export interface Store {
   loaderVisible: boolean
   firstEntrance: boolean
   menuOpen: boolean
@@ -16,17 +16,17 @@ export interface IStore {
 
 export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
 
-export interface ISetTestStringAction
+export interface SetTestStringAction
   extends IPayloadedAction<"set-test-string", string> {}
 
-export interface ILoaderVisibleAction
+export interface LoaderVisibleAction
   extends IPayloadedAction<"loader-visible", boolean> {}
 
-export interface IFirstEntranceAction
+export interface FirstEntranceAction
   extends IPayloadedAction<"first-entrance", boolean> {}
 
-export interface IMenuOpenAction
+export interface MenuOpenAction
   extends IPayloadedAction<"menu-open", boolean> {}
 
-export interface ITopbarVisibleAction
+export interface TopbarVisibleAction
   extends IPayloadedAction<"topbar-visible", boolean> {}

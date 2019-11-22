@@ -1,28 +1,26 @@
 import { createAction, createPayloadedAction } from "./action-helpers"
 import {
   IFlushTokenAction,
-  ILoaderVisibleAction,
-  IFirstEntranceAction,
-  IMenuOpenAction,
-  ITopbarVisibleAction,
+  LoaderVisibleAction,
+  FirstEntranceAction,
+  MenuOpenAction,
+  TopbarVisibleAction,
 } from "@custom-types/store"
 
 export const flushTokenAction = createAction<IFlushTokenAction>(
   "auth/flush-token"
 )
 
-export const loaderVisibleAction = createPayloadedAction<ILoaderVisibleAction>(
+export const loaderVisibleAction = createPayloadedAction<LoaderVisibleAction>(
   "loader-visible"
 )
 
-export const firstEntranceAction = createPayloadedAction<IFirstEntranceAction>(
+export const firstEntranceAction = createPayloadedAction<FirstEntranceAction>(
   "first-entrance"
 )
 
-export const menuOpenAction = createPayloadedAction<IMenuOpenAction>(
-  "menu-open"
-)
+export const menuOpenAction = createPayloadedAction<MenuOpenAction>("menu-open")
 
-export const topbarVisibleAction = createPayloadedAction<ITopbarVisibleAction>(
+export const topbarVisibleAction = createPayloadedAction<TopbarVisibleAction>(
   "topbar-visible"
 )

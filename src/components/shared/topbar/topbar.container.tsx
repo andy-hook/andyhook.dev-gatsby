@@ -2,7 +2,7 @@ import React, { memo, useState } from "react"
 import Topbar from "./topbar"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
-import { IStore } from "@custom-types/store"
+import { Store } from "@custom-types/store"
 import { menuOpenAction, topbarVisibleAction } from "@store/actions"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
@@ -15,13 +15,13 @@ interface DispatchProps {
   closeMenu: () => void
   showTopbar: () => void
   hideTopbar: () => void
-  menuOpen: IStore["menuOpen"]
-  topbarVisible: IStore["topbarVisible"]
+  menuOpen: Store["menuOpen"]
+  topbarVisible: Store["topbarVisible"]
 }
 
 type ContainerProps = DispatchProps
 
-const mapStateToProps = ({ menuOpen, topbarVisible }: IStore) => {
+const mapStateToProps = ({ menuOpen, topbarVisible }: Store) => {
   return { menuOpen, topbarVisible }
 }
 

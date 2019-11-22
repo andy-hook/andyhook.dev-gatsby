@@ -1,6 +1,6 @@
 import { GatsbyLinkProps } from "gatsby-link"
 
-export type TtransitionType =
+export type TransitionType =
   | "enter"
   | "exit"
   | "firstEnter"
@@ -9,38 +9,38 @@ export type TtransitionType =
   | "nextProjectExit"
   | "nextProjectEnter"
 
-export type TtransitionStatus =
+export type TransitionStatus =
   | "entering"
   | "entered"
   | "exiting"
   | "exited"
   | "POP"
 
-interface ItransitionLinkProps {
+interface TransitionLinkProps {
   delay?: number
   length?: number
   state?: {
-    animType: TtransitionType
+    animType: TransitionType
   }
 }
 
-interface ItransitionStateProps {
+interface TransitionStateProps {
   delay: number
   length: number
   state: {
-    animType?: TtransitionType
+    animType?: TransitionType
   }
 }
 
-export interface ItransitionState {
-  transitionStatus: TtransitionStatus
-  current: ItransitionStateProps
-  entry: ItransitionStateProps
-  exit: ItransitionStateProps
+export interface TransitionState {
+  transitionStatus: TransitionStatus
+  current: TransitionStateProps
+  entry: TransitionStateProps
+  exit: TransitionStateProps
   mount: boolean
 }
 
-export interface ItransitionLink<TState> extends GatsbyLinkProps<TState> {
-  entry?: ItransitionLinkProps
-  exit?: ItransitionLinkProps
+export interface TransitionLink<State> extends GatsbyLinkProps<State> {
+  entry?: TransitionLinkProps
+  exit?: TransitionLinkProps
 }

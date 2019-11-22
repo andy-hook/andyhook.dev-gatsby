@@ -1,7 +1,7 @@
 import React, { memo, ReactNode, useEffect } from "react"
 import { menuOpenAction } from "@store/actions"
 import { Dispatch } from "redux"
-import { IStore } from "store"
+import { Store } from "store"
 import { connect } from "react-redux"
 
 interface Props {
@@ -12,13 +12,13 @@ interface DispatchProps {
   closeMenu: () => void
 }
 
-interface IStoreProps {
-  menuOpen: IStore["menuOpen"]
+interface StoreProps {
+  menuOpen: Store["menuOpen"]
 }
 
-type AllProps = Props & IStoreProps & DispatchProps
+type AllProps = Props & StoreProps & DispatchProps
 
-const mapStateToProps = ({ menuOpen }: IStore) => {
+const mapStateToProps = ({ menuOpen }: Store) => {
   return { menuOpen }
 }
 

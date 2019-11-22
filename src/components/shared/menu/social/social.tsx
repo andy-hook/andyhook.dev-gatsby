@@ -1,11 +1,11 @@
 import React, { memo } from "react"
-import { ISocialMeta } from "@custom-types/model"
+import { SocialMeta } from "@custom-types/model"
 import { keys } from "@custom-types/utils"
 import Icon from "@components/shared/icon/icon"
 import * as S from "./social.style"
 
 interface Props {
-  items: ISocialMeta
+  items: SocialMeta
 }
 
 const Social: React.FunctionComponent<Props> = memo(({ items }) => {

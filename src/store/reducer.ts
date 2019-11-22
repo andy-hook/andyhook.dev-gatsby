@@ -1,16 +1,16 @@
 import { combineReducers } from "redux"
 import {
-  IStore,
-  ILoaderVisibleAction,
-  IFirstEntranceAction,
-  IMenuOpenAction,
-  ITopbarVisibleAction,
+  Store,
+  LoaderVisibleAction,
+  FirstEntranceAction,
+  MenuOpenAction,
+  TopbarVisibleAction,
 } from "@custom-types/store"
 
 const loaderVisible = (
-  state: IStore["loaderVisible"] = false,
-  action: ILoaderVisibleAction
-): IStore["loaderVisible"] => {
+  state: Store["loaderVisible"] = false,
+  action: LoaderVisibleAction
+): Store["loaderVisible"] => {
   switch (action.type) {
     case "loader-visible":
       return action.payload
@@ -20,9 +20,9 @@ const loaderVisible = (
 }
 
 const firstEntrance = (
-  state: IStore["firstEntrance"] = true,
-  action: IFirstEntranceAction
-): IStore["firstEntrance"] => {
+  state: Store["firstEntrance"] = true,
+  action: FirstEntranceAction
+): Store["firstEntrance"] => {
   switch (action.type) {
     case "first-entrance":
       return action.payload
@@ -32,9 +32,9 @@ const firstEntrance = (
 }
 
 const menuOpen = (
-  state: IStore["menuOpen"] = false,
-  action: IMenuOpenAction
-): IStore["menuOpen"] => {
+  state: Store["menuOpen"] = false,
+  action: MenuOpenAction
+): Store["menuOpen"] => {
   switch (action.type) {
     case "menu-open":
       return action.payload
@@ -44,9 +44,9 @@ const menuOpen = (
 }
 
 const topbarVisible = (
-  state: IStore["topbarVisible"] = true,
-  action: ITopbarVisibleAction
-): IStore["topbarVisible"] => {
+  state: Store["topbarVisible"] = true,
+  action: TopbarVisibleAction
+): Store["topbarVisible"] => {
   switch (action.type) {
     case "topbar-visible":
       return action.payload
@@ -55,7 +55,7 @@ const topbarVisible = (
   }
 }
 
-const rootReducer = combineReducers<IStore>({
+const rootReducer = combineReducers<Store>({
   loaderVisible,
   firstEntrance,
   menuOpen,

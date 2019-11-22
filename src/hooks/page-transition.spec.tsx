@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import usePageTransition from "@hooks/page-transition"
 import { render } from "@testing-library/react"
 import { mocked } from "ts-jest/utils"
-import { TtransitionType } from "@custom-types/gatsby-plugin-transition-link"
+import { TransitionType } from "@custom-types/gatsby-plugin-transition-link"
 import {
   TRANSITION_TYPE_ENTER,
   TRANSITION_STATUS_ENTERING,
@@ -19,7 +19,7 @@ jest.mock("gatsby-plugin-transition-link/hooks")
 
 const mockedUseTransitionState = mocked(useTransitionState)
 
-const createStateMock = (animType?: TtransitionType) => {
+const createStateMock = (animType?: TransitionType) => {
   return {
     current: {
       delay: 0,

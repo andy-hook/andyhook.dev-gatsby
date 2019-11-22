@@ -1,5 +1,5 @@
 import React from "react"
-import { IProjectItem } from "@custom-types/model"
+import { ProjectItem } from "@custom-types/model"
 import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
 import { Ref } from "@custom-types/ref"
 // import { TweenMax } from "gsap"
@@ -8,7 +8,7 @@ import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.contain
 import usePageTransition from "@hooks/page-transition"
 
 interface Props {
-  project: IProjectItem
+  project: ProjectItem
 }
 
 const Header: React.FunctionComponent<Props> = ({ project }) => {

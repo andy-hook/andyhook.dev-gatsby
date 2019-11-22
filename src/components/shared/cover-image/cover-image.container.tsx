@@ -1,10 +1,10 @@
 import React from "react"
-import { IProjectItem } from "@custom-types/model"
+import { ProjectItem } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
 import CoverImage from "./cover-image"
 
 interface Props {
-  imagePath: IProjectItem["images"]
+  imagePath: ProjectItem["images"]
 }
 
 const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {

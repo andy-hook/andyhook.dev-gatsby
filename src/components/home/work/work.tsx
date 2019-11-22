@@ -1,5 +1,5 @@
 import React, { memo } from "react"
-import { IProjectItem, TProjects } from "@custom-types/model"
+import { ProjectItem, Projects } from "@custom-types/model"
 import { keys } from "@custom-types/utils"
 import Card from "./card/card"
 import Gutter from "@components/shared/gutter/gutter"
@@ -8,11 +8,11 @@ import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.contain
 import * as S from "./work.style"
 
 interface Props {
-  projectsData: TProjects
+  projectsData: Projects
 }
 
 const Work: React.FunctionComponent<Props> = memo(({ projectsData }) => {
-  const renderArray: IProjectItem[] = []
+  const renderArray: ProjectItem[] = []
 
   keys(projectsData).map(item => {
     renderArray.push(projectsData[item])

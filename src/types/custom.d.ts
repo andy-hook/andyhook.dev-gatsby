@@ -9,21 +9,21 @@ declare module "*.svg" {
 declare module "gatsby-plugin-transition-link" {
   import React from "react"
   import {
-    ItransitionLink,
-    ItransitionState,
+    TransitionLink,
+    TransitionState,
   } from "@custom-types/gatsby-plugin-transition-link"
 
-  export const TransitionState: ItransitionState
+  export const TransitionState: TransitionState
   export const TransitionPortal: any
 
-  export default class Link<TState> extends React.Component<
-    ItransitionLink<TState>,
+  export default class Link<State> extends React.Component<
+    TransitionLink<State>,
     any
   > {}
 }
 
 declare module "gatsby-plugin-transition-link/hooks" {
-  import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+  import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
 
-  export const useTransitionState: () => ItransitionState
+  export const useTransitionState: () => TransitionState
 }

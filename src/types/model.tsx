@@ -1,73 +1,73 @@
 import { TIcons } from "@custom-types/icons"
 
-export interface ISocialMetaItem {
+export interface SocialMetaItem {
   label: string
   url: string
   icon: TIcons
 }
 
-export interface ISocialMeta {
-  email: ISocialMetaItem
-  dribbble: ISocialMetaItem
-  twitter: ISocialMetaItem
-  instagram: ISocialMetaItem
-  linkedin: ISocialMetaItem
-  github: ISocialMetaItem
+export interface SocialMeta {
+  email: SocialMetaItem
+  dribbble: SocialMetaItem
+  twitter: SocialMetaItem
+  instagram: SocialMetaItem
+  linkedin: SocialMetaItem
+  github: SocialMetaItem
 }
 
-export interface ISocialMetaData {
+export interface SocialMetaData {
   siteMetadata: {
-    social: ISocialMeta
+    social: SocialMeta
   }
 }
 
-export interface IMeta {
+export interface Meta {
   title: string
   description: string
   author: string
   email: string
   defaultTwitterImage: string
   defaultOgImage: string
-  social: ISocialMeta
+  social: SocialMeta
 }
 
-export interface IMetaData {
-  siteMetadata: IMeta
+export interface MetaData {
+  siteMetadata: Meta
 }
 
-export interface IProjectContentsItem {
+export interface ProjectContentsItem {
   label: string
   key: string
 }
 
-export type TProjectContents = IProjectContentsItem[]
+export type ProjectContents = ProjectContentsItem[]
 
-export interface IProjectDetails {
+export interface ProjectDetails {
   role: string
   location: string
   date: string
 }
 
-export interface IProjectItem {
+export interface ProjectItem {
   label: string
   desc: string
   images: string
   path: string
-  details: IProjectDetails
-  contents: TProjectContents
+  details: ProjectDetails
+  contents: ProjectContents
 }
 
-export type TProjectNames =
+export type ProjectNames =
   | "bright"
   | "brandwatch"
   | "monster"
   | "jamieson"
   | "sketchbook"
 
-export type TProjects = { [key in TProjectNames]: IProjectItem }
+export type Projects = { [key in ProjectNames]: ProjectItem }
 
-export interface IProjectsData {
+export interface ProjectsData {
   siteMetadata: {
-    projects: TProjects
+    projects: Projects
   }
 }

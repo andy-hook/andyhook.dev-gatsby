@@ -1,22 +1,22 @@
 import React, { memo } from "react"
 import Hero from "./hero"
-import { IMetaData } from "@custom-types/model"
-import { IStore } from "@custom-types/store"
+import { MetaData } from "@custom-types/model"
+import { Store } from "@custom-types/store"
 import { connect } from "react-redux"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Data {
-  socialIconData: IMetaData
+  socialIconData: MetaData
 }
 
-interface IStoreProps {
-  firstEntrance: IStore["firstEntrance"]
-  loaderVisible: IStore["loaderVisible"]
+interface StoreProps {
+  firstEntrance: Store["firstEntrance"]
+  loaderVisible: Store["loaderVisible"]
 }
 
-type AllProps = IStoreProps
+type AllProps = StoreProps
 
-const mapStateToProps = ({ loaderVisible, firstEntrance }: IStore) => {
+const mapStateToProps = ({ loaderVisible, firstEntrance }: Store) => {
   return { loaderVisible, firstEntrance }
 }
 

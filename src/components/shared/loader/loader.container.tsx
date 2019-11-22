@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react"
 import { connect } from "react-redux"
 import { Dispatch } from "redux"
-import { IStore } from "@custom-types/store"
+import { Store } from "@custom-types/store"
 
 import Loader from "./loader"
 import { loaderVisibleAction, firstEntranceAction } from "@store/actions"
@@ -11,9 +11,9 @@ interface DispatchProps {
   hasEnteredSite: () => void
 }
 
-type AllProps = Partial<IStore> & DispatchProps
+type AllProps = Partial<Store> & DispatchProps
 
-const mapStateToProps = ({ loaderVisible }: IStore) => {
+const mapStateToProps = ({ loaderVisible }: Store) => {
   return { loaderVisible }
 }
 

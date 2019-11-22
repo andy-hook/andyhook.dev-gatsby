@@ -1,30 +1,30 @@
 import React, { memo } from "react"
 import Menu from "./menu"
 import { connect } from "react-redux"
-import { IStore } from "@custom-types/store"
+import { Store } from "@custom-types/store"
 import { useStaticQuery, graphql } from "gatsby"
-import { IMetaData, IProjectsData } from "model"
+import { MetaData, ProjectsData } from "model"
 import { themes } from "@style/theme"
 import { ThemeProvider } from "styled-components"
 import { Dispatch } from "redux"
 import { menuOpenAction } from "@store/actions"
 
 interface Data {
-  socialData: IMetaData
-  projectsData: IProjectsData
+  socialData: MetaData
+  projectsData: ProjectsData
 }
 
 interface DispatchProps {
   closeMenu: () => void
 }
 
-interface IStoreProps {
-  menuOpen: IStore["menuOpen"]
+interface StoreProps {
+  menuOpen: Store["menuOpen"]
 }
 
-type AllProps = IStoreProps & DispatchProps
+type AllProps = StoreProps & DispatchProps
 
-const mapStateToProps = ({ menuOpen }: IStore) => {
+const mapStateToProps = ({ menuOpen }: Store) => {
   return { menuOpen }
 }
 

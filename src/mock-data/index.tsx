@@ -1,7 +1,7 @@
-import { ISocialMeta, TProjects } from "@custom-types/model"
+import { SocialMeta, Projects } from "@custom-types/model"
 import { FluidObject } from "gatsby-image"
 
-export const mockSocialIcons: ISocialMeta = {
+export const mockSocialIcons: SocialMeta = {
   email: {
     label: "Email",
     url: "email address",
@@ -34,7 +34,7 @@ export const mockSocialIcons: ISocialMeta = {
   },
 }
 
-export const mockProjectsData: TProjects = {
+export const mockProjectsData: Projects = {
   bright: {
     label: "Bright",
     desc: "Bright description",

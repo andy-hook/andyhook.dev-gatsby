@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import { Ref } from "@custom-types/ref"
-import { ISocialMeta, TProjects } from "model"
+import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import ProjectListComponent from "./project-list/project-list"
@@ -15,8 +15,8 @@ interface Props {
 }
 
 interface DataProps {
-  social: ISocialMeta
-  projects: TProjects
+  social: SocialMeta
+  projects: Projects
 }
 
 type AllProps = Props & DataProps

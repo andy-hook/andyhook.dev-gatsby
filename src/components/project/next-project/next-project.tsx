@@ -1,5 +1,5 @@
 import React from "react"
-import { IProjectItem } from "@custom-types/model"
+import { ProjectItem } from "@custom-types/model"
 import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import { useInView } from "react-intersection-observer"
@@ -10,7 +10,7 @@ import {
 } from "@constants"
 
 interface Props {
-  nextProjectItem: IProjectItem
+  nextProjectItem: ProjectItem
 }
 
 const projectChangeDuration = 1.3

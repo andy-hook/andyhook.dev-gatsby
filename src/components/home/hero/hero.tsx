@@ -2,7 +2,7 @@ import React, { useEffect, memo } from "react"
 import Details from "./details/details"
 import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
-import { ISocialMeta } from "model"
+import { SocialMeta } from "model"
 import { TweenMax, Elastic } from "gsap"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./hero.style"
@@ -12,7 +12,7 @@ import usePageTransition from "@hooks/page-transition"
 interface Props {
   loaderVisible: boolean
   firstEntrance: boolean
-  socialIconData: ISocialMeta
+  socialIconData: SocialMeta
 }
 
 const Hero: React.FunctionComponent<Props> = memo(

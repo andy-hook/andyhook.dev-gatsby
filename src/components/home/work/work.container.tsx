@@ -1,10 +1,10 @@
 import React, { memo } from "react"
 import Work from "./work"
-import { IProjectsData } from "@custom-types/model"
+import { ProjectsData } from "@custom-types/model"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Data {
-  projectsData: IProjectsData
+  projectsData: ProjectsData
 }
 
 const WorkContainer: React.FunctionComponent = memo(() => {

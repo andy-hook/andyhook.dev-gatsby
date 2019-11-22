@@ -1,8 +1,8 @@
 import React, { ReactNode, memo } from "react"
 import Project from "./project"
-import { IProjectsData, TProjectNames } from "@custom-types/model"
+import { ProjectsData, ProjectNames } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
-import { IStore } from "store"
+import { Store } from "store"
 import { connect } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
@@ -10,24 +10,24 @@ import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import PageContainer from "@components/shared/page/page.container"
 
 interface Data {
-  projectsData: IProjectsData
+  projectsData: ProjectsData
 }
 
 interface Props {
-  projectName: TProjectNames
+  projectName: ProjectNames
   children: ReactNode
 }
 
-interface IStoreProps {
-  firstEntrance: IStore["firstEntrance"]
-  loaderVisible: IStore["loaderVisible"]
+interface StoreProps {
+  firstEntrance: Store["firstEntrance"]
+  loaderVisible: Store["loaderVisible"]
 }
 
-const mapStateToProps = ({ firstEntrance, loaderVisible }: IStore) => {
+const mapStateToProps = ({ firstEntrance, loaderVisible }: Store) => {
   return { firstEntrance, loaderVisible }
 }
 
-type AllProps = Props & IStoreProps
+type AllProps = Props & StoreProps
 
 const ProjectContainer: React.FunctionComponent<AllProps> = memo(
   ({ children, projectName, firstEntrance, loaderVisible }) => {

@@ -1,18 +1,18 @@
 import React, { useEffect, memo } from "react"
 import Header from "@components/project/header/header"
 import NextProject from "@components/project/next-project/next-project"
-import { TProjects, TProjectNames } from "@custom-types/model"
+import { Projects, ProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
-import { ItransitionState } from "@custom-types/gatsby-plugin-transition-link"
+import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
 import { Ref } from "@custom-types/ref"
 import { TweenMax } from "gsap"
 import * as S from "./project.style"
 import usePageTransition from "@hooks/page-transition"
 
 interface Props {
-  projectData: TProjects
-  projectName: TProjectNames
-  transitionState: ItransitionState
+  projectData: Projects
+  projectName: ProjectNames
+  transitionState: TransitionState
   canPerformIntro?: boolean
   introTrigger?: boolean
 }
