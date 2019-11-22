@@ -1,15 +1,10 @@
-import { createAction, createPayloadedAction } from "./action-helpers"
+import { createPayloadedAction } from "./action-helpers"
 import {
-  IFlushTokenAction,
   LoaderVisibleAction,
   FirstEntranceAction,
   MenuOpenAction,
   TopbarVisibleAction,
 } from "@custom-types/store"
-
-export const flushTokenAction = createAction<IFlushTokenAction>(
-  "auth/flush-token"
-)
 
 export const loaderVisibleAction = createPayloadedAction<LoaderVisibleAction>(
   "loader-visible"

@@ -1,21 +1,21 @@
-import { IPayloadedAction, IAction } from "@custom-types/store"
+import { PayloadedAction, Action } from "@custom-types/store"
 
 export function createPayloadedAction<
-  TAction extends IPayloadedAction<TAction["type"], TAction["payload"]>
+  ActionType extends PayloadedAction<ActionType["type"], ActionType["payload"]>
 >(
-  type: TAction["type"]
+  type: ActionType["type"]
 ): (
-  payload: TAction["payload"]
-) => IPayloadedAction<TAction["type"], TAction["payload"]> {
-  return (payload: TAction["payload"]) => ({
+  payload: ActionType["payload"]
+) => PayloadedAction<ActionType["type"], ActionType["payload"]> {
+  return (payload: ActionType["payload"]) => ({
     type,
     payload,
   })
 }
 
-export function createAction<TAction extends IAction<TAction["type"]>>(
-  type: TAction["type"]
-): () => IAction<TAction["type"]> {
+export function createAction<ActionType extends Action<ActionType["type"]>>(
+  type: ActionType["type"]
+): () => Action<ActionType["type"]> {
   return () => ({
     type,
   })

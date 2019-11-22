@@ -1,9 +1,9 @@
-export interface IPayloadedAction<Type, Payload> {
+export interface PayloadedAction<Type, Payload> {
   type: Type
   payload: Payload
 }
 
-export interface IAction<Type> {
+export interface Action<Type> {
   type: Type
 }
 
@@ -14,19 +14,13 @@ export interface Store {
   topbarVisible: boolean
 }
 
-export interface IFlushTokenAction extends IAction<"auth/flush-token"> {}
-
-export interface SetTestStringAction
-  extends IPayloadedAction<"set-test-string", string> {}
-
 export interface LoaderVisibleAction
-  extends IPayloadedAction<"loader-visible", boolean> {}
+  extends PayloadedAction<"loader-visible", boolean> {}
 
 export interface FirstEntranceAction
-  extends IPayloadedAction<"first-entrance", boolean> {}
+  extends PayloadedAction<"first-entrance", boolean> {}
 
-export interface MenuOpenAction
-  extends IPayloadedAction<"menu-open", boolean> {}
+export interface MenuOpenAction extends PayloadedAction<"menu-open", boolean> {}
 
 export interface TopbarVisibleAction
-  extends IPayloadedAction<"topbar-visible", boolean> {}
+  extends PayloadedAction<"topbar-visible", boolean> {}
