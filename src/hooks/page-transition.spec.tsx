@@ -11,9 +11,7 @@ jest.mock("gatsby-plugin-transition-link/hooks", () => ({
       current: {
         delay: 0,
         length: 0,
-        state: {
-          animType: TRANSITION_TYPE_ENTER,
-        },
+        state: {},
       },
       entry: {
         delay: 0,
@@ -33,33 +31,73 @@ jest.mock("gatsby-plugin-transition-link/hooks", () => ({
   },
 }))
 
-const TestComponent: React.FunctionComponent = () => {
-  const [shouldRender, setRender] = useState<boolean>(false)
+const inviewMessage = "In view"
+const outOfViewMessage = "Out of view"
+const onPopCalledMessage = "On pop called"
 
-  const test = () => {
-    setRender(true)
-  }
+const TestInViewComponent: React.FunctionComponent = () => {
+  const [inview, setInviewState] = useState(false)
+  const [outOfView, setOutOfViewState] = useState(false)
 
   const { inviewRef } = usePageTransition({
     runInview: {
-      onEnter: test,
+      onEnter: () => {
+        setInviewState(true)
+      },
+    },
+    runOutOfView: {
+      onEnter: () => {
+        setOutOfViewState(true)
+      },
     },
   })
 
-  const renderTestText = () => {
-    if (shouldRender) {
-      return "Hello world"
-    }
-  }
-
-  return <div ref={inviewRef}>{renderTestText()}</div>
+  return (
+    <div ref={inviewRef}>
+      {inview && inviewMessage}
+      {outOfView && outOfViewMessage}
+    </div>
+  )
 }
 
-test("should only execute callback after first render", () => {
-  const testMessage = "Hello world"
-  const { queryByText } = render(<TestComponent />)
+const TestOnPopComponent: React.FunctionComponent = () => {
+  const [onPopCalled, setOnPopCalled] = useState(false)
+
+  const { inviewRef } = usePageTransition({
+    runInview: {
+      onPop: () => {
+        setOnPopCalled(true)
+      },
+    },
+  })
+
+  return <div ref={inviewRef}>{onPopCalled && onPopCalledMessage}</div>
+}
+
+test("Should only run runInview callbacks when in view", () => {
+  const { queryByText } = render(<TestInViewComponent />)
 
   mockAllIsIntersecting(true)
 
-  expect(queryByText(testMessage)).toBeTruthy()
+  expect(queryByText(inviewMessage)).toBeTruthy()
+  expect(queryByText(outOfViewMessage)).toBeFalsy()
 })
+
+test("Should only run runOutOfView callbacks when not in view", () => {
+  const { queryByText } = render(<TestInViewComponent />)
+
+  mockAllIsIntersecting(false)
+
+  expect(queryByText(outOfViewMessage)).toBeTruthy()
+  expect(queryByText(inviewMessage)).toBeFalsy()
+})
+
+test("Should default to onPop in absence of any other entry type", () => {
+  const { queryByText } = render(<TestOnPopComponent />)
+
+  mockAllIsIntersecting(true)
+
+  expect(queryByText(onPopCalledMessage)).toBeTruthy()
+})
+
+test.todo("Should only run supplied callbacks")
