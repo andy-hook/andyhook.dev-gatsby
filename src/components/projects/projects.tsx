@@ -1,5 +1,4 @@
-import React, { memo } from "react"
-import { Ref } from "@custom-types/ref"
+import React, { memo, MutableRefObject } from "react"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import CommonPage from "@components/shared/common-page/common-page"
 import { TweenMax, Elastic } from "gsap"
@@ -11,7 +10,7 @@ import { PAGE_TRANSITION_DURATION } from "@constants"
 import usePageTransition from "@hooks/page-transition"
 
 const Projects: React.FunctionComponent = memo(() => {
-  const testDiv = React.useRef() as Ref
+  const testDiv = React.useRef() as MutableRefObject<HTMLDivElement>
 
   const animatePop = () => {
     TweenMax.fromTo(

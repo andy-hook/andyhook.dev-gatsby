@@ -1,11 +1,10 @@
-import React, { memo } from "react"
+import React, { memo, MutableRefObject } from "react"
 import Navicon from "./navicon/navicon"
 import Logo from "./logo/logo"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 import NavList from "./nav-list/nav-list"
 import SidebarSlide from "../sidebar-slide/sidebar-slide.container"
 import * as S from "./topbar.style"
-import { Ref } from "@custom-types/ref"
 
 interface Props {
   open: boolean
@@ -17,8 +16,8 @@ interface Props {
 
 const Topbar: React.FunctionComponent<Props> = memo(
   ({ open, openMenu, closeMenu, visible, hasScrolled }) => {
-    const overRef = React.useRef() as Ref
-    const underRef = React.useRef() as Ref
+    const overRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const underRef = React.useRef() as MutableRefObject<HTMLDivElement>
 
     const toggleMenu = () => {
       if (menuIsAnimating) {

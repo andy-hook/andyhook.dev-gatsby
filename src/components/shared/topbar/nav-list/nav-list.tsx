@@ -1,5 +1,4 @@
-import React, { memo, useState } from "react"
-import { Ref } from "@custom-types/ref"
+import React, { memo, useState, MutableRefObject } from "react"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
@@ -33,7 +32,7 @@ export const linkProps = {
 }
 
 const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
-  const navRef = React.useRef() as Ref
+  const navRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const { topPalm } = useMediaQueryContext()
   const [hiddenApplied, setHiddenApplied] = useState(false)
 

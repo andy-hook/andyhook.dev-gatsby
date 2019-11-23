@@ -1,7 +1,6 @@
-import React from "react"
+import React, { MutableRefObject } from "react"
 import { ProjectItem } from "@custom-types/model"
 import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
-import { Ref } from "@custom-types/ref"
 // import { TweenMax } from "gsap"
 import * as S from "./header.style"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const Header: React.FunctionComponent<Props> = ({ project }) => {
-  const backgroundRef = React.useRef() as Ref
+  const backgroundRef = React.useRef() as MutableRefObject<HTMLElement>
 
   const animatePop = () => {
     // TweenMax.set(backgroundRef.current, {

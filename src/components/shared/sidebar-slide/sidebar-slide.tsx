@@ -1,9 +1,14 @@
-import React, { memo, ReactNode, useState, useEffect } from "react"
+import React, {
+  memo,
+  ReactNode,
+  useState,
+  useEffect,
+  MutableRefObject,
+} from "react"
 import { sidebarWidth } from "@components/shared/menu/menu.style"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { TweenMax, Expo } from "gsap"
-import { Ref } from "@custom-types/ref"
 import { useInView } from "react-intersection-observer"
 import * as S from "./sidebar-slide.style"
 
@@ -22,7 +27,7 @@ const SidebarSlide: React.FunctionComponent<Props> = memo(
       topWide,
       topWall,
     } = useMediaQueryContext()
-    const animationRef = React.useRef() as Ref
+    const animationRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const [openPosition, setOpenPosition] = useState(open)
     const [openOnInitialRender, setOpenOnInitialRender] = useState(open)
     const [inviewRef, inView, entry] = useInView()

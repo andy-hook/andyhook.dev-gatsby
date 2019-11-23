@@ -1,8 +1,6 @@
-import React, { useEffect, memo } from "react"
+import React, { useEffect, memo, MutableRefObject } from "react"
 import Details from "./details/details"
-import { Ref } from "@custom-types/ref"
 import Gutter from "@components/shared/gutter/gutter"
-import { SocialMeta } from "model"
 import { TweenMax, Elastic } from "gsap"
 import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./hero.style"
@@ -12,13 +10,13 @@ import usePageTransition from "@hooks/page-transition"
 interface Props {
   loaderVisible: boolean
   firstEntrance: boolean
-  socialIconData: SocialMeta
+  buttonHref: string
 }
 
 const Hero: React.FunctionComponent<Props> = memo(
-  ({ socialIconData, loaderVisible, firstEntrance }) => {
-    const detailsRef = React.useRef() as Ref
-    const backgroundRef = React.useRef() as Ref
+  ({ buttonHref, loaderVisible, firstEntrance }) => {
+    const detailsRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const backgroundRef = React.useRef() as MutableRefObject<HTMLDivElement>
 
     const animatePop = () => {
       TweenMax.fromTo(
@@ -126,7 +124,7 @@ const Hero: React.FunctionComponent<Props> = memo(
         <S.Container ref={inviewRef}>
           <S.DetailsPos ref={detailsRef}>
             <Gutter>
-              <Details buttonHref={socialIconData.dribbble.url} />
+              <Details buttonHref={buttonHref} />
             </Gutter>
           </S.DetailsPos>
 

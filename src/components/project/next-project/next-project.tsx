@@ -1,6 +1,5 @@
-import React from "react"
+import React, { MutableRefObject } from "react"
 import { ProjectItem } from "@custom-types/model"
-import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import { useInView } from "react-intersection-observer"
 import * as S from "./next-project.style"
@@ -32,11 +31,11 @@ export const linkProps = {
 }
 
 const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
-  const slideRef = React.useRef() as Ref
-  const slideInnerRef = React.useRef() as Ref
-  const slideOverRef = React.useRef() as Ref
-  const slideContainerRef = React.useRef() as Ref
-  const containerRef = React.useRef() as Ref
+  const slideRef = React.useRef() as MutableRefObject<HTMLDivElement>
+  const slideInnerRef = React.useRef() as MutableRefObject<HTMLDivElement>
+  const slideOverRef = React.useRef() as MutableRefObject<HTMLDivElement>
+  const slideContainerRef = React.useRef() as MutableRefObject<HTMLDivElement>
+  const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const [inviewRef] = useInView()
 
   const setSlideDimensions = () => {

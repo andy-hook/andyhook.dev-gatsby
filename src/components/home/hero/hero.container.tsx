@@ -27,32 +27,7 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
         socialIconData: site {
           siteMetadata {
             social {
-              email {
-                url
-                label
-                icon
-              }
-              twitter {
-                url
-                label
-                icon
-              }
-              instagram {
-                url
-                label
-                icon
-              }
               dribbble {
-                url
-                label
-                icon
-              }
-              github {
-                url
-                label
-                icon
-              }
-              linkedin {
                 url
                 label
                 icon
@@ -63,9 +38,11 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
       }
     `)
 
+    const href = data.socialIconData.siteMetadata.social.dribbble.url
+
     return (
       <Hero
-        socialIconData={data.socialIconData.siteMetadata.social}
+        buttonHref={href}
         loaderVisible={loaderVisible}
         firstEntrance={firstEntrance}
       />

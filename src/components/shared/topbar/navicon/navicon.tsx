@@ -1,6 +1,5 @@
-import React, { memo } from "react"
+import React, { memo, MutableRefObject } from "react"
 import classNames from "classnames"
-import { Ref } from "@custom-types/ref"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import * as S from "./navicon.style"
@@ -13,8 +12,8 @@ export interface Props {
 
 const Navicon: React.FunctionComponent<Props> = memo(
   ({ onClick, open, className }) => {
-    const topBar = React.useRef() as Ref
-    const bottomBar = React.useRef() as Ref
+    const topBar = React.useRef() as MutableRefObject<SVGRectElement>
+    const bottomBar = React.useRef() as MutableRefObject<SVGRectElement>
 
     const animateOpen = () => {
       TweenMax.set(topBar.current, { transformOrigin: "center center" })

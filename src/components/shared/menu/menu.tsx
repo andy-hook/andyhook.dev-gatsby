@@ -1,5 +1,4 @@
-import React, { memo } from "react"
-import { Ref } from "@custom-types/ref"
+import React, { memo, MutableRefObject } from "react"
 import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -26,10 +25,10 @@ let routeTransition = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, onScrimClick }) => {
-    const backboardRef = React.useRef() as Ref
-    const contentsRef = React.useRef() as Ref
-    const containerRef = React.useRef() as Ref
-    const animationScrim = React.useRef() as Ref
+    const backboardRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const contentsRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
     const { topPalm } = useMediaQueryContext()
 
     const closeMenu = () => {

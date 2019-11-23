@@ -1,5 +1,4 @@
-import React, { memo } from "react"
-import { Ref } from "@custom-types/ref"
+import React, { memo, MutableRefObject } from "react"
 import { Expo, TweenMax } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
-  const logoRef = React.useRef() as Ref
+  const logoRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const { topPalm } = useMediaQueryContext()
 
   const animateHide = () => {
