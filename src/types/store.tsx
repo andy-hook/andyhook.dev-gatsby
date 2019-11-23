@@ -12,6 +12,7 @@ export interface Store {
   firstEntrance: boolean
   menuOpen: boolean
   topbarVisible: boolean
+  lockTopbar: boolean
 }
 
 export interface LoaderVisibleAction
@@ -24,3 +25,6 @@ export interface MenuOpenAction extends PayloadedAction<"menu-open", boolean> {}
 
 export interface TopbarVisibleAction
   extends PayloadedAction<"topbar-visible", boolean> {}
+
+export interface LockTopbarAction
+  extends PayloadedAction<"lock-topbar", boolean> {}

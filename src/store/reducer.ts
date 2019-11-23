@@ -5,6 +5,7 @@ import {
   FirstEntranceAction,
   MenuOpenAction,
   TopbarVisibleAction,
+  LockTopbarAction,
 } from "@custom-types/store"
 
 const loaderVisible = (
@@ -55,11 +56,24 @@ const topbarVisible = (
   }
 }
 
+const lockTopbar = (
+  state: Store["topbarVisible"] = false,
+  action: LockTopbarAction
+): Store["lockTopbar"] => {
+  switch (action.type) {
+    case "lock-topbar":
+      return action.payload
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers<Store>({
   loaderVisible,
   firstEntrance,
   menuOpen,
   topbarVisible,
+  lockTopbar,
 })
 
 export default rootReducer

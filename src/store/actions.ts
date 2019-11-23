@@ -4,6 +4,7 @@ import {
   FirstEntranceAction,
   MenuOpenAction,
   TopbarVisibleAction,
+  LockTopbarAction,
 } from "@custom-types/store"
 
 export const loaderVisibleAction = createPayloadedAction<LoaderVisibleAction>(
@@ -18,4 +19,8 @@ export const menuOpenAction = createPayloadedAction<MenuOpenAction>("menu-open")
 
 export const topbarVisibleAction = createPayloadedAction<TopbarVisibleAction>(
   "topbar-visible"
+)
+
+export const lockTopbarAction = createPayloadedAction<LockTopbarAction>(
+  "lock-topbar"
 )

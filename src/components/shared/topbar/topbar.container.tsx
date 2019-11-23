@@ -17,12 +17,13 @@ interface DispatchProps {
   hideTopbar: () => void
   menuOpen: Store["menuOpen"]
   topbarVisible: Store["topbarVisible"]
+  lockTopbar: Store["lockTopbar"]
 }
 
 type ContainerProps = DispatchProps
 
-const mapStateToProps = ({ menuOpen, topbarVisible }: Store) => {
-  return { menuOpen, topbarVisible }
+const mapStateToProps = ({ menuOpen, topbarVisible, lockTopbar }: Store) => {
+  return { menuOpen, topbarVisible, lockTopbar }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -50,6 +51,7 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
     topbarVisible,
     showTopbar,
     hideTopbar,
+    lockTopbar,
   }) => {
     const [offsetHolderInviewRef, inView] = useInView()
     const [hasScrolled, setHasScrolled] = useState(false)
@@ -64,10 +66,12 @@ const TopbarContainer: React.FunctionComponent<ContainerProps> = memo(
         setHasScrolled(false)
       }
 
-      if (canHideTopbar && topbarVisible && !menuOpen && !inView) {
-        hideTopbar()
-      } else if (canShowTopbar && !topbarVisible && !menuOpen) {
-        showTopbar()
+      if (!lockTopbar) {
+        if (canHideTopbar && topbarVisible && !menuOpen && !inView) {
+          hideTopbar()
+        } else if (canShowTopbar && !topbarVisible && !menuOpen) {
+          showTopbar()
+        }
       }
     })
 

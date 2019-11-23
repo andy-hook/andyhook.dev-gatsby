@@ -1,6 +1,6 @@
 import React, { useEffect, memo, MutableRefObject } from "react"
 import Header from "@components/project/header/header"
-import NextProject from "@components/project/next-project/next-project"
+import NextProjectContainer from "@components/project/next-project/next-project.container"
 import { Projects, ProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
@@ -80,7 +80,7 @@ const Project: React.FunctionComponent<Props> = memo(
         <S.Container ref={contentRef}>
           <Header project={getCurrentProjectData(projectData, projectName)} />
           <S.MainSection>{children}</S.MainSection>
-          <NextProject
+          <NextProjectContainer
             nextProjectItem={getNextProjectData(projectData, projectName)}
           />
         </S.Container>

@@ -10,6 +10,7 @@ import {
 
 interface Props {
   nextProjectItem: ProjectItem
+  onProjectChange: () => void
 }
 
 const projectChangeDuration = 1.3
@@ -30,7 +31,10 @@ export const linkProps = {
   },
 }
 
-const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
+const NextProject: React.FunctionComponent<Props> = ({
+  nextProjectItem,
+  onProjectChange,
+}) => {
   const slideRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const slideInnerRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const slideOverRef = React.useRef() as MutableRefObject<HTMLDivElement>
@@ -47,6 +51,7 @@ const NextProject: React.FunctionComponent<Props> = ({ nextProjectItem }) => {
   }
 
   const animateProjectChange = () => {
+    onProjectChange()
     setSlideDimensions()
 
     TweenMax.set(slideContainerRef.current, {

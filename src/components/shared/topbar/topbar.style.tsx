@@ -124,7 +124,7 @@ export const ContainerInner = styled.div<StyleProps>`
     ${props =>
       props.open &&
       css`
-        /* opacity: 0; */
+        opacity: 0;
       `}
   }
 
