@@ -1,4 +1,4 @@
-import React, { memo, MutableRefObject } from "react"
+import React, { memo, MutableRefObject, useState } from "react"
 import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -7,6 +7,8 @@ import { useMediaQueryContext } from "../media-query-provider/media-query-provid
 import * as S from "./menu.style"
 import Social from "./social/social"
 import MenuNavList from "./menu-nav-list/menu-nav-list"
+import ImagesOverlay from "./images-overlay/images-overlay"
+import SidebarSlide from "../sidebar-slide/sidebar-slide.container"
 
 interface Props {
   open: boolean
@@ -29,6 +31,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const contentsRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
+    const [activeImageIndex, setActiveImageIndex] = useState()
     const { topPalm } = useMediaQueryContext()
 
     const onScrimClick = () => {
@@ -60,7 +63,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       // Scrim
       TweenMax.to(animationScrim.current, 0.25, {
-        opacity: 0.75,
+        opacity: 0.25,
       })
     }
 
@@ -168,6 +171,10 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       animateRouteClose()
     }
 
+    const onHover = (index: number) => {
+      setActiveImageIndex(index)
+    }
+
     return (
       <S.Fixer ref={containerRef}>
         <S.Container>
@@ -178,6 +185,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
                   <ProjectListComponent
                     projectDataList={projects}
                     onClick={handleNavClick}
+                    onHover={onHover}
                   />
 
                   <MenuNavList onClick={handleNavClick} />
@@ -194,6 +202,13 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         </S.Container>
 
         <S.AnimationScrim ref={animationScrim} onClick={onScrimClick} />
+
+        <SidebarSlide>
+          <ImagesOverlay
+            projectDataList={projects}
+            activeIndex={activeImageIndex}
+          />
+        </SidebarSlide>
       </S.Fixer>
     )
   }

@@ -78,23 +78,27 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
               bright {
                 label
                 path
+                images
               }
               brandwatch {
                 label
                 path
+                images
               }
               monster {
                 label
                 path
+                images
               }
               jamieson {
                 label
-
                 path
+                images
               }
               sketchbook {
                 label
                 path
+                images
               }
             }
           }
