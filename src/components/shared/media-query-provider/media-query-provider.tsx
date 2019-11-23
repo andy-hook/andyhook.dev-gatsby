@@ -2,10 +2,6 @@ import React, { createContext, useContext, useMemo } from "react"
 import useMedia from "use-media"
 import { matchMediaStrings } from "@style/variables"
 
-interface Props {
-  children: React.ReactNode
-}
-
 interface ContextProps {
   bottomThumb: boolean
   topThumb: boolean
@@ -25,7 +21,7 @@ interface ContextProps {
 
 export const MediaQueryContext = createContext<Partial<ContextProps>>({})
 
-export default function MediaQueryProvider({ children }: Props) {
+const MediaQueryProvider: React.FunctionComponent = ({ children }) => {
   const bottomThumb = useMedia(matchMediaStrings.bottomThumb)
   const topThumb = useMedia(matchMediaStrings.topThumb)
   const bottomPalm = useMedia(matchMediaStrings.bottomPalm)
@@ -82,6 +78,8 @@ export default function MediaQueryProvider({ children }: Props) {
     </MediaQueryContext.Provider>
   )
 }
+
+export default MediaQueryProvider
 
 export function useMediaQueryContext() {
   return useContext(MediaQueryContext)

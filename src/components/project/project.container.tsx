@@ -1,4 +1,4 @@
-import React, { ReactNode, memo } from "react"
+import React, { memo, PropsWithChildren } from "react"
 import Project from "./project"
 import { ProjectsData, ProjectNames } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
@@ -15,7 +15,6 @@ interface Data {
 
 interface Props {
   projectName: ProjectNames
-  children: ReactNode
 }
 
 interface StoreProps {
@@ -29,113 +28,113 @@ const mapStateToProps = ({ firstEntrance, loaderVisible }: Store) => {
 
 type AllProps = Props & StoreProps
 
-const ProjectContainer: React.FunctionComponent<AllProps> = memo(
-  ({ children, projectName, firstEntrance, loaderVisible }) => {
-    const transitionState = useTransitionState()
+const ProjectContainer: React.FunctionComponent<
+  PropsWithChildren<AllProps>
+> = memo(({ children, projectName, firstEntrance, loaderVisible }) => {
+  const transitionState = useTransitionState()
 
-    const data: Data = useStaticQuery(graphql`
-      query {
-        projectsData: site {
-          siteMetadata {
-            projects {
-              bright {
-                label
-                desc
-                path
-                images
-                details {
-                  role
-                  location
-                  date
-                }
-                contents {
-                  label
-                  key
-                }
+  const data: Data = useStaticQuery(graphql`
+    query {
+      projectsData: site {
+        siteMetadata {
+          projects {
+            bright {
+              label
+              desc
+              path
+              images
+              details {
+                role
+                location
+                date
               }
-              brandwatch {
+              contents {
                 label
-                desc
-                path
-                images
-                details {
-                  role
-                  location
-                  date
-                }
-                contents {
-                  label
-                  key
-                }
+                key
               }
-              monster {
-                label
-                desc
-                path
-                images
-                details {
-                  role
-                  location
-                  date
-                }
-                contents {
-                  label
-                  key
-                }
+            }
+            brandwatch {
+              label
+              desc
+              path
+              images
+              details {
+                role
+                location
+                date
               }
-              jamieson {
+              contents {
                 label
-                desc
-                path
-                images
-                details {
-                  role
-                  location
-                  date
-                }
-                contents {
-                  label
-                  key
-                }
+                key
               }
-              sketchbook {
+            }
+            monster {
+              label
+              desc
+              path
+              images
+              details {
+                role
+                location
+                date
+              }
+              contents {
                 label
-                desc
-                path
-                images
-                details {
-                  role
-                  location
-                  date
-                }
-                contents {
-                  label
-                  key
-                }
+                key
+              }
+            }
+            jamieson {
+              label
+              desc
+              path
+              images
+              details {
+                role
+                location
+                date
+              }
+              contents {
+                label
+                key
+              }
+            }
+            sketchbook {
+              label
+              desc
+              path
+              images
+              details {
+                role
+                location
+                date
+              }
+              contents {
+                label
+                key
               }
             }
           }
         }
       }
-    `)
+    }
+  `)
 
-    return (
-      <PageContainer>
-        <ThemeProvider theme={themes.dark}>
-          <Project
-            projectName={projectName}
-            projectData={data.projectsData.siteMetadata.projects}
-            transitionState={transitionState}
-            canPerformIntro={firstEntrance}
-            introTrigger={!loaderVisible}
-          >
-            {children}
-          </Project>
-        </ThemeProvider>
-      </PageContainer>
-    )
-  }
-)
+  return (
+    <PageContainer>
+      <ThemeProvider theme={themes.dark}>
+        <Project
+          projectName={projectName}
+          projectData={data.projectsData.siteMetadata.projects}
+          transitionState={transitionState}
+          canPerformIntro={firstEntrance}
+          introTrigger={!loaderVisible}
+        >
+          {children}
+        </Project>
+      </ThemeProvider>
+    </PageContainer>
+  )
+})
 
 const ConnectedProjectContainer = connect(mapStateToProps)(ProjectContainer)
 

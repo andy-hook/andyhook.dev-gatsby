@@ -1,10 +1,4 @@
-import React, {
-  memo,
-  ReactNode,
-  useState,
-  useEffect,
-  MutableRefObject,
-} from "react"
+import React, { memo, useState, useEffect, MutableRefObject } from "react"
 import { sidebarWidth } from "@components/shared/menu/menu.style"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -13,7 +7,6 @@ import { useInView } from "react-intersection-observer"
 import * as S from "./sidebar-slide.style"
 
 interface Props {
-  children: ReactNode
   open?: boolean
 }
 

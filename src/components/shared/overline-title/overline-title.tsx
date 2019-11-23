@@ -1,9 +1,8 @@
-import React, { memo, ReactNode } from "react"
+import React, { memo } from "react"
 import * as S from "./overline-title.style"
 
 interface Props {
   overline: string
-  children: ReactNode
 }
 
 const OverlineTitle: React.FunctionComponent<Props> = memo(

@@ -71,14 +71,12 @@ const Projects: React.FunctionComponent = memo(() => {
   return (
     <CommonPage>
       <SidebarSlide>
-        <div ref={inviewRef}>
-          <Gutter>
-            <Limiter>
-              <OverlineTitle overline="Overline text">Title text</OverlineTitle>
-              <S.TestDiv ref={testDiv} />
-            </Limiter>
-          </Gutter>
-        </div>
+        <Gutter ref={inviewRef}>
+          <Limiter>
+            <OverlineTitle overline="Overline text">Title text</OverlineTitle>
+            <S.TestDiv ref={testDiv} />
+          </Limiter>
+        </Gutter>
       </SidebarSlide>
     </CommonPage>
   )

@@ -1,13 +1,9 @@
-import React, { memo, ReactNode } from "react"
+import React, { memo } from "react"
 import Footer from "@components/shared/footer/footer"
 import * as S from "./common-page.style"
 import PageContainer from "@components/shared/page/page.container"
 
-interface Props {
-  children: ReactNode
-}
-
-const CommonPage: React.FunctionComponent<Props> = memo(({ children }) => (
+const CommonPage: React.FunctionComponent = memo(({ children }) => (
   <PageContainer>
     <S.Container>
       {children}

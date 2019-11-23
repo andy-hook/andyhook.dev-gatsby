@@ -1,18 +1,8 @@
-import React, { memo, ReactNode } from "react"
-import { Store } from "@custom-types/store"
-import { connect } from "react-redux"
+import React, { memo } from "react"
 import Home from "./home"
 import PageContainer from "@components/shared/page/page.container"
 
-interface IProps {
-  children: ReactNode
-}
-
-const mapStateToProps = ({ menuOpen }: Store) => {
-  return { menuOpen }
-}
-
-const HomeContainer: React.FunctionComponent<IProps> = memo(({ children }) => {
+const HomeContainer: React.FunctionComponent = memo(({ children }) => {
   return (
     <PageContainer>
       <Home>{children}</Home>
@@ -20,6 +10,4 @@ const HomeContainer: React.FunctionComponent<IProps> = memo(({ children }) => {
   )
 })
 
-const ConnectedHomeContainer = connect(mapStateToProps)(HomeContainer)
-
-export default ConnectedHomeContainer
+export default HomeContainer

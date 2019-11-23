@@ -1,10 +1,6 @@
-import React, { memo, ReactNode } from "react"
+import React, { memo } from "react"
 
-interface Props {
-  children: ReactNode
-}
-
-const Home: React.FunctionComponent<Props> = memo(({ children }) => {
+const Home: React.FunctionComponent = memo(({ children }) => {
   return <>{children}</>
 })
 

@@ -1,4 +1,4 @@
-import React, { ReactNode, memo } from "react"
+import React, { memo } from "react"
 import GlobalStyle from "@style/global-style"
 import LoaderContainer from "@components/shared/loader/loader.container"
 import TopbarContainer from "@components/shared/topbar/topbar.container"
@@ -10,11 +10,7 @@ import { themes } from "@style/theme"
 import MediaQueryProvider from "@components/shared/media-query-provider/media-query-provider"
 import * as S from "./layout.style"
 
-interface Props {
-  children: ReactNode
-}
-
-const Layout: React.FunctionComponent<Props> = memo(({ children }) => {
+const Layout: React.FunctionComponent = memo(({ children }) => {
   return (
     <MediaQueryProvider>
       <GlobalStyle />
