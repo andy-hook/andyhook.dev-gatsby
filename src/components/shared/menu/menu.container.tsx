@@ -30,14 +30,14 @@ const mapStateToProps = ({ menuOpen }: Store) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    closeMenu: () => {
+    dispatchCloseMenuAction: () => {
       dispatch(menuOpenAction(false))
     },
   }
 }
 
 const MenuContainer: React.FunctionComponent<AllProps> = memo(
-  ({ menuOpen, closeMenu }) => {
+  ({ menuOpen, dispatchCloseMenuAction }) => {
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
@@ -107,7 +107,7 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
           open={menuOpen}
           projects={data.projectsData.siteMetadata.projects}
           social={data.socialData.siteMetadata.social}
-          onScrimClick={closeMenu}
+          dispatchCloseMenuAction={dispatchCloseMenuAction}
         />
       </ThemeProvider>
     )

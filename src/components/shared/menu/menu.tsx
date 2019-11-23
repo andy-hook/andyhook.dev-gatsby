@@ -10,7 +10,7 @@ import MenuNavList from "./menu-nav-list/menu-nav-list"
 
 interface Props {
   open: boolean
-  onScrimClick: () => void
+  dispatchCloseMenuAction: () => void
 }
 
 interface DataProps {
@@ -21,28 +21,23 @@ interface DataProps {
 type AllProps = Props & DataProps
 
 export let menuIsAnimating = false
-let routeTransition = false
+export let menuIsRouteTransitioning = false
 
 const Menu: React.FunctionComponent<AllProps> = memo(
-  ({ open, projects, social, onScrimClick }) => {
+  ({ open, projects, social, dispatchCloseMenuAction }) => {
     const backboardRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const contentsRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
     const { topPalm } = useMediaQueryContext()
 
-    const closeMenu = () => {
+    const onScrimClick = () => {
       if (!menuIsAnimating) {
-        onScrimClick()
+        dispatchCloseMenuAction()
       }
     }
 
-    const animateOpen = () => {
-      menuIsAnimating = true
-
-      TweenMax.set(containerRef.current, { visibility: "visible" })
-
-      // Backboard
+    const animateBackboardOpen = (onComplete?: () => void) => {
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -55,19 +50,11 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           x: "0%",
           onComplete: () => {
             menuIsAnimating = false
-          },
-        }
-      )
 
-      // Contents
-      TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
+            if (onComplete) {
+              onComplete()
+            }
+          },
         }
       )
 
@@ -77,10 +64,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       })
     }
 
-    const animateClose = () => {
-      menuIsAnimating = true
-
-      // Backboard
+    const animateBackboardClose = (onComplete?: () => void) => {
       TweenMax.fromTo(
         backboardRef.current,
         0.75,
@@ -92,13 +76,50 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           x: topPalm ? "-100%" : "100%",
           clearProps: "transform, opacity",
           onComplete: () => {
-            routeTransition = false
             menuIsAnimating = false
 
             TweenMax.set(containerRef.current, { clearProps: "visibility" })
+
+            if (onComplete) {
+              onComplete()
+            }
           },
         }
       )
+
+      // Scrim
+      TweenMax.to(animationScrim.current, 1, {
+        opacity: 0,
+        clearProps: "opacity",
+      })
+    }
+
+    const animateOpen = () => {
+      menuIsAnimating = true
+
+      TweenMax.set(containerRef.current, { visibility: "visible" })
+
+      // Backboard
+      animateBackboardOpen()
+
+      // Contents
+      TweenMax.fromTo(
+        contentsRef.current,
+        0.25,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        }
+      )
+    }
+
+    const animateClose = () => {
+      menuIsAnimating = true
+
+      // Backboard
+      animateBackboardClose()
 
       // Contents
       TweenMax.fromTo(
@@ -111,28 +132,40 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           opacity: 0,
         }
       )
-
-      // Scrim
-      TweenMax.to(animationScrim.current, 1, {
-        opacity: 0,
-        clearProps: "opacity",
-      })
     }
 
     const animateRouteClose = () => {
-      animateClose()
+      menuIsAnimating = true
+      menuIsRouteTransitioning = true
+
+      // Contents
+      TweenMax.fromTo(
+        contentsRef.current,
+        1,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          onComplete: () => {
+            dispatchCloseMenuAction()
+
+            animateBackboardClose(() => {
+              menuIsRouteTransitioning = false
+            })
+          },
+        }
+      )
     }
 
     useDeferredRunEffect(() => {
-      open
-        ? animateOpen()
-        : routeTransition
-        ? animateRouteClose()
-        : animateClose()
+      if (!menuIsRouteTransitioning) {
+        open ? animateOpen() : animateClose()
+      }
     }, [open])
 
     const handleNavClick = () => {
-      routeTransition = true
+      animateRouteClose()
     }
 
     return (
@@ -160,7 +193,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           </S.Sidebar>
         </S.Container>
 
-        <S.AnimationScrim ref={animationScrim} onClick={closeMenu} />
+        <S.AnimationScrim ref={animationScrim} onClick={onScrimClick} />
       </S.Fixer>
     )
   }
