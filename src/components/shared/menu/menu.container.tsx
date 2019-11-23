@@ -15,7 +15,7 @@ interface Data {
 }
 
 interface DispatchProps {
-  closeMenu: () => void
+  dispatchCloseMenuAction: () => void
 }
 
 interface StoreProps {
