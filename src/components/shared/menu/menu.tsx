@@ -34,6 +34,26 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const [activeImageIndex, setActiveImageIndex] = useState()
     const { topPalm } = useMediaQueryContext()
 
+    const handleNavClick = () => {
+      animateRouteClose()
+    }
+
+    const cancelActiveImage = () => {
+      setActiveImageIndex(null)
+    }
+
+    const onHover = (index: number) => {
+      if (!menuIsRouteTransitioning) {
+        setActiveImageIndex(index)
+      }
+    }
+
+    const onLeave = () => {
+      if (!menuIsRouteTransitioning) {
+        cancelActiveImage()
+      }
+    }
+
     const onScrimClick = () => {
       if (!menuIsAnimating) {
         dispatchCloseMenuAction()
@@ -152,6 +172,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           opacity: 0,
           onComplete: () => {
             dispatchCloseMenuAction()
+            cancelActiveImage()
 
             animateBackboardClose(() => {
               menuIsRouteTransitioning = false
@@ -167,49 +188,45 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       }
     }, [open])
 
-    const handleNavClick = () => {
-      animateRouteClose()
-    }
-
-    const onHover = (index: number) => {
-      setActiveImageIndex(index)
-    }
-
     return (
-      <S.Fixer ref={containerRef}>
-        <S.Container>
-          <S.Sidebar>
-            <S.Contents ref={contentsRef}>
-              <S.SidebarNav>
-                <S.SidebarNavInner>
-                  <ProjectListComponent
-                    projectDataList={projects}
-                    onClick={handleNavClick}
-                    onHover={onHover}
-                  />
+      <>
+        <S.Fixer ref={containerRef}>
+          <S.Container>
+            <S.Sidebar>
+              <S.Contents ref={contentsRef}>
+                <S.SidebarNav>
+                  <S.SidebarNavInner>
+                    <ProjectListComponent
+                      projectDataList={projects}
+                      onClick={handleNavClick}
+                      onHover={onHover}
+                      onLeave={onLeave}
+                    />
 
-                  <MenuNavList onClick={handleNavClick} />
-                </S.SidebarNavInner>
-              </S.SidebarNav>
+                    <MenuNavList onClick={handleNavClick} />
+                  </S.SidebarNavInner>
+                </S.SidebarNav>
 
-              <S.SocialContainer>
-                <Social items={social} />
-              </S.SocialContainer>
-            </S.Contents>
+                <S.SocialContainer>
+                  <Social items={social} />
+                </S.SocialContainer>
+              </S.Contents>
 
-            <S.MenuBackboard ref={backboardRef} />
-          </S.Sidebar>
-        </S.Container>
+              <S.MenuBackboard ref={backboardRef} />
+            </S.Sidebar>
+          </S.Container>
 
-        <S.AnimationScrim ref={animationScrim} onClick={onScrimClick} />
-
-        <SidebarSlide>
-          <ImagesOverlay
-            projectDataList={projects}
-            activeIndex={activeImageIndex}
-          />
-        </SidebarSlide>
-      </S.Fixer>
+          <S.AnimationScrim ref={animationScrim} onClick={onScrimClick} />
+        </S.Fixer>
+        <S.ImageScrim>
+          <SidebarSlide>
+            <ImagesOverlay
+              projectDataList={projects}
+              activeIndex={activeImageIndex}
+            />
+          </SidebarSlide>
+        </S.ImageScrim>
+      </>
     )
   }
 )

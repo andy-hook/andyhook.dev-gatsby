@@ -8,10 +8,11 @@ interface Props {
   projectDataList: Projects
   onClick: () => void
   onHover: (index: number) => void
+  onLeave: () => void
 }
 
 const ProjectList: React.FunctionComponent<Props> = memo(
-  ({ projectDataList, onClick, onHover }) => {
+  ({ projectDataList, onClick, onHover, onLeave }) => {
     const projectItems = keys(projectDataList).map((key, index) => {
       const onHoverHandler = () => {
         onHover(index)
@@ -21,6 +22,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
         <S.ProjectListItem key={index}>
           <S.ProjectLink
             onMouseEnter={onHoverHandler}
+            onMouseOut={onLeave}
             onClick={onClick}
             to={projectDataList[key].path}
             exit={{
@@ -38,7 +40,11 @@ const ProjectList: React.FunctionComponent<Props> = memo(
         </S.ProjectListItem>
       )
     })
-    return <S.ProjectList>{projectItems}</S.ProjectList>
+    return (
+      <S.ProjectListOuter>
+        <S.ProjectList>{projectItems}</S.ProjectList>
+      </S.ProjectListOuter>
+    )
   }
 )
 

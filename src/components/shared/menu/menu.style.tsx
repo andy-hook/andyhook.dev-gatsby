@@ -3,7 +3,7 @@ import { zIndex, darkGrey, spacingScale, typeScale } from "@style/variables"
 import { themeTone } from "@style/theme"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 
-export const menuZindex = zIndex.high
+export const menuZindex = zIndex.highest
 
 export const AnimationScrim = styled.div`
   background-color: ${darkGrey(100)};
@@ -17,7 +17,21 @@ export const AnimationScrim = styled.div`
   width: 100%;
   height: 100%;
 
-  z-index: ${zIndex.floor};
+  z-index: ${zIndex.low};
+`
+
+export const ImageScrim = styled.div`
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: ${menuZindex - 2};
 `
 
 export const Fixer = styled.div`
@@ -138,7 +152,7 @@ export const Contents = styled.div`
   flex-direction: column;
   height: 100%;
 
-  z-index: ${zIndex.medium};
+  z-index: ${zIndex.high};
 `
 
 export const SidebarNav = styled.nav`
@@ -185,7 +199,7 @@ export const MenuBackboard = styled.div`
   background-color: ${themeTone(100)};
   transform: translate3d(0, 0, 0);
 
-  z-index: ${zIndex.low};
+  z-index: ${zIndex.medium};
 
   opacity: 0;
 `
