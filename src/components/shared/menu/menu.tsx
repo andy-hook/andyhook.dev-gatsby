@@ -1,4 +1,4 @@
-import React, { memo, MutableRefObject } from "react"
+import React, { memo, MutableRefObject, useEffect } from "react"
 import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -23,6 +23,9 @@ type AllProps = Props & DataProps
 export let menuIsAnimating = false
 export let menuIsRouteTransitioning = false
 
+const slideInSpeed = 0.6
+const slideOutSpeed = 0.3
+
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, dispatchCloseMenuAction }) => {
     const backboardRef = React.useRef() as MutableRefObject<HTMLDivElement>
@@ -31,7 +34,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
     const { topPalm } = useMediaQueryContext()
 
-    const handleScrimClick = () => {
+    const handleMenuClose = () => {
       if (!menuIsAnimating) {
         dispatchCloseMenuAction()
       }
@@ -40,7 +43,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateBackboardOpen = (onComplete?: () => void) => {
       TweenMax.fromTo(
         backboardRef.current,
-        0.75,
+        slideInSpeed,
         {
           opacity: 1,
           x: topPalm ? "-100%" : "100%",
@@ -60,14 +63,14 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       // Scrim
       TweenMax.to(animationScrim.current, 0.25, {
-        opacity: 0.75,
+        opacity: slideInSpeed,
       })
     }
 
     const animateBackboardClose = (onComplete?: () => void) => {
       TweenMax.fromTo(
         backboardRef.current,
-        0.75,
+        slideOutSpeed,
         {
           x: "0%",
         },
@@ -88,7 +91,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       )
 
       // Scrim
-      TweenMax.to(animationScrim.current, 1, {
+      TweenMax.to(animationScrim.current, slideOutSpeed, {
         opacity: 0,
         clearProps: "opacity",
       })
@@ -138,32 +141,34 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       open ? animateOpen() : animateClose()
     }, [open])
 
+    // useEffect(() => {
+    //   open ? animateOpen() : animateClose()
+    // }, [open])
+
     return (
       <S.Fixer ref={containerRef}>
-        <S.Container>
-          <S.Sidebar>
-            <S.Contents ref={contentsRef}>
-              <S.SidebarNav>
-                <S.SidebarNavInner>
-                  <ProjectListComponent
-                    projectDataList={projects}
-                    onClick={dispatchCloseMenuAction}
-                  />
+        <S.Sidebar>
+          <S.Contents ref={contentsRef}>
+            <S.SidebarNav>
+              <S.SidebarNavInner>
+                <ProjectListComponent
+                  projectDataList={projects}
+                  onClick={handleMenuClose}
+                />
 
-                  <MenuNavList onClick={dispatchCloseMenuAction} />
-                </S.SidebarNavInner>
-              </S.SidebarNav>
+                <MenuNavList onClick={handleMenuClose} />
+              </S.SidebarNavInner>
+            </S.SidebarNav>
 
-              <S.SocialContainer>
-                <Social items={social} />
-              </S.SocialContainer>
-            </S.Contents>
+            <S.SocialContainer>
+              <Social items={social} />
+            </S.SocialContainer>
+          </S.Contents>
 
-            <S.MenuBackboard ref={backboardRef} />
-          </S.Sidebar>
-        </S.Container>
+          <S.MenuBackboard ref={backboardRef} />
+        </S.Sidebar>
 
-        <S.AnimationScrim ref={animationScrim} onClick={handleScrimClick} />
+        <S.AnimationScrim ref={animationScrim} onClick={handleMenuClose} />
       </S.Fixer>
     )
   }

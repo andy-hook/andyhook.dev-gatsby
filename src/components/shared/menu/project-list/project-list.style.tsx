@@ -1,10 +1,10 @@
 import { typeTitle } from "@style/typography"
 import styled from "styled-components"
 import Link from "gatsby-plugin-transition-link"
-import { scaleBetween, scaleGreaterThan } from "@style/media-queries"
+import { scaleBetween, scaleGreaterThan, mq } from "@style/media-queries"
 import { typeScale } from "@style/variables"
 
-const paddingY = "0.32em"
+const paddingY = "0.3em"
 
 export const ProjectListOuter = styled.div`
   margin-top: -${paddingY};
@@ -12,23 +12,23 @@ export const ProjectListOuter = styled.div`
 `
 
 export const ProjectList = styled.ul`
-  font-size: ${typeScale[8]};
+  font-size: ${typeScale[9]};
 
   ${scaleBetween(
     "font-size",
-    typeScale[8],
     typeScale[9],
+    typeScale[10],
     "topThumb",
     "bottomUltra"
   )}
 
   ${scaleGreaterThan(
     "font-size",
-    typeScale[9],
+    typeScale[10],
     "topUltra"
   )}
   
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
 `
 
 export const ProjectListItem = styled.li``
@@ -39,4 +39,12 @@ export const ProjectLink = styled(Link)`
   display: block;
   padding-top: ${paddingY};
   padding-bottom: ${paddingY};
+
+  ${mq.lessThan("bottomPalm")`
+    width: 100%;
+  `}
+
+  ${mq.greaterThan("topPalm")`
+    min-width: 11em;
+  `};
 `

@@ -22,6 +22,7 @@ export const AnimationScrim = styled.div`
 
 export const Fixer = styled.div`
   position: fixed;
+  display: flex;
 
   top: 0;
   left: 0;
@@ -30,89 +31,36 @@ export const Fixer = styled.div`
 
   z-index: ${menuZindex};
 
+  ${mq.lessThan("bottomPalm")`
+    justify-content: flex-end;
+  `}
+
   visibility: hidden;
 `
 
-export const sidebarWidth = {
-  initial: 100,
-  thumb: 70,
-  palm: 55,
-  lap: 45,
-  desk: 35,
-  wide: 35,
-  wall: 23,
-}
+export const Sidebar = styled.div`
+  position: relative;
+  display: flex;
 
-export const Container = styled.div`
-  position: absolute;
+  align-items: center;
 
-  top: 0;
+  padding-left: ${spacingScale[8]};
+  padding-right: ${spacingScale[8]};
+  padding-bottom: ${spacingScale[8]};
 
   height: 100%;
-
-  width: ${sidebarWidth.initial}%;
-
-  right: 0;
 
   z-index: ${zIndex.high + 1};
 
   overflow: hidden;
 
-  ${mq.greaterThan("topThumb")`
-    width: ${sidebarWidth.thumb}%;
+  ${mq.lessThan("bottomPalm")`
+    width: 100%;
   `}
-
-  ${mq.greaterThan("topPalm")`
-    left: 0;
-    width: ${sidebarWidth.palm}%;
-  `}
-
-  ${mq.greaterThan("topLap")`
-    width: ${sidebarWidth.lap}%;
-  `}
-
-  ${mq.greaterThan("topDesk")`
-    width: ${sidebarWidth.desk}%;
-  `}
-
-  ${mq.greaterThan("topWide")`
-    width: ${sidebarWidth.wide}%;
-  `}
-
-  ${mq.greaterThan("topWall")`
-    width: ${sidebarWidth.wall}%;
-  `}
-
-  ${mq.lessThan("bottomThumb")`
-    padding-top: 14rem;
-  `}
-
-  ${scaleBetween("padding-top", "14rem", "14rem", "topThumb", "bottomPalm")}
-
-  ${mq.greaterThan("topPalm")`
-    display: flex;
-
-    align-items: center;
-  `}
-`
-
-export const Sidebar = styled.div`
-  position: absolute;
-  display: flex;
-
-  align-items: center;
-
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-  padding-left: ${spacingScale[7]};
-  padding-bottom: ${spacingScale[7]};
 
   ${scaleBetween(
     "padding-left",
-    spacingScale[7],
+    spacingScale[8],
     spacingScale[9],
     "topThumb",
     "bottomUltra"
@@ -120,13 +68,22 @@ export const Sidebar = styled.div`
 
   ${scaleBetween(
     "padding-bottom",
-    spacingScale[7],
+    spacingScale[8],
+    spacingScale[9],
+    "topThumb",
+    "bottomUltra"
+  )}
+
+  ${scaleBetween(
+    "padding-right",
+    spacingScale[8],
     spacingScale[9],
     "topThumb",
     "bottomUltra"
   )}
 
   ${scaleGreaterThan("padding-left", spacingScale[9], "topUltra")}
+  ${scaleGreaterThan("padding-right", spacingScale[9], "topUltra")}
   ${scaleGreaterThan("padding-bottom", spacingScale[9], "topUltra")}
 `
 
@@ -137,6 +94,7 @@ export const Contents = styled.div`
 
   flex-direction: column;
   height: 100%;
+  width: 100%;
 
   z-index: ${zIndex.high};
 `
@@ -145,11 +103,13 @@ export const SidebarNav = styled.nav`
   display: flex;
 
   align-items: center;
+  width: 100%;
   flex: 1;
 `
 
 export const SidebarNavInner = styled.div`
   margin-bottom: -12.5vh;
+  width: 100%;
 `
 
 export const SocialContainer = styled.div`
