@@ -54,6 +54,9 @@ export const Sidebar = styled.div`
 
   overflow: hidden;
 
+  background-color: ${themeTone(100)};
+  transform: translate3d(0, 0, 0);
+
   ${mq.lessThan("bottomPalm")`
     width: 100%;
   `}
@@ -132,20 +135,4 @@ export const SocialContainer = styled.div`
   )}
 
   ${scaleGreaterThan("font-size", typeScale[7], "topUltra")}
-`
-
-export const MenuBackboard = styled.div`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: ${themeTone(100)};
-  transform: translate3d(0, 0, 0);
-
-  z-index: ${zIndex.medium};
-
-  opacity: 0;
 `

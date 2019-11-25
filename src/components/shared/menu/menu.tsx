@@ -28,8 +28,8 @@ const slideOutSpeed = 0.3
 
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, dispatchCloseMenuAction }) => {
-    const backboardRef = React.useRef() as MutableRefObject<HTMLDivElement>
-    const contentsRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const sidebar = React.useRef() as MutableRefObject<HTMLDivElement>
+    const contents = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
     const { topPalm } = useMediaQueryContext()
@@ -40,9 +40,13 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       }
     }
 
-    const animateBackboardOpen = (onComplete?: () => void) => {
+    const animateOpen = () => {
+      menuIsAnimating = true
+
+      TweenMax.set(containerRef.current, { visibility: "visible" })
+
       TweenMax.fromTo(
-        backboardRef.current,
+        sidebar.current,
         slideInSpeed,
         {
           opacity: 1,
@@ -53,10 +57,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           x: "0%",
           onComplete: () => {
             menuIsAnimating = false
-
-            if (onComplete) {
-              onComplete()
-            }
           },
         }
       )
@@ -65,50 +65,11 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       TweenMax.to(animationScrim.current, 0.25, {
         opacity: slideInSpeed,
       })
-    }
-
-    const animateBackboardClose = (onComplete?: () => void) => {
-      TweenMax.fromTo(
-        backboardRef.current,
-        slideOutSpeed,
-        {
-          x: "0%",
-        },
-        {
-          ease: Expo.easeOut,
-          x: topPalm ? "-100%" : "100%",
-          clearProps: "transform, opacity",
-          onComplete: () => {
-            menuIsAnimating = false
-
-            TweenMax.set(containerRef.current, { clearProps: "visibility" })
-
-            if (onComplete) {
-              onComplete()
-            }
-          },
-        }
-      )
-
-      // Scrim
-      TweenMax.to(animationScrim.current, slideOutSpeed, {
-        opacity: 0,
-        clearProps: "opacity",
-      })
-    }
-
-    const animateOpen = () => {
-      menuIsAnimating = true
-
-      TweenMax.set(containerRef.current, { visibility: "visible" })
-
-      // Backboard
-      animateBackboardOpen()
 
       // Contents
       TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
+        contents.current,
+        slideInSpeed,
         {
           opacity: 0,
         },
@@ -121,13 +82,34 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateClose = () => {
       menuIsAnimating = true
 
-      // Backboard
-      animateBackboardClose()
+      TweenMax.fromTo(
+        sidebar.current,
+        slideOutSpeed,
+        {
+          x: "0%",
+        },
+        {
+          ease: Expo.easeOut,
+          x: topPalm ? "-100%" : "100%",
+          clearProps: "transform, opacity",
+          onComplete: () => {
+            menuIsAnimating = false
+
+            TweenMax.set(containerRef.current, { clearProps: "visibility" })
+          },
+        }
+      )
+
+      // Scrim
+      TweenMax.to(animationScrim.current, slideOutSpeed, {
+        opacity: 0,
+        clearProps: "opacity",
+      })
 
       // Contents
       TweenMax.fromTo(
-        contentsRef.current,
-        0.25,
+        contents.current,
+        slideOutSpeed,
         {
           opacity: 1,
         },
@@ -147,8 +129,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
     return (
       <S.Fixer ref={containerRef}>
-        <S.Sidebar>
-          <S.Contents ref={contentsRef}>
+        <S.Sidebar ref={sidebar}>
+          <S.Contents ref={contents}>
             <S.SidebarNav>
               <S.SidebarNavInner>
                 <ProjectListComponent
@@ -164,8 +146,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
               <Social items={social} />
             </S.SocialContainer>
           </S.Contents>
-
-          <S.MenuBackboard ref={backboardRef} />
         </S.Sidebar>
 
         <S.AnimationScrim ref={animationScrim} onClick={handleMenuClose} />
