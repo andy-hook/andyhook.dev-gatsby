@@ -3,7 +3,6 @@ import { ProjectItem } from "@custom-types/model"
 import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
 // import { TweenMax } from "gsap"
 import * as S from "./header.style"
-import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import usePageTransition from "@hooks/page-transition"
 
 interface Props {
@@ -73,13 +72,11 @@ const Header: React.FunctionComponent<Props> = ({ project }) => {
   })
 
   return (
-    <SidebarSlide>
-      <S.Container ref={inviewRef}>
-        <S.BackgroundImage ref={backgroundRef}>
-          <CoverImageContainer imagePath={project.images} />
-        </S.BackgroundImage>
-      </S.Container>
-    </SidebarSlide>
+    <S.Container ref={inviewRef}>
+      <S.BackgroundImage ref={backgroundRef}>
+        <CoverImageContainer imagePath={project.images} />
+      </S.BackgroundImage>
+    </S.Container>
   )
 }
 

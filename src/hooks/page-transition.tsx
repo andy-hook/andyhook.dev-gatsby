@@ -9,6 +9,7 @@ import {
   TRANSITION_TYPE_MENU_ENTER,
   TRANSITION_TYPE_NEXT_PROJECT_ENTER,
   TRANSITION_TYPE_NEXT_PROJECT_EXIT,
+  TRANSITION_TYPE_MENU_EXIT,
 } from "@constants"
 import { useInView } from "react-intersection-observer"
 import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
@@ -20,6 +21,7 @@ interface CallbackProps {
   onEnter?: callback
   onEnterFromProject?: callback
   onEnterFromMenu?: callback
+  onExitFromMenu?: callback
   onExitFromProject?: callback
   onExit?: callback
 }
@@ -43,6 +45,7 @@ export const runCallbacks = (
     onEnter,
     onEnterFromProject,
     onEnterFromMenu,
+    onExitFromMenu,
     onExitFromProject,
     onExit,
   }: CallbackProps,
@@ -93,6 +96,12 @@ export const runCallbacks = (
         // Exit
         case TRANSITION_TYPE_EXIT:
           run(onExit)
+
+          break
+
+        // Exit from menu
+        case TRANSITION_TYPE_MENU_EXIT:
+          run(onExitFromMenu)
 
           break
 

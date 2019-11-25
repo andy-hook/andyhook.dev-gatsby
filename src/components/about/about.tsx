@@ -3,7 +3,6 @@ import CommonPage from "@components/shared/common-page/common-page"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import { TweenMax, Elastic } from "gsap"
 import * as S from "./about.styles"
-import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
 import { PAGE_TRANSITION_DURATION } from "@constants"
@@ -70,14 +69,12 @@ const About: React.FunctionComponent = memo(() => {
 
   return (
     <CommonPage>
-      <SidebarSlide>
-        <Gutter ref={inviewRef}>
-          <Limiter>
-            <OverlineTitle overline="Overline text">Title text</OverlineTitle>
-            <S.TestDiv ref={testDiv} />
-          </Limiter>
-        </Gutter>
-      </SidebarSlide>
+      <Gutter ref={inviewRef}>
+        <Limiter>
+          <OverlineTitle overline="Overline text">Title text</OverlineTitle>
+          <S.TestDiv ref={testDiv} />
+        </Limiter>
+      </Gutter>
     </CommonPage>
   )
 })

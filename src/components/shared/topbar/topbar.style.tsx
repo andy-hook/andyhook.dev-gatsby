@@ -8,7 +8,6 @@ import { menuZindex } from "../menu/menu.style"
 
 interface StyleProps {
   hasScrolled?: boolean
-  open?: boolean
   visible?: boolean
 }
 
@@ -120,12 +119,6 @@ export const ContainerInner = styled.div<StyleProps>`
     z-index: ${zIndex.floor};
 
     opacity: 1;
-
-    ${props =>
-      props.open &&
-      css`
-        opacity: 0;
-      `}
   }
 
   /* Underline */
@@ -143,12 +136,6 @@ export const ContainerInner = styled.div<StyleProps>`
     background-color: ${themeTone(600)};
 
     z-index: ${zIndex.low};
-
-    ${props =>
-      props.open &&
-      css`
-        opacity: 0;
-      `}
   }
 `
 

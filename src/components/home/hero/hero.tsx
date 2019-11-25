@@ -2,7 +2,6 @@ import React, { useEffect, memo, MutableRefObject } from "react"
 import Details from "./details/details"
 import Gutter from "@components/shared/gutter/gutter"
 import { TweenMax, Elastic } from "gsap"
-import SidebarSlide from "@components/shared/sidebar-slide/sidebar-slide.container"
 import * as S from "./hero.style"
 import { PAGE_TRANSITION_DURATION } from "@constants"
 import usePageTransition from "@hooks/page-transition"
@@ -120,19 +119,17 @@ const Hero: React.FunctionComponent<Props> = memo(
     }, [loaderVisible])
 
     return (
-      <SidebarSlide>
-        <S.Container ref={inviewRef}>
-          <S.DetailsPos ref={detailsRef}>
-            <Gutter>
-              <Details buttonHref={buttonHref} />
-            </Gutter>
-          </S.DetailsPos>
+      <S.Container ref={inviewRef}>
+        <S.DetailsPos ref={detailsRef}>
+          <Gutter>
+            <Details buttonHref={buttonHref} />
+          </Gutter>
+        </S.DetailsPos>
 
-          <S.BackgroundContainer ref={backgroundRef}>
-            <S.BackgroundGradient />
-          </S.BackgroundContainer>
-        </S.Container>
-      </SidebarSlide>
+        <S.BackgroundContainer ref={backgroundRef}>
+          <S.BackgroundGradient />
+        </S.BackgroundContainer>
+      </S.Container>
     )
   }
 )

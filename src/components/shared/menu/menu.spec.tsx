@@ -12,7 +12,7 @@ describe("<Menu />", () => {
         projects={mockProjectsData}
         social={mockSocialIcons}
         open={true}
-        onScrimClick={jest.fn}
+        dispatchCloseMenuAction={jest.fn}
       />
     )
     expect(tree).toMatchSnapshot()

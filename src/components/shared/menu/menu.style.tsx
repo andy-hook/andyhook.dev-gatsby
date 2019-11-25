@@ -20,20 +20,6 @@ export const AnimationScrim = styled.div`
   z-index: ${zIndex.low};
 `
 
-export const ImageScrim = styled.div`
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-
-  z-index: ${menuZindex - 2};
-`
-
 export const Fixer = styled.div`
   position: fixed;
 

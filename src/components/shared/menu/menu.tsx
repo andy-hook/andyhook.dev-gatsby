@@ -1,4 +1,4 @@
-import React, { memo, MutableRefObject, useState } from "react"
+import React, { memo, MutableRefObject } from "react"
 import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -7,8 +7,6 @@ import { useMediaQueryContext } from "../media-query-provider/media-query-provid
 import * as S from "./menu.style"
 import Social from "./social/social"
 import MenuNavList from "./menu-nav-list/menu-nav-list"
-import ImagesOverlay from "./images-overlay/images-overlay"
-import SidebarSlide from "../sidebar-slide/sidebar-slide.container"
 
 interface Props {
   open: boolean
@@ -31,30 +29,9 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const contentsRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
-    const [activeImageIndex, setActiveImageIndex] = useState()
     const { topPalm } = useMediaQueryContext()
 
-    const handleNavClick = () => {
-      animateRouteClose()
-    }
-
-    const cancelActiveImage = () => {
-      setActiveImageIndex(null)
-    }
-
-    const onHover = (index: number) => {
-      if (!menuIsRouteTransitioning) {
-        setActiveImageIndex(index)
-      }
-    }
-
-    const onLeave = () => {
-      if (!menuIsRouteTransitioning) {
-        cancelActiveImage()
-      }
-    }
-
-    const onScrimClick = () => {
+    const handleScrimClick = () => {
       if (!menuIsAnimating) {
         dispatchCloseMenuAction()
       }
@@ -83,7 +60,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       // Scrim
       TweenMax.to(animationScrim.current, 0.25, {
-        opacity: 0.25,
+        opacity: 0.75,
       })
     }
 
@@ -157,76 +134,37 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       )
     }
 
-    const animateRouteClose = () => {
-      menuIsAnimating = true
-      menuIsRouteTransitioning = true
-
-      // Contents
-      TweenMax.fromTo(
-        contentsRef.current,
-        1,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-          onComplete: () => {
-            dispatchCloseMenuAction()
-            cancelActiveImage()
-
-            animateBackboardClose(() => {
-              menuIsRouteTransitioning = false
-            })
-          },
-        }
-      )
-    }
-
     useDeferredRunEffect(() => {
-      if (!menuIsRouteTransitioning) {
-        open ? animateOpen() : animateClose()
-      }
+      open ? animateOpen() : animateClose()
     }, [open])
 
     return (
-      <>
-        <S.Fixer ref={containerRef}>
-          <S.Container>
-            <S.Sidebar>
-              <S.Contents ref={contentsRef}>
-                <S.SidebarNav>
-                  <S.SidebarNavInner>
-                    <ProjectListComponent
-                      projectDataList={projects}
-                      onClick={handleNavClick}
-                      onHover={onHover}
-                      onLeave={onLeave}
-                    />
+      <S.Fixer ref={containerRef}>
+        <S.Container>
+          <S.Sidebar>
+            <S.Contents ref={contentsRef}>
+              <S.SidebarNav>
+                <S.SidebarNavInner>
+                  <ProjectListComponent
+                    projectDataList={projects}
+                    onClick={dispatchCloseMenuAction}
+                  />
 
-                    <MenuNavList onClick={handleNavClick} />
-                  </S.SidebarNavInner>
-                </S.SidebarNav>
+                  <MenuNavList onClick={dispatchCloseMenuAction} />
+                </S.SidebarNavInner>
+              </S.SidebarNav>
 
-                <S.SocialContainer>
-                  <Social items={social} />
-                </S.SocialContainer>
-              </S.Contents>
+              <S.SocialContainer>
+                <Social items={social} />
+              </S.SocialContainer>
+            </S.Contents>
 
-              <S.MenuBackboard ref={backboardRef} />
-            </S.Sidebar>
-          </S.Container>
+            <S.MenuBackboard ref={backboardRef} />
+          </S.Sidebar>
+        </S.Container>
 
-          <S.AnimationScrim ref={animationScrim} onClick={onScrimClick} />
-        </S.Fixer>
-        <S.ImageScrim>
-          <SidebarSlide>
-            <ImagesOverlay
-              projectDataList={projects}
-              activeIndex={activeImageIndex}
-            />
-          </SidebarSlide>
-        </S.ImageScrim>
-      </>
+        <S.AnimationScrim ref={animationScrim} onClick={handleScrimClick} />
+      </S.Fixer>
     )
   }
 )

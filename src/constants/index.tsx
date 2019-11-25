@@ -5,6 +5,7 @@ export const PAGE_TRANSITION_DURATION = 0.25
 export const TRANSITION_TYPE_EXIT = "exit" as "exit"
 export const TRANSITION_TYPE_ENTER = "enter" as "enter"
 export const TRANSITION_TYPE_MENU_ENTER = "menuEnter" as "menuEnter"
+export const TRANSITION_TYPE_MENU_EXIT = "menuExit" as "menuExit"
 export const TRANSITION_TYPE_POP = "pop" as "pop"
 export const TRANSITION_TYPE_NEXT_PROJECT_ENTER = "nextProjectEnter" as "nextProjectEnter"
 export const TRANSITION_TYPE_NEXT_PROJECT_EXIT = "nextProjectExit" as "nextProjectExit"

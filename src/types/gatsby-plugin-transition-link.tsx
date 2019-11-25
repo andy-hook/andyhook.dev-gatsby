@@ -5,6 +5,7 @@ export type TransitionType =
   | "exit"
   | "firstEnter"
   | "menuEnter"
+  | "menuExit"
   | "pop"
   | "nextProjectExit"
   | "nextProjectEnter"
