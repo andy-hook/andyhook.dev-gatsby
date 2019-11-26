@@ -8,9 +8,7 @@ export const menuZindex = zIndex.highest
 export const AnimationScrim = styled.div`
   background-color: ${darkGrey(100)};
   position: fixed;
-
   opacity: 0;
-
   top: 0;
   left: 0;
 
@@ -93,8 +91,6 @@ export const Sidebar = styled.div`
 export const Contents = styled.div`
   display: flex;
   position: relative;
-  opacity: 0;
-
   flex-direction: column;
   height: 100%;
   width: 100%;

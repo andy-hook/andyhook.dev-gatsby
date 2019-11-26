@@ -29,7 +29,6 @@ const slideOutSpeed = 0.3
 const Menu: React.FunctionComponent<AllProps> = memo(
   ({ open, projects, social, dispatchCloseMenuAction }) => {
     const sidebar = React.useRef() as MutableRefObject<HTMLDivElement>
-    const contents = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
     const { topPalm } = useMediaQueryContext()
@@ -65,18 +64,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       TweenMax.to(animationScrim.current, 0.25, {
         opacity: slideInSpeed,
       })
-
-      // Contents
-      TweenMax.fromTo(
-        contents.current,
-        slideInSpeed,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        }
-      )
     }
 
     const animateClose = () => {
@@ -105,40 +92,25 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         opacity: 0,
         clearProps: "opacity",
       })
-
-      // Contents
-      TweenMax.fromTo(
-        contents.current,
-        slideOutSpeed,
-        {
-          opacity: 1,
-        },
-        {
-          opacity: 0,
-        }
-      )
     }
 
     useDeferredRunEffect(() => {
       open ? animateOpen() : animateClose()
     }, [open])
 
-    // useEffect(() => {
-    //   open ? animateOpen() : animateClose()
-    // }, [open])
-
     return (
       <S.Fixer ref={containerRef}>
         <S.Sidebar ref={sidebar}>
-          <S.Contents ref={contents}>
+          <S.Contents>
             <S.SidebarNav>
               <S.SidebarNavInner>
                 <ProjectListComponent
-                  projectDataList={projects}
+                  projects={projects}
                   onClick={handleMenuClose}
+                  open={open}
                 />
 
-                <MenuNavList onClick={handleMenuClose} />
+                <MenuNavList onClick={handleMenuClose} open={open} />
               </S.SidebarNavInner>
             </S.SidebarNav>
 
