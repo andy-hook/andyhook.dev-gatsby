@@ -32,7 +32,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
           1,
           {
             opacity: 0,
-            y: `${50 + index * 35}%`,
+            y: `${50 + index * 25}%`,
           },
           {
             ease: Expo.easeOut,

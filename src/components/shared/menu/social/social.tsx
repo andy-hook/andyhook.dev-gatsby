@@ -28,7 +28,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
       },
       {
         ease: Expo.easeOut,
-        delay: 0.45,
+        delay: 0.4,
         y: "0%",
         clearProps: "transform",
       }
