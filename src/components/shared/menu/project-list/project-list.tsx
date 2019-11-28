@@ -23,6 +23,8 @@ const ProjectList: React.FunctionComponent<Props> = memo(
     const refs = projectKeys.map(React.createRef) as refArray<HTMLLIElement>
     const cachedRefs = React.useRef<refArray<HTMLLIElement>>(refs)
 
+    const startDelay = 0.1
+
     const animateOpen = () => {
       cachedRefs.current.map((listItem, index) => {
         TweenMax.fromTo(
@@ -30,20 +32,27 @@ const ProjectList: React.FunctionComponent<Props> = memo(
           1,
           {
             opacity: 0,
-            y: `${50 + index * 20}%`,
+            y: `${50 + index * 35}%`,
           },
           {
             ease: Expo.easeOut,
-            delay: 0.1 + index * 0.05,
+            delay: startDelay + index * 0.04,
             y: "0%",
             opacity: 1,
-            clearProps: "opacity",
+            clearProps: "transform",
           }
         )
       })
     }
 
-    const animateClosed = () => {}
+    const animateClosed = () => {
+      cachedRefs.current.map(listItem => {
+        TweenMax.to(listItem.current, 0.25, {
+          opacity: 0,
+          clearProps: "opacity",
+        })
+      })
+    }
 
     useDeferredRunEffect(() => {
       open ? animateOpen() : animateClosed()

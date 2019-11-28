@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { rem } from "polished"
-import { mq } from "@style/media-queries"
 import { themeText, isTheme } from "@style/theme"
 import {
   borderRadius,
@@ -20,7 +18,9 @@ export const SocialList = styled.ul`
   margin: -${padding};
 `
 
-export const SocialItem = styled.li``
+export const SocialItem = styled.li`
+  opacity: 0;
+`
 
 export const Link = styled(OutboundLink)`
   position: relative;

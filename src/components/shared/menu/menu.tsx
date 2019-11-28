@@ -1,4 +1,4 @@
-import React, { memo, MutableRefObject, useEffect } from "react"
+import React, { memo, MutableRefObject } from "react"
 import { SocialMeta, Projects } from "model"
 import { TweenMax, Expo } from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
@@ -115,7 +115,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
             </S.SidebarNav>
 
             <S.SocialContainer>
-              <Social items={social} />
+              <Social items={social} open={open} />
             </S.SocialContainer>
           </S.Contents>
         </S.Sidebar>

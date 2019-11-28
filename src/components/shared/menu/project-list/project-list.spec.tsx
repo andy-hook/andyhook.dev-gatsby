@@ -7,7 +7,7 @@ describe("<ProjectList />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "light",
-      <ProjectList projectDataList={mockProjectsData} onClick={jest.fn} />
+      <ProjectList projects={mockProjectsData} onClick={jest.fn} open={true} />
     )
     expect(tree).toMatchSnapshot()
   })

@@ -11,6 +11,7 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   margin-bottom: 0.5em;
+  opacity: 0;
 `
 
 export const ListItemLink = styled(Link)`

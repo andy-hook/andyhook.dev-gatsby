@@ -39,34 +39,59 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
       React.createRef(),
     ] as refArray<HTMLLIElement>
     const cachedRefs = React.useRef<refArray<HTMLLIElement>>(refs)
+    const listRef = React.useRef() as MutableRefObject<HTMLUListElement>
+
+    const startDelay = 0.25
 
     const animateOpen = () => {
+      TweenMax.fromTo(
+        listRef.current,
+        1,
+        {
+          y: `${150}%`,
+        },
+        {
+          ease: Expo.easeOut,
+          delay: startDelay,
+          y: "0%",
+
+          clearProps: "transform",
+        }
+      )
+
       cachedRefs.current.map((listItem, index) => {
         TweenMax.fromTo(
           listItem.current,
           1,
           {
             opacity: 0,
-            y: `${100}%`,
+            y: `${100 + index * 100}%`,
           },
           {
             ease: Expo.easeOut,
-            delay: 0.4 + index * 0.05,
+            delay: startDelay + index * 0.05,
             y: "0%",
             opacity: 1,
-            clearProps: "opacity",
+            clearProps: "transform",
           }
         )
       })
     }
-    const animateClose = () => {}
+    const animateClose = () => {
+      cachedRefs.current.map(listItem => {
+        TweenMax.to(listItem.current, 0.25, {
+          opacity: 0,
+          clearProps: "opacity",
+        })
+      })
+    }
 
     useDeferredRunEffect(() => {
       open ? animateOpen() : animateClose()
     }, [open])
 
     return (
-      <S.List>
+      <S.List ref={listRef}>
         <S.ListItem ref={cachedRefs.current[0]}>
           <S.ListItemLink to="/" onClick={onClick} {...linkProps}>
             Overview

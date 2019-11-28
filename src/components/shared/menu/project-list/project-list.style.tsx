@@ -31,7 +31,9 @@ export const ProjectList = styled.ul`
   margin-bottom: 0.75em;
 `
 
-export const ProjectListItem = styled.li``
+export const ProjectListItem = styled.li`
+  opacity: 0;
+`
 
 export const ProjectLink = styled(Link)`
   ${typeTitle}
