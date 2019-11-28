@@ -46,12 +46,12 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       gsap.fromTo(
         sidebar.current,
-        slideInSpeed,
         {
           opacity: 1,
           x: topPalm ? "-100%" : "100%",
         },
         {
+          duration: slideInSpeed,
           ease: "expo.out",
           x: "0%",
           onComplete: () => {
@@ -61,7 +61,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       )
 
       // Scrim
-      gsap.to(animationScrim.current, 0.25, {
+      gsap.to(animationScrim.current, {
+        duration: 0.25,
         opacity: slideInSpeed,
       })
     }
@@ -71,11 +72,12 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       gsap.fromTo(
         sidebar.current,
-        slideOutSpeed,
+
         {
           x: "0%",
         },
         {
+          duration: slideOutSpeed,
           ease: "expo.out",
           x: topPalm ? "-100%" : "100%",
           clearProps: "transform, opacity",
@@ -88,7 +90,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       )
 
       // Scrim
-      gsap.to(animationScrim.current, slideOutSpeed, {
+      gsap.to(animationScrim.current, {
+        duration: slideOutSpeed,
         opacity: 0,
         clearProps: "opacity",
       })

@@ -29,12 +29,12 @@ const ProjectList: React.FunctionComponent<Props> = memo(
       cachedRefs.current.map((listItem, index) => {
         gsap.fromTo(
           listItem.current,
-          1,
           {
             opacity: 0,
             y: `${50 + index * 25}%`,
           },
           {
+            duration: 1,
             ease: "expo.out",
             delay: startDelay + index * 0.04,
             y: "0%",
@@ -47,7 +47,8 @@ const ProjectList: React.FunctionComponent<Props> = memo(
 
     const animateClosed = () => {
       cachedRefs.current.map(listItem => {
-        gsap.to(listItem.current, 0.25, {
+        gsap.to(listItem.current, {
+          duration: 0.25,
           opacity: 0,
           clearProps: "opacity",
         })

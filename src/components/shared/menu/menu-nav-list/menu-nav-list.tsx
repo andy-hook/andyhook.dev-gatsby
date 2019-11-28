@@ -46,15 +46,14 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
     const animateOpen = () => {
       gsap.fromTo(
         listRef.current,
-        1,
         {
           y: `${150}%`,
         },
         {
+          duration: 1,
           ease: "expo.out",
           delay: startDelay,
           y: "0%",
-
           clearProps: "transform",
         }
       )
@@ -62,12 +61,12 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
       cachedRefs.current.map((listItem, index) => {
         gsap.fromTo(
           listItem.current,
-          1,
           {
             opacity: 0,
             y: `${100 + index * 100}%`,
           },
           {
+            duration: 1,
             ease: "expo.out",
             delay: startDelay + index * 0.05,
             y: "0%",
@@ -79,7 +78,8 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
     }
     const animateClose = () => {
       cachedRefs.current.map(listItem => {
-        gsap.to(listItem.current, 0.25, {
+        gsap.to(listItem.current, {
+          duration: 0.25,
           opacity: 0,
           clearProps: "opacity",
         })

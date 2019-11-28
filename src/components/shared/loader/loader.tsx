@@ -20,7 +20,8 @@ const Loader: React.FunctionComponent<Props> = memo(
     const boltTL = gsap.timeline()
 
     const markOut = () => {
-      markTL.to(markRef.current, 0.7, {
+      markTL.to(markRef.current, {
+        duration: 0.7,
         ease: "elastic.in(1, 0.7)",
         transform: "scale(0.1)",
         opacity: 0,
@@ -31,12 +32,12 @@ const Loader: React.FunctionComponent<Props> = memo(
     const markIn = () => {
       markTL.fromTo(
         markRef.current,
-        0.7,
         {
           scale: 0.1,
           rotation: -40,
         },
         {
+          duration: 0.7,
           ease: "elastic.in(1, 0.6)",
           scale: 1,
           rotation: 0,
@@ -49,7 +50,6 @@ const Loader: React.FunctionComponent<Props> = memo(
     const boltIn = () => {
       boltTL.fromTo(
         boltRef.current,
-        0.5,
         {
           opacity: 0,
           rotation: -30,
@@ -57,6 +57,7 @@ const Loader: React.FunctionComponent<Props> = memo(
           transformOrigin: "bottom right",
         },
         {
+          duration: 0.5,
           ease: "expo.out",
           delay: 0.05,
           rotation: 0,

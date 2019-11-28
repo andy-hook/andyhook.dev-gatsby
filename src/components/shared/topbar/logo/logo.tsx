@@ -14,7 +14,8 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const { topPalm } = useMediaQueryContext()
 
   const animateHide = () => {
-    gsap.to(logoRef.current, 0.5, {
+    gsap.to(logoRef.current, {
+      duration: 0.5,
       ease: "expo.out",
       x: "0%",
       opacity: 0,
@@ -24,11 +25,11 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const animateShow = () => {
     gsap.fromTo(
       logoRef.current,
-      1,
       {
         x: topPalm ? "100%" : "-100%",
       },
       {
+        duration: 1,
         ease: "expo.out",
         x: "0%",
         opacity: 1,

@@ -20,11 +20,11 @@ const Hero: React.FunctionComponent<Props> = memo(
     const animatePop = () => {
       gsap.fromTo(
         detailsRef.current,
-        0.75,
         {
           scale: 1.5,
         },
         {
+          duration: 0.75,
           ease: "elastic.out(0.8, 1)",
           scale: 1,
           opacity: 1,
@@ -32,7 +32,8 @@ const Hero: React.FunctionComponent<Props> = memo(
         }
       )
 
-      gsap.to(backgroundRef.current, 0.9, {
+      gsap.to(backgroundRef.current, {
+        duration: 0.9,
         opacity: 1,
       })
     }
@@ -40,18 +41,19 @@ const Hero: React.FunctionComponent<Props> = memo(
     const animateEnter = () => {
       gsap.fromTo(
         detailsRef.current,
-        0.25,
         {
           y: "10%",
         },
         {
+          duration: 0.25,
           y: "0%",
           opacity: 1,
           clearProps: "transform",
         }
       )
 
-      gsap.to(backgroundRef.current, 0.25, {
+      gsap.to(backgroundRef.current, {
+        duration: 0.25,
         opacity: 1,
       })
     }
@@ -59,11 +61,11 @@ const Hero: React.FunctionComponent<Props> = memo(
     const animateExit = () => {
       gsap.fromTo(
         detailsRef.current,
-        PAGE_TRANSITION_DURATION,
         {
           y: "0%",
         },
         {
+          duration: PAGE_TRANSITION_DURATION,
           y: "-10%",
           opacity: 0,
           onComplete: () => {
@@ -72,7 +74,8 @@ const Hero: React.FunctionComponent<Props> = memo(
         }
       )
 
-      gsap.to(backgroundRef.current, PAGE_TRANSITION_DURATION, {
+      gsap.to(backgroundRef.current, {
+        duration: PAGE_TRANSITION_DURATION,
         opacity: 0,
       })
     }
@@ -80,11 +83,11 @@ const Hero: React.FunctionComponent<Props> = memo(
     const animateFirstEnter = () => {
       gsap.fromTo(
         detailsRef.current,
-        0.75,
         {
           scale: 1.5,
         },
         {
+          duration: 0.75,
           ease: "elastic.out(0.8, 1)",
           scale: 1,
           opacity: 1,
@@ -105,7 +108,8 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     useEffect(() => {
       if (firstEntrance) {
-        gsap.to(backgroundRef.current, 0.9, {
+        gsap.to(backgroundRef.current, {
+          duration: 0.9,
           opacity: 1,
         })
       }

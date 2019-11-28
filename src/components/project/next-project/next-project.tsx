@@ -58,12 +58,14 @@ const NextProject: React.FunctionComponent<Props> = ({
       visibility: "visible",
     })
 
-    gsap.to(slideInnerRef.current, 1, {
+    gsap.to(slideInnerRef.current, {
+      duration: 1,
       ease: "expo.out",
       y: "0%",
     })
 
-    gsap.to(slideOverRef.current, 1, {
+    gsap.to(slideOverRef.current, {
+      duration: 1,
       ease: "expo.out",
       delay: 0.3,
       y: "0%",

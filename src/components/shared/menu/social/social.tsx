@@ -22,11 +22,11 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
   const animateOpen = () => {
     gsap.fromTo(
       listRef.current,
-      1,
       {
         y: `${150}%`,
       },
       {
+        duration: 1,
         ease: "expo.out",
         delay: 0.4,
         y: "0%",
@@ -37,12 +37,12 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
     cachedRefs.current.map((listItem, index) => {
       gsap.fromTo(
         listItem.current,
-        1,
         {
           y: `${20 + index * 10}%`,
           opacity: 0,
         },
         {
+          duration: 1,
           ease: "expo.out",
           delay: 0.4 + index * 0.025,
           opacity: 1,
@@ -55,7 +55,8 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
 
   const animateClosed = () => {
     cachedRefs.current.map(listItem => {
-      gsap.to(listItem.current, 0.25, {
+      gsap.to(listItem.current, {
+        duration: 0.25,
         opacity: 0,
         clearProps: "opacity",
       })

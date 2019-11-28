@@ -19,13 +19,15 @@ const Navicon: React.FunctionComponent<Props> = memo(
       gsap.set(topBar.current, { transformOrigin: "center center" })
       gsap.set(bottomBar.current, { transformOrigin: "center center" })
 
-      gsap.to(topBar.current, 1, {
+      gsap.to(topBar.current, {
+        duration: 1,
         ease: "expo.out",
         rotation: 45,
         y: 3.5,
       })
 
-      gsap.to(bottomBar.current, 1, {
+      gsap.to(bottomBar.current, {
+        duration: 1,
         ease: "expo.out",
         rotation: -45,
         y: -3.5,
@@ -33,13 +35,15 @@ const Navicon: React.FunctionComponent<Props> = memo(
     }
 
     const animateClose = () => {
-      gsap.to(topBar.current, 1, {
+      gsap.to(topBar.current, {
+        duration: 1,
         ease: "expo.out",
         rotation: 0,
         y: 0,
       })
 
-      gsap.to(bottomBar.current, 1, {
+      gsap.to(bottomBar.current, {
+        duration: 1,
         ease: "expo.out",
         rotation: 0,
         y: 0,

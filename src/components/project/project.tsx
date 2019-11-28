@@ -23,11 +23,11 @@ const Project: React.FunctionComponent<Props> = memo(
     const animatePop = () => {
       gsap.fromTo(
         contentRef.current,
-        2,
         {
           opacity: 1,
         },
         {
+          duration: 2,
           opacity: 1,
         }
       )
@@ -36,11 +36,11 @@ const Project: React.FunctionComponent<Props> = memo(
     const animateMenuEnter = () => {
       gsap.fromTo(
         contentRef.current,
-        0.75,
         {
           opacity: 1,
         },
         {
+          duration: 0.75,
           opacity: 1,
           clearProps: "transform",
         }
@@ -50,11 +50,11 @@ const Project: React.FunctionComponent<Props> = memo(
     const animateFirstEnter = () => {
       gsap.fromTo(
         contentRef.current,
-        2,
         {
           opacity: 1,
         },
         {
+          duration: 2,
           opacity: 1,
           delay: 0.65,
         }

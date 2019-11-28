@@ -14,11 +14,11 @@ const Projects: React.FunctionComponent = memo(() => {
   const animatePop = () => {
     gsap.fromTo(
       testDiv.current,
-      0.75,
       {
         scale: 1.5,
       },
       {
+        duration: 0.75,
         ease: "elastic.out(0.8, 1)",
         scale: 1,
         opacity: 1,
@@ -29,12 +29,12 @@ const Projects: React.FunctionComponent = memo(() => {
   const animateEnter = () => {
     gsap.fromTo(
       testDiv.current,
-      0.25,
       {
         y: "50%",
         opacity: 0,
       },
       {
+        duration: 0.25,
         y: "0%",
         opacity: 1,
       }
@@ -44,11 +44,11 @@ const Projects: React.FunctionComponent = memo(() => {
   const animateExit = () => {
     gsap.fromTo(
       testDiv.current,
-      PAGE_TRANSITION_DURATION,
       {
         y: "0%",
       },
       {
+        duration: PAGE_TRANSITION_DURATION,
         y: "-50%",
         opacity: 0,
         onComplete: () => {
