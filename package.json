@@ -27,7 +27,7 @@
     "gatsby-plugin-typescript": "^2.0.12",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.1.17",
-    "gsap": "^2.1.2",
+    "gsap": "^3.0.1",
     "lodash": "^4.17.15",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",

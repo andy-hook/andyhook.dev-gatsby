@@ -6,7 +6,7 @@ import {
   TRANSITION_TYPE_MENU_ENTER,
 } from "@constants"
 import useDeferredRunEffect from "@hooks/deferred-run"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 
 interface Props {
   onClick: () => void
@@ -44,14 +44,14 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
     const startDelay = 0.25
 
     const animateOpen = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         listRef.current,
         1,
         {
           y: `${150}%`,
         },
         {
-          ease: Expo.easeOut,
+          ease: "expo.out",
           delay: startDelay,
           y: "0%",
 
@@ -60,7 +60,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
       )
 
       cachedRefs.current.map((listItem, index) => {
-        TweenMax.fromTo(
+        gsap.fromTo(
           listItem.current,
           1,
           {
@@ -68,7 +68,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
             y: `${100 + index * 100}%`,
           },
           {
-            ease: Expo.easeOut,
+            ease: "expo.out",
             delay: startDelay + index * 0.05,
             y: "0%",
             opacity: 1,
@@ -79,7 +79,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
     }
     const animateClose = () => {
       cachedRefs.current.map(listItem => {
-        TweenMax.to(listItem.current, 0.25, {
+        gsap.to(listItem.current, 0.25, {
           opacity: 0,
           clearProps: "opacity",
         })

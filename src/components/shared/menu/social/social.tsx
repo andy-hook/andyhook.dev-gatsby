@@ -3,7 +3,7 @@ import { SocialMeta } from "@custom-types/model"
 import { keys } from "@custom-types/utils"
 import Icon from "@components/shared/icon/icon"
 import * as S from "./social.style"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 
 interface Props {
@@ -20,14 +20,14 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
   const listRef = React.useRef() as MutableRefObject<HTMLUListElement>
 
   const animateOpen = () => {
-    TweenMax.fromTo(
+    gsap.fromTo(
       listRef.current,
       1,
       {
         y: `${150}%`,
       },
       {
-        ease: Expo.easeOut,
+        ease: "expo.out",
         delay: 0.4,
         y: "0%",
         clearProps: "transform",
@@ -35,7 +35,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
     )
 
     cachedRefs.current.map((listItem, index) => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         listItem.current,
         1,
         {
@@ -43,7 +43,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
           opacity: 0,
         },
         {
-          ease: Expo.easeOut,
+          ease: "expo.out",
           delay: 0.4 + index * 0.025,
           opacity: 1,
           y: "0%",
@@ -55,7 +55,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
 
   const animateClosed = () => {
     cachedRefs.current.map(listItem => {
-      TweenMax.to(listItem.current, 0.25, {
+      gsap.to(listItem.current, 0.25, {
         opacity: 0,
         clearProps: "opacity",
       })

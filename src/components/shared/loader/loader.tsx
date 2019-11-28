@@ -1,5 +1,5 @@
 import React, { useEffect, memo } from "react"
-import { Expo, TimelineMax, Elastic } from "gsap"
+import gsap from "gsap"
 import * as S from "./loader.style"
 
 interface Props {
@@ -16,12 +16,12 @@ const Loader: React.FunctionComponent<Props> = memo(
     const containerRef: divRef = React.useRef() as divRef
     const markRef = React.useRef() as divRef
     const boltRef = React.useRef() as pathRef
-    const markTL = new TimelineMax()
-    const boltTL = new TimelineMax()
+    const markTL = gsap.timeline()
+    const boltTL = gsap.timeline()
 
     const markOut = () => {
       markTL.to(markRef.current, 0.7, {
-        ease: Elastic.easeIn.config(1, 0.7),
+        ease: "elastic.in(1, 0.7)",
         transform: "scale(0.1)",
         opacity: 0,
         onComplete: onLeaveComplete,
@@ -37,7 +37,7 @@ const Loader: React.FunctionComponent<Props> = memo(
           rotation: -40,
         },
         {
-          ease: Elastic.easeOut.config(1, 0.6),
+          ease: "elastic.in(1, 0.6)",
           scale: 1,
           rotation: 0,
           opacity: 1,
@@ -57,7 +57,7 @@ const Loader: React.FunctionComponent<Props> = memo(
           transformOrigin: "bottom right",
         },
         {
-          ease: Expo.easeOut,
+          ease: "expo.out",
           delay: 0.05,
           rotation: 0,
           scale: 1,

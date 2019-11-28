@@ -7,7 +7,7 @@ import {
   TRANSITION_TYPE_MENU_EXIT,
 } from "@constants"
 import useDeferredRunEffect from "@hooks/deferred-run"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 
 interface Props {
   projects: Projects
@@ -27,7 +27,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
 
     const animateOpen = () => {
       cachedRefs.current.map((listItem, index) => {
-        TweenMax.fromTo(
+        gsap.fromTo(
           listItem.current,
           1,
           {
@@ -35,7 +35,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
             y: `${50 + index * 25}%`,
           },
           {
-            ease: Expo.easeOut,
+            ease: "expo.out",
             delay: startDelay + index * 0.04,
             y: "0%",
             opacity: 1,
@@ -47,7 +47,7 @@ const ProjectList: React.FunctionComponent<Props> = memo(
 
     const animateClosed = () => {
       cachedRefs.current.map(listItem => {
-        TweenMax.to(listItem.current, 0.25, {
+        gsap.to(listItem.current, 0.25, {
           opacity: 0,
           clearProps: "opacity",
         })

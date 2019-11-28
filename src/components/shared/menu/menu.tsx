@@ -1,6 +1,6 @@
 import React, { memo, MutableRefObject } from "react"
 import { SocialMeta, Projects } from "model"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import ProjectListComponent from "./project-list/project-list"
 import { useMediaQueryContext } from "../media-query-provider/media-query-provider"
@@ -42,9 +42,9 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateOpen = () => {
       menuIsAnimating = true
 
-      TweenMax.set(containerRef.current, { visibility: "visible" })
+      gsap.set(containerRef.current, { visibility: "visible" })
 
-      TweenMax.fromTo(
+      gsap.fromTo(
         sidebar.current,
         slideInSpeed,
         {
@@ -52,7 +52,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
           x: topPalm ? "-100%" : "100%",
         },
         {
-          ease: Expo.easeOut,
+          ease: "expo.out",
           x: "0%",
           onComplete: () => {
             menuIsAnimating = false
@@ -61,7 +61,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       )
 
       // Scrim
-      TweenMax.to(animationScrim.current, 0.25, {
+      gsap.to(animationScrim.current, 0.25, {
         opacity: slideInSpeed,
       })
     }
@@ -69,26 +69,26 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const animateClose = () => {
       menuIsAnimating = true
 
-      TweenMax.fromTo(
+      gsap.fromTo(
         sidebar.current,
         slideOutSpeed,
         {
           x: "0%",
         },
         {
-          ease: Expo.easeOut,
+          ease: "expo.out",
           x: topPalm ? "-100%" : "100%",
           clearProps: "transform, opacity",
           onComplete: () => {
             menuIsAnimating = false
 
-            TweenMax.set(containerRef.current, { clearProps: "visibility" })
+            gsap.set(containerRef.current, { clearProps: "visibility" })
           },
         }
       )
 
       // Scrim
-      TweenMax.to(animationScrim.current, slideOutSpeed, {
+      gsap.to(animationScrim.current, slideOutSpeed, {
         opacity: 0,
         clearProps: "opacity",
       })

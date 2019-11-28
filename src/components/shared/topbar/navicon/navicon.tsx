@@ -1,6 +1,6 @@
 import React, { memo, MutableRefObject } from "react"
 import classNames from "classnames"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import * as S from "./navicon.style"
 
@@ -16,31 +16,31 @@ const Navicon: React.FunctionComponent<Props> = memo(
     const bottomBar = React.useRef() as MutableRefObject<SVGRectElement>
 
     const animateOpen = () => {
-      TweenMax.set(topBar.current, { transformOrigin: "center center" })
-      TweenMax.set(bottomBar.current, { transformOrigin: "center center" })
+      gsap.set(topBar.current, { transformOrigin: "center center" })
+      gsap.set(bottomBar.current, { transformOrigin: "center center" })
 
-      TweenMax.to(topBar.current, 1, {
-        ease: Expo.easeOut,
+      gsap.to(topBar.current, 1, {
+        ease: "expo.out",
         rotation: 45,
         y: 3.5,
       })
 
-      TweenMax.to(bottomBar.current, 1, {
-        ease: Expo.easeOut,
+      gsap.to(bottomBar.current, 1, {
+        ease: "expo.out",
         rotation: -45,
         y: -3.5,
       })
     }
 
     const animateClose = () => {
-      TweenMax.to(topBar.current, 1, {
-        ease: Expo.easeOut,
+      gsap.to(topBar.current, 1, {
+        ease: "expo.out",
         rotation: 0,
         y: 0,
       })
 
-      TweenMax.to(bottomBar.current, 1, {
-        ease: Expo.easeOut,
+      gsap.to(bottomBar.current, 1, {
+        ease: "expo.out",
         rotation: 0,
         y: 0,
       })

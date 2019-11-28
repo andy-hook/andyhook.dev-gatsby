@@ -1,6 +1,6 @@
 import React, { MutableRefObject } from "react"
 import { ProjectItem } from "@custom-types/model"
-import { TweenMax, Expo } from "gsap"
+import gsap from "gsap"
 import { useInView } from "react-intersection-observer"
 import * as S from "./next-project.style"
 import {
@@ -45,7 +45,7 @@ const NextProject: React.FunctionComponent<Props> = ({
   const setSlideDimensions = () => {
     const viewportOffset = containerRef.current.getBoundingClientRect()
 
-    TweenMax.set(slideRef.current, {
+    gsap.set(slideRef.current, {
       height: viewportOffset.top,
     })
   }
@@ -54,17 +54,17 @@ const NextProject: React.FunctionComponent<Props> = ({
     onProjectChange()
     setSlideDimensions()
 
-    TweenMax.set(slideContainerRef.current, {
+    gsap.set(slideContainerRef.current, {
       visibility: "visible",
     })
 
-    TweenMax.to(slideInnerRef.current, 1, {
-      ease: Expo.easeOut,
+    gsap.to(slideInnerRef.current, 1, {
+      ease: "expo.out",
       y: "0%",
     })
 
-    TweenMax.to(slideOverRef.current, 1, {
-      ease: Expo.easeOut,
+    gsap.to(slideOverRef.current, 1, {
+      ease: "expo.out",
       delay: 0.3,
       y: "0%",
       onComplete: () => {

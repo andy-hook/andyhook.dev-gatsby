@@ -1,7 +1,7 @@
 import React, { useEffect, memo, MutableRefObject } from "react"
 import Details from "./details/details"
 import Gutter from "@components/shared/gutter/gutter"
-import { TweenMax, Elastic } from "gsap"
+import gsap from "gsap"
 import * as S from "./hero.style"
 import { PAGE_TRANSITION_DURATION } from "@constants"
 import usePageTransition from "@hooks/page-transition"
@@ -18,27 +18,27 @@ const Hero: React.FunctionComponent<Props> = memo(
     const backgroundRef = React.useRef() as MutableRefObject<HTMLDivElement>
 
     const animatePop = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         detailsRef.current,
         0.75,
         {
           scale: 1.5,
         },
         {
-          ease: Elastic.easeOut.config(0.8, 1),
+          ease: "elastic.out(0.8, 1)",
           scale: 1,
           opacity: 1,
           clearProps: "transform",
         }
       )
 
-      TweenMax.to(backgroundRef.current, 0.9, {
+      gsap.to(backgroundRef.current, 0.9, {
         opacity: 1,
       })
     }
 
     const animateEnter = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         detailsRef.current,
         0.25,
         {
@@ -51,13 +51,13 @@ const Hero: React.FunctionComponent<Props> = memo(
         }
       )
 
-      TweenMax.to(backgroundRef.current, 0.25, {
+      gsap.to(backgroundRef.current, 0.25, {
         opacity: 1,
       })
     }
 
     const animateExit = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         detailsRef.current,
         PAGE_TRANSITION_DURATION,
         {
@@ -72,20 +72,20 @@ const Hero: React.FunctionComponent<Props> = memo(
         }
       )
 
-      TweenMax.to(backgroundRef.current, PAGE_TRANSITION_DURATION, {
+      gsap.to(backgroundRef.current, PAGE_TRANSITION_DURATION, {
         opacity: 0,
       })
     }
 
     const animateFirstEnter = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         detailsRef.current,
         0.75,
         {
           scale: 1.5,
         },
         {
-          ease: Elastic.easeOut.config(0.8, 1),
+          ease: "elastic.out(0.8, 1)",
           scale: 1,
           opacity: 1,
           clearProps: "transform",
@@ -105,7 +105,7 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     useEffect(() => {
       if (firstEntrance) {
-        TweenMax.to(backgroundRef.current, 0.9, {
+        gsap.to(backgroundRef.current, 0.9, {
           opacity: 1,
         })
       }

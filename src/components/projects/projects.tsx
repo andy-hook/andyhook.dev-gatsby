@@ -1,7 +1,7 @@
 import React, { memo, MutableRefObject } from "react"
 import OverlineTitle from "@components/shared/overline-title/overline-title"
 import CommonPage from "@components/shared/common-page/common-page"
-import { TweenMax, Elastic } from "gsap"
+import gsap from "gsap"
 import * as S from "./projects.style"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
@@ -12,14 +12,14 @@ const Projects: React.FunctionComponent = memo(() => {
   const testDiv = React.useRef() as MutableRefObject<HTMLDivElement>
 
   const animatePop = () => {
-    TweenMax.fromTo(
+    gsap.fromTo(
       testDiv.current,
       0.75,
       {
         scale: 1.5,
       },
       {
-        ease: Elastic.easeOut.config(0.8, 1),
+        ease: "elastic.out(0.8, 1)",
         scale: 1,
         opacity: 1,
       }
@@ -27,7 +27,7 @@ const Projects: React.FunctionComponent = memo(() => {
   }
 
   const animateEnter = () => {
-    TweenMax.fromTo(
+    gsap.fromTo(
       testDiv.current,
       0.25,
       {
@@ -42,7 +42,7 @@ const Projects: React.FunctionComponent = memo(() => {
   }
 
   const animateExit = () => {
-    TweenMax.fromTo(
+    gsap.fromTo(
       testDiv.current,
       PAGE_TRANSITION_DURATION,
       {
