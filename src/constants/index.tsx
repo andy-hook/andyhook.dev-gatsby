@@ -1,5 +1,5 @@
 // Page transition exit timing
-export const PAGE_TRANSITION_DURATION = 0.25
+export const PAGE_LEAVE_DURATION = 0.25
 
 // Page transition types
 export const TRANSITION_TYPE_EXIT = "exit" as "exit"

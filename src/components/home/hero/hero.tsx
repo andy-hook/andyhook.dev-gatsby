@@ -3,7 +3,7 @@ import Details from "./details/details"
 import Gutter from "@components/shared/gutter/gutter"
 import gsap from "gsap"
 import * as S from "./hero.style"
-import { PAGE_TRANSITION_DURATION } from "@constants"
+import { PAGE_LEAVE_DURATION } from "@constants"
 import usePageTransition from "@hooks/page-transition"
 
 interface Props {
@@ -65,7 +65,7 @@ const Hero: React.FunctionComponent<Props> = memo(
           y: "0%",
         },
         {
-          duration: PAGE_TRANSITION_DURATION,
+          duration: PAGE_LEAVE_DURATION,
           y: "-10%",
           opacity: 0,
           onComplete: () => {
@@ -75,7 +75,7 @@ const Hero: React.FunctionComponent<Props> = memo(
       )
 
       gsap.to(backgroundRef.current, {
-        duration: PAGE_TRANSITION_DURATION,
+        duration: PAGE_LEAVE_DURATION,
         opacity: 0,
       })
     }

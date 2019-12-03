@@ -5,7 +5,7 @@ import gsap from "gsap"
 import * as S from "./projects.style"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
-import { PAGE_TRANSITION_DURATION } from "@constants"
+import { PAGE_LEAVE_DURATION } from "@constants"
 import usePageTransition from "@hooks/page-transition"
 
 const Projects: React.FunctionComponent = memo(() => {
@@ -48,7 +48,7 @@ const Projects: React.FunctionComponent = memo(() => {
         y: "0%",
       },
       {
-        duration: PAGE_TRANSITION_DURATION,
+        duration: PAGE_LEAVE_DURATION,
         y: "-50%",
         opacity: 0,
         onComplete: () => {

@@ -1,7 +1,7 @@
 import React, { memo, MutableRefObject } from "react"
 import * as S from "./nav-list.style"
 import {
-  PAGE_TRANSITION_DURATION,
+  PAGE_LEAVE_DURATION,
   TRANSITION_TYPE_EXIT,
   TRANSITION_TYPE_ENTER,
 } from "@constants"
@@ -13,14 +13,14 @@ export const linkProps = {
     state: {
       animType: TRANSITION_TYPE_EXIT,
     },
-    length: PAGE_TRANSITION_DURATION, // Should match entry delay
+    length: PAGE_LEAVE_DURATION, // Should match entry delay
   },
   entry: {
     state: {
       animType: TRANSITION_TYPE_ENTER,
     },
-    delay: PAGE_TRANSITION_DURATION, // How long the current page should show for before changing scroll position
-    length: PAGE_TRANSITION_DURATION,
+    delay: PAGE_LEAVE_DURATION, // How long the current page should show for before changing scroll position
+    length: PAGE_LEAVE_DURATION,
   },
 }
 
