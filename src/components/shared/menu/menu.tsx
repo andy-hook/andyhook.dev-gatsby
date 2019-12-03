@@ -21,7 +21,6 @@ interface DataProps {
 type AllProps = Props & DataProps
 
 export let menuIsAnimating = false
-export let menuIsRouteTransitioning = false
 
 const slideInSpeed = 0.6
 const slideOutSpeed = 0.3
@@ -40,14 +39,11 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     }
 
     const animateOpen = () => {
-      menuIsAnimating = true
-
       gsap.set(containerRef.current, { visibility: "visible" })
 
       gsap.fromTo(
         sidebar.current,
         {
-          opacity: 1,
           x: topPalm ? "-100%" : "100%",
         },
         {
@@ -62,17 +58,14 @@ const Menu: React.FunctionComponent<AllProps> = memo(
 
       // Scrim
       gsap.to(animationScrim.current, {
-        duration: 0.25,
-        opacity: slideInSpeed,
+        duration: 0.4,
+        opacity: 0.75,
       })
     }
 
     const animateClose = () => {
-      menuIsAnimating = true
-
       gsap.fromTo(
         sidebar.current,
-
         {
           x: "0%",
         },
@@ -98,6 +91,8 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     }
 
     useDeferredRunEffect(() => {
+      menuIsAnimating = true
+
       open ? animateOpen() : animateClose()
     }, [open])
 

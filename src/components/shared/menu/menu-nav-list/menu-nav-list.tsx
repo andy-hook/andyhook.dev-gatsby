@@ -55,6 +55,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
           delay: startDelay,
           y: "0%",
           clearProps: "transform",
+          overwrite: true,
         }
       )
 
@@ -72,6 +73,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
             y: "0%",
             opacity: 1,
             clearProps: "transform",
+            overwrite: true,
           }
         )
       })
@@ -82,6 +84,7 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
           duration: 0.25,
           opacity: 0,
           clearProps: "opacity",
+          overwrite: true,
         })
       })
     }

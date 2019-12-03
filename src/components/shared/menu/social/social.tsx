@@ -31,6 +31,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
         delay: 0.4,
         y: "0%",
         clearProps: "transform",
+        overwrite: true,
       }
     )
 
@@ -48,6 +49,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
           opacity: 1,
           y: "0%",
           clearProps: "transform",
+          overwrite: true,
         }
       )
     })
@@ -59,6 +61,7 @@ const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
         duration: 0.25,
         opacity: 0,
         clearProps: "opacity",
+        overwrite: true,
       })
     })
   }
