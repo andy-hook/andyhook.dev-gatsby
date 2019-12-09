@@ -126,7 +126,7 @@ const Hero: React.FunctionComponent<Props> = memo(
       <S.Container ref={inviewRef}>
         <S.DetailsPos ref={detailsRef}>
           <Gutter>
-            <Details buttonHref={buttonHref} />
+            <Details buttonHref={buttonHref} visible={true} />
           </Gutter>
         </S.DetailsPos>
 

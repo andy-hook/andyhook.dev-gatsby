@@ -24,3 +24,10 @@ export const Title = styled.h2`
 
   z-index: ${zIndex.low};
 `
+
+export const TitleWord = styled.div`
+  display: inline-block;
+  white-space: pre;
+`
+
+export const TitleCharacter = styled.div``

@@ -49,7 +49,7 @@ const Projects: React.FunctionComponent = memo(() => {
       },
       {
         duration: PAGE_LEAVE_DURATION,
-        y: "-50%",
+        y: "-10%",
         opacity: 0,
         onComplete: () => {
           window.scrollTo(0, 0)
