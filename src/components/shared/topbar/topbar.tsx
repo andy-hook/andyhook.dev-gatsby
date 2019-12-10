@@ -3,7 +3,6 @@ import Navicon from "./navicon/navicon"
 import Logo from "./logo/logo"
 import { menuIsAnimating } from "@components/shared/menu/menu"
 import NavList from "./nav-list/nav-list"
-import SidebarSlide from "../sidebar-slide/sidebar-slide.container"
 import * as S from "./topbar.style"
 
 interface Props {
@@ -39,21 +38,15 @@ const Topbar: React.FunctionComponent<Props> = memo(
         </S.Over>
 
         <S.Under ref={underRef} visible={visible}>
-          <SidebarSlide>
-            <S.ContainerInner
-              hasScrolled={hasScrolled}
-              open={open}
-              visible={visible}
-            >
-              <S.LogoPos>
-                <Logo hidden={open} />
-              </S.LogoPos>
+          <S.ContainerInner hasScrolled={hasScrolled} visible={visible}>
+            <S.LogoPos>
+              <Logo hidden={open} />
+            </S.LogoPos>
 
-              <S.NavPos>
-                <NavList hidden={open} />
-              </S.NavPos>
-            </S.ContainerInner>
-          </SidebarSlide>
+            <S.NavPos>
+              <NavList />
+            </S.NavPos>
+          </S.ContainerInner>
         </S.Under>
       </>
     )

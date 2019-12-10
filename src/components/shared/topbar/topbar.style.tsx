@@ -8,12 +8,11 @@ import { menuZindex } from "../menu/menu.style"
 
 interface StyleProps {
   hasScrolled?: boolean
-  open?: boolean
   visible?: boolean
 }
 
 const spacingXSmall = rem("25px")
-const spacingXBig = rem("40px")
+const spacingXBig = rem("35px")
 
 const topbarHeight = css`
   height: ${rem("65px")};
@@ -83,7 +82,7 @@ export const Over = styled(visiblityTransition)`
   mix-blend-mode: difference;
   pointer-events: none;
 
-  ${mq.greaterThan("bottomPalm")`
+  ${mq.greaterThan("topPalm")`
     justify-content: flex-start;
   `}
 `
@@ -120,12 +119,6 @@ export const ContainerInner = styled.div<StyleProps>`
     z-index: ${zIndex.floor};
 
     opacity: 1;
-
-    ${props =>
-      props.open &&
-      css`
-        opacity: 0;
-      `}
   }
 
   /* Underline */
@@ -143,12 +136,6 @@ export const ContainerInner = styled.div<StyleProps>`
     background-color: ${themeTone(600)};
 
     z-index: ${zIndex.low};
-
-    ${props =>
-      props.open &&
-      css`
-        opacity: 0;
-      `}
   }
 `
 
@@ -157,7 +144,7 @@ export const LogoPos = styled.div`
 
   font-size: ${rem("65px")};
 
-  ${mq.greaterThan("bottomPalm")`
+  ${mq.greaterThan("topPalm")`
     margin-left: 0.7em;
   `}
 
@@ -187,7 +174,7 @@ export const NaviconSizing = styled.div`
 
   pointer-events: auto;
 
-  ${mq.greaterThan("bottomPalm")`
+  ${mq.greaterThan("topPalm")`
     margin-left: -1.25em;
   `}
 `

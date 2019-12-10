@@ -1,14 +1,15 @@
 import React from "react"
-import ImagesOverlay from "./images-overlay"
-import { shallowWithTheme } from "@test-utils"
-import { mockProjectsData } from "@mock-data"
 
-describe("<ImagesOverlay />", () => {
+import SplitText from "./split-text"
+import { shallowWithTheme } from "@test-utils"
+
+describe("<SplitText />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <ImagesOverlay projectDataList={mockProjectsData} activeIndex={0} />
+      <SplitText visible={true}>This is test text</SplitText>
     )
+
     expect(tree).toMatchSnapshot()
   })
 })

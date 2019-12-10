@@ -1,5 +1,5 @@
 import React, { memo, MutableRefObject } from "react"
-import { Expo, TweenMax } from "gsap"
+import gsap from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
@@ -14,22 +14,23 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   const { topPalm } = useMediaQueryContext()
 
   const animateHide = () => {
-    TweenMax.to(logoRef.current, 0.5, {
-      ease: Expo.easeOut,
+    gsap.to(logoRef.current, {
+      duration: 0.5,
+      ease: "expo.out",
       x: "0%",
       opacity: 0,
     })
   }
 
   const animateShow = () => {
-    TweenMax.fromTo(
+    gsap.fromTo(
       logoRef.current,
-      1,
       {
         x: topPalm ? "100%" : "-100%",
       },
       {
-        ease: Expo.easeOut,
+        duration: 1,
+        ease: "expo.out",
         x: "0%",
         opacity: 1,
       }

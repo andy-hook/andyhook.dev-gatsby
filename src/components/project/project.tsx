@@ -4,7 +4,7 @@ import NextProjectContainer from "@components/project/next-project/next-project.
 import { Projects, ProjectNames } from "@custom-types/model"
 import { getCurrentProjectData, getNextProjectData } from "./utils/utils"
 import { TransitionState } from "@custom-types/gatsby-plugin-transition-link"
-import { TweenMax } from "gsap"
+import gsap from "gsap"
 import * as S from "./project.style"
 import usePageTransition from "@hooks/page-transition"
 
@@ -21,26 +21,26 @@ const Project: React.FunctionComponent<Props> = memo(
     const contentRef = React.useRef() as MutableRefObject<HTMLElement>
 
     const animatePop = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         contentRef.current,
-        2,
         {
           opacity: 1,
         },
         {
+          duration: 2,
           opacity: 1,
         }
       )
     }
 
     const animateMenuEnter = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         contentRef.current,
-        0.75,
         {
           opacity: 1,
         },
         {
+          duration: 0.75,
           opacity: 1,
           clearProps: "transform",
         }
@@ -48,13 +48,13 @@ const Project: React.FunctionComponent<Props> = memo(
     }
 
     const animateFirstEnter = () => {
-      TweenMax.fromTo(
+      gsap.fromTo(
         contentRef.current,
-        2,
         {
           opacity: 1,
         },
         {
+          duration: 2,
           opacity: 1,
           delay: 0.65,
         }

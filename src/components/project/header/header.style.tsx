@@ -11,5 +11,5 @@ export const Container = styled.header`
 
 export const BackgroundImage = styled.header`
   height: 100%;
-  opacity: 0.2;
+  opacity: 0;
 `

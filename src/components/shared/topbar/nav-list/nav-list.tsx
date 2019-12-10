@@ -1,17 +1,10 @@
-import React, { memo, useState, MutableRefObject } from "react"
-import { TweenMax, Expo } from "gsap"
-import useDeferredRunEffect from "@hooks/deferred-run"
-import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
+import React, { memo, MutableRefObject } from "react"
 import * as S from "./nav-list.style"
 import {
-  PAGE_TRANSITION_DURATION,
+  PAGE_LEAVE_DURATION,
   TRANSITION_TYPE_EXIT,
   TRANSITION_TYPE_ENTER,
 } from "@constants"
-
-interface Props {
-  hidden?: boolean
-}
 
 export const linkProps = {
   activeClassName: "active",
@@ -20,78 +13,22 @@ export const linkProps = {
     state: {
       animType: TRANSITION_TYPE_EXIT,
     },
-    length: PAGE_TRANSITION_DURATION, // Should match entry delay
+    length: PAGE_LEAVE_DURATION, // Should match entry delay
   },
   entry: {
     state: {
       animType: TRANSITION_TYPE_ENTER,
     },
-    delay: PAGE_TRANSITION_DURATION, // How long the current page should show for before changing scroll position
-    length: PAGE_TRANSITION_DURATION,
+    delay: PAGE_LEAVE_DURATION, // How long the current page should show for before changing scroll position
+    length: PAGE_LEAVE_DURATION,
   },
 }
 
-const NavList: React.FunctionComponent<Props> = memo(({ hidden }) => {
+const NavList: React.FunctionComponent = memo(() => {
   const navRef = React.useRef() as MutableRefObject<HTMLDivElement>
-  const { topPalm } = useMediaQueryContext()
-  const [hiddenApplied, setHiddenApplied] = useState(false)
-
-  const animateHide = () => {
-    TweenMax.fromTo(
-      navRef.current,
-      1,
-      {
-        opacity: 1,
-      },
-      {
-        ease: Expo.easeOut,
-        opacity: 0,
-        clearProps: "all",
-        onComplete: () => {
-          setHiddenApplied(true)
-        },
-      }
-    )
-  }
-
-  const animateShow = () => {
-    TweenMax.fromTo(
-      navRef.current,
-      1,
-      {
-        x: "100%",
-        opacity: 0,
-      },
-      {
-        ease: Expo.easeOut,
-        x: "0%",
-        opacity: 1,
-        clearProps: "all",
-        onComplete: () => {
-          setHiddenApplied(false)
-        },
-      }
-    )
-  }
-
-  useDeferredRunEffect(() => {
-    // Don't waste resources animating hidden elements on small screens
-    if (topPalm) {
-      if (hidden) {
-        animateHide()
-      } else {
-        animateShow()
-      }
-    } else {
-      hidden ? setHiddenApplied(true) : setHiddenApplied(false)
-    }
-  }, [hidden])
 
   return (
-    <S.Container
-      ref={navRef}
-      className={hiddenApplied ? "is-hidden" : "is-visible"}
-    >
+    <S.Container ref={navRef}>
       <S.List>
         <S.ListItem>
           <S.ListItemLink to="/" {...linkProps}>

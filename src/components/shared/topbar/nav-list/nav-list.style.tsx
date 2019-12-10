@@ -10,10 +10,6 @@ import { lineHeight } from "@style/variables"
 import { mq } from "@style/media-queries"
 
 export const Container = styled.nav`
-  &.is-hidden {
-    opacity: 0;
-  }
-
   ${mq.lessThan("bottomPalm")`
     visibility: hidden;
     opacity: 0;
