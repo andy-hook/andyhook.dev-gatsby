@@ -1,45 +1,15 @@
-import React from "react"
+import React, { memo } from "react"
 
 import SEO from "@components/seo"
-import HeroContainer from "@components/home/hero/hero.container"
-import WorkContainer from "@components/home/work/work.container"
-import HomeContainer from "@components/home/home.container"
+import Home from "@components/home/home"
 
-const IndexPage: React.FunctionComponent = () => {
+const IndexPage: React.FunctionComponent = memo(() => {
   return (
     <>
       <SEO />
-
-      <HomeContainer>
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <HeroContainer />
-        <WorkContainer />
-      </HomeContainer>
+      <Home />
     </>
   )
-}
+})
 
 export default IndexPage

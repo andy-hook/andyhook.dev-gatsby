@@ -7,7 +7,11 @@ describe("<Details />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <Details buttonHref="https://www.google.com" visible={true} />
+      <Details
+        buttonHref="https://www.google.com"
+        visible={true}
+        animate={false}
+      />
     )
     expect(tree).toMatchSnapshot()
   })

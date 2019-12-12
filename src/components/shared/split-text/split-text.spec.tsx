@@ -7,7 +7,9 @@ describe("<SplitText />", () => {
   it("renders correctly", () => {
     const tree = shallowWithTheme(
       "dark",
-      <SplitText visible={true}>This is test text</SplitText>
+      <SplitText visible={true} animate={false}>
+        This is test text
+      </SplitText>
     )
 
     expect(tree).toMatchSnapshot()

@@ -1,7 +1,38 @@
 import React, { memo } from "react"
+import HeroContainer from "@components/home/hero/hero.container"
+import WorkContainer from "@components/home/work/work.container"
 
-const Home: React.FunctionComponent = memo(({ children }) => {
-  return <>{children}</>
+const Home: React.FunctionComponent = memo(() => {
+  return (
+    <>
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <HeroContainer />
+      <WorkContainer />
+    </>
+  )
 })
 
 export default Home
