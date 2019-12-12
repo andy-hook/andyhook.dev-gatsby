@@ -12,6 +12,30 @@ const IndexPage: React.FunctionComponent = () => {
 
       <HomeContainer>
         <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
+        <HeroContainer />
         <WorkContainer />
       </HomeContainer>
     </>

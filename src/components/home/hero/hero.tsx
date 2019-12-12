@@ -1,4 +1,4 @@
-import React, { useEffect, memo, MutableRefObject } from "react"
+import React, { useEffect, memo, MutableRefObject, useState } from "react"
 import Details from "./details/details"
 import Gutter from "@components/shared/gutter/gutter"
 import gsap from "gsap"
@@ -16,6 +16,8 @@ const Hero: React.FunctionComponent<Props> = memo(
   ({ buttonHref, loaderVisible, firstEntrance }) => {
     const detailsRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const backgroundRef = React.useRef() as MutableRefObject<HTMLDivElement>
+    const [detailsVisible, setDetailsVisible] = useState(false)
+    const [detailsAnimate, setDetailsAnimate] = useState(false)
 
     const animatePop = () => {
       gsap.fromTo(
@@ -39,6 +41,8 @@ const Hero: React.FunctionComponent<Props> = memo(
     }
 
     const animateEnter = () => {
+      setDetailsVisible(true)
+
       gsap.fromTo(
         detailsRef.current,
         {
@@ -56,6 +60,14 @@ const Hero: React.FunctionComponent<Props> = memo(
         duration: 0.25,
         opacity: 1,
       })
+    }
+
+    const staticEnter = () => {
+      // setDetailsVisible(true)
+      // console.log("static enter")
+      // gsap.set(detailsRef.current, {
+      //   opacity: 1,
+      // })
     }
 
     const animateExit = () => {
@@ -99,10 +111,19 @@ const Hero: React.FunctionComponent<Props> = memo(
 
     const { inviewRef } = usePageTransition({
       runInview: {
-        onEnter: animateEnter,
+        onEnter: () => {
+          setDetailsAnimate(true)
+          animateEnter()
+        },
         onExit: animateExit,
         onPop: animatePop,
         onEnterFromMenu: animateEnter,
+      },
+      runOutOfView: {
+        onEnter: () => {
+          setDetailsAnimate(false)
+          staticEnter()
+        },
       },
     })
 
@@ -126,7 +147,11 @@ const Hero: React.FunctionComponent<Props> = memo(
       <S.Container ref={inviewRef}>
         <S.DetailsPos ref={detailsRef}>
           <Gutter>
-            <Details buttonHref={buttonHref} visible={true} />
+            <Details
+              visible={detailsVisible}
+              buttonHref={buttonHref}
+              animate={detailsAnimate}
+            />
           </Gutter>
         </S.DetailsPos>
 

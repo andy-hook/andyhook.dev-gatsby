@@ -6,14 +6,15 @@ import SplitText from "@components/shared/split-text/split-text"
 interface Props {
   buttonHref: string
   visible: boolean
+  animate: boolean
 }
 
 const Details: React.FunctionComponent<Props> = memo(
-  ({ buttonHref, visible }) => {
+  ({ buttonHref, animate, visible }) => {
     return (
       <S.DetailsContainer>
         <S.Title>
-          <SplitText visible={visible}>
+          <SplitText visible={visible} animate={animate}>
             I design & build beautiful digital interfaces
           </SplitText>
         </S.Title>

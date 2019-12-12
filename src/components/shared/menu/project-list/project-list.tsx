@@ -15,13 +15,13 @@ interface Props {
   onClick: () => void
 }
 
-type refArray<T> = Array<MutableRefObject<T>>
+type Refs<T> = Array<MutableRefObject<T>>
 
 const ProjectList: React.FunctionComponent<Props> = memo(
   ({ projects, onClick, open }) => {
     const projectKeys = keys(projects)
-    const refs = projectKeys.map(React.createRef) as refArray<HTMLLIElement>
-    const cachedRefs = React.useRef<refArray<HTMLLIElement>>(refs)
+    const refs = projectKeys.map(React.createRef) as Refs<HTMLLIElement>
+    const cachedRefs = React.useRef<Refs<HTMLLIElement>>(refs)
 
     const startDelay = 0.1
 

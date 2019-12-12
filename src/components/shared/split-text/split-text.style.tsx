@@ -5,4 +5,6 @@ export const TitleWord = styled.div`
   white-space: pre;
 `
 
-export const TitleCharacter = styled.div``
+export const TitleCharacter = styled.div`
+  opacity: 0;
+`

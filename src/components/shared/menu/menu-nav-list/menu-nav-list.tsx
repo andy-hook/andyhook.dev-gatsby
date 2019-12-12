@@ -29,7 +29,7 @@ export const linkProps = {
   },
 }
 
-type refArray<T> = Array<MutableRefObject<T>>
+type Refs<T> = Array<MutableRefObject<T>>
 
 const MenuNavList: React.FunctionComponent<Props> = memo(
   ({ onClick, open }) => {
@@ -37,8 +37,8 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
       React.createRef(),
       React.createRef(),
       React.createRef(),
-    ] as refArray<HTMLLIElement>
-    const cachedRefs = React.useRef<refArray<HTMLLIElement>>(refs)
+    ] as Refs<HTMLLIElement>
+    const cachedRefs = React.useRef<Refs<HTMLLIElement>>(refs)
     const listRef = React.useRef() as MutableRefObject<HTMLUListElement>
 
     const startDelay = 0.25

@@ -11,12 +11,12 @@ interface Props {
   open: boolean
 }
 
-type refArray<T> = Array<MutableRefObject<T>>
+type Refs<T> = Array<MutableRefObject<T>>
 
 const Social: React.FunctionComponent<Props> = memo(({ items, open }) => {
   const projectKeys = keys(items)
-  const refs = projectKeys.map(React.createRef) as refArray<HTMLLIElement>
-  const cachedRefs = React.useRef<refArray<HTMLLIElement>>(refs)
+  const refs = projectKeys.map(React.createRef) as Refs<HTMLLIElement>
+  const cachedRefs = React.useRef<Refs<HTMLLIElement>>(refs)
   const listRef = React.useRef() as MutableRefObject<HTMLUListElement>
 
   const animateOpen = () => {
