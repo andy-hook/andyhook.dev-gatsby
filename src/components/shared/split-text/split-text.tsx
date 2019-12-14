@@ -1,4 +1,10 @@
-import React, { memo, MutableRefObject, useEffect } from "react"
+import React, {
+  memo,
+  MutableRefObject,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react"
 import * as S from "./split-text.style"
 import gsap from "gsap"
 
@@ -20,29 +26,31 @@ const SplitText: React.FunctionComponent<Props> = memo(
     const refs = letters.split("").map(React.createRef) as Refs<HTMLDivElement>
     const cachedRefs = React.useRef<Refs<HTMLDivElement>>(refs)
 
-    const splitTextNodes = wordArray.map((word, wordIndex) => {
-      const charactersArray = word.split("")
+    const splitTextNodes = useMemo(() => {
+      return wordArray.map((word, wordIndex) => {
+        const charactersArray = word.split("")
 
-      const renderLetters = charactersArray.map((letter, letterIndex) => {
-        const ref = cachedRefs.current[refPos]
-        refPos++
+        const renderLetters = charactersArray.map((letter, letterIndex) => {
+          const ref = cachedRefs.current[refPos]
+          refPos++
+
+          return (
+            <S.TitleWord key={letterIndex} ref={ref}>
+              {letter}
+            </S.TitleWord>
+          )
+        })
 
         return (
-          <S.TitleWord key={letterIndex} ref={ref}>
-            {letter}
+          <S.TitleWord key={wordIndex}>
+            {renderLetters}
+            {wordIndex !== wordArray.length - 1 ? " " : ""}
           </S.TitleWord>
         )
       })
+    }, [])
 
-      return (
-        <S.TitleWord key={wordIndex}>
-          {renderLetters}
-          {wordIndex !== wordArray.length - 1 ? " " : ""}
-        </S.TitleWord>
-      )
-    })
-
-    const animateShow = () => {
+    const animateShow = useCallback(() => {
       cachedRefs.current.map((listItem, index) => {
         gsap.fromTo(
           listItem.current,
@@ -61,9 +69,9 @@ const SplitText: React.FunctionComponent<Props> = memo(
           }
         )
       })
-    }
+    }, [])
 
-    const animateHide = () => {
+    const animateHide = useCallback(() => {
       cachedRefs.current.map((listItem, index) => {
         gsap.fromTo(
           listItem.current,
@@ -82,7 +90,7 @@ const SplitText: React.FunctionComponent<Props> = memo(
           }
         )
       })
-    }
+    }, [])
 
     const show = () => {
       cachedRefs.current.map(listItem => {

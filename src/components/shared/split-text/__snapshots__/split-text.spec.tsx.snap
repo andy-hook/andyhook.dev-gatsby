@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<SplitText /> render visible with animation 1`] = `ShallowWrapper {}`;
+
+exports[`<SplitText /> render visible without animation 1`] = `ShallowWrapper {}`;
+
 exports[`<SplitText /> renders correctly 1`] = `ShallowWrapper {}`;
