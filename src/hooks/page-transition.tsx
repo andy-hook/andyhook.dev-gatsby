@@ -118,7 +118,9 @@ export const runCallbacks = (
 const usePageTransition = ({ runInview, runOutOfView }: Props) => {
   const transitionState = useTransitionState()
 
-  const [inviewRef, inView, inviewEntry] = useInView()
+  const [inviewRef, inView, inviewEntry] = useInView({
+    threshold: 0.05,
+  })
 
   useEffect(() => {
     // Avoid double firing by waiting for inview to be ready
