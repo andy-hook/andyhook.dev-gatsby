@@ -14,7 +14,7 @@ const Details: React.FunctionComponent<Props> = memo(
     return (
       <S.DetailsContainer>
         <S.Title>
-          <SplitText visible={visible} animate={animate}>
+          <SplitText visible={visible} animate={animate} removeWidow={false}>
             I design & build beautiful digital interfaces
           </SplitText>
         </S.Title>

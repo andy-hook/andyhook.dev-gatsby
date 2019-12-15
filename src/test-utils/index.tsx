@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react"
 import { ThemeProvider } from "styled-components"
-import { shallow, mount, render } from "enzyme"
+import { shallow, mount } from "enzyme"
 import { themes } from "@style/theme"
 import { ThemeName } from "@custom-types/theme"
+import renderer from "react-test-renderer"
 
 export const mountWithTheme = (theme: ThemeName, children: ReactNode) =>
   mount(
@@ -12,11 +13,13 @@ export const mountWithTheme = (theme: ThemeName, children: ReactNode) =>
   )
 
 export const renderWithTheme = (theme: ThemeName, children: ReactNode) =>
-  render(
-    <ThemeProvider theme={themes[theme]}>
-      <>{children}</>
-    </ThemeProvider>
-  )
+  renderer
+    .create(
+      <ThemeProvider theme={themes[theme]}>
+        <>{children}</>
+      </ThemeProvider>
+    )
+    .toJSON()
 
 export const shallowWithTheme = (theme: ThemeName, children: ReactNode) =>
   shallow(

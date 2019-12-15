@@ -12,12 +12,13 @@ interface Props {
   children: string
   visible: boolean
   animate: boolean
+  removeWidow?: boolean
 }
 
 type Refs<T> = Array<MutableRefObject<T>>
 
 const SplitText: React.FunctionComponent<Props> = memo(
-  ({ children, visible, animate }) => {
+  ({ children, visible, animate, removeWidow = true }) => {
     const text = children
     const wordArray = text.split(" ")
     const letters = wordArray.join("")
@@ -27,7 +28,7 @@ const SplitText: React.FunctionComponent<Props> = memo(
     const cachedRefs = React.useRef<Refs<HTMLDivElement>>(refs)
 
     const splitTextNodes = useMemo(() => {
-      return wordArray.map((word, wordIndex) => {
+      const words = wordArray.map((word, wordIndex) => {
         const charactersArray = word.split("")
 
         const renderLetters = charactersArray.map((letter, letterIndex) => {
@@ -48,6 +49,18 @@ const SplitText: React.FunctionComponent<Props> = memo(
           </S.TitleWord>
         )
       })
+
+      if (removeWidow) {
+        const combineLastTwoWords = words.splice(wordArray.length - 2, 2)
+
+        words.push(
+          <S.TitleWord key={wordArray.length}>
+            {combineLastTwoWords}
+          </S.TitleWord>
+        )
+      }
+
+      return words
     }, [])
 
     const animateShow = useCallback(() => {
@@ -93,6 +106,7 @@ const SplitText: React.FunctionComponent<Props> = memo(
     }, [])
 
     const show = () => {
+      console.log(cachedRefs)
       cachedRefs.current.map(listItem => {
         gsap.set(listItem.current, {
           opacity: 1,

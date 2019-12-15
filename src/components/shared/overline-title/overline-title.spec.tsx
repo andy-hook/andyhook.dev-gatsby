@@ -1,10 +1,10 @@
 import React from "react"
 import OverlineTitle from "./overline-title"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 
 describe("<OverlineTitle />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
+    const tree = renderWithTheme(
       "dark",
       <OverlineTitle overline="Overline text">Title text</OverlineTitle>
     )

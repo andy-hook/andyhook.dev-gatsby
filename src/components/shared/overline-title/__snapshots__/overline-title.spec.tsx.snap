@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OverlineTitle /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<OverlineTitle /> renders correctly 1`] = `
+Array [
+  <h1
+    className="sc-bdVaJa dcQDvz"
+  >
+    Overline text
+  </h1>,
+  <h2
+    className="sc-bwzfXH bdOJmA"
+  >
+    Title text
+  </h2>,
+]
+`;
