@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { typeTitle, typeSizeDisplayXl } from "@style/typography"
-import { zIndex, textShadow } from "@style/variables"
+import { zIndex } from "@style/variables"
 
 export const DetailsContainer = styled.div`
   display: flex;

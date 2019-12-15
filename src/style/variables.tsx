@@ -4,7 +4,6 @@ import { Greys, GreyNames } from "@custom-types/theme"
 import { createHsl, createHsla, createCubicBezier } from "@style/utils"
 import { Breakpoints } from "@custom-types/breakpoints"
 import { EaseName, Eases } from "ease"
-import { css } from "styled-components"
 
 /* Typography
   ------------------------------------------------- */
