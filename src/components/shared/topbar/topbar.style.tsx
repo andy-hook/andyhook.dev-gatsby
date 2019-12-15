@@ -5,13 +5,14 @@ import { zIndex, borderThickness, ease } from "@style/variables"
 import { typeSizeBaseXs } from "@style/typography"
 import { themeTone } from "@style/theme"
 import { menuZindex } from "../menu/menu.style"
+import { smallScreenGutter } from "@components/shared/gutter/gutter.style"
 
 interface StyleProps {
   hasScrolled?: boolean
   visible?: boolean
 }
 
-const spacingXSmall = rem("25px")
+const spacingXSmall = smallScreenGutter
 const spacingXBig = rem("35px")
 
 const topbarHeight = css`
