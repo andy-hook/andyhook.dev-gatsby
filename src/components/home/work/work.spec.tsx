@@ -6,10 +6,7 @@ import { shallowWithTheme } from "@test-utils"
 
 describe("<Work />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
-      "dark",
-      <Work projectsData={mockProjectsData} />
-    )
+    const tree = shallowWithTheme("dark", <Work projects={mockProjectsData} />)
     expect(tree).toMatchSnapshot()
   })
 })

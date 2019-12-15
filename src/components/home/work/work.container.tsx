@@ -44,7 +44,7 @@ const WorkContainer: React.FunctionComponent = memo(() => {
     }
   `)
 
-  return <Work projectsData={data.projectsData.siteMetadata.projects} />
+  return <Work projects={data.projectsData.siteMetadata.projects} />
 })
 
 export default WorkContainer
