@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 
 import CoverImage from "./cover-image"
-import { mockFluidImageObject } from "@mock-data"
+import { mockFluidImageObject } from "@data/mocks"
 
 describe("<CoverImage />", () => {
   it("renders correctly", () => {

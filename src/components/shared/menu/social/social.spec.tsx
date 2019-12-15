@@ -2,7 +2,7 @@ import React from "react"
 import { shallowWithTheme } from "@test-utils"
 
 import Social from "./social"
-import { mockSocialIcons } from "@mock-data"
+import { mockSocialIcons } from "@data/mocks"
 
 describe("<Social />", () => {
   it("renders correctly", () => {

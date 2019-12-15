@@ -1,5 +1,5 @@
 import { getCurrentProjectData, getNextProjectData } from "./utils"
-import { mockProjectsData } from "@mock-data"
+import { mockProjectsData } from "@data/mocks"
 import { keys } from "@custom-types/utils"
 
 const projectKeys = keys(mockProjectsData)

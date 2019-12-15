@@ -54,7 +54,7 @@
       "*": ["node_modules/*", "./src/types/*"],
 
       "@style/*": ["./src/style/*"],
-      "@mock-data": ["./src/mock-data/index.tsx"],
+      "@data/*": ["./src/data/*"],
       "@constants": ["./src/constants/index.tsx"],
       "@test-utils": ["./src/test-utils/index.tsx"],
       "@components/*": ["./src/components/*"],

@@ -1,5 +1,5 @@
 import React from "react"
-import { mockProjectsData } from "@mock-data"
+import { mockProjectsData } from "@data/mocks"
 
 import Work from "./work"
 import { shallowWithTheme } from "@test-utils"

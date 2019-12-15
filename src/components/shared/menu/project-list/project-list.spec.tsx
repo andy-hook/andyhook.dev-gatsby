@@ -1,7 +1,7 @@
 import React from "react"
 import ProjectList from "./project-list"
 import { shallowWithTheme } from "@test-utils"
-import { mockProjectsData } from "@mock-data"
+import { mockProjectsData } from "@data/mocks"
 
 describe("<ProjectList />", () => {
   it("renders correctly", () => {

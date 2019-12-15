@@ -11,40 +11,7 @@ const WorkContainer: React.FunctionComponent = memo(() => {
   const data: Data = useStaticQuery(graphql`
     query {
       projectsData: site {
-        siteMetadata {
-          projects {
-            bright {
-              label
-              desc
-              path
-            }
-            brandwatch {
-              label
-              desc
-              path
-            }
-            monster {
-              label
-              desc
-              path
-            }
-            cymbiosis {
-              label
-              desc
-              path
-            }
-            jamieson {
-              label
-              desc
-              path
-            }
-            sketchbook {
-              label
-              desc
-              path
-            }
-          }
-        }
+        ...Projects
       }
     }
   `)

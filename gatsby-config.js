@@ -236,7 +236,7 @@ module.exports = {
       options: {
         alias: {
           "@style": path.resolve(__dirname, "src/style"),
-          "@mock-data": path.resolve(__dirname, "src/mock-data"),
+          "@data": path.resolve(__dirname, "src/data"),
           "@constants": path.resolve(__dirname, "src/constants"),
           "@components": path.resolve(__dirname, "src/components"),
           "@store": path.resolve(__dirname, "src/store"),

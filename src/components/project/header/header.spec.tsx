@@ -1,5 +1,5 @@
 import React from "react"
-import { mockProjectsData } from "@mock-data"
+import { mockProjectsData } from "@data/mocks"
 
 import Header from "./header"
 import { shallowWithTheme } from "@test-utils"

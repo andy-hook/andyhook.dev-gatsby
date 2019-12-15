@@ -1,6 +1,6 @@
 import React from "react"
 import { shallowWithTheme } from "@test-utils"
-import { mockSocialIcons, mockProjectsData } from "@mock-data"
+import { mockSocialIcons, mockProjectsData } from "@data/mocks"
 
 import Menu from "./menu"
 
