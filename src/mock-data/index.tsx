@@ -45,12 +45,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
   brandwatch: {
     label: "Brandwatch",
@@ -62,12 +56,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
   monster: {
     label: "Monster",
@@ -79,12 +67,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
   cymbiosis: {
     label: "Cymbiosis",
@@ -96,12 +78,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
   jamieson: {
     label: "Jamieson",
@@ -113,12 +89,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
   sketchbook: {
     label: "Sketchbook",
@@ -130,12 +100,6 @@ export const mockProjectsData: Projects = {
       location: "location",
       date: "date",
     },
-    contents: [
-      {
-        label: "section1",
-        key: "section1",
-      },
-    ],
   },
 }
 

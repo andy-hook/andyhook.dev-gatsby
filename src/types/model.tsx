@@ -35,13 +35,6 @@ export interface MetaData {
   siteMetadata: Meta
 }
 
-export interface ProjectContentsItem {
-  label: string
-  key: string
-}
-
-export type ProjectContents = ProjectContentsItem[]
-
 export interface ProjectDetails {
   role: string
   location: string
@@ -54,7 +47,6 @@ export interface ProjectItem {
   images: string
   path: string
   details: ProjectDetails
-  contents: ProjectContents
 }
 
 export type ProjectNames =

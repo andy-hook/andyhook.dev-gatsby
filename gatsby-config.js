@@ -53,20 +53,6 @@ module.exports = {
           location: "Brighton, UK",
           date: "2018 – Present",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
       brandwatch: {
         label: "Brandwatch",
@@ -78,20 +64,6 @@ module.exports = {
           location: "Brighton, UK",
           date: "2016 – 2018",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
       monster: {
         label: "Monster",
@@ -103,20 +75,6 @@ module.exports = {
           location: "Brighton, UK",
           date: "2016",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
       cymbiosis: {
         label: "Cymbiosis",
@@ -128,20 +86,6 @@ module.exports = {
           location: "Hastings, UK",
           date: "2014 – 2016",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
       jamieson: {
         label: "Jamieson",
@@ -153,20 +97,6 @@ module.exports = {
           location: "Hastings, UK",
           date: "2014 – 2016",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
       sketchbook: {
         label: "Sketchbook",
@@ -178,20 +108,6 @@ module.exports = {
           location: "Brighton, UK",
           date: "2016 – Present",
         },
-        contents: [
-          {
-            label: "section1",
-            key: "section1",
-          },
-          {
-            label: "section2",
-            key: "section2",
-          },
-          {
-            label: "section3",
-            key: "section3",
-          },
-        ],
       },
     },
   },
