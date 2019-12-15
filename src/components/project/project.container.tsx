@@ -1,6 +1,6 @@
 import React, { memo, PropsWithChildren } from "react"
 import Project from "./project"
-import { ProjectsData, ProjectNames } from "@custom-types/model"
+import { ProjectNames } from "@custom-types/model"
 import { graphql, useStaticQuery } from "gatsby"
 import { Store } from "store"
 import { connect } from "react-redux"
@@ -8,10 +8,6 @@ import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
 import PageContainer from "@components/shared/page/page.container"
-
-interface Data {
-  projectsData: ProjectsData
-}
 
 interface Props {
   projectName: ProjectNames
@@ -33,7 +29,7 @@ const ProjectContainer: React.FunctionComponent<
 > = memo(({ children, projectName, firstEntrance, loaderVisible }) => {
   const transitionState = useTransitionState()
 
-  const data: Data = useStaticQuery(graphql`
+  const { projectsData } = useStaticQuery(graphql`
     query {
       projectsData: site {
         ...Projects
@@ -46,7 +42,7 @@ const ProjectContainer: React.FunctionComponent<
       <ThemeProvider theme={themes.dark}>
         <Project
           projectName={projectName}
-          projectData={data.projectsData.siteMetadata.projects}
+          projectData={projectsData.siteMetadata.projects}
           transitionState={transitionState}
           canPerformIntro={firstEntrance}
           introTrigger={!loaderVisible}

@@ -3,16 +3,10 @@ import Menu from "./menu"
 import { connect } from "react-redux"
 import { Store } from "@custom-types/store"
 import { useStaticQuery, graphql } from "gatsby"
-import { MetaData, ProjectsData } from "model"
 import { themes } from "@style/theme"
 import { ThemeProvider } from "styled-components"
 import { Dispatch } from "redux"
 import { menuOpenAction } from "@store/actions"
-
-interface Data {
-  socialData: MetaData
-  projectsData: ProjectsData
-}
 
 interface DispatchProps {
   dispatchCloseMenuAction: () => void
@@ -38,7 +32,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 
 const MenuContainer: React.FunctionComponent<AllProps> = memo(
   ({ menuOpen, dispatchCloseMenuAction }) => {
-    const data: Data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
       query {
         socialData: site {
           ...Social

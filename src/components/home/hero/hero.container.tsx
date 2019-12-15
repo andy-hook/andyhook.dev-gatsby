@@ -1,13 +1,8 @@
 import React, { memo } from "react"
 import Hero from "./hero"
-import { MetaData } from "@custom-types/model"
 import { Store } from "@custom-types/store"
 import { connect } from "react-redux"
 import { useStaticQuery, graphql } from "gatsby"
-
-interface Data {
-  socialIconData: MetaData
-}
 
 interface StoreProps {
   firstEntrance: Store["firstEntrance"]
@@ -22,7 +17,7 @@ const mapStateToProps = ({ loaderVisible, firstEntrance }: Store) => {
 
 const HeroContainer: React.FunctionComponent<AllProps> = memo(
   ({ loaderVisible, firstEntrance }) => {
-    const data: Data = useStaticQuery(graphql`
+    const { socialIconData } = useStaticQuery(graphql`
       query {
         socialIconData: site {
           ...Social
@@ -30,7 +25,7 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
       }
     `)
 
-    const href = data.socialIconData.siteMetadata.social.dribbble.url
+    const href = socialIconData.siteMetadata.social.dribbble.url
 
     return (
       <Hero

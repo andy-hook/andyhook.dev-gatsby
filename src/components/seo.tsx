@@ -35,19 +35,20 @@ const SEO = ({
   twitterImage = ``,
   ogImage = ``,
 }: Props) => {
-  const { site } = useStaticQuery(
+  const { metaData } = useStaticQuery(
     graphql`
       query {
-        site {
+        metaData: site {
           ...Meta
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaTwitterImage = twitterImage || site.siteMetadata.defaultTwitterImage
-  const metaOgImage = ogImage || site.siteMetadata.defaultOgImage
+  const metaDescription = description || metaData.siteMetadata.description
+  const metaTwitterImage =
+    twitterImage || metaData.siteMetadata.defaultTwitterImage
+  const metaOgImage = ogImage || metaData.siteMetadata.defaultOgImage
 
   return (
     <Helmet
@@ -58,8 +59,8 @@ const SEO = ({
         class: bodyClasses,
       }}
       title={title}
-      defaultTitle={`${site.siteMetadata.title}`}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      defaultTitle={`${metaData.siteMetadata.title}`}
+      titleTemplate={`%s | ${metaData.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -87,7 +88,7 @@ const SEO = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: metaData.siteMetadata.author,
         },
         {
           name: `twitter:title`,

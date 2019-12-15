@@ -1,14 +1,9 @@
 import React, { memo } from "react"
 import ProjectsGrid from "./projects-grid"
-import { ProjectsData } from "@custom-types/model"
 import { useStaticQuery, graphql } from "gatsby"
 
-interface Data {
-  projectsData: ProjectsData
-}
-
 const ProjectsGridContainer: React.FunctionComponent = memo(() => {
-  const data: Data = useStaticQuery(graphql`
+  const { projectsData } = useStaticQuery(graphql`
     query {
       projectsData: site {
         ...Projects
@@ -16,7 +11,7 @@ const ProjectsGridContainer: React.FunctionComponent = memo(() => {
     }
   `)
 
-  return <ProjectsGrid projects={data.projectsData.siteMetadata.projects} />
+  return <ProjectsGrid projects={projectsData.siteMetadata.projects} />
 })
 
 export default ProjectsGridContainer
