@@ -82,10 +82,10 @@ export const typeTitle = css`
 `
 
 export const typeSupTitle = css`
+  ${setBaseCropAndLineHeight(lineHeight.display.tight)}
   ${typeBaseMedium}
 
   color: ${themeText(900)};
-  line-height: ${lineHeight.display.tight};
 `
 
 export const typeBodySubtle = css`

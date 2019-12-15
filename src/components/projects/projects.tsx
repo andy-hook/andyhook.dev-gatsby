@@ -5,6 +5,7 @@ import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
 import usePageTransition from "@hooks/page-transition"
 import ProjectsGridContainer from "./projects-grid/projects-grid.container"
+import * as S from "./projects.style"
 
 const Projects: React.FunctionComponent = memo(() => {
   const animatePop = () => {
@@ -67,9 +68,11 @@ const Projects: React.FunctionComponent = memo(() => {
     <CommonPage>
       <Gutter ref={inviewRef}>
         <Limiter>
-          <OverlineTitle overline="Projects">
-            A selection of my favourite work
-          </OverlineTitle>
+          <S.TitleLimiter>
+            <OverlineTitle overline="Projects">
+              A selection of my favourite&nbsp;work
+            </OverlineTitle>
+          </S.TitleLimiter>
           <ProjectsGridContainer />
         </Limiter>
       </Gutter>
