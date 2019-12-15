@@ -16,7 +16,14 @@ export const ProjectCard = styled(Link)`
 export const Title = styled.h3`
   ${typeTitle}
   ${typeSizeDisplayMd}
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
   z-index: ${zIndex.low};
+
+  padding: 1.5em;
 `
 
 export const BackgroundImage = styled.div`

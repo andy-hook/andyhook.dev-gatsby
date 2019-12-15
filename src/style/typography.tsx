@@ -5,8 +5,9 @@ import {
   letterSpacing,
   lineHeight,
   typeScale,
+  textShadow,
 } from "@style/variables"
-import { themeText } from "@style/theme"
+import { themeText, isTheme } from "@style/theme"
 import { scaleBetween, scaleGreaterThan } from "./media-queries"
 import { createTextCrop } from "./utils"
 
@@ -79,6 +80,13 @@ export const typeTitle = css`
   ${typeDisplayBold}
 
   color: ${themeText(200)};
+
+  ${isTheme(
+    "dark",
+    css`
+      text-shadow: ${textShadow.heavy};
+    `
+  )};
 `
 
 export const typeSupTitle = css`

@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { typeTitle, typeSizeDisplayXl } from "@style/typography"
-import { themeTone, isDarkTheme } from "@style/theme"
-import { zIndex } from "@style/variables"
+import { zIndex, textShadow } from "@style/variables"
 
 export const DetailsContainer = styled.div`
   display: flex;
@@ -14,9 +13,7 @@ export const DetailsContainer = styled.div`
 export const Title = styled.h2`
   ${typeSizeDisplayXl}
   ${typeTitle}
-
-  ${isDarkTheme(`text-shadow: 0 0 2em ${themeTone(100)};`)}
-
+  
   text-align: center;
   max-width: 12em;
   margin-top: 0;

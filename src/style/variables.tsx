@@ -4,6 +4,7 @@ import { Greys, GreyNames } from "@custom-types/theme"
 import { createHsl, createHsla, createCubicBezier } from "@style/utils"
 import { Breakpoints } from "@custom-types/breakpoints"
 import { EaseName, Eases } from "ease"
+import { css } from "styled-components"
 
 /* Typography
   ------------------------------------------------- */
@@ -94,6 +95,14 @@ export const borderRadius = {
   base: "4px",
   pill: "50000px",
   circle: "50%",
+}
+
+/* Text shadow
+  ------------------------------------------------- */
+
+export const textShadow = {
+  subtle: "0 0 0.03em rgba(0, 0, 0, 0.5)",
+  heavy: "0 0 1em rgba(0, 0, 0.6)",
 }
 
 /* Easing

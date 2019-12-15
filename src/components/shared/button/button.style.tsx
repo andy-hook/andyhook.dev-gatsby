@@ -6,6 +6,7 @@ import {
   duration,
   zIndex,
   lineHeight,
+  textShadow,
 } from "@style/variables"
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -93,5 +94,5 @@ export const StyledButtonInner = styled.span`
   position: relative;
   z-index: ${zIndex.medium};
 
-  text-shadow: 0 0 0.03em rgba(0, 0, 0, 0.5);
+  text-shadow: ${textShadow.subtle};
 `
