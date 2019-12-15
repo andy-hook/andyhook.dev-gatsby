@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 
-export const projects = graphql`
+export const Projects = graphql`
   fragment Projects on Site {
     siteMetadata {
       projects {
@@ -39,6 +39,40 @@ export const projects = graphql`
           desc
           path
           images
+        }
+      }
+    }
+  }
+`
+
+export const Social = graphql`
+  fragment Social on Site {
+    siteMetadata {
+      social {
+        twitter {
+          url
+          label
+          icon
+        }
+        instagram {
+          url
+          label
+          icon
+        }
+        dribbble {
+          url
+          label
+          icon
+        }
+        github {
+          url
+          label
+          icon
+        }
+        linkedin {
+          url
+          label
+          icon
         }
       }
     }

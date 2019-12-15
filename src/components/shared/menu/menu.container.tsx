@@ -41,72 +41,11 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
     const data: Data = useStaticQuery(graphql`
       query {
         socialData: site {
-          siteMetadata {
-            social {
-              twitter {
-                url
-                label
-                icon
-              }
-              instagram {
-                url
-                label
-                icon
-              }
-              dribbble {
-                url
-                label
-                icon
-              }
-              github {
-                url
-                label
-                icon
-              }
-              linkedin {
-                url
-                label
-                icon
-              }
-            }
-          }
+          ...Social
         }
 
         projectsData: site {
-          siteMetadata {
-            projects {
-              bright {
-                label
-                path
-                images
-              }
-              brandwatch {
-                label
-                path
-                images
-              }
-              monster {
-                label
-                path
-                images
-              }
-              cymbiosis {
-                label
-                path
-                images
-              }
-              jamieson {
-                label
-                path
-                images
-              }
-              sketchbook {
-                label
-                path
-                images
-              }
-            }
-          }
+          ...Projects
         }
       }
     `)

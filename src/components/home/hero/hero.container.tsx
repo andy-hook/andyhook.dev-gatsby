@@ -25,13 +25,7 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
     const data: Data = useStaticQuery(graphql`
       query {
         socialIconData: site {
-          siteMetadata {
-            social {
-              dribbble {
-                url
-              }
-            }
-          }
+          ...Social
         }
       }
     `)
