@@ -1,4 +1,10 @@
-import React, { useEffect, memo, MutableRefObject, useState } from "react"
+import React, {
+  useEffect,
+  memo,
+  MutableRefObject,
+  useState,
+  useCallback,
+} from "react"
 import Details from "./details/details"
 import Gutter from "@components/shared/gutter/gutter"
 import gsap from "gsap"
@@ -19,7 +25,10 @@ const Hero: React.FunctionComponent<Props> = memo(
     const [detailsVisible, setDetailsVisible] = useState(false)
     const [detailsAnimate, setDetailsAnimate] = useState(false)
 
-    const animatePop = () => {
+    const animatePop = useCallback(() => {
+      setDetailsAnimate(true)
+      setDetailsVisible(true)
+
       gsap.fromTo(
         detailsRef.current,
         {
@@ -38,9 +47,10 @@ const Hero: React.FunctionComponent<Props> = memo(
         duration: 0.9,
         opacity: 1,
       })
-    }
+    }, [])
 
-    const animateEnter = () => {
+    const animateEnter = useCallback(() => {
+      setDetailsAnimate(true)
       setDetailsVisible(true)
 
       gsap.fromTo(
@@ -60,17 +70,17 @@ const Hero: React.FunctionComponent<Props> = memo(
         duration: 0.25,
         opacity: 1,
       })
-    }
+    }, [])
 
-    const staticEnter = () => {
-      // setDetailsVisible(true)
-      // console.log("static enter")
-      // gsap.set(detailsRef.current, {
-      //   opacity: 1,
-      // })
-    }
+    const staticEnter = useCallback(() => {
+      setDetailsAnimate(false)
+      setDetailsVisible(true)
+      gsap.set(detailsRef.current, {
+        opacity: 1,
+      })
+    }, [])
 
-    const animateExit = () => {
+    const animateExit = useCallback(() => {
       gsap.fromTo(
         detailsRef.current,
         {
@@ -90,40 +100,22 @@ const Hero: React.FunctionComponent<Props> = memo(
         duration: PAGE_LEAVE_DURATION,
         opacity: 0,
       })
-    }
+    }, [])
 
-    const animateFirstEnter = () => {
-      gsap.fromTo(
-        detailsRef.current,
-        {
-          scale: 1.5,
-        },
-        {
-          duration: 0.75,
-          ease: "elastic.out(0.8, 1)",
-          scale: 1,
-          opacity: 1,
-          clearProps: "transform",
-          delay: 0.65,
-        }
-      )
-    }
+    const animateFirstEnter = useCallback(() => {
+      animatePop()
+    }, [])
 
     const { inviewRef } = usePageTransition({
       runInview: {
-        onEnter: () => {
-          setDetailsAnimate(true)
-          animateEnter()
-        },
+        onEnter: animateEnter,
         onExit: animateExit,
         onPop: animatePop,
         onEnterFromMenu: animateEnter,
       },
       runOutOfView: {
-        onEnter: () => {
-          setDetailsAnimate(false)
-          staticEnter()
-        },
+        onEnter: staticEnter,
+        onPop: staticEnter,
       },
     })
 

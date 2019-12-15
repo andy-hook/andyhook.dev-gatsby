@@ -84,7 +84,7 @@ export const typeTitle = css`
 export const typeSupTitle = css`
   ${typeBaseMedium}
 
-  color: ${themeText(1000)};
+  color: ${themeText(900)};
   line-height: ${lineHeight.display.tight};
 `
 
@@ -125,7 +125,19 @@ export const typeSizeBaseSm = css`
   ${scaleGreaterThan("font-size", typeScale[5], "topUltra")}
 `
 
-export const typeSizeBaseMd = css``
+export const typeSizeBaseMd = css`
+  font-size: ${typeScale[5]};
+
+  ${scaleBetween(
+    "font-size",
+    typeScale[5],
+    typeScale[6],
+    "topThumb",
+    "bottomUltra"
+  )}
+
+  ${scaleGreaterThan("font-size", typeScale[6], "topUltra")}
+`
 
 export const typeSizeBaseLg = css`
   font-size: ${typeScale[4]};

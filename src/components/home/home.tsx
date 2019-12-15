@@ -6,30 +6,6 @@ const Home: React.FunctionComponent = memo(() => {
   return (
     <>
       <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
-      <HeroContainer />
       <WorkContainer />
     </>
   )

@@ -29,8 +29,6 @@ const HeroContainer: React.FunctionComponent<AllProps> = memo(
             social {
               dribbble {
                 url
-                label
-                icon
               }
             }
           }
