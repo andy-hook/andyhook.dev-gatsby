@@ -5,8 +5,6 @@ const modeSwitchBreakpoint = "topLap"
 
 export const Grid = styled.div`
   display: grid;
-
-  background-color: red;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fill, 1fr);
 
