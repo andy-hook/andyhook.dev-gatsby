@@ -10,4 +10,8 @@ export const Grid = styled.div`
   grid-template-rows: repeat(auto-fill, 1fr);
 `
 
-export const GridItem = styled.div``
+export const GridItem = styled.div`
+  &:nth-child(even) {
+    margin-top: -250px;
+  }
+`

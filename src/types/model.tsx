@@ -61,6 +61,7 @@ export type ProjectNames =
   | "bright"
   | "brandwatch"
   | "monster"
+  | "cymbiosis"
   | "jamieson"
   | "sketchbook"
 

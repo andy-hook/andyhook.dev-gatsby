@@ -28,6 +28,11 @@ const ProjectsGridContainer: React.FunctionComponent = memo(() => {
               desc
               path
             }
+            cymbiosis {
+              label
+              desc
+              path
+            }
             jamieson {
               label
               desc

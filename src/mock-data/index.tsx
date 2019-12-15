@@ -86,6 +86,23 @@ export const mockProjectsData: Projects = {
       },
     ],
   },
+  cymbiosis: {
+    label: "Cymbiosis",
+    desc: "Cymbiosis description",
+    images: "cymbiosis",
+    path: "/projects/cymbiosis",
+    details: {
+      role: "role",
+      location: "location",
+      date: "date",
+    },
+    contents: [
+      {
+        label: "section1",
+        key: "section1",
+      },
+    ],
+  },
   jamieson: {
     label: "Jamieson",
     desc: "Jamieson description",

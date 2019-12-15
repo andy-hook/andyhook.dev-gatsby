@@ -90,6 +90,11 @@ const MenuContainer: React.FunctionComponent<AllProps> = memo(
                 path
                 images
               }
+              cymbiosis {
+                label
+                path
+                images
+              }
               jamieson {
                 label
                 path

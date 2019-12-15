@@ -118,6 +118,31 @@ module.exports = {
           },
         ],
       },
+      cymbiosis: {
+        label: "Cymbiosis",
+        desc: "Cymbiosis description",
+        images: "cymbiosis",
+        path: "/projects/cymbiosis",
+        details: {
+          role: "Front-End Designer",
+          location: "Hastings, UK",
+          date: "2014 – 2016",
+        },
+        contents: [
+          {
+            label: "section1",
+            key: "section1",
+          },
+          {
+            label: "section2",
+            key: "section2",
+          },
+          {
+            label: "section3",
+            key: "section3",
+          },
+        ],
+      },
       jamieson: {
         label: "Jamieson",
         desc: "Jamieson description",
