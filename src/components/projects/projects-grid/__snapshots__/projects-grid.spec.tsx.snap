@@ -1,3 +1,116 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProjectsGrid /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<ProjectsGrid /> renders correctly 1`] = `
+<div
+  className="sc-bdVaJa jBOkFi"
+>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/bright"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Bright
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/brandwatch"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Brandwatch
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/monster"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Monster
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/cymbiosis"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Cymbiosis
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/jamieson"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Jamieson
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-bwzfXH iIAcPH"
+  >
+    <a
+      className="sc-htpNat eddPIH"
+      href="/projects/experiments"
+      onClick={[Function]}
+    >
+      <h3
+        className="sc-bxivhb iFfEMV"
+      >
+        Experiments
+      </h3>
+      <div
+        className="sc-ifAKCX cHYBKe"
+      />
+    </a>
+  </div>
+</div>
+`;

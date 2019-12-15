@@ -1,10 +1,10 @@
 import React from "react"
 import Footer from "./footer"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 
 describe("<Footer />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("dark", <Footer />)
+    const tree = renderWithTheme("dark", <Footer />)
     expect(tree).toMatchSnapshot()
   })
 })
