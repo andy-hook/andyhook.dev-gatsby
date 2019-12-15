@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProjectCard /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<ProjectCard /> renders correctly 1`] = `
+<a
+  className="sc-bdVaJa dFuXfK"
+  href="/projects/brandwatch"
+  onClick={[Function]}
+>
+  <h3
+    className="sc-bwzfXH gKtJHi"
+  >
+    This is a title
+  </h3>
+  <div
+    className="sc-htpNat gabilq"
+  />
+</a>
+`;

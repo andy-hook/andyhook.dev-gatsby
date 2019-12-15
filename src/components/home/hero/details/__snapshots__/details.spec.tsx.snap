@@ -1,3 +1,254 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Details /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Details /> renders correctly 1`] = `
+<div
+  className="sc-htpNat kQZvsG"
+>
+  <h2
+    className="sc-bxivhb nHtTB"
+  >
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        I
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        d
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        e
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        s
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        g
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        n
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        &
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        b
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        u
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        l
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        d
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        b
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        e
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        a
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        u
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        t
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        f
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        u
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        l
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        d
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        g
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        t
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        a
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        l
+      </div>
+       
+    </div>
+    <div
+      className="sc-bZQynM bOdhzH"
+    >
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        i
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        n
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        t
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        e
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        r
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        f
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        a
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        c
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        e
+      </div>
+      <div
+        className="sc-bZQynM bOdhzH"
+      >
+        s
+      </div>
+      
+    </div>
+  </h2>
+  <a
+    className="sc-bdVaJa hwoiCO"
+    href="https://www.google.com"
+    onClick={[Function]}
+    target="_blank"
+  >
+    <span
+      className="sc-bwzfXH kItmmw"
+    >
+      View my latest projects
+    </span>
+  </a>
+</div>
+`;

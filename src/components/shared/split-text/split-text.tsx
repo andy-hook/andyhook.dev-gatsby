@@ -106,7 +106,6 @@ const SplitText: React.FunctionComponent<Props> = memo(
     }, [])
 
     const show = () => {
-      console.log(cachedRefs)
       cachedRefs.current.map(listItem => {
         gsap.set(listItem.current, {
           opacity: 1,

@@ -2,11 +2,11 @@ import React from "react"
 import { mockProjectsData } from "@data/mocks"
 
 import NextProject from "./next-project"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 
 describe("<NextProject />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
+    const tree = renderWithTheme(
       "dark",
       <NextProject
         nextProjectItem={mockProjectsData.brandwatch}

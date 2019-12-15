@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NextProject /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<NextProject /> renders correctly 1`] = `
+Array [
+  <div>
+    <div
+      className="sc-bdVaJa gTeIOX"
+    >
+      <a
+        className="sc-bwzfXH cKlwrt"
+        href="/projects/brandwatch"
+        onClick={[Function]}
+      >
+        dfsdfds
+      </a>
+    </div>
+  </div>,
+  <div
+    className="sc-htpNat ckpPqu"
+  >
+    <div
+      className="sc-bxivhb drHCYA"
+    >
+      <div
+        className="sc-ifAKCX fZMoex"
+      />
+    </div>
+    <div
+      className="sc-EHOje iEKbwb"
+    />
+  </div>,
+]
+`;

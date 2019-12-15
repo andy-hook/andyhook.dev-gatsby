@@ -6,7 +6,7 @@ interface Props {
   imagePath: string
 }
 
-const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
+const CardImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
   const data = useStaticQuery(graphql`
     query {
       bright: file(relativePath: { eq: "project/bright/card-image.jpg" }) {
@@ -63,4 +63,4 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
   return <CardImage imageObject={data[imagePath].childImageSharp.fluid} />
 }
 
-export default CoverImageContainer
+export default CardImageContainer

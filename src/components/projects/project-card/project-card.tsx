@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import * as S from "./project-card.style"
-import CoverImageContainer from "@components/shared/cover-image/cover-image.container"
+import CardImageContainer from "@components/shared/card-image/card-image.container"
 
 interface Props {
   title: string
@@ -13,7 +13,7 @@ const ProjectCard: React.FunctionComponent<Props> = memo(
     <S.ProjectCard to={path}>
       <S.Title>{title}</S.Title>
       <S.BackgroundImage>
-        <CoverImageContainer imagePath={images} />
+        <CardImageContainer imagePath={images} />
       </S.BackgroundImage>
     </S.ProjectCard>
   )
