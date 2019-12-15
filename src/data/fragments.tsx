@@ -78,3 +78,15 @@ export const Social = graphql`
     }
   }
 `
+
+export const Meta = graphql`
+  fragment Meta on Site {
+    siteMetadata {
+      title
+      description
+      author
+      defaultTwitterImage
+      defaultOgImage
+    }
+  }
+`

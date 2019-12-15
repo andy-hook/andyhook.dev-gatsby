@@ -39,13 +39,7 @@ const SEO = ({
     graphql`
       query {
         site {
-          siteMetadata {
-            title
-            description
-            author
-            defaultTwitterImage
-            defaultOgImage
-          }
+          ...Meta
         }
       }
     `
