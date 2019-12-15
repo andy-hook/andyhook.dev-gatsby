@@ -6,12 +6,12 @@ import {
   typeSizeBaseMd,
 } from "@style/typography"
 
-export const Overline = styled.h2`
+export const Overline = styled.h1`
   ${typeSupTitle}
   ${typeSizeBaseMd}
 `
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   ${typeTitle}
   ${typeSizeDisplayXl}
 

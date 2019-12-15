@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { mq, scaleBetween, scaleGreaterThan } from "@style/media-queries"
 
-const modeSwitchBreakpoint = "topLap"
+const modeSwitchBreakpoint = "topThumb"
 
 export const Grid = styled.div`
   display: grid;
@@ -26,15 +26,9 @@ export const Grid = styled.div`
 `
 
 export const GridItem = styled.div`
-  ${mq.greaterThan(modeSwitchBreakpoint)`
+  ${mq.greaterThan("topLap")`
     &:nth-child(even) {
-      ${scaleBetween(
-        "margin-top",
-        "-12rem",
-        "-16rem",
-        modeSwitchBreakpoint,
-        "bottomWide"
-      )}
+      ${scaleBetween("margin-top", "-12rem", "-16rem", "topLap", "bottomWide")}
 
       ${scaleBetween(
         "margin-top",

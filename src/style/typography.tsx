@@ -169,32 +169,24 @@ export const typeSizeDisplaySm = css``
 
 export const typeSizeDisplayMd = css`
   font-size: ${typeScale[7]};
-
+  
   ${scaleBetween(
     "font-size",
     typeScale[7],
     typeScale[9],
     "topThumb",
-    "bottomDesk"
+    "bottomWide"
   )}
 
   ${scaleBetween(
     "font-size",
     typeScale[9],
     typeScale[10],
-    "topDesk",
-    "bottomWall"
-  )}
-
-  ${scaleBetween(
-    "font-size",
-    typeScale[10],
-    typeScale[11],
-    "topWall",
+    "topWide",
     "bottomUltra"
   )}
 
-  ${scaleGreaterThan("font-size", typeScale[11], "topUltra")}
+  ${scaleGreaterThan("font-size", typeScale[10], "topUltra")}
 `
 
 export const typeSizeDisplayLg = css`

@@ -11,10 +11,10 @@ interface Props {
 const ProjectCard: React.FunctionComponent<Props> = memo(
   ({ title, path, images }) => (
     <S.ProjectCard to={path}>
+      <S.Title>{title}</S.Title>
       <S.BackgroundImage>
         <CoverImageContainer imagePath={images} />
       </S.BackgroundImage>
-      {title}
     </S.ProjectCard>
   )
 )

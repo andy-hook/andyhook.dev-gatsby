@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { borderRadius } from "@style/variables"
+import { borderRadius, zIndex } from "@style/variables"
 import Link from "gatsby-plugin-transition-link"
 import { themeTone } from "@style/theme"
+import { typeTitle, typeSizeDisplayMd } from "@style/typography"
 
 export const ProjectCard = styled(Link)`
   position: relative;
@@ -10,6 +11,12 @@ export const ProjectCard = styled(Link)`
   background-color: ${themeTone(500)};
   border-radius: ${borderRadius.base};
   overflow: hidden;
+`
+
+export const Title = styled.h3`
+  ${typeTitle}
+  ${typeSizeDisplayMd}
+  z-index: ${zIndex.low};
 `
 
 export const BackgroundImage = styled.div`
@@ -21,4 +28,6 @@ export const BackgroundImage = styled.div`
   width: 100%;
 
   opacity: 0.1;
+
+  z-index: ${zIndex.floor};
 `
