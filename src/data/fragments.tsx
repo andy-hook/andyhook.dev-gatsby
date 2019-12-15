@@ -34,7 +34,7 @@ export const Projects = graphql`
           path
           images
         }
-        sketchbook {
+        experiments {
           label
           desc
           path

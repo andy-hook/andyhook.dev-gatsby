@@ -48,8 +48,8 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
           }
         }
       }
-      sketchbook: file(
-        relativePath: { eq: "project/sketchbook/cover-image.jpg" }
+      experiments: file(
+        relativePath: { eq: "project/experiments/cover-image.jpg" }
       ) {
         childImageSharp {
           fluid(maxWidth: 4000) {

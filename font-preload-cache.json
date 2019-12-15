@@ -42,6 +42,14 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
+    "/projects/cymbiosis/": {
+      "/fonts/inter-medium.woff2": true,
+      "/fonts/maison-neue-bold.woff2": true,
+      "/fonts/inter-medium.woff": true,
+      "/fonts/maison-neue-bold.woff": true,
+      "/fonts/inter-semibold.woff2": true,
+      "/fonts/inter-regular.woff2": true
+    },
     "/projects/jamieson/": {
       "/fonts/inter-medium.woff2": true,
       "/fonts/maison-neue-bold.woff2": true,
@@ -58,7 +66,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/sketchbook/": {
+    "/projects/experiments/": {
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff2": true,
       "/fonts/inter-medium.woff": true,

@@ -90,11 +90,11 @@ export const mockProjectsData: Projects = {
       date: "date",
     },
   },
-  sketchbook: {
-    label: "Sketchbook",
-    desc: "Sketchbook description",
-    images: "sketchbook",
-    path: "/projects/sketchbook",
+  experiments: {
+    label: "Experiments",
+    desc: "Experiments description",
+    images: "experiments",
+    path: "/projects/experiments",
     details: {
       role: "role",
       location: "location",

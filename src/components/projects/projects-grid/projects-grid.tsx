@@ -14,7 +14,7 @@ const ProjectsGrid: React.FunctionComponent<Props> = memo(({ projects }) => {
 
     return (
       <S.GridItem key={index}>
-        <ProjectCard path={item.path} title={item.label} />
+        <ProjectCard path={item.path} title={item.label} images={item.images} />
       </S.GridItem>
     )
   })

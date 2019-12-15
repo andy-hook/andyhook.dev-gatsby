@@ -2,7 +2,7 @@
 
 exports[`<Gutter /> renders correctly 1`] = `
 <div
-  className="sc-bdVaJa ijMqSF"
+  className="sc-bdVaJa gbcwjf"
 >
   Child text
 </div>

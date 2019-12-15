@@ -3,7 +3,7 @@ import ProjectContainer from "@components/project/project.container"
 
 import SEO from "@components/seo"
 
-const BrandwatchProject: React.FunctionComponent = () => {
+const MonsterProjects: React.FunctionComponent = () => {
   return (
     <>
       <SEO />
@@ -12,4 +12,4 @@ const BrandwatchProject: React.FunctionComponent = () => {
   )
 }
 
-export default BrandwatchProject
+export default MonsterProjects

@@ -55,7 +55,7 @@ export type ProjectNames =
   | "monster"
   | "cymbiosis"
   | "jamieson"
-  | "sketchbook"
+  | "experiments"
 
 export type Projects = { [key in ProjectNames]: ProjectItem }
 

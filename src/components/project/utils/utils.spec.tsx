@@ -6,7 +6,7 @@ const projectKeys = keys(mockProjectsData)
 
 describe("getCurrentProjectData", () => {
   test("Should return specified project", () => {
-    const projectKey = "sketchbook"
+    const projectKey = "experiments"
 
     const out = getCurrentProjectData(mockProjectsData, projectKey)
 
@@ -28,7 +28,7 @@ describe("getNextProjectData", () => {
   test("Should return the first project when the end of the list is reached", () => {
     const firstProject = mockProjectsData[projectKeys[0]]
 
-    const projectKey = "sketchbook"
+    const projectKey = "experiments"
 
     const out = getNextProjectData(mockProjectsData, projectKey)
 

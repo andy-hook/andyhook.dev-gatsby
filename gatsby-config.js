@@ -98,11 +98,11 @@ module.exports = {
           date: "2014 – 2016",
         },
       },
-      sketchbook: {
-        label: "Sketchbook",
-        desc: "Sketchbook description",
-        images: "sketchbook",
-        path: "/projects/sketchbook",
+      experiments: {
+        label: "Experiments",
+        desc: "Experiments description",
+        images: "experiments",
+        path: "/projects/experiments",
         details: {
           role: "Digital Designer",
           location: "Brighton, UK",
