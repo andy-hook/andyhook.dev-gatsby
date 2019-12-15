@@ -3,6 +3,7 @@ import * as S from "./overline-title.style"
 
 interface Props {
   overline: string
+  children: string
 }
 
 const OverlineTitle: React.FunctionComponent<Props> = memo(

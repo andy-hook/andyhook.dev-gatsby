@@ -2,12 +2,17 @@ import styled from "styled-components"
 import { mq } from "@style/media-queries"
 
 export const GutterContainer = styled.div`
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 4%;
+  padding-right: 4%;
 
-  ${mq.between("topThumb", "bottomUltra")`
-    padding-left: 10%;
-    padding-right: 10%;
+  ${mq.between("topThumb", "topDesk")`
+    padding-left: 6%;
+    padding-right: 6%;
+  `}
+
+  ${mq.between("bottomDesk", "bottomUltra")`
+    padding-left: 9%;
+    padding-right: 9%;
   `}
 
   width: 100%;

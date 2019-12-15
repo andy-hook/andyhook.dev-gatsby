@@ -9,11 +9,11 @@ import {
 export const Overline = styled.h2`
   ${typeSupTitle}
   ${typeSizeBaseMd}
-
-  margin-bottom: 2em;
 `
 
 export const Title = styled.h3`
   ${typeTitle}
   ${typeSizeDisplayXl}
+
+  margin-top: 0.5em;
 `
