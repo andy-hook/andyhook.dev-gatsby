@@ -6,8 +6,8 @@ export const GutterContainer = styled.div`
   padding-right: 4%;
 
   ${mq.between("topThumb", "topDesk")`
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 7%;
+    padding-right: 7%;
   `}
 
   ${mq.between("bottomDesk", "bottomUltra")`

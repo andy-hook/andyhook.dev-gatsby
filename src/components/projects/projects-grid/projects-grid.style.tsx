@@ -30,7 +30,23 @@ export const Grid = styled.div`
 export const GridItem = styled.div`
   ${mq.greaterThan(modeSwitchBreakpoint)`
     &:nth-child(even) {
-      ${scaleGreaterThan("margin-top", "-9rem", modeSwitchBreakpoint)}
+      ${scaleBetween(
+        "margin-top",
+        "-12rem",
+        "-16rem",
+        modeSwitchBreakpoint,
+        "bottomWide"
+      )}
+
+      ${scaleBetween(
+        "margin-top",
+        "-16rem",
+        "-21rem",
+        "topWide",
+        "bottomUltra"
+      )}
+
+      ${scaleGreaterThan("margin-top", "-21rem", "topUltra")}
     }
   `}
 `
