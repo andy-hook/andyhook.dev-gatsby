@@ -4,7 +4,10 @@ import { mockProjectsData } from "@data/mocks"
 import Header from "./header"
 import { renderWithTheme } from "@test-utils"
 
-jest.mock("@components/shared/cover-image/cover-image.container")
+jest.mock(
+  "@components/shared/cover-image/cover-image.container",
+  () => "CoverImageContainer"
+)
 
 describe("<Header />", () => {
   it("renders correctly", () => {

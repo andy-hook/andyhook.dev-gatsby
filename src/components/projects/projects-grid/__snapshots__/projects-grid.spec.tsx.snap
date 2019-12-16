@@ -19,7 +19,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="bright"
+        />
+      </div>
     </a>
   </div>
   <div
@@ -37,7 +41,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="brandwatch"
+        />
+      </div>
     </a>
   </div>
   <div
@@ -55,7 +63,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="monster"
+        />
+      </div>
     </a>
   </div>
   <div
@@ -73,7 +85,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="cymbiosis"
+        />
+      </div>
     </a>
   </div>
   <div
@@ -91,7 +107,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="jamieson"
+        />
+      </div>
     </a>
   </div>
   <div
@@ -109,7 +129,11 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
       </h3>
       <div
         className="sc-ifAKCX cHYBKe"
-      />
+      >
+        <CardImageContainer
+          imagePath="experiments"
+        />
+      </div>
     </a>
   </div>
 </div>

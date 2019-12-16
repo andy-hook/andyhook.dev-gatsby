@@ -24,6 +24,7 @@ exports[`<Projects /> renders correctly 1`] = `
           A selection of my favourite work
         </h2>
       </div>
+      <ProjectsGridContainer />
     </div>
   </div>
   <footer

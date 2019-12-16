@@ -6,6 +6,10 @@ exports[`<Header /> renders correctly 1`] = `
 >
   <header
     className="sc-bwzfXH fgTVUk"
-  />
+  >
+    <CoverImageContainer
+      imagePath="brandwatch"
+    />
+  </header>
 </header>
 `;

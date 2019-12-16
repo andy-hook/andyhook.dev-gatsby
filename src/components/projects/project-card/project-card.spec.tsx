@@ -3,7 +3,10 @@ import ProjectCard from "./project-card"
 import { renderWithTheme } from "@test-utils"
 import { mockProjectsData } from "@data/mocks"
 
-jest.mock("@components/shared/card-image/card-image.container")
+jest.mock(
+  "@components/shared/card-image/card-image.container",
+  () => "CardImageContainer"
+)
 
 const { path, images } = mockProjectsData.brandwatch
 

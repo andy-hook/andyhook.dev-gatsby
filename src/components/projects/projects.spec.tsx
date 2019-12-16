@@ -4,7 +4,11 @@ import Projects from "./projects"
 import { renderWithTheme } from "@test-utils"
 
 jest.mock("@hooks/page-transition")
-jest.mock("@components/projects/projects-grid/projects-grid.container")
+
+jest.mock(
+  "@components/projects/projects-grid/projects-grid.container",
+  () => "ProjectsGridContainer"
+)
 
 describe("<Projects />", () => {
   it("renders correctly", () => {
