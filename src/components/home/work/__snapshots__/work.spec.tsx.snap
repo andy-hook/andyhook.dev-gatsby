@@ -1,3 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Work /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Work /> renders correctly 1`] = `
+<div
+  className="sc-EHOje czdFMe"
+>
+  <div
+    className="sc-bwzfXH kqtABW"
+  >
+    <div
+      className="sc-ifAKCX byEtGP"
+    >
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/bright"
+        onClick={[Function]}
+      >
+        Bright
+        Bright description
+      </a>
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/brandwatch"
+        onClick={[Function]}
+      >
+        Brandwatch
+        Brandwatch description
+      </a>
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/monster"
+        onClick={[Function]}
+      >
+        Monster
+        Monster description
+      </a>
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/cymbiosis"
+        onClick={[Function]}
+      >
+        Cymbiosis
+        Cymbiosis description
+      </a>
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/jamieson"
+        onClick={[Function]}
+      >
+        Jamieson
+        Jamieson description
+      </a>
+      <a
+        className="sc-bdVaJa gBBbQm"
+        href="/projects/experiments"
+        onClick={[Function]}
+      >
+        Experiments
+        Experiments description
+      </a>
+    </div>
+  </div>
+</div>
+`;

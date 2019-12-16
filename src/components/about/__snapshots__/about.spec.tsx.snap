@@ -1,3 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<About /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<About /> renders correctly 1`] = `
+<div
+  className="sc-EHOje PRAcs"
+>
+  <div
+    className="sc-bdVaJa bUDcPf"
+  >
+    <div
+      className="sc-htpNat dzobEj"
+    >
+      <h1
+        className="sc-bZQynM jBjNHF"
+      >
+        Overline text
+      </h1>
+      <h2
+        className="sc-gzVnrw cpBZxR"
+      >
+        Title text
+      </h2>
+      <div
+        className="sc-htoDjs khBefK"
+      />
+    </div>
+  </div>
+  <footer
+    className="sc-ifAKCX hSmABr"
+  >
+    <div
+      className="sc-bdVaJa bUDcPf"
+    >
+      <div
+        className="sc-htpNat dzobEj"
+      >
+        I am a footer
+      </div>
+    </div>
+  </footer>
+</div>
+`;

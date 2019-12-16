@@ -1,5 +1,7 @@
+import React from "react"
+
 const usePageTransition = () => {
-  const inviewRef = {}
+  const inviewRef = React.createRef()
   const inView = true
   const inviewEntry = {}
 

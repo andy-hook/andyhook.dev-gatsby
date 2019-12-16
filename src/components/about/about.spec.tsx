@@ -1,11 +1,13 @@
 import React from "react"
 
 import About from "./about"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
+
+jest.mock("@hooks/page-transition")
 
 describe("<About />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("dark", <About />)
+    const tree = renderWithTheme("dark", <About />)
     expect(tree).toMatchSnapshot()
   })
 })

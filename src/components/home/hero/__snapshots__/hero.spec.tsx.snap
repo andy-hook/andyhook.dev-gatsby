@@ -1,3 +1,273 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Hero /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Hero /> renders correctly 1`] = `
+<div
+  className="sc-dnqmqq cRyjMu"
+>
+  <div
+    className="sc-iwsKbI ciqFat"
+  >
+    <div
+      className="sc-htoDjs eXkouB"
+    >
+      <div
+        className="sc-htpNat kQZvsG"
+      >
+        <h2
+          className="sc-bxivhb nHtTB"
+        >
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              I
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              d
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              e
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              s
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              g
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              n
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              &
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              b
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              u
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              l
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              d
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              b
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              e
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              a
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              u
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              t
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              f
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              u
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              l
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              d
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              g
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              t
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              a
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              l
+            </div>
+             
+          </div>
+          <div
+            className="sc-bZQynM bOdhzH"
+          >
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              i
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              n
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              t
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              e
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              r
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              f
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              a
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              c
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              e
+            </div>
+            <div
+              className="sc-bZQynM bOdhzH"
+            >
+              s
+            </div>
+            
+          </div>
+        </h2>
+        <a
+          className="sc-bdVaJa hwoiCO"
+          href="Test string"
+          onClick={[Function]}
+          target="_blank"
+        >
+          <span
+            className="sc-bwzfXH kItmmw"
+          >
+            View my latest projects
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gZMcBi epFCrl"
+  >
+    <div
+      className="sc-gqjmRU erzwDr"
+    />
+  </div>
+</div>
+`;
