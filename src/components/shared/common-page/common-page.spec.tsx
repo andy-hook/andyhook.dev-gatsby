@@ -1,10 +1,10 @@
 import React from "react"
 import CommonPage from "./common-page"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 
 describe("<CommonPage />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("dark", <CommonPage>Content</CommonPage>)
+    const tree = renderWithTheme("dark", <CommonPage>Content</CommonPage>)
     expect(tree).toMatchSnapshot()
   })
 })

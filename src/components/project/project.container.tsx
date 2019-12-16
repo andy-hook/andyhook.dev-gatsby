@@ -7,7 +7,6 @@ import { connect } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { themes } from "@style/theme"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
-import PageContainer from "@components/shared/page/page.container"
 
 interface Props {
   projectName: ProjectNames
@@ -38,19 +37,17 @@ const ProjectContainer: React.FunctionComponent<
   `)
 
   return (
-    <PageContainer>
-      <ThemeProvider theme={themes.dark}>
-        <Project
-          projectName={projectName}
-          projectData={projectsData.siteMetadata.projects}
-          transitionState={transitionState}
-          canPerformIntro={firstEntrance}
-          introTrigger={!loaderVisible}
-        >
-          {children}
-        </Project>
-      </ThemeProvider>
-    </PageContainer>
+    <ThemeProvider theme={themes.dark}>
+      <Project
+        projectName={projectName}
+        projectData={projectsData.siteMetadata.projects}
+        transitionState={transitionState}
+        canPerformIntro={firstEntrance}
+        introTrigger={!loaderVisible}
+      >
+        {children}
+      </Project>
+    </ThemeProvider>
   )
 })
 
