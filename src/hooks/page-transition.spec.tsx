@@ -2,10 +2,8 @@ import React, { useState } from "react"
 import usePageTransition from "@hooks/page-transition"
 import { render } from "@testing-library/react"
 import { mocked } from "ts-jest/utils"
-import { TransitionType } from "@custom-types/gatsby-plugin-transition-link"
 import {
   TRANSITION_TYPE_ENTER,
-  TRANSITION_STATUS_ENTERING,
   TRANSITION_TYPE_POP,
   TRANSITION_TYPE_EXIT,
   TRANSITION_TYPE_MENU_ENTER,
@@ -14,40 +12,13 @@ import {
 } from "@constants"
 import { mockAllIsIntersecting } from "react-intersection-observer/test-utils"
 import { useTransitionState } from "gatsby-plugin-transition-link/hooks"
+import { createStateMock } from "@data/mocks"
 
 jest.mock("gatsby-plugin-transition-link/hooks")
 
 const mockedUseTransitionState = mocked(useTransitionState)
 
-const createStateMock = (animType?: TransitionType) => {
-  return {
-    current: {
-      delay: 0,
-      length: 0,
-      state: {},
-    },
-    entry: {
-      delay: 0,
-      length: 0,
-      state: {
-        animType,
-      },
-    },
-    exit: {
-      delay: 0,
-      length: 0,
-      state: {
-        animType,
-      },
-    },
-    transitionStatus: TRANSITION_STATUS_ENTERING,
-    mount: false,
-  }
-}
-
-const enterState = createStateMock(TRANSITION_TYPE_ENTER)
-
-mockedUseTransitionState.mockReturnValue(enterState)
+mockedUseTransitionState.mockReturnValue(createStateMock(TRANSITION_TYPE_ENTER))
 
 const inviewMessage = "In view"
 const outOfViewMessage = "Out of view"

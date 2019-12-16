@@ -1,11 +1,14 @@
 import React from "react"
 
 import Projects from "./projects"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
+
+jest.mock("@hooks/page-transition")
+jest.mock("@components/projects/projects-grid/projects-grid.container")
 
 describe("<Projects />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme("dark", <Projects />)
+    const tree = renderWithTheme("dark", <Projects />)
     expect(tree).toMatchSnapshot()
   })
 })
