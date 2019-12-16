@@ -159,6 +159,7 @@ module.exports = {
           "@custom-types": path.resolve(__dirname, "src/types"),
           "@images": path.resolve(__dirname, "src/images"),
           "@hooks": path.resolve(__dirname, "src/hooks"),
+          "@utils": path.resolve(__dirname, "src/utils"),
         },
         extensions: [],
       },

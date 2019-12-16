@@ -1,5 +1,5 @@
 import React, { memo, MutableRefObject } from "react"
-import { keys } from "@custom-types/utils"
+import { keys } from "@utils"
 import { Projects } from "model"
 import * as S from "./project-list.style"
 import {

@@ -61,7 +61,8 @@
       "@store/*": ["./src/store/*"],
       "@custom-types/*": ["./src/types/*"],
       "@images/*": ["./src/images/*"],
-      "@hooks/*": ["./src/hooks/*"]
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils": ["./src/utils/index.tsx"]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

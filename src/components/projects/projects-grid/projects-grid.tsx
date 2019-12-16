@@ -2,7 +2,7 @@ import React, { memo } from "react"
 import * as S from "./projects-grid.style"
 import ProjectCard from "@components/projects/project-card/project-card"
 import { Projects } from "model"
-import { keys } from "@custom-types/utils"
+import { keys } from "@utils"
 
 interface Props {
   projects: Projects

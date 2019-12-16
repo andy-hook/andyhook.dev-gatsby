@@ -1,6 +1,6 @@
 import React, { memo, MutableRefObject } from "react"
 import { SocialMeta } from "@custom-types/model"
-import { keys } from "@custom-types/utils"
+import { keys } from "@utils"
 import Icon from "@components/shared/icon/icon"
 import * as S from "./social.style"
 import gsap from "gsap"

@@ -18,7 +18,7 @@ exports[`<About /> renders correctly 1`] = `
       <h2
         className="sc-gzVnrw cpBZxR"
       >
-        Title text
+        Title text
       </h2>
       <div
         className="sc-htoDjs khBefK"

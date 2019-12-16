@@ -1,5 +1,5 @@
 import { Projects, ProjectItem, ProjectNames } from "@custom-types/model"
-import { keys } from "@custom-types/utils"
+import { keys } from "@utils"
 
 export const getCurrentProjectData = (
   dataObject: Projects,

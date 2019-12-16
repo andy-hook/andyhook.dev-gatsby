@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import { Projects } from "@custom-types/model"
-import { keys } from "@custom-types/utils"
+import { keys } from "@utils"
 import Card from "./card/card"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"

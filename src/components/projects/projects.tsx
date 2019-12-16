@@ -70,7 +70,7 @@ const Projects: React.FunctionComponent = memo(() => {
         <Limiter>
           <S.TitleLimiter>
             <OverlineTitle overline="Projects">
-              A selection of my favourite&nbsp;work
+              A selection of my favourite work
             </OverlineTitle>
           </S.TitleLimiter>
           <ProjectsGridContainer />

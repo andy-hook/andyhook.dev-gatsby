@@ -17,6 +17,7 @@ module.exports = {
     "^@custom-types(.*)$": "<rootDir>/src/types$1",
     "^@images(.*)$": "<rootDir>/src/images$1",
     "^@hooks(.*)$": "<rootDir>/src/hooks$1",
+    "^@utils(.*)$": "<rootDir>/src/utils$1",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testPathIgnorePatterns: ["node_modules", ".cache"],
