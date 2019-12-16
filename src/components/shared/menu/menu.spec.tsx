@@ -1,12 +1,12 @@
 import React from "react"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 import { mockSocialIcons, mockProjectsData } from "@data/mocks"
 
 import Menu from "./menu"
 
 describe("<Menu />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
+    const tree = renderWithTheme(
       "dark",
       <Menu
         projects={mockProjectsData}

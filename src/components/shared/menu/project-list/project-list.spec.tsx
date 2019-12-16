@@ -1,11 +1,11 @@
 import React from "react"
 import ProjectList from "./project-list"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 import { mockProjectsData } from "@data/mocks"
 
 describe("<ProjectList />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
+    const tree = renderWithTheme(
       "light",
       <ProjectList projects={mockProjectsData} onClick={jest.fn} open={true} />
     )

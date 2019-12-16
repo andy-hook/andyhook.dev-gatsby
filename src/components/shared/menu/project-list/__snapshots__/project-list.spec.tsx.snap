@@ -1,3 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProjectList /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<ProjectList /> renders correctly 1`] = `
+<div
+  className="sc-bdVaJa eYZmLV"
+>
+  <ul
+    className="sc-bwzfXH eDFgnQ"
+  >
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/bright"
+        onClick={[Function]}
+      >
+        Bright
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/brandwatch"
+        onClick={[Function]}
+      >
+        Brandwatch
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/monster"
+        onClick={[Function]}
+      >
+        Monster
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/cymbiosis"
+        onClick={[Function]}
+      >
+        Cymbiosis
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/jamieson"
+        onClick={[Function]}
+      >
+        Jamieson
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eeRFYY"
+    >
+      <a
+        className="sc-bxivhb oKECp"
+        href="/projects/experiments"
+        onClick={[Function]}
+      >
+        Experiments
+      </a>
+    </li>
+  </ul>
+</div>
+`;

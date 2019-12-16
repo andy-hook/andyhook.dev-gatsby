@@ -7,4 +7,4 @@
   andyhook.design
 </h1>
 
-<p align="center">Gatsby powered portfolio served by Netlify.</p>
+<p align="center">A Gatsby powered portfolio served on Netlify.</p>

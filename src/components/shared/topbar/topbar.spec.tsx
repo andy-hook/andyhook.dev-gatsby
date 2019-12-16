@@ -1,11 +1,11 @@
 import React from "react"
-import { shallowWithTheme } from "@test-utils"
+import { renderWithTheme } from "@test-utils"
 
 import Topbar from "./topbar"
 
 describe("<Topbar />", () => {
   it("renders correctly", () => {
-    const tree = shallowWithTheme(
+    const tree = renderWithTheme(
       "dark",
       <Topbar
         openMenu={jest.fn()}

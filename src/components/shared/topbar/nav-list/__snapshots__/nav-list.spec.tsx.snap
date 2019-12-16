@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Navigation /> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Navigation /> renders correctly 1`] = `
+<nav
+  className="sc-bdVaJa ilpkqp"
+>
+  <ul
+    className="sc-bwzfXH eVhDfK"
+  >
+    <li
+      className="sc-htpNat eMrlEG"
+    >
+      <a
+        className="sc-bxivhb fAbNOD"
+        href="/"
+        onClick={[Function]}
+      >
+        Overview
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eMrlEG"
+    >
+      <a
+        className="sc-bxivhb fAbNOD"
+        href="/projects/"
+        onClick={[Function]}
+        partiallyActive={true}
+      >
+        Projects
+      </a>
+    </li>
+    <li
+      className="sc-htpNat eMrlEG"
+    >
+      <a
+        className="sc-bxivhb fAbNOD"
+        href="/about/"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

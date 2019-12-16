@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "andyhook.design",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A Gatsby powered portfolio served on Netlify",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Andy Hook <hello@andy-hook.co.uk>",
   "dependencies": {
     "@testing-library/react": "^9.3.0",
     "babel-plugin-styled-components": "^1.10.0",
