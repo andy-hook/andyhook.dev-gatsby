@@ -10,19 +10,21 @@ exports[`<About /> renders correctly 1`] = `
     <div
       className="sc-htpNat dzobEj"
     >
-      <h1
-        className="sc-bZQynM jBjNHF"
-      >
-        Overline text
-      </h1>
-      <h2
-        className="sc-gzVnrw cpBZxR"
-      >
-        Title text
-      </h2>
       <div
-        className="sc-htoDjs khBefK"
-      />
+        className="sc-htoDjs ivAwmE"
+      >
+        <h1
+          className="sc-bZQynM jBjNHF"
+        >
+          About
+        </h1>
+        <h2
+          className="sc-gzVnrw cpBZxR"
+        >
+          Just a UI developer living in Brighton
+        </h2>
+      </div>
+      <AboutHeroContainer />
     </div>
   </div>
   <footer
