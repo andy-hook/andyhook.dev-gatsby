@@ -6,7 +6,7 @@ import { renderWithTheme } from "@test-utils"
 jest.mock("@hooks/page-transition")
 
 jest.mock(
-  "@components/projects/projects-grid/projects-grid.container",
+  "@components/shared/projects-grid/projects-grid.container",
   () => "ProjectsGridContainer"
 )
 

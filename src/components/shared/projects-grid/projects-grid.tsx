@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import * as S from "./projects-grid.style"
-import ProjectCard from "@components/projects/project-card/project-card"
+import ProjectCard from "@components/shared/project-card/project-card"
 import { Projects } from "model"
 import { keys } from "@utils"
 

@@ -4,7 +4,7 @@ import CommonPage from "@components/shared/common-page/common-page"
 import Gutter from "@components/shared/gutter/gutter"
 import Limiter from "@components/shared/limiter/limiter"
 import usePageTransition from "@hooks/page-transition"
-import ProjectsGridContainer from "./projects-grid/projects-grid.container"
+import ProjectsGridContainer from "@components/shared/projects-grid/projects-grid.container"
 import * as S from "./projects.style"
 
 const Projects: React.FunctionComponent = memo(() => {
