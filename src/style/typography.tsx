@@ -96,8 +96,15 @@ export const typeSupTitle = css`
   color: ${themeText(900)};
 `
 
+export const typeBody = css`
+  ${setBaseCropAndLineHeight(lineHeight.base.regular)}
+  ${typeBaseRegular}
+
+  color: ${themeText(800)};
+`
+
 export const typeBodySubtle = css`
-  ${setBaseCropAndLineHeight(lineHeight.display.regular)}
+  ${setBaseCropAndLineHeight(lineHeight.base.regular)}
   ${typeBaseRegular}
 
   color: ${themeText(900)};
