@@ -128,7 +128,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `andyhook.design`,
+        name: `andyhook.dev`,
         short_name: `andyhook`,
         start_url: `/`,
         background_color: `#0D0D0F`,
