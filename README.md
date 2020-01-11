@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://andyhook.dev">
-    <img alt="Gatsby" src="https://andyhook.design/icons/icon-512x512.png" width="100" />
+    <img alt="Gatsby" src="https://andyhook.dev/icons/icon-512x512.png" width="100" />
   </a>
 </p>
 <h1 align="center">
