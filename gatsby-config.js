@@ -87,17 +87,6 @@ module.exports = {
           date: "2014 – 2016",
         },
       },
-      jamieson: {
-        label: "Jamieson",
-        desc: "Jamieson description",
-        images: "jamieson",
-        path: "/projects/jamieson",
-        details: {
-          role: "Front-End Designer",
-          location: "Hastings, UK",
-          date: "2014 – 2016",
-        },
-      },
       experiments: {
         label: "Experiments",
         desc: "Experiments description",

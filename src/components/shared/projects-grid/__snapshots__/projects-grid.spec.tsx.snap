@@ -97,28 +97,6 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/jamieson"
-      onClick={[Function]}
-    >
-      <h3
-        className="sc-bxivhb iFfEMV"
-      >
-        Jamieson
-      </h3>
-      <div
-        className="sc-ifAKCX cHYBKe"
-      >
-        <CardImageContainer
-          imagePath="jamieson"
-        />
-      </div>
-    </a>
-  </div>
-  <div
-    className="sc-bwzfXH iIAcPH"
-  >
-    <a
-      className="sc-htpNat eddPIH"
       href="/projects/experiments"
       onClick={[Function]}
     >

@@ -1,8 +1,5 @@
-import React, { memo, MutableRefObject } from "react"
-import gsap from "gsap"
-import useDeferredRunEffect from "@hooks/deferred-run"
+import React, { memo } from "react"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
-import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import * as S from "./logo.style"
 import classNames from "classnames"
 
@@ -11,44 +8,9 @@ export interface Props {
   hidden?: boolean
 }
 
-const Logo: React.FunctionComponent<Props> = memo(({ hidden, className }) => {
-  const logoRef = React.useRef() as MutableRefObject<HTMLDivElement>
-  const { topPalm } = useMediaQueryContext()
-
-  const animateHide = () => {
-    gsap.to(logoRef.current, {
-      duration: 0.5,
-      ease: "expo.out",
-      x: "0%",
-      opacity: 0,
-    })
-  }
-
-  const animateShow = () => {
-    gsap.fromTo(
-      logoRef.current,
-      {
-        x: topPalm ? "100%" : "-100%",
-      },
-      {
-        duration: 1,
-        ease: "expo.out",
-        x: "0%",
-        opacity: 1,
-      }
-    )
-  }
-
-  useDeferredRunEffect(() => {
-    if (hidden) {
-      animateHide()
-    } else {
-      animateShow()
-    }
-  }, [hidden])
-
+const Logo: React.FunctionComponent<Props> = memo(({ className }) => {
   return (
-    <S.LogoWrap ref={logoRef} className={classNames("", className)}>
+    <S.LogoWrap className={classNames("", className)}>
       <S.LogoLink to="/" {...linkProps}>
         <S.LogoLettering viewBox="0 0 665.2 148.6">
           <path

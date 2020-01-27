@@ -36,7 +36,7 @@ const Topbar: React.FunctionComponent<Props> = memo(
 
         <S.Under ref={underRef} visible={visible}>
           <S.ContainerInner visible={visible}>
-            <S.StyledLogo hidden={open} />
+            <S.StyledLogo />
 
             <S.StyledNavList />
           </S.ContainerInner>

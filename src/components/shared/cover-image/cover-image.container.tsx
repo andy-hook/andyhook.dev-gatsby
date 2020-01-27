@@ -41,13 +41,6 @@ const CoverImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
           }
         }
       }
-      jamieson: file(relativePath: { eq: "project/jamieson/cover-image.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 4000) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       experiments: file(
         relativePath: { eq: "project/experiments/cover-image.jpg" }
       ) {

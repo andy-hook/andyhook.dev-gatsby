@@ -44,14 +44,6 @@ exports[`<Work /> renders correctly 1`] = `
       </a>
       <a
         className="sc-bdVaJa gBBbQm"
-        href="/projects/jamieson"
-        onClick={[Function]}
-      >
-        Jamieson
-        Jamieson description
-      </a>
-      <a
-        className="sc-bdVaJa gBBbQm"
         href="/projects/experiments"
         onClick={[Function]}
       >

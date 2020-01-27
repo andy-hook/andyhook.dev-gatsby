@@ -41,13 +41,6 @@ const CardImageContainer: React.FunctionComponent<Props> = ({ imagePath }) => {
           }
         }
       }
-      jamieson: file(relativePath: { eq: "project/jamieson/card-image.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 4000) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       experiments: file(
         relativePath: { eq: "project/experiments/card-image.jpg" }
       ) {

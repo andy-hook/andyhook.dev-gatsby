@@ -28,12 +28,6 @@ export const Projects = graphql`
           path
           images
         }
-        jamieson {
-          label
-          desc
-          path
-          images
-        }
         experiments {
           label
           desc

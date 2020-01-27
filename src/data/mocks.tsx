@@ -81,17 +81,6 @@ export const mockProjectsData: Projects = {
       date: "date",
     },
   },
-  jamieson: {
-    label: "Jamieson",
-    desc: "Jamieson description",
-    images: "jamieson",
-    path: "/projects/jamieson",
-    details: {
-      role: "role",
-      location: "location",
-      date: "date",
-    },
-  },
   experiments: {
     label: "Experiments",
     desc: "Experiments description",

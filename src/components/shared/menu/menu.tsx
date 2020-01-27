@@ -3,7 +3,6 @@ import { SocialMeta, Projects } from "model"
 import gsap from "gsap"
 import useDeferredRunEffect from "@hooks/deferred-run"
 import ProjectListComponent from "./project-list/project-list"
-import { useMediaQueryContext } from "../media-query-provider/media-query-provider"
 import * as S from "./menu.style"
 import Social from "./social/social"
 import MenuNavList from "./menu-nav-list/menu-nav-list"
@@ -30,7 +29,6 @@ const Menu: React.FunctionComponent<AllProps> = memo(
     const sidebar = React.useRef() as MutableRefObject<HTMLDivElement>
     const containerRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const animationScrim = React.useRef() as MutableRefObject<HTMLDivElement>
-    const { topPalm } = useMediaQueryContext()
 
     const handleMenuClose = () => {
       if (!menuIsAnimating) {
@@ -44,7 +42,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
       gsap.fromTo(
         sidebar.current,
         {
-          x: topPalm ? "-100%" : "100%",
+          x: "100%",
         },
         {
           duration: slideInSpeed,
@@ -72,7 +70,7 @@ const Menu: React.FunctionComponent<AllProps> = memo(
         {
           duration: slideOutSpeed,
           ease: "expo.out",
-          x: topPalm ? "-100%" : "100%",
+          x: "100%",
           clearProps: "transform, opacity",
           onComplete: () => {
             menuIsAnimating = false

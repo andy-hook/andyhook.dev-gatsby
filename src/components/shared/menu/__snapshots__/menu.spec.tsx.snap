@@ -2,7 +2,7 @@
 
 exports[`<Menu /> renders correctly 1`] = `
 <div
-  className="sc-EHOje icwIRS"
+  className="sc-EHOje gLAiCf"
 >
   <div
     className="sc-bZQynM fTouIf"
@@ -64,17 +64,6 @@ exports[`<Menu /> renders correctly 1`] = `
                   onClick={[Function]}
                 >
                   Cymbiosis
-                </a>
-              </li>
-              <li
-                className="sc-htpNat eeRFYY"
-              >
-                <a
-                  className="sc-bxivhb kdHtVe"
-                  href="/projects/jamieson"
-                  onClick={[Function]}
-                >
-                  Jamieson
                 </a>
               </li>
               <li
