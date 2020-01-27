@@ -5,6 +5,11 @@ import {
   TRANSITION_TYPE_EXIT,
   TRANSITION_TYPE_ENTER,
 } from "@constants"
+import classNames from "classnames"
+
+export interface Props {
+  className?: string
+}
 
 export const linkProps = {
   activeClassName: "active",
@@ -24,11 +29,11 @@ export const linkProps = {
   },
 }
 
-const NavList: React.FunctionComponent = memo(() => {
+const NavList: React.FunctionComponent<Props> = memo(({ className }) => {
   const navRef = React.useRef() as MutableRefObject<HTMLDivElement>
 
   return (
-    <S.Container ref={navRef}>
+    <S.Container ref={navRef} className={classNames("", className)}>
       <S.List>
         <S.ListItem>
           <S.ListItemLink to="/" {...linkProps}>

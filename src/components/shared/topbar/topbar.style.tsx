@@ -6,9 +6,10 @@ import { typeSizeBaseXs } from "@style/typography"
 import { themeTone } from "@style/theme"
 import { menuZindex } from "../menu/menu.style"
 import { smallScreenGutter } from "@components/shared/gutter/gutter.style"
+import NavList from "./nav-list/nav-list"
+import Logo from "./logo/logo"
 
 interface StyleProps {
-  hasScrolled?: boolean
   visible?: boolean
 }
 
@@ -16,11 +17,11 @@ const spacingXSmall = smallScreenGutter
 const spacingXBig = rem("35px")
 
 const topbarHeight = css`
-  height: ${rem("65px")};
+  height: ${rem("56px")};
 
-  ${scaleBetween("height", rem("65px"), rem("85px"), "topThumb", "bottomUltra")}
+  ${scaleBetween("height", rem("56px"), rem("76px"), "topThumb", "bottomUltra")}
 
-  ${scaleGreaterThan("height", rem("85px"), "topUltra")}
+  ${scaleGreaterThan("height", rem("76px"), "topUltra")}
 `
 
 const topbarFixed = css`
@@ -82,10 +83,6 @@ export const Over = styled(visiblityTransition)`
 
   mix-blend-mode: difference;
   pointer-events: none;
-
-  ${mq.greaterThan("topPalm")`
-    justify-content: flex-start;
-  `}
 `
 
 export const Under = styled(visiblityTransition)`
@@ -99,7 +96,6 @@ export const ContainerInner = styled.div<StyleProps>`
   position: relative;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   /* Background colour */
@@ -140,14 +136,12 @@ export const ContainerInner = styled.div<StyleProps>`
   }
 `
 
-export const LogoPos = styled.div`
+export const StyledLogo = styled(Logo)`
   z-index: ${zIndex.medium};
 
   font-size: ${rem("65px")};
 
-  ${mq.greaterThan("topPalm")`
-    margin-left: 0.7em;
-  `}
+  flex-shrink: 0;
 
   ${scaleBetween(
     "font-size",
@@ -157,14 +151,22 @@ export const LogoPos = styled.div`
     "bottomUltra"
   )}
 
+  ${mq.greaterThan("bottomPalm")`
+    margin-right: 0.8em;
+  `}
+
   ${scaleGreaterThan("font-size", rem("85px"), "topUltra")}
 `
 
-export const NavPos = styled.div`
+export const StyledNavList = styled(NavList)`
   z-index: ${zIndex.medium};
   display: flex;
 
   align-items: center;
+
+  ${mq.lessThan("bottomPalm")`
+    display: none;
+  `}
 `
 
 export const NaviconSizing = styled.div`

@@ -1,20 +1,17 @@
 import React, { memo, MutableRefObject } from "react"
 import Navicon from "./navicon/navicon"
-import Logo from "./logo/logo"
 import { menuIsAnimating } from "@components/shared/menu/menu"
-import NavList from "./nav-list/nav-list"
 import * as S from "./topbar.style"
 
 interface Props {
   open: boolean
   visible: boolean
-  hasScrolled: boolean
   openMenu: () => void
   closeMenu: () => void
 }
 
 const Topbar: React.FunctionComponent<Props> = memo(
-  ({ open, openMenu, closeMenu, visible, hasScrolled }) => {
+  ({ open, openMenu, closeMenu, visible }) => {
     const overRef = React.useRef() as MutableRefObject<HTMLDivElement>
     const underRef = React.useRef() as MutableRefObject<HTMLDivElement>
 
@@ -38,14 +35,10 @@ const Topbar: React.FunctionComponent<Props> = memo(
         </S.Over>
 
         <S.Under ref={underRef} visible={visible}>
-          <S.ContainerInner hasScrolled={hasScrolled} visible={visible}>
-            <S.LogoPos>
-              <Logo hidden={open} />
-            </S.LogoPos>
+          <S.ContainerInner visible={visible}>
+            <S.StyledLogo hidden={open} />
 
-            <S.NavPos>
-              <NavList />
-            </S.NavPos>
+            <S.StyledNavList />
           </S.ContainerInner>
         </S.Under>
       </>

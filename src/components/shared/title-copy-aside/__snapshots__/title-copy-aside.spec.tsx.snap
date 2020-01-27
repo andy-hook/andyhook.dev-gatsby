@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleCopyAside /> renders correctly 1`] = `
+<div
+  className="sc-bdVaJa kZAgjJ"
+>
+  <h2
+    className="sc-bwzfXH gyarJK"
+  >
+    This is a title
+  </h2>
+  <p
+    className="sc-htpNat kMdGYa"
+  >
+    This is child content
+  </p>
+</div>
+`;

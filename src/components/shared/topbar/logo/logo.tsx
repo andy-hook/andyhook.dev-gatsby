@@ -4,12 +4,14 @@ import useDeferredRunEffect from "@hooks/deferred-run"
 import { linkProps } from "@components/shared/topbar/nav-list/nav-list"
 import { useMediaQueryContext } from "@components/shared/media-query-provider/media-query-provider"
 import * as S from "./logo.style"
+import classNames from "classnames"
 
-interface Props {
+export interface Props {
+  className?: string
   hidden?: boolean
 }
 
-const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
+const Logo: React.FunctionComponent<Props> = memo(({ hidden, className }) => {
   const logoRef = React.useRef() as MutableRefObject<HTMLDivElement>
   const { topPalm } = useMediaQueryContext()
 
@@ -46,7 +48,7 @@ const Logo: React.FunctionComponent<Props> = memo(({ hidden }) => {
   }, [hidden])
 
   return (
-    <S.LogoWrap ref={logoRef}>
+    <S.LogoWrap ref={logoRef} className={classNames("", className)}>
       <S.LogoLink to="/" {...linkProps}>
         <S.LogoLettering viewBox="0 0 665.2 148.6">
           <path

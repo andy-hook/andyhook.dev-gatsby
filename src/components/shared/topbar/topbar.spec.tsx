@@ -11,7 +11,6 @@ describe("<Topbar />", () => {
         openMenu={jest.fn()}
         closeMenu={jest.fn}
         visible={true}
-        hasScrolled={true}
         open={true}
       />
     )

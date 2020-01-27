@@ -91,7 +91,7 @@ exports[`<Menu /> renders correctly 1`] = `
             </ul>
           </div>
           <ul
-            className="sc-cSHVUG kemaOw"
+            className="sc-cSHVUG fPREAD"
           >
             <li
               className="sc-kAzzGY BNLVl"

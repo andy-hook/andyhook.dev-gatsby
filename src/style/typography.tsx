@@ -113,11 +113,11 @@ export const typeBodySubtle = css`
 /* Base type sizes
   ------------------------------------------------- */
 export const typeSizeBaseXs = css`
-  font-size: ${typeScale[3]};
+  font-size: ${typeScale[1]};
 
   ${scaleBetween(
     "font-size",
-    typeScale[3],
+    typeScale[1],
     typeScale[4],
     "topThumb",
     "bottomUltra"
@@ -127,11 +127,11 @@ export const typeSizeBaseXs = css`
 `
 
 export const typeSizeBaseSm = css`
-  font-size: ${typeScale[4]};
+  font-size: ${typeScale[3]};
 
   ${scaleBetween(
     "font-size",
-    typeScale[4],
+    typeScale[3],
     typeScale[5],
     "topThumb",
     "bottomUltra"

@@ -7,27 +7,23 @@ import {
 } from "@style/typography"
 import { themeText } from "@style/theme"
 import { lineHeight } from "@style/variables"
-import { mq } from "@style/media-queries"
 
-export const Container = styled.nav`
-  ${mq.lessThan("bottomPalm")`
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-  `}
-`
+export const Container = styled.nav``
+
+const itemPadding = "1em"
 
 export const List = styled.ul`
   ${typeBaseSemibold}
   ${typeSizeBaseXs}
 
   display: flex;
-  margin-right: -1em;
+  margin-right: -${itemPadding};
+  margin-left: -${itemPadding};
 `
 
 export const ListItem = styled.li`
   &:not(:last-child) {
-    margin-right: 1.1em;
+    margin-right: 0.8em;
   }
 `
 
@@ -37,7 +33,7 @@ export const ListItemLink = styled(Link)`
   display: block;
   color: ${themeText(1000)};
 
-  padding: 1em;
+  padding: ${itemPadding};
 
   &.active {
     color: ${themeText(400)};

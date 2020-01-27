@@ -2,13 +2,13 @@
 
 exports[`<Navigation /> renders correctly 1`] = `
 <nav
-  className="sc-bdVaJa ilpkqp"
+  className="sc-bdVaJa bDWFJH"
 >
   <ul
-    className="sc-bwzfXH eVhDfK"
+    className="sc-bwzfXH gOxZox"
   >
     <li
-      className="sc-htpNat eMrlEG"
+      className="sc-htpNat iaJVDJ"
     >
       <a
         className="sc-bxivhb fAbNOD"
@@ -19,7 +19,7 @@ exports[`<Navigation /> renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-htpNat eMrlEG"
+      className="sc-htpNat iaJVDJ"
     >
       <a
         className="sc-bxivhb fAbNOD"
@@ -31,7 +31,7 @@ exports[`<Navigation /> renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="sc-htpNat eMrlEG"
+      className="sc-htpNat iaJVDJ"
     >
       <a
         className="sc-bxivhb fAbNOD"
