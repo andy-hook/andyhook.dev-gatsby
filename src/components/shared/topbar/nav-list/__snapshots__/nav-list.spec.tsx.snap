@@ -15,19 +15,7 @@ exports[`<Navigation /> renders correctly 1`] = `
         href="/"
         onClick={[Function]}
       >
-        Overview
-      </a>
-    </li>
-    <li
-      className="sc-htpNat iaJVDJ"
-    >
-      <a
-        className="sc-bxivhb fAbNOD"
-        href="/projects/"
-        onClick={[Function]}
-        partiallyActive={true}
-      >
-        Projects
+        Work
       </a>
     </li>
     <li
@@ -39,6 +27,17 @@ exports[`<Navigation /> renders correctly 1`] = `
         onClick={[Function]}
       >
         About
+      </a>
+    </li>
+    <li
+      className="sc-htpNat iaJVDJ"
+    >
+      <a
+        className="sc-bxivhb fAbNOD"
+        href="/playground/"
+        onClick={[Function]}
+      >
+        Playground
       </a>
     </li>
   </ul>

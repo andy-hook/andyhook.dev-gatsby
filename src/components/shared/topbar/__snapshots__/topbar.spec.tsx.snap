@@ -102,19 +102,7 @@ Array [
               href="/"
               onClick={[Function]}
             >
-              Overview
-            </a>
-          </li>
-          <li
-            className="sc-jKJlTe hMdvHe"
-          >
-            <a
-              className="sc-eNQAEJ enVZqE"
-              href="/projects/"
-              onClick={[Function]}
-              partiallyActive={true}
-            >
-              Projects
+              Work
             </a>
           </li>
           <li
@@ -126,6 +114,17 @@ Array [
               onClick={[Function]}
             >
               About
+            </a>
+          </li>
+          <li
+            className="sc-jKJlTe hMdvHe"
+          >
+            <a
+              className="sc-eNQAEJ enVZqE"
+              href="/playground/"
+              onClick={[Function]}
+            >
+              Playground
             </a>
           </li>
         </ul>

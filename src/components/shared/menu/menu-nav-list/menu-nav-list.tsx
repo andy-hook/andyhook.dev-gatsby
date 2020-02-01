@@ -97,17 +97,17 @@ const MenuNavList: React.FunctionComponent<Props> = memo(
       <S.List ref={listRef}>
         <S.ListItem ref={cachedRefs.current[0]}>
           <S.ListItemLink to="/" onClick={onClick} {...linkProps}>
-            Overview
+            Work
           </S.ListItemLink>
         </S.ListItem>
         <S.ListItem ref={cachedRefs.current[1]}>
-          <S.ListItemLink to="/projects/" onClick={onClick} {...linkProps}>
-            Projects
+          <S.ListItemLink to="/about/" onClick={onClick} {...linkProps}>
+            About
           </S.ListItemLink>
         </S.ListItem>
         <S.ListItem ref={cachedRefs.current[2]}>
-          <S.ListItemLink to="/about/" onClick={onClick} {...linkProps}>
-            About
+          <S.ListItemLink to="/projects/" onClick={onClick} {...linkProps}>
+            Playground
           </S.ListItemLink>
         </S.ListItem>
       </S.List>

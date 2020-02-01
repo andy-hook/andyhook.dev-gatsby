@@ -41,7 +41,7 @@ export const mockProjectsData: Projects = {
     label: "Bright",
     desc: "Bright description",
     images: "bright",
-    path: "/projects/bright",
+    path: "/bright",
     details: {
       role: "role",
       location: "location",
@@ -52,7 +52,7 @@ export const mockProjectsData: Projects = {
     label: "Brandwatch",
     desc: "Brandwatch description",
     images: "brandwatch",
-    path: "/projects/brandwatch",
+    path: "/brandwatch",
     details: {
       role: "role",
       location: "location",
@@ -63,7 +63,7 @@ export const mockProjectsData: Projects = {
     label: "Monster",
     desc: "Monster description",
     images: "monster",
-    path: "/projects/monster",
+    path: "/monster",
     details: {
       role: "role",
       location: "location",
@@ -74,7 +74,7 @@ export const mockProjectsData: Projects = {
     label: "Cymbiosis",
     desc: "Cymbiosis description",
     images: "cymbiosis",
-    path: "/projects/cymbiosis",
+    path: "/cymbiosis",
     details: {
       role: "role",
       location: "location",
@@ -85,7 +85,7 @@ export const mockProjectsData: Projects = {
     label: "Experiments",
     desc: "Experiments description",
     images: "experiments",
-    path: "/projects/experiments",
+    path: "/experiments",
     details: {
       role: "role",
       location: "location",

@@ -37,17 +37,17 @@ const NavList: React.FunctionComponent<Props> = memo(({ className }) => {
       <S.List>
         <S.ListItem>
           <S.ListItemLink to="/" {...linkProps}>
-            Overview
-          </S.ListItemLink>
-        </S.ListItem>
-        <S.ListItem>
-          <S.ListItemLink to="/projects/" partiallyActive={true} {...linkProps}>
-            Projects
+            Work
           </S.ListItemLink>
         </S.ListItem>
         <S.ListItem>
           <S.ListItemLink to="/about/" {...linkProps}>
             About
+          </S.ListItemLink>
+        </S.ListItem>
+        <S.ListItem>
+          <S.ListItemLink to="/playground/" {...linkProps}>
+            Playground
           </S.ListItemLink>
         </S.ListItem>
       </S.List>

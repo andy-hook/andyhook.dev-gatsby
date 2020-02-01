@@ -27,7 +27,7 @@ exports[`<Menu /> renders correctly 1`] = `
               >
                 <a
                   className="sc-bxivhb kdHtVe"
-                  href="/projects/bright"
+                  href="/bright"
                   onClick={[Function]}
                 >
                   Bright
@@ -38,7 +38,7 @@ exports[`<Menu /> renders correctly 1`] = `
               >
                 <a
                   className="sc-bxivhb kdHtVe"
-                  href="/projects/brandwatch"
+                  href="/brandwatch"
                   onClick={[Function]}
                 >
                   Brandwatch
@@ -49,7 +49,7 @@ exports[`<Menu /> renders correctly 1`] = `
               >
                 <a
                   className="sc-bxivhb kdHtVe"
-                  href="/projects/monster"
+                  href="/monster"
                   onClick={[Function]}
                 >
                   Monster
@@ -60,7 +60,7 @@ exports[`<Menu /> renders correctly 1`] = `
               >
                 <a
                   className="sc-bxivhb kdHtVe"
-                  href="/projects/cymbiosis"
+                  href="/cymbiosis"
                   onClick={[Function]}
                 >
                   Cymbiosis
@@ -71,7 +71,7 @@ exports[`<Menu /> renders correctly 1`] = `
               >
                 <a
                   className="sc-bxivhb kdHtVe"
-                  href="/projects/experiments"
+                  href="/experiments"
                   onClick={[Function]}
                 >
                   Experiments
@@ -90,18 +90,7 @@ exports[`<Menu /> renders correctly 1`] = `
                 href="/"
                 onClick={[Function]}
               >
-                Overview
-              </a>
-            </li>
-            <li
-              className="sc-kAzzGY BNLVl"
-            >
-              <a
-                className="sc-chPdSV ccWwS"
-                href="/projects/"
-                onClick={[Function]}
-              >
-                Projects
+                Work
               </a>
             </li>
             <li
@@ -113,6 +102,17 @@ exports[`<Menu /> renders correctly 1`] = `
                 onClick={[Function]}
               >
                 About
+              </a>
+            </li>
+            <li
+              className="sc-kAzzGY BNLVl"
+            >
+              <a
+                className="sc-chPdSV ccWwS"
+                href="/projects/"
+                onClick={[Function]}
+              >
+                Playground
               </a>
             </li>
           </ul>

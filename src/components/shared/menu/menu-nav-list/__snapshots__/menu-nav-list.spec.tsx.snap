@@ -12,18 +12,7 @@ exports[`<MenuNavList /> renders correctly 1`] = `
       href="/"
       onClick={[Function]}
     >
-      Overview
-    </a>
-  </li>
-  <li
-    className="sc-bwzfXH gdYRbz"
-  >
-    <a
-      className="sc-htpNat jzrKZq"
-      href="/projects/"
-      onClick={[Function]}
-    >
-      Projects
+      Work
     </a>
   </li>
   <li
@@ -35,6 +24,17 @@ exports[`<MenuNavList /> renders correctly 1`] = `
       onClick={[Function]}
     >
       About
+    </a>
+  </li>
+  <li
+    className="sc-bwzfXH gdYRbz"
+  >
+    <a
+      className="sc-htpNat jzrKZq"
+      href="/projects/"
+      onClick={[Function]}
+    >
+      Playground
     </a>
   </li>
 </ul>

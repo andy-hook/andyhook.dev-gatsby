@@ -2,54 +2,29 @@
 
 exports[`<Work /> renders correctly 1`] = `
 <div
-  className="sc-EHOje czdFMe"
+  className="sc-ifAKCX kQKtwC"
 >
   <div
-    className="sc-bwzfXH kqtABW"
+    className="sc-bdVaJa bUDcPf"
   >
     <div
-      className="sc-ifAKCX byEtGP"
+      className="sc-htpNat dzobEj"
     >
-      <a
-        className="sc-bdVaJa gBBbQm"
-        href="/projects/bright"
-        onClick={[Function]}
+      <div
+        className="sc-EHOje dzKsym"
       >
-        Bright
-        Bright description
-      </a>
-      <a
-        className="sc-bdVaJa gBBbQm"
-        href="/projects/brandwatch"
-        onClick={[Function]}
-      >
-        Brandwatch
-        Brandwatch description
-      </a>
-      <a
-        className="sc-bdVaJa gBBbQm"
-        href="/projects/monster"
-        onClick={[Function]}
-      >
-        Monster
-        Monster description
-      </a>
-      <a
-        className="sc-bdVaJa gBBbQm"
-        href="/projects/cymbiosis"
-        onClick={[Function]}
-      >
-        Cymbiosis
-        Cymbiosis description
-      </a>
-      <a
-        className="sc-bdVaJa gBBbQm"
-        href="/projects/experiments"
-        onClick={[Function]}
-      >
-        Experiments
-        Experiments description
-      </a>
+        <h1
+          className="sc-bZQynM jBjNHF"
+        >
+          Projects
+        </h1>
+        <h2
+          className="sc-gzVnrw cpBZxR"
+        >
+          A selection of my favourite work
+        </h2>
+      </div>
+      <ProjectsGridContainer />
     </div>
   </div>
 </div>

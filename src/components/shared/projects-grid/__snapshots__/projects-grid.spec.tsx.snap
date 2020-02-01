@@ -9,7 +9,7 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/bright"
+      href="/bright"
       onClick={[Function]}
     >
       <h3
@@ -31,7 +31,7 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/brandwatch"
+      href="/brandwatch"
       onClick={[Function]}
     >
       <h3
@@ -53,7 +53,7 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/monster"
+      href="/monster"
       onClick={[Function]}
     >
       <h3
@@ -75,7 +75,7 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/cymbiosis"
+      href="/cymbiosis"
       onClick={[Function]}
     >
       <h3
@@ -97,7 +97,7 @@ exports[`<ProjectsGrid /> renders correctly 1`] = `
   >
     <a
       className="sc-htpNat eddPIH"
-      href="/projects/experiments"
+      href="/experiments"
       onClick={[Function]}
     >
       <h3

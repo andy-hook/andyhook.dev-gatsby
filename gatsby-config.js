@@ -47,7 +47,7 @@ module.exports = {
         label: "Bright",
         desc: "Bright description",
         images: "bright",
-        path: "/projects/bright",
+        path: "/bright",
         details: {
           role: "Interface Developer",
           location: "Brighton, UK",
@@ -58,7 +58,7 @@ module.exports = {
         label: "Brandwatch",
         desc: "Social listening trusted by world-leading brands",
         images: "brandwatch",
-        path: "/projects/brandwatch",
+        path: "/brandwatch",
         details: {
           role: "Senior Developer",
           location: "Brighton, UK",
@@ -69,7 +69,7 @@ module.exports = {
         label: "Monster",
         desc: "Monster description",
         images: "monster",
-        path: "/projects/monster",
+        path: "/monster",
         details: {
           role: "Senior Developer",
           location: "Brighton, UK",
@@ -80,7 +80,7 @@ module.exports = {
         label: "Cymbiosis",
         desc: "Cymbiosis description",
         images: "cymbiosis",
-        path: "/projects/cymbiosis",
+        path: "/cymbiosis",
         details: {
           role: "Front-End Designer",
           location: "Hastings, UK",
@@ -91,7 +91,7 @@ module.exports = {
         label: "Experiments",
         desc: "Experiments description",
         images: "experiments",
-        path: "/projects/experiments",
+        path: "/experiments",
         details: {
           role: "Digital Designer",
           location: "Brighton, UK",

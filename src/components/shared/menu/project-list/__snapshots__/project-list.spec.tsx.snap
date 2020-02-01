@@ -12,7 +12,7 @@ exports[`<ProjectList /> renders correctly 1`] = `
     >
       <a
         className="sc-bxivhb oKECp"
-        href="/projects/bright"
+        href="/bright"
         onClick={[Function]}
       >
         Bright
@@ -23,7 +23,7 @@ exports[`<ProjectList /> renders correctly 1`] = `
     >
       <a
         className="sc-bxivhb oKECp"
-        href="/projects/brandwatch"
+        href="/brandwatch"
         onClick={[Function]}
       >
         Brandwatch
@@ -34,7 +34,7 @@ exports[`<ProjectList /> renders correctly 1`] = `
     >
       <a
         className="sc-bxivhb oKECp"
-        href="/projects/monster"
+        href="/monster"
         onClick={[Function]}
       >
         Monster
@@ -45,7 +45,7 @@ exports[`<ProjectList /> renders correctly 1`] = `
     >
       <a
         className="sc-bxivhb oKECp"
-        href="/projects/cymbiosis"
+        href="/cymbiosis"
         onClick={[Function]}
       >
         Cymbiosis
@@ -56,7 +56,7 @@ exports[`<ProjectList /> renders correctly 1`] = `
     >
       <a
         className="sc-bxivhb oKECp"
-        href="/projects/experiments"
+        href="/experiments"
         onClick={[Function]}
       >
         Experiments

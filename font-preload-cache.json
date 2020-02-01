@@ -18,7 +18,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/brandwatch/": {
+    "/brandwatch/": {
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff2": true,
       "/fonts/inter-medium.woff": true,
@@ -26,7 +26,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/bright/": {
+    "/bright/": {
       "/fonts/inter-medium.woff2": true,
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff": true,
@@ -34,15 +34,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/": {
-      "/fonts/maison-neue-bold.woff2": true,
-      "/fonts/inter-medium.woff2": true,
-      "/fonts/inter-medium.woff": true,
-      "/fonts/maison-neue-bold.woff": true,
-      "/fonts/inter-semibold.woff2": true,
-      "/fonts/inter-regular.woff2": true
-    },
-    "/projects/cymbiosis/": {
+    "/cymbiosis/": {
       "/fonts/inter-medium.woff2": true,
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff": true,
@@ -50,7 +42,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/monster/": {
+    "/monster/": {
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff2": true,
       "/fonts/inter-medium.woff": true,
@@ -58,7 +50,7 @@
       "/fonts/inter-semibold.woff2": true,
       "/fonts/inter-regular.woff2": true
     },
-    "/projects/experiments/": {
+    "/experiments/": {
       "/fonts/maison-neue-bold.woff2": true,
       "/fonts/inter-medium.woff2": true,
       "/fonts/inter-medium.woff": true,
