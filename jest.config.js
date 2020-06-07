@@ -13,7 +13,7 @@ module.exports = {
   testPathIgnorePatterns: ["node_modules", ".cache"],
   transformIgnorePatterns: ["node_modules/(?!(gatsby)/)"],
   globals: {
-    __PATH_PREFIX__: "",
+    __BASE_PATH__: "",
   },
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/loadershim.js"],

@@ -22,7 +22,7 @@ exports[`<Splash /> renders correctly 1`] = `
       <span
         className="sc-iwsKbI gLxCNT"
       >
-        Interface Developer
+        User Interface Engineer
       </span>
     </a>
   </div>
@@ -48,7 +48,7 @@ exports[`<Splash /> renders correctly 1`] = `
     </a>
   </div>
   <div
-    className="sc-kgoBCf kwvVrc sc-htpNat eeRFYY"
+    className="sc-htpNat eeRFYY sc-kgoBCf kwvVrc"
   >
     <div
       className="sc-bxivhb cQpSKi"
@@ -56,15 +56,15 @@ exports[`<Splash /> renders correctly 1`] = `
       <a
         aria-label="Get in touch"
         className="sc-ifAKCX gKEkKg"
-        href="mailto:hello@andy-hook.co.uk"
+        href="mailto:hello@andyhook.dev"
         onClick={[Function]}
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#mail"
@@ -80,10 +80,10 @@ exports[`<Splash /> renders correctly 1`] = `
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#twitter"
@@ -99,10 +99,10 @@ exports[`<Splash /> renders correctly 1`] = `
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#instagram"
@@ -118,10 +118,10 @@ exports[`<Splash /> renders correctly 1`] = `
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#linkedin"
@@ -137,10 +137,10 @@ exports[`<Splash /> renders correctly 1`] = `
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#dribbble"
@@ -156,10 +156,10 @@ exports[`<Splash /> renders correctly 1`] = `
         target="_blank"
       >
         <div
-          className="sc-EHOje cLtvzN sc-bdVaJa dqBkPn"
+          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
         >
           <svg
-            className="icon sc-bwzfXH kdIDyY"
+            className="sc-bwzfXH kdIDyY icon"
           >
             <use
               xlinkHref="/icon-sprite.svg#github"

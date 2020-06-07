@@ -65,7 +65,7 @@ const Social: React.FunctionComponent<Props> = ({
 
     renderItems.push({
       label: "Get in touch",
-      url: "mailto:hello@andy-hook.co.uk",
+      url: "mailto:hello@andyhook.dev",
       icon: "mail",
     })
 
