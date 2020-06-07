@@ -45,7 +45,7 @@ const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
       <LogoInner href="/">
         <LogoMark />
         <LogoTitle>Andy Hook</LogoTitle>
-        <LogoSubtle>Interface Developer</LogoSubtle>
+        <LogoSubtle>User Interface Engineer</LogoSubtle>
       </LogoInner>
     </LogoPos>
   )
