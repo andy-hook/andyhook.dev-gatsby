@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Andy Hook – Fast, scalable, beautiful user interfaces`,
-    description: `Andy Hook is a Brighton based developer specialising in high-performance UI engineering`,
+    title: `Andy Hook – High performance user interfaces"`,
+    description: `Andy Hook is a Brighton based developer specialising in UI engineering`,
     author: `@Andy_Hook`,
     email: `hello@andyhook.dev`,
     defaultTwitterImage: `/images/social/twitter-preview.png`,
@@ -9,7 +9,7 @@ module.exports = {
     social: {
       instagram: {
         label: "Instagram",
-        url: "https://www.instagram.com/andyhooky/",
+        url: "https://www.instagram.com/andyhooky",
         icon: "instagram",
       },
       twitter: {
@@ -29,7 +29,7 @@ module.exports = {
       },
       linkedin: {
         label: "Linkedin",
-        url: "https://www.linkedin.com/in/andyahook",
+        url: "https://www.linkedin.com/in/andrew-hook",
         icon: "linkedin",
       },
     },

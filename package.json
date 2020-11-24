@@ -1,7 +1,7 @@
 {
   "name": "andyhook.dev",
   "private": true,
-  "description": "Fast, scalable, beautiful user interfaces",
+  "description": "High performance user interfaces",
   "version": "0.1.0",
   "author": "Andy Hook <hello@andyhook.dev>",
   "dependencies": {

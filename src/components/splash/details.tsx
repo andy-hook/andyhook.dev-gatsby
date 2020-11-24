@@ -19,13 +19,13 @@ interface Props {
   visible?: boolean
 }
 
-type ref = React.MutableRefObject<HTMLImageElement>
-
 const Details: React.FunctionComponent<Props> = ({
   buttonHref,
   visible = true,
 }) => {
-  const containerRef: ref = React.useRef() as ref
+  const containerRef = React.useRef() as React.MutableRefObject<
+    HTMLImageElement
+  >
   const containerTL = new TimelineLite()
 
   useEffect(() => {
@@ -48,9 +48,9 @@ const Details: React.FunctionComponent<Props> = ({
 
   return (
     <Container ref={containerRef}>
-      <Title>I’m busy working on something new</Title>
+      <Title>I build high performance user interfaces</Title>
       <CallToAction href={buttonHref} target="_blank">
-        <CallToActionInner>View some previous work</CallToActionInner>
+        <CallToActionInner>Say hello, drop me a message</CallToActionInner>
       </CallToAction>
     </Container>
   )
@@ -80,7 +80,7 @@ const Title = styled.h2`
   padding-left: 0.75em;
   padding-right: 0.75em;
   letter-spacing: ${letterSpacing.display};
-  max-width: 13em;
+  max-width: 15em;
   text-shadow: 0px 0px 2em #08080a;
 
   margin-top: 0;

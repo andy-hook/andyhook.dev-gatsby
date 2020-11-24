@@ -1,11 +1,11 @@
 import React from "react"
 import Splash from "./splash"
-import { ISocialMeta } from "../../types/model"
+import { IMeta } from "../../types/model"
 import { IStore } from "../../types/store"
 import { connect } from "react-redux"
 
 interface Props {
-  socialIconData: ISocialMeta
+  metaData: IMeta
 }
 
 export type ContainerProps = Props & Partial<IStore>
@@ -15,10 +15,10 @@ const mapStateToProps = ({ loaderVisible }: IStore) => {
 }
 
 const SplashContainer: React.FunctionComponent<ContainerProps> = ({
-  socialIconData,
+  metaData,
   loaderVisible,
 }) => {
-  return <Splash socialIconData={socialIconData} visible={!loaderVisible} />
+  return <Splash metaData={metaData} visible={!loaderVisible} />
 }
 
 const ConnectedSplashContainer = connect(mapStateToProps)(SplashContainer)

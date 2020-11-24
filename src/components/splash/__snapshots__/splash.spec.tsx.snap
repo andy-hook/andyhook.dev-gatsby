@@ -22,7 +22,7 @@ exports[`<Splash /> renders correctly 1`] = `
       <span
         className="sc-iwsKbI gLxCNT"
       >
-        User Interface Engineer
+        Senior UI Engineer
       </span>
     </a>
   </div>
@@ -30,20 +30,20 @@ exports[`<Splash /> renders correctly 1`] = `
     className="sc-gZMcBi cAvNZa"
   >
     <h2
-      className="sc-gqjmRU ixFOao"
+      className="sc-gqjmRU lnHWPb"
     >
-      I’m busy working on something new
+      I build high performance user interfaces
     </h2>
     <a
       className="sc-VigVT cCdqzR"
-      href="path/to/social/profile"
+      href="mailto:hello@andyhook.dev"
       onClick={[Function]}
       target="_blank"
     >
       <span
         className="sc-jTzLTM efIpCi"
       >
-        View some previous work
+        Say hello, drop me a message
       </span>
     </a>
   </div>
@@ -53,25 +53,6 @@ exports[`<Splash /> renders correctly 1`] = `
     <div
       className="sc-bxivhb cQpSKi"
     >
-      <a
-        aria-label="Get in touch"
-        className="sc-ifAKCX gKEkKg"
-        href="mailto:hello@andyhook.dev"
-        onClick={[Function]}
-        target="_blank"
-      >
-        <div
-          className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
-        >
-          <svg
-            className="sc-bwzfXH kdIDyY icon"
-          >
-            <use
-              xlinkHref="/icon-sprite.svg#mail"
-            />
-          </svg>
-        </div>
-      </a>
       <a
         aria-label="Twitter"
         className="sc-ifAKCX gKEkKg"
