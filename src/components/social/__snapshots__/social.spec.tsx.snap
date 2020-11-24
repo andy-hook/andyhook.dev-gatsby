@@ -8,25 +8,6 @@ exports[`<Social /> renders correctly 1`] = `
     className="sc-bxivhb cQpSKi"
   >
     <a
-      aria-label="Get in touch"
-      className="sc-ifAKCX gKEkKg"
-      href="mailto:hello@andyhook.dev"
-      onClick={[Function]}
-      target="_blank"
-    >
-      <div
-        className="sc-bdVaJa dqBkPn sc-EHOje cLtvzN"
-      >
-        <svg
-          className="sc-bwzfXH kdIDyY icon"
-        >
-          <use
-            xlinkHref="/icon-sprite.svg#mail"
-          />
-        </svg>
-      </div>
-    </a>
-    <a
       aria-label="Twitter"
       className="sc-ifAKCX gKEkKg"
       href="path/to/social/profile"

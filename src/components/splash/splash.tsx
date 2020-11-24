@@ -16,7 +16,7 @@ interface Props {
 type AllProps = Props & ContainerProps
 
 const Splash: React.FunctionComponent<AllProps> = ({
-  socialIconData,
+  metaData,
   visible = true,
 }) => {
   const [elementsVisible, showElements] = useState(false)
@@ -33,10 +33,10 @@ const Splash: React.FunctionComponent<AllProps> = ({
     <Container>
       <Logo visible={elementsVisible} />
       <Details
-        buttonHref={socialIconData.dribbble.url}
+        buttonHref={`mailto:${metaData.email}`}
         visible={elementsVisible}
       />
-      <SocialIcons items={socialIconData} visible={elementsVisible} />
+      <SocialIcons items={metaData.social} visible={elementsVisible} />
       <Background visible={elementsVisible} />
     </Container>
   )

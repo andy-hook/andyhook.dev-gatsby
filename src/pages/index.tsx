@@ -15,6 +15,7 @@ const IndexPage: React.FunctionComponent = () => {
     query {
       socialIconData: site {
         siteMetadata {
+          email
           social {
             twitter {
               url
@@ -59,9 +60,7 @@ const IndexPage: React.FunctionComponent = () => {
           `Brighton`,
         ]}
       />
-      <SplashContainer
-        socialIconData={data.socialIconData.siteMetadata.social}
-      />
+      <SplashContainer metaData={data.socialIconData.siteMetadata} />
     </>
   )
 }

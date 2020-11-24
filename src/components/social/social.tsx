@@ -20,13 +20,7 @@ interface Props {
   visible?: boolean
 }
 
-type Icons =
-  | "dribbble"
-  | "instagram"
-  | "linkedin"
-  | "twitter"
-  | "github"
-  | "mail"
+type Icons = "dribbble" | "instagram" | "linkedin" | "twitter" | "github"
 
 export interface RenderItems extends ISocialMetaItem {
   icon: Icons
@@ -62,12 +56,6 @@ const Social: React.FunctionComponent<Props> = ({
 
   const getIconsToRender = () => {
     const renderItems: RenderItems[] = []
-
-    renderItems.push({
-      label: "Get in touch",
-      url: "mailto:hello@andyhook.dev",
-      icon: "mail",
-    })
 
     Object.keys(items).map(key => {
       renderItems.push({

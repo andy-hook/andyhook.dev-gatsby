@@ -12,14 +12,12 @@ import {
 } from "../../style/variables"
 import { TimelineLite, Elastic } from "gsap"
 
-type ref = React.MutableRefObject<HTMLDivElement>
-
 interface Props {
   visible?: boolean
 }
 
 const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
-  const logoPosRef: ref = React.useRef() as ref
+  const logoPosRef = React.useRef() as React.MutableRefObject<HTMLDivElement>
   const logoPosTL = new TimelineLite()
 
   useEffect(() => {
@@ -45,7 +43,7 @@ const Logo: React.FunctionComponent<Props> = ({ visible = true }) => {
       <LogoInner href="/">
         <LogoMark />
         <LogoTitle>Andy Hook</LogoTitle>
-        <LogoSubtle>User Interface Engineer</LogoSubtle>
+        <LogoSubtle>Senior UI Engineer</LogoSubtle>
       </LogoInner>
     </LogoPos>
   )
