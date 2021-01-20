@@ -22,7 +22,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.5.4",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
